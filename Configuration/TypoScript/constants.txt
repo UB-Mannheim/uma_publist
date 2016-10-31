@@ -1,0 +1,14 @@
+plugin.tx_publist4ubma2_pi1 {
+        settings {
+                # cat=plugin.tx_news/file; type=string; label=Path to CSS file
+                cssFile = EXT:publist4ubma2/Resources/Public/CSS/publist.css
+        }
+
+        persistence {
+                 # cat=plugin.tx_blogexample//a; type=int+; label=Default storage PID
+                storagePid = 0
+        }
+
+}
+
+

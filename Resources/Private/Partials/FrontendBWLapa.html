@@ -1,0 +1,70 @@
+<f:switch expression="{publication.bibType}">
+	<f:case value="article">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}
+		</f:case>
+	<f:case value="book">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			{publication.placeOfPub}: {publication.publisher}.
+		</f:case>
+	<f:case value="book_section">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			In <f:render partial="RenderNameShort" arguments="{editor: '{publication.ubmaBookEditor}'}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}).. {publication.placeOfPub}: {publication.publisher}.
+		</f:case>
+	<f:case value="conference_item">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			In <f:render partial="RenderNameShort" arguments="{editor: '{publication.ubmaBookEditor}'}"/>, {publication.bookTitle} (S. {publication.pageRange}).. <em>{publication.publication}</em>,
+			{publication.publisher}: {publication.placeOfPub}
+		</f:case>
+	<f:case value="dissertation">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			Dissertation, {publication.publisher}. {publication.placeOfPub}
+		</f:case>
+	<f:case value="encyclopedia_article">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			In <f:render partial="RenderNameShort" arguments="{editor: '{publication.ubmaBookEditor}'}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}).. {publication.placeOfPub}: {publication.publisher}.
+		</f:case>
+	<f:case value="habilitation">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			Habilitation, {publication.publisher}. {publication.placeOfPub}
+		</f:case>
+	<f:case value="journal">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
+		</f:case>
+	<f:case value="other">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		</f:case>
+	<f:case value="preprint">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			{publication.publisher}
+		</f:case>
+	<f:case value="report">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		</f:case>
+	<f:case value="review">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			Review, <em>{publication.publication}</em>
+		</f:case>
+	<f:case value="thesis">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			Thesis, {publication.publisher}. {publication.placeOfPub}
+		</f:case>
+	<f:case value="research_paper">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			{publication.corpCreators}: {publication.placeOfPub}
+		</f:case>
+	<f:case value="workshop_item">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			{publication.bookTitle}, {publication.volume}
+		</f:case>
+	<f:case value="master_thesis">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			Thesis, {publication.placeOfPub}
+		</f:case>
+	<f:case value="poster">
+			<f:render partial="RenderNamesShort" arguments="{publication: '{publication}'}"/> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			{publication.bookTitle}.
+		</f:case>
+	<f:case default="TRUE">no bib type</f:case>
+</f:switch>

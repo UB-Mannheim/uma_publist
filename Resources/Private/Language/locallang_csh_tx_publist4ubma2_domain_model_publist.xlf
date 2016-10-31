@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="publist4ubma2">
+		<header/>
+		<body>
+                        <trans-unit id="publist.ceid" xml:space="preserve">
+                                <source>Content Element</source>
+                        </trans-unit>
+                        <trans-unit id="publist.url" xml:space="preserve">
+                                <source>Query URL</source>
+                        </trans-unit>
+                        <trans-unit id="publist.publications" xml:space="preserve">
+                                <source>Publications (eprint_id)</source>
+                        </trans-unit>
+		</body>
+	</file>
+</xliff>

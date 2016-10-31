@@ -1,0 +1,119 @@
+<f:switch expression="{publication.bibType}">
+	<f:case value="book">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:publisher"  typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="article">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<em><span property="schema:isPartOf"  typeOf="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span> (<span property="schema:volumeNumber">{publication.volume}#</span>)</span>,</em>
+			<span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>,
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>,
+			<span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="book_section">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span></span>.</strong>
+			In: <f:render partial="RenderNameWithAndRdfaSchema" arguments="{editor: '{publication.ubmaBookEditor}'}"/>,
+			<em><span property="schema:isPartOf"  typeOf="schema:Book"><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span></span></em>;
+			<span property="schema:pagination">{publication.pageRange}</span>, <span property="schema:publisher" typeOf="schema:Organization">
+			<span property="schema:name">{publication.publisher}</span></span>, <span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>,
+			<span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="conference_item">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			In: <em>{publication.publication}<span property="schema:isPartOf" typeOf="schema:Book"><span property="schema:name">{publication.bookTitle}</span></span></em>;
+			<span property="schema:pagination">{publication.pageRange}</span>. <span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>,
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="dissertation">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong> Dissertation,
+			<span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>, <span property="schema:contentLocation" typeOf="schema:Place">
+			<span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="encyclopedia_article">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>, <span property="schema:datePublished">publication.year}</span>,
+			<em><span property="schema:isPartOf"  typeOf="schema:Book"><span property="schema:name">{publication.bookTitle}</span></span>.</em></span>.
+		</f:case>
+	<f:case value="habilitation">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="journal">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:isPartOf"  typeOf="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span></span> ({publication.revNumber}),
+			<span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>,
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="other">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="preprint">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+
+		</f:case>
+	<f:case value="report">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="review">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:isPartOf"  typeOf="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="thesis">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="research_paper">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			{publication.corpCreators}, <span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="workshop_item">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<em><span property="schema:isPartOf"  typeOf="schema:Book"><span property="schema:name">{publication.bookTitle}</span></span>,</em> <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="master_thesis">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case value="poster">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+			<f:render partial="RenderNamesWithAndRdfaSchema" arguments="{publication: '{publication}'}"/>.
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<em><span property="schema:isPartOf"  typeOf="schema:Book"><span property="schema:name">{publication.bookTitle}</span></span>,</em> <span property="schema:datePublished">{publication.year}</span></span>.
+		</f:case>
+	<f:case default="TRUE">no bib type</f:case>
+</f:switch>

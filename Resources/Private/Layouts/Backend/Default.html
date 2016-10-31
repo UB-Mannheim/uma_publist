@@ -1,0 +1,28 @@
+{namespace n=Unima\Publist4ubma2\ViewHelpers}
+
+<f:be.container loadExtJs="true">
+        <n:includeFile path="../typo3conf/ext/publist4ubma2/Resources/Public/Css/administration.css" />
+
+        <div class="typo3-fullDoc">
+                <div id="typo3-docheader">
+                        <div class="typo3-docheader-functions">
+                                <div class="left">
+                                        <f:be.menus.actionMenu>
+                                                <f:be.menus.actionMenuItem label="{f:translate(key: 'LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:module.syncChairs')}" controller="Administration" action="listChairs" />
+                                                <f:be.menus.actionMenuItem label="{f:translate(key: 'LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:module.showCleanup')}" controller="Administration" action="showCleanup" />
+<f:comment>
+                                                <f:be.menus.actionMenuItem label="{f:translate(key: 'LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:module.publications')}" controller="Administration" action="listPublications" />
+</f:comment>
+                                        </f:be.menus.actionMenu>
+                                </div>
+                        </div>
+                </div>
+                <div id="typo3-docbody">
+                        <div id="typo3-inner-docbody">
+                                <f:flashMessages renderMode="div" />
+                                <f:render section="content" />
+                        </div>
+                </div>
+        </div>
+</f:be.container>
+

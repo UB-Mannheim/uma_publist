@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="publist4ubma2">
+		<header/>
+		<body>
+			<trans-unit id="errorZeroStoragePid">
+				<source>storagePid = 0, NOT allowed. Please create a sysFolder in Backend for storing Publicationlists and add the PID to your TypoScript Constants like "plugin.tx_publist4ubma2_pi1.storagePid = PID</source>
+			</trans-unit>
+
+
+			<trans-unit id="tx_publist4ubma2_domain_model_institute">
+				<source>Institute</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_institute.name_en">
+				<source>Name En</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_institute.name_de">
+				<source>Name De</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_institute.id">
+				<source>Id</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_chair">
+				<source>Chair</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_chair.id">
+				<source>Id</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_chair.parent">
+				<source>Parent</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_chair.name_en">
+				<source>Name En</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_chair.name_de">
+				<source>Name De</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication">
+				<source>Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.eprint_id">
+				<source>Eprint Id</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.abstract">
+				<source>Abstract</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.url_offical">
+				<source>Url Offical</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.url_ubma_extern">
+				<source>Url Ubma Extern</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.url">
+				<source>Url</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.bib_type">
+				<source>Bib Type</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.volume">
+				<source>Volume</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.publisher">
+				<source>Publisher</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.rev_number">
+				<source>Rev Number</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.publication">
+				<source>Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.authors">
+				<source>Authors</source>
+			</trans-unit>
+
+                       <trans-unit id="book" xml:space="preserve">
+                                <source>Book</source>
+                        </trans-unit>
+                       <trans-unit id="article" xml:space="preserve">
+                                <source>Article</source>
+                        </trans-unit>
+                       <trans-unit id="book_section" xml:space="preserve">
+                                <source>Book Section</source>
+                        </trans-unit>
+                       <trans-unit id="dissertation" xml:space="preserve">
+                                <source>Dissertation</source>
+                        </trans-unit>
+                       <trans-unit id="encyclopedia_article" xml:space="preserve">
+                                <source>Encyclopedia Article</source>
+                        </trans-unit>
+                       <trans-unit id="habilitation" xml:space="preserve">
+                                <source>Habilitation</source>
+                        </trans-unit>
+                       <trans-unit id="journal" xml:space="preserve">
+                                <source>Journal</source>
+                        </trans-unit>
+                       <trans-unit id="other" xml:space="preserve">
+                                <source>Other</source>
+                        </trans-unit>
+                       <trans-unit id="preprint" xml:space="preserve">
+                                <source>Preprint</source>
+                        </trans-unit>
+                       <trans-unit id="report" xml:space="preserve">
+                                <source>Report</source>
+                        </trans-unit>
+                       <trans-unit id="review" xml:space="preserve">
+                                <source>Review</source>
+                        </trans-unit>
+                       <trans-unit id="thesis" xml:space="preserve">
+                                <source>Thesis</source>
+                        </trans-unit>
+                       <trans-unit id="research_paper" xml:space="preserve">
+                                <source>Research Paper</source>
+                        </trans-unit>
+                       <trans-unit id="conference_item" xml:space="preserve">
+                                <source>Conference Item</source>
+                        </trans-unit>
+                       <trans-unit id="workshop_item" xml:space="preserve">
+                                <source>Workshop Item</source>
+                        </trans-unit>
+                       <trans-unit id="master_thesis" xml:space="preserve">
+                                <source>Master Thesis</source>
+                        </trans-unit>
+                       <trans-unit id="poster" xml:space="preserve">
+                                <source>Poster</source>
+                        </trans-unit>
+                       <trans-unit id="" xml:space="preserve">
+                                <source></source>
+                        </trans-unit>
+
+		</body>
+	</file>
+</xliff>

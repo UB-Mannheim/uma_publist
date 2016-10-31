@@ -1,0 +1,10 @@
+{namespace cssfile=Unima\Publist4ubma2\ViewHelpers}
+
+<f:if condition="{settings.cssFile}">
+	<cssfile:includeFile path="{settings.cssFile}" />
+</f:if>
+
+
+<div>
+	<f:render section="content" />
+</div>

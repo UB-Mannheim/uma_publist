@@ -1,0 +1,136 @@
+        <h3 class="uppercase">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.header" />
+        </h3>
+
+        <p class="description">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.description" />
+	</p>
+<f:comment>
+	<f:debug>{institutes}</f:debug>
+</f:comment>
+
+	<div class="typo3-message message-notice">
+                <div class="message-header">
+			Info
+		</div>
+		<div class="message-body">
+                	<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.syncFrom" />
+			{divisionsUrl}
+                	<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.syncFromChange" />
+		</div>
+	</div>
+
+	<f:if condition="{errorMsg}">
+                <f:then>
+			<div class="typo3-message message-error">
+		                <div class="message-header">
+					Error
+				</div>
+
+                                <div class="message-body">
+                                        "{errorMsg}"
+                                </div>
+                        </div>
+                </f:then>
+		<f:else>
+
+			<div>
+<f:comment>
+				<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.refresh" /> <f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'listChairs')}" icon="actions-system-refresh" title="sync" />
+				<br />
+</f:comment>
+				<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.sync" /> <f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'syncChairs')}" icon="actions-document-synchronize" title="sync" />
+			</div>
+
+		        <h4 class="uppercase">
+		                Institutes
+		        </h4>
+		        <f:if condition="{institutes}">
+		                <f:then>
+					<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
+						<thead>
+							<tr class="t3-row-header">
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:id.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:name_en.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:name_de.description" /></span></td>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{institutes}" as="institute">
+								<tr>
+									<td>{institute.id}</td>
+									<td>{institute.nameEn}</td>
+									<td>{institute.nameDe}</td>
+								</tr>
+							</f:for>
+						</tbody>
+					</table>
+                		</f:then>
+				<f:else>
+					<div class="typo3-message message-warning">
+				                <div class="message-header">
+							Warning
+						</div>
+						<div class="message-body">
+		                			<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.noinstitutesfound" />
+						</div>
+		                        </div>
+				</f:else>
+		        </f:if>
+		        <h4 class="uppercaes">
+		                Chairs
+		        </h4>
+		        <f:if condition="{chairs}">
+		                <f:then>
+					<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
+						<thead>
+							<tr class="t3-row-header">
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:id.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:parent.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:name_en.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:name_de.description" /></span></td>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{chairs}" as="chair">
+								<tr>
+									<td>{chair.id}</td>
+									<td>{chair.parent}</td>
+									<td>{chair.nameEn}</td>
+									<td>{chair.nameDe}</td>
+								</tr>
+							</f:for>
+						</tbody>
+					</table>
+                		</f:then>
+				<f:else>
+					<div class="typo3-message message-warning">
+				                <div class="message-header">
+							Warning
+						</div>
+						<div class="message-body">
+		                			<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.nochairsfound" />
+						</div>
+		                        </div>
+				</f:else>
+		        </f:if>
+
+<f:comment>
+
+		        <h4 class="uppercase">
+		                For Debug Only
+		        </h4>
+
+			<div>
+				<f:be.buttons.icon uri="{f:uri.action(controller:'Institute',action:'add')}" icon="actions-edit-add" title="add" /> add one Institute (6000)
+				<br />
+				<f:be.buttons.icon uri="{f:uri.action(controller:'Institute',action:'delete')}" icon="actions-edit-delete" title="delete" /> del one Institute (first from DB table)
+				<br />
+				<f:be.buttons.icon uri="{f:uri.action(controller:'Chair',action:'add')}" icon="actions-edit-add" title="add" /> add one chair (6000)
+				<br />
+				<f:be.buttons.icon uri="{f:uri.action(controller:'Chair',action:'delete')}" icon="actions-edit-delete" title="delete" /> del one chair (first from DB table)
+			<div>
+</f:comment>
+		</f:else>
+        </f:if>
+

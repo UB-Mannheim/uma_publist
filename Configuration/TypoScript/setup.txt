@@ -1,0 +1,99 @@
+# Module configuration
+
+# for the frontend
+plugin.tx_publist4ubma2_pi1 {
+	# for own usage (settings)
+	settings {
+                # cat=plugin.tx_news/file; type=string; label=Path to CSS file
+                cssFile = {$plugin.tx_publist4ubma2_pi1.settings.cssFile}
+	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+        }
+
+	# for Extbase
+	persistence {
+		# Standard PID aus den Konstanten
+	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+	}
+
+
+	## Localization:
+        # keys in Resources/Private/Language/locallang.xlf
+	_LOCAL_LANG {
+		default {
+			book = Book
+			article = Article
+			book_section = Book Section
+			dissertation = Dissertation
+			encyclopedia_article = Encyclopedia Article
+			habilitation = Habilitation
+			journal = Journal
+			other = Other
+			preprint = Preprint
+			report = Report
+			review = Review
+			thesis = Thesis
+			research_paper = Research Paper
+			conference_item = Conference Item
+			workshop_item = Workshop Item
+			master_thesis = Master Thesis
+			poster = Poster
+		}
+		de {
+			book = Buch
+			article = Artikel
+			book_section = Buch Kapitel
+			dissertation = Dissertation
+			encyclopedia_article = Enzyklopädie Artikel
+			habilitation = Habilitation
+			journal = Zeitschrift
+			other = Other
+			preprint = Preprint
+			report = Report
+			review = Review
+			thesis = Doktor Arbeit
+			research_paper = Forschungs Papier
+			conference_item = Konferenz Beitrag
+			workshop_item = Workshop Beitrag
+			master_thesis = Master Arbeit
+			poster = Poster
+
+		}
+	}
+}
+
+
+
+# for the Backend Module
+module.tx_publist4ubma2 {
+	# for own usage (settings)
+	settings {
+	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+        }
+
+	# for Extbase
+	persistence < plugin.tx_publist4ubma2_pi1.persistence
+}
+
+
+### map table tt_content to own model
+# http://www.lukasjakob.com/get-tt_content-data-in-your-extbase-extension/
+config.tx_extbase {
+    persistence{
+        enableAutomaticCacheClearing = 1
+        updateReferenceIndex = 0
+        classes {
+            Unima\Publist4ubma2\Domain\Model\Content {
+                mapping {
+                    tableName = tt_content
+                    columns {
+                        uid.mapOnProperty = uid
+                        pid.mapOnProperty = pid
+#                        deleted.mapOnProperty = deleted
+                    }
+                }
+            }
+        }
+    }
+}
+
+

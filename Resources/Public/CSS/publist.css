@@ -1,0 +1,66 @@
+.publist4ubma2_error {
+ 	background-color:#FACC2E;
+}
+
+
+.publist4ubma2_info {
+ 	background-color:#A9F5F2;
+}
+
+
+.publist4ubma2_debug {
+	background-color:#F2F2F2;
+}
+
+
+.tx_publist4ubma2-yearnavi { 
+ 	background-color: #c9dbd8; 
+	text-align: center;
+	padding: 0.7em;
+}
+
+.tx_publist4ubma2-typenavi { 
+ 	background-color: #cccccc; 
+	text-align: center;
+	padding: 0.7em;
+}
+
+.tx_publist4ubma2-yearheader { 
+ 	background-color: #c9dbd8; 
+	text-align: left;
+	padding: 0.7em;
+ 	font-weight: bold; 
+}
+
+.tx_publist4ubma2-typeheader { 
+ 	background-color: #cccccc; 
+	text-align: left;
+	padding: 0.7em;
+ 	font-weight: bold; 
+}
+
+.tx_publist4ubma2-typeheader h4 { 
+	margin: 0px;
+	padding: 0px;
+}
+
+.tx_publist4ubma-ol li {
+        margin-bottom: 0.25em;
+}
+
+
+#initEnumeration {
+   counter-reset: indexCounter;
+}
+
+.myenumlist { padding: 0; margin: 0; }
+.myenumlist li {
+        margin-bottom: 0.25em;
+	padding-left: 15px;
+	text-indent: -15px;
+	list-style-type: none;
+	counter-increment: indexCounter;
+}
+
+.myenumlist li:before { content:counter(indexCounter) ". ";}
+

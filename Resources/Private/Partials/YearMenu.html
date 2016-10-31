@@ -1,0 +1,12 @@
+<div class="tx_publist4ubma2-yearnavi">
+	<f:for each="{years}" as="year">
+		<f:if condition="{curYear}=={year}">
+			<f:then>
+				<f:link.action  action="list" arguments="{year: year}"><strong>{year}</strong> </f:link.action>
+			</f:then>
+			<f:else>
+				<f:link.action  action="list" arguments="{year: year}">[{year}] </f:link.action>
+			</f:else>
+		</f:if>
+	</f:for>
+</div>

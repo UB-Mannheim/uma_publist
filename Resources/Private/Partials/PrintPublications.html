@@ -1,0 +1,38 @@
+{namespace m=Unima\Publist4ubma2\ViewHelpers}
+
+<f:comment>
+<!--
+<f:if condition="{settings.enumerate}==0">
+	<f:then>
+		<ul class="tx_publist4ubma-ol">
+	</f:then>
+	<f:else>
+		<ol start="{m:indexOffset(settings: '{settings}', content: '{content}', years: '{years}', types: '{types}', curYear: '{thisYear}', curType: '{thisType}')}}" class="tx_publist4ubma-ol">
+	</f:else>
+</f:if>
+-->
+</f:comment>
+
+<ul>
+<f:if condition="{thisYear} == ''"><f:then>
+	<!-- any year, but we have to follow the year-order -->
+	<f:for each="{years}" as="year">
+		<f:if condition="{thisType} == ''"><f:then>
+			<!-- Pubs with any year, any types -->
+			<f:for each="{content}" as="pub"><f:if condition="{pub.year}=={year}"><f:then><li><f:render partial="SelectTemplate" arguments="{publication: '{pub}', settings: '{settings}'}"/></li></f:then></f:if></f:for>
+		</f:then><f:else>
+			<!-- any year, one type -->
+			<f:for each="{content}" as="pub"><f:if condition="{pub.year}=={year}"><f:then><f:if condition="{pub.bibType}=={thisType}"><f:then><li><f:render partial="SelectTemplate" arguments="{publication: '{pub}', settings: '{settings}'}"/></li></f:then></f:if></f:then></f:if></f:for>
+		</f:else></f:if>
+	</f:for>
+</f:then><f:else>
+	<f:if condition="{thisType} == ''"><f:then>
+		<!-- one year, any type -->
+		<f:for each="{content}" as="pub"><f:if condition="{pub.year}=={thisYear}"><f:then><li><f:render partial="SelectTemplate" arguments="{publication: '{pub}', settings: '{settings}'}"/></li></f:then></f:if></f:for>
+	</f:then><f:else>
+		<!-- one year, one type -->
+		<f:for each="{content}" as="pub"><f:if condition="{pub.year}=={thisYear}"><f:then><f:if condition="{pub.bibType}=={thisType}"><f:then><li><f:render partial="SelectTemplate" arguments="{publication: '{pub}', settings: '{settings}'}"/></li></f:then></f:if></f:then></f:if></f:for>
+	</f:else></f:if>
+</f:else></f:if>
+</ul>
+

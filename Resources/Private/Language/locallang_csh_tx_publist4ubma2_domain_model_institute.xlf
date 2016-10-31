@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="publist4ubma2">
+		<header/>
+		<body>
+			<trans-unit id="name_en.description">
+				<source>nameEn</source>
+			</trans-unit>
+			<trans-unit id="name_de.description">
+				<source>nameDe</source>
+			</trans-unit>
+			<trans-unit id="id.description">
+				<source>id</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

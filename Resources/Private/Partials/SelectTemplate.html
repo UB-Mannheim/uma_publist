@@ -1,0 +1,8 @@
+{namespace m=Unima\Publist4ubma2\ViewHelpers}
+<f:switch expression="{settings.templateLayout}">
+	<f:case value="0">     <f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="1">     <f:render partial="FrontendTableDebug"      arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="2">     <f:render partial="FrontendDWSrdfaSchema"   arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="4">     <f:render partial="FrontendBWLapa"          arguments="{publication: '{publication}'}" /></f:case>
+	<f:case default="TRUE"><f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
+</f:switch>

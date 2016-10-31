@@ -1,0 +1,127 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en" 
+     xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+{namespace m=Unima\Publist4ubma2\ViewHelpers}
+
+<f:layout name="General" />
+
+
+<f:section name="content">
+<f:comment>
+We have no "n" viewhelper
+	<n:includeFile path="typo3conf/ext/publist4ubma2/Resources/Public/CSS/publist.css" />
+</f:comment>
+
+	<f:if condition="{errorMsg}">
+                <f:then>
+			<div class="publist4ubma2_error">
+                                        "{errorMsg}"
+                        </div>
+                </f:then>
+        </f:if>
+	<f:if condition="{infoMsg}">
+                <f:then>
+			<div class="publist4ubma2_info">
+                                        "{infoMsg}"
+                        </div>
+                </f:then>
+        </f:if>
+	<f:if condition="{settings.debug}==1">
+		<f:render partial="DisplayFlexFormConfig" arguments="{_all}" />
+	</f:if>
+
+	<f:if condition="{content}">
+        	<f:then>
+			<f:if condition="{settings.enumerate}==0">
+				<f:then>
+					<div>
+				</f:then>
+				<f:else>
+					<div  class="myenumlist" id="initEnumeration">
+				</f:else>
+			</f:if>
+
+			<f:if condition="{settings.splityears}==0">
+				<f:then>
+					<f:switch expression="{settings.splittypes}">
+						<f:case value="0">
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
+								</f:case>
+						<f:case value="1"><f:render partial="TypeItem" arguments="{_all}" /></f:case>
+						<f:case value="2">
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}', thisType: '{curType}'}" />
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								</f:case>
+						<f:case default="TRUE">
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
+								</f:case>
+					</f:switch>
+				</f:then>
+			</f:if>
+
+			<f:if condition="{settings.splityears}==1">
+				<f:then>
+					<f:switch expression="{settings.splittypes}">
+						<f:case value="0"><f:render partial="YearItem" arguments="{_all}" /></f:case>
+						<f:case value="1"><f:render partial="YearItem" arguments="{_all}" /></f:case>
+						<f:case value="2">
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								<f:render partial="YearItem" arguments="{_all}" />
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								</f:case>
+						<f:case default="TRUE">
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
+								</f:case>
+					</f:switch>
+				</f:then>
+			</f:if>
+
+			<f:if condition="{settings.splityears}==2">
+				<f:then>
+					<f:switch expression="{settings.splittypes}">
+						<f:case value="0">
+								<f:render partial="YearMenu" arguments="{_all}" />
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}', thisYear: '{curYear}'}" />
+								<f:render partial="YearMenu" arguments="{_all}" />
+								</f:case>
+						<f:case value="1">
+								<f:render partial="YearMenu" arguments="{_all}" />
+								<f:render partial="TypeItem" arguments="{_all}" />
+								<f:render partial="YearMenu" arguments="{_all}" />
+								</f:case>
+						<f:case value="2">
+								<f:render partial="YearMenu" arguments="{_all}" />
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}', thisYear: '{curYear}', thisType: '{curType}'}" />
+								<f:render partial="TypeMenu" arguments="{_all}" />
+								<f:render partial="YearMenu" arguments="{_all}" />
+								</f:case>
+						<f:case default="TRUE">
+								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
+								</f:case>
+					</f:switch>
+				</f:then>
+			</f:if>
+
+			</div>
+       	        </f:then>
+        </f:if>
+
+
+	<f:if condition="{debugMsg}">
+                <f:then>
+			<div class="publist4ubma2_debug">
+				<ul>
+					<f:for each="{debugMsg}" as="line">
+						<li>Debug: {line}</li>
+					</f:for>
+				</ul>
+                        </div>
+                </f:then>
+        </f:if>
+
+
+</f:section>
+
+</div>

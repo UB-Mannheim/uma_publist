@@ -1,0 +1,30 @@
+{namespace m=Unima\Publist4ubma2\ViewHelpers}
+
+<div class="tx_publist4ubma2-typenavi">
+	<f:if condition="{settings.splityears}==2">
+		<f:then>
+			<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
+				<f:if condition="{curType}=={type}">
+					<f:then>
+						<f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action  action="list" arguments="{year: curYear, type: type}">[<f:translate key='{type}' />] </f:link.action>
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:then>
+		<f:else>
+			<f:for each="{types}" as="type">
+				<f:if condition="{curType}=={type}">
+					<f:then>
+						<f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action  action="list" arguments="{year: curYear, type: type}">[<f:translate key='{type}' />] </f:link.action>
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:else>
+	</f:if>
+</div>

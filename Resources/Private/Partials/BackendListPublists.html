@@ -1,0 +1,24 @@
+        <h3 class="uppercase">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:listpublist.header" />
+        </h3>
+
+        <p class="description">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:listpublist.description" />
+	</p>
+<f:comment>
+	<f:debug>{institutes}</f:debug>
+</f:comment>
+	<f:if condition="{errorMsg}">
+                <f:then>
+			<div class="typo3-message message-error">
+		                <div class="message-header">
+					Error
+				</div>
+
+                                <div class="message-body">
+                                        "{errorMsg}"
+                                </div>
+                        </div>
+                </f:then>
+        </f:if>
+

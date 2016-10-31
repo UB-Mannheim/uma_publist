@@ -1,0 +1,61 @@
+        <h3 class="uppercase">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:listpub.header" />
+        </h3>
+
+        <p class="description">
+                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:listpub.description" />
+	</p>
+<f:comment>
+	<f:debug>{institutes}</f:debug>
+</f:comment>
+	<f:if condition="{errorMsg}">
+                <f:then>
+			<div class="typo3-message message-error">
+		                <div class="message-header">
+					Error
+				</div>
+
+                                <div class="message-body">
+                                        "{errorMsg}"
+                                </div>
+                        </div>
+                </f:then>
+		<f:else>
+
+		        <f:if condition="{publications}">
+                		<f:then>
+					<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
+						<thead>
+							<tr class="t3-row-header">
+								<td><span>Id</span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publication.xlf:eprint_id.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publication.xlf:title.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publication.xlf:bib_type.description" /></span></td>
+							</tr>
+						</thead>
+						<tbody>
+							<f:for each="{publications}" as="publication">
+								<tr>
+									<td>{publication.uid}</td>
+									<td>{publication.eprintId}</td>
+									<td>{publication.title}</td>
+									<td>{publication.bibType}</td>
+								</tr>
+							</f:for>
+						</tbody>
+					</table>
+                		</f:then>
+				<f:else>
+					<div class="typo3-message message-warning">
+				                <div class="message-header">
+							Warning
+						</div>
+						<div class="message-body">
+                					<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.nopublicationsfound" />
+						</div>
+                		        </div>
+				</f:else>
+		        </f:if>
+		</f:else>
+
+        </f:if>
