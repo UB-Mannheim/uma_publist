@@ -140,8 +140,8 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	abstract text NOT NULL,
 	url_offical varchar(255) DEFAULT '' NOT NULL,
 	url_ubma_extern varchar(255) DEFAULT '' NOT NULL,
-	url varchar(255) DEFAULT '' NOT NULL,
 	used_link_url varchar(255) DEFAULT '' NOT NULL,
+	url varchar(255) DEFAULT '' NOT NULL,
 	year int(11) DEFAULT '0' NOT NULL,
 	bib_type varchar(255) DEFAULT '' NOT NULL,
 	volume varchar(255) DEFAULT '' NOT NULL,
@@ -158,6 +158,7 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	issn varchar(255) DEFAULT '' NOT NULL,
 	isbn varchar(255) DEFAULT '' NOT NULL,
 	ubma_edition varchar(255) DEFAULT '' NOT NULL,
+	ubma_tags varchar(255) DEFAULT '' NOT NULL,
 	used_coin text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

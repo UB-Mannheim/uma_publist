@@ -120,19 +120,23 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $urlUbmaExtern = '';
 
-	/**
-	 * url
-	 *
-	 * @var string
-	 */
-	protected $url = '';
 
+	// only dummy, not needed in DB
+	// is set after read publication from DB
 	/**
 	 * usedLinkUrl
 	 *
 	 * @var string
 	 */
 	protected $usedLinkUrl = '';
+
+
+	/**
+	 * url
+	 *
+	 * @var string
+	 */
+	protected $url = '';
 
 
 	/**
@@ -248,6 +252,14 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $ubmaEdition = '';
+
+	/**
+	 * ubmaTags
+	 *
+	 * @var string
+	 */
+	protected $ubmaTags = '';
+
 
 	/**
 	 * usedCoin
@@ -394,25 +406,6 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the url
-	 *
-	 * @return string $url
-	 */
-	public function getUrl() {
-		return $this->url;
-	}
-
-	/**
-	 * Sets the url
-	 *
-	 * @param string $url
-	 * @return void
-	 */
-	public function setUrl($url) {
-		$this->url = $url;
-	}
-
-	/**
 	 * Returns the usedLinkUrl
 	 *
 	 * @return string $usedLinkUrl
@@ -429,6 +422,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setUsedLinkUrl($usedLinkUrl) {
 		$this->usedLinkUrl = $usedLinkUrl;
+	}
+
+	/**
+	 * Returns the url
+	 *
+	 * @return string $url
+	 */
+	public function getUrl() {
+		return $this->url;
+	}
+
+	/**
+	 * Sets the url
+	 *
+	 * @param string $url
+	 * @return void
+	 */
+	public function setUrl($url) {
+		$this->url = $url;
 	}
 
 
@@ -716,6 +728,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setIsbn($isbn) {
 		$this->isbn = $isbn;
+	}
+
+	/**
+	 * Returns the ubmaTags
+	 *
+	 * @return string $ubmaTags
+	 */
+	public function getUbmaTags() {
+		return $this->ubmaTags;
+	}
+
+	/**
+	 * Sets the ubmaTags
+	 *
+	 * @param string $ubmaTags
+	 * @return void
+	 */
+	public function setUbmaTags($ubmaTags) {
+		$this->ubmaTags = $ubmaTags;
 	}
 
 	/**

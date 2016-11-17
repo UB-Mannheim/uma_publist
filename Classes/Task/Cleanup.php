@@ -30,7 +30,7 @@ class Cleanup extends \TYPO3\CMS\Scheduler\Task\AbstractTask {
      */
     public function initialize() {
  
-	$this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('\TYPO3\CMS\Extbase\Object\ObjectManager');
+	$this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Object\ObjectManager');
 	$this->configurationManager = $this->objectManager->get('TYPO3\CMS\Extbase\Configuration\ConfigurationManager');
 
 	$configurationArray = array(

@@ -102,6 +102,9 @@
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.isbn">
 				<source>Isbn</source>
 			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.ubmaTags">
+				<source>UbmaTags</source>
+			</trans-unit>
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.ubmaEdition">
 				<source>UbmaEdition</source>
 			</trans-unit>

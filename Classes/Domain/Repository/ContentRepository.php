@@ -15,6 +15,29 @@ class ContentRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 	        // don't add the pid constraint
 	        $querySettings->setRespectStoragePage(FALSE);
+	/*
+		// set the storagePids to respect
+	        $querySettings->setStoragePageIds(array(1, 26, 989));
+
+	        // don't add fields from enablecolumns constraint
+        	// this function is deprecated!
+	        $querySettings->setRespectEnableFields(FALSE);
+
+	        // define the enablecolumn fields to be ignored
+	        // if nothing else is given, all enableFields are ignored
+	        $querySettings->setIgnoreEnableFields(TRUE);       
+	        // define single fields to be ignored
+	        $querySettings->setEnableFieldsToBeIgnored(array('disabled','starttime'));
+
+	        // add deleted rows to the result
+	        $querySettings->setIncludeDeleted(TRUE);
+
+	        // don't add sys_language_uid constraint
+	        $querySettings->setRespectSysLanguage(FALSE);
+
+	        // perform translation to dedicated language
+	        $querySettings->setSysLanguageUid(42);
+	*/
 	        $this->setDefaultQuerySettings($querySettings);
 	}
 
@@ -23,10 +46,12 @@ class ContentRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setRespectSysLanguage(FALSE);
-		if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000)
-			$query->getQuerySettings()->setLanguageUid(0);
-		else
-			$query->getQuerySettings()->setSysLanguageUid(0);
+                if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000)
+                        $query->getQuerySettings()->setLanguageUid(0);
+                else
+                        $query->getQuerySettings()->setSysLanguageUid(0);
+
+
 	        $query->getQuerySettings()->setRespectStoragePage(FALSE);
 
 		$query->matching(

@@ -77,6 +77,7 @@ class ChairRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
                 else
                         $query->getQuerySettings()->setSysLanguageUid(0);
 
+
 		//$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		$query->getQuerySettings()->setStoragePageIds(array($storagePid)); 
 

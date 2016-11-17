@@ -58,14 +58,43 @@ class PublicationController extends BasicPublistController {
 	/**
 	 * return a single Publication as array (key-values)
 	 */
-	public function get($eprint_id) {
-		$isInDB = $this->publicationRepository->findFirstByEprintId($eprint_id);
-		if ($isInDB === NULL) {
+	public function get($eprint_id, $settings) {
+		$publication = $this->publicationRepository->findFirstByEprintId($eprint_id);
+		if ($publication === NULL) {
 			$this->debugger->add('Eprint_id' . $eprint_id . ' not found in database');
 			$this->errorHandler->setError(1, "skip this");
 			return 0;
 		}
-		return $isInDB;
+
+		/* run here the flexform depending stuff */
+		if ($settings['useadvancedtypesbytag']) {
+			if ( $publication->getUbmaTags() != "") {
+				// implement advanced custom types
+				$publication->setBibType($this->decodeAdvancedType($publication->getBibType(), $publication->getUbmaTags()));
+				// check, if this type is realy neede, otherwise drop publication
+				$displayTypes = explode(',', $this->settings['advancedtype']);
+				if ((!in_array('all', $displayTypes)) AND (!in_array($publication->getBibType(), $displayTypes))) {
+					$this->debugger->add('Type ' . $publication->getBibType() . ' not needed, skip ...');
+					$this->errorHandler->setError(1, "skip this");
+					return 0;
+				}
+			}
+		}
+
+		/* Select the used URL */
+		$URL = $publication->getUrl();
+		if ($settings['selecturl'] == 0) {
+			if (!$URL || ($URL == ""))
+				$URL = $publication->getUrlUbmaExtern();
+			if (!$URL || ($URL == ""))
+				$URL = $publication->getUrlOffical();
+		}
+		if (!$URL || ($URL == ""))
+			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
+		$publication->setUsedLinkUrl($URL); 
+
+
+		return $publication;
 	}
 
 
@@ -90,7 +119,7 @@ class PublicationController extends BasicPublistController {
 		if ($eprintIdIsInDB === NULL) {
 			// add to DB
 			$this->debugger->add('== Publication ' . $publication['eprintid'] . ' is NOT in DB, at it ==');
-			$pub = $this->objectManager->get('Unima\\Publist4ubma2\\Domain\\Model\\Publication');
+			$pub = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Publication');
 			$pub->setEprintId(intval($publication['eprintid']));
 			$newPub = $this->writeProperties($pub, $publication);
 			$this->publicationRepository->add($newPub);
@@ -112,6 +141,11 @@ class PublicationController extends BasicPublistController {
 
 		if ($publication['type'])
 		{
+/*
+// Lets do this in function "get()", before display on page, after reading from DB
+// Because Publications could used in multiple publication-lists, with different settings of
+// "useadvancedtypesbytag"
+
 			if ($this->settings['useadvancedtypesbytag']) {
 				if ( $publication['ubma_tags'])
 					// implement advanced custom types
@@ -127,6 +161,7 @@ class PublicationController extends BasicPublistController {
 					return;
 				}
 			} else
+*/
 				$newPub->setBibType($publication['type']);
 		}
 		else {
@@ -134,6 +169,10 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no type');
 		}
 
+		if ( $publication['ubma_tags'])
+			$newPub->setUbmaTags($publication['ubma_tags']);
+		else
+			$newPub->setUbmaTags("");
 
 		if ($publication['title']['title'])
 			$newPub->setTitle($publication['title']['title']);
@@ -189,6 +228,12 @@ class PublicationController extends BasicPublistController {
 		// select the usedLinkUrl
 		$URL = $newPub->getUrl();
 		// if select URL = auto
+/*
+// Lets do this in function "get()", before display on page, after reading from DB
+// Because Publications could used in multiple publication-lists, with different settings of
+// "selecturl"
+
+
 		if ($this->settings['selecturl'] == 0) {
 			if (!$URL || ($URL == ""))
 				$URL = $publication['ubma_url_extern'];
@@ -200,7 +245,7 @@ class PublicationController extends BasicPublistController {
 
 		$newPub->setUsedLinkUrl($URL);
 		// \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub->getUsedLinkUrl());
-
+*/
 		if (intval($publication['ubma_date_year']))
 			$newPub->setYear(intval($publication['ubma_date_year']));
 		else {

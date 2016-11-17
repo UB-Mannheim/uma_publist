@@ -84,7 +84,7 @@ class PublistController extends BasicPublistController {
 			return;
 		}
 
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version));
+		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($years);
 
 		// get Publist from DB
 		$content = $this->getPublicationsFromList($cElementId);
@@ -141,7 +141,7 @@ class PublistController extends BasicPublistController {
 				$this->debugger->add('Could not read eprint_id from ' . $publicationString);
 				continue;
 			}
-			$publication = $this->publicationController->get($eprint_id);
+			$publication = $this->publicationController->get($eprint_id, $this->settings);
 			if ($this->errorHandler->getError()) {
 				// clear the error and skip
 				$this->errorHandler->setError(0, "");
@@ -208,7 +208,7 @@ class PublistController extends BasicPublistController {
 		if ($publist === NULL) {
 			// add to DB
 			$this->debugger->add('== Publist ' . $cElementId . ' is NOT in DB, at it ==');
-			$publist = $this->objectManager->get('Unima\\Publist4ubma2\\Domain\\Model\\Publist');
+			$publist = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Publist');
 			$publist->setCeId($cElementId);
 			$publist->setQueryUrl($url);
 			$publist->setExcludeExternal($this->settings['excludeexternal']);
