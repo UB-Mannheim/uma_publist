@@ -309,7 +309,8 @@ class PublistController extends BasicPublistController {
 	private function listOfYears($content) {
 		$years = array();
 		foreach ($content as $publication) {
-			if (!in_array($publication->getYear(), $years))
+			$year = $publication->getYear();
+			if ((!in_array($year, $years)) && ($year > 0))
 				array_push($years, $publication->getYear());
 		}
 
@@ -319,7 +320,6 @@ class PublistController extends BasicPublistController {
 		else
 			// oldest first
 			sort($years);
-
 
 		return $years;
 	}
