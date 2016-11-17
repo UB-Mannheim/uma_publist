@@ -40,8 +40,15 @@ ChangeLog
 0.0.3 -> 0.0.4
 --------------
 17.11.2016
-	* fix logic bug in "Classes/Controller/PublicationController.php"
-	  - publications could could be used by multiple pub-lists, which could have
-            different settings
-	  - handle advanced types and used url after reading publication from db
-	  - storeing "ubmatags" in publication table because it is used in the decission
+  - fix logic bug in "Classes/Controller/PublicationController.php"
+    - publications could could be used by multiple pub-lists, which could have different settings
+    - handle advanced types and used url after reading publication from db
+    - storeing "ubmatags" in publication table because it is used in the decission
+
+0.0.4 -> 0.0.5
+--------------
+17.11.2016
+  - fix a bug in "Unima\Publist4ubma2\Controller\PublicationController::decodeAuthors():"
+    - had to remove [$index] from variable
+  - fix a bug in "Classes/ViewHelpers/RenderNamesWithAndRdfaSchemaViewHelper.php"
+    - wrong usage of strpos

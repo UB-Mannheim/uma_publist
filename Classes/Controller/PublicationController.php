@@ -379,13 +379,14 @@ class PublicationController extends BasicPublistController {
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($authors);
 
 		$retAuthors = '';
+		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($authors);
 		foreach ($authors['item'] as $index => $xml) {
 			if ($index > 0)
 				$retAuthors = $retAuthors . ';';
 			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($index);
 			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($xml);
-			if (is_object($xml[$index])) {
-				$name = xmlUtil::xmlToArray($xml[$index]);
+			if (is_object($xml)) {
+				$name = xmlUtil::xmlToArray($xml);
 				$author = $name['name'];
 			} else {
 				$author = $xml;
