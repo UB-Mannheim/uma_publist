@@ -18,7 +18,7 @@
 
 				<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{year}', types: '{types}')}" as="type">
 					<div class="tx_publist4ubma2-typeheader">
-					<h4>{type}</h4>
+					<h4><f:translate key='{type}' /></h4>
 					</div>
 					<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}', thisYear: '{year}', thisType: '{type}'}" />
 				</f:for>

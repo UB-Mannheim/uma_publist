@@ -105,8 +105,16 @@ We have no "n" viewhelper
 			</f:if>
 
 			</div>
+
+			<f:if condition="{settings.bibtex}==1">
+				<f:then>
+					<div class="tx_publist4ubma2-right"><a href="{bibtexturl}" target="_blank">[BibTex]</a></div>
+				</f:then>
+			</f:if>
        	        </f:then>
         </f:if>
+
+
 
 
 	<f:if condition="{debugMsg}">

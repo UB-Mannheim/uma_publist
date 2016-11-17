@@ -58,6 +58,7 @@ class PublistController extends BasicPublistController {
 	protected $sessionData = array('year' => 0, 'type' => "");
 
 
+
 	/**
 	 * action list
 	 *
@@ -111,6 +112,10 @@ class PublistController extends BasicPublistController {
 		$this->view->assign('types', $types);
 		$this->view->assign('curYear', $this->sessionData['year']);
 		$this->view->assign('curType', $this->sessionData['type']);
+
+		if ($this->settings['bibtex'] > 0)
+			$this->view->assign('bibtexturl',  queryUrl::generate($this->settings, 1));
+
 
 		if ($this->settings['debug'])
 			$this->view->assign('debugMsg', $this->debugger->get());
@@ -184,7 +189,7 @@ class PublistController extends BasicPublistController {
 	private function updatePublist($cElementId, $md5sum, $publist)
 	{
 
-		$url = queryUrl::generate($this->settings);
+		$url = queryUrl::generate($this->settings, 0);
                 if ($this->errorHandler->getError())
 			return;
 

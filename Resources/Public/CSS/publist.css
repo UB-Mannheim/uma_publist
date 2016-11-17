@@ -62,5 +62,10 @@
 	counter-increment: indexCounter;
 }
 
+.tx_publist4ubma2-right {
+	text-align: right;
+}
+
+
 .myenumlist li:before { content:counter(indexCounter) ". ";}
 

@@ -352,6 +352,10 @@
 				<source>Enumerate list</source>
 			</trans-unit>
 
+			<trans-unit id="pi1_flexform.bibtex" xml:space="preserve">
+				<source>Export Bibtex</source>
+			</trans-unit>
+
 
 
 

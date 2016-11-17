@@ -23,7 +23,7 @@ class queryUrl {
          * @param array $flexform  the flexform
          * @return string queryUrl
          */
-        public static function generate($flexform)
+        public static function generate($flexform, $bibtex)
 	{
 		// Load the Error Handler Singelton
 		$errorHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\ErrorHandler');
@@ -39,14 +39,20 @@ class queryUrl {
 			return $url;
 		}
 
-                $format = 'XML';
+		if ($bibtex > 0) {
+			$format = 'BibTeX.bib';
+			$formatShort = 'BibTeX';
+		} else {
+	                $format = 'XML.XML';
+			$formatShort = 'XML';
+		}
 
                 // not working with eprints - we get always the newest, it don't cares about |date
 //                $ordering = '|-date';
                 $ordering = '|-ubma_date_year';
 
                 // query prefix
-                $url = 'https://ub-madoc.bib.uni-mannheim.de/cgi/search/advanced/export_madoc_' . $format . '.' . $format . '?screen=Public%3A%3AEPrintSearch&_action_export=1&output=' . $format . '&exp=0|1' . $ordering . '%2Fcreators_name%2Ftitle|archive|-';
+                $url = 'https://ub-madoc.bib.uni-mannheim.de/cgi/search/advanced/export_madoc_' . $format . '?screen=Public%3A%3AEPrintSearch&_action_export=1&output=' . $formatShort . '&exp=0|1' . $ordering . '%2Fcreators_name%2Ftitle|archive|-';
 
 
 
