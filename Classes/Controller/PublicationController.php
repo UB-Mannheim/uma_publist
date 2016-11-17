@@ -90,7 +90,7 @@ class PublicationController extends BasicPublistController {
 		if ($eprintIdIsInDB === NULL) {
 			// add to DB
 			$this->debugger->add('== Publication ' . $publication['eprintid'] . ' is NOT in DB, at it ==');
-			$pub = $this->objectManager->get('\Unima\Publist4ubma2\Domain\Model\Publication');
+			$pub = $this->objectManager->get('Unima\\Publist4ubma2\\Domain\\Model\\Publication');
 			$pub->setEprintId(intval($publication['eprintid']));
 			$newPub = $this->writeProperties($pub, $publication);
 			$this->publicationRepository->add($newPub);
