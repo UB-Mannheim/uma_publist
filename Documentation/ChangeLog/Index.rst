@@ -58,3 +58,10 @@ ChangeLog
 21.11.2016
   - set correct comments in Configuration/TypoScript/constants.txt
     - https://wiki.typo3.org/TypoScript_Constants#Preparing_for_the_constant_editor
+
+0.0.6 -> 0.0.7
+--------------
+21.11.2016
+  - repair path in Resources/Private/Layouts/Backend/Default.html (from Css/administration.css to CSS/administration.css)
+  - fix wrong use of strpos() in viewhelper clases
+

@@ -33,7 +33,7 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 	{
 		$output = '';
 
-		if (strpos(";", $somebody) >= 0) {
+		if (strpos($somebody, ";") >= 0) {
 			$peopleList = explode( ';', $somebody);
 			$peopleNumber = count($peopleList);
 			$i = 1;
