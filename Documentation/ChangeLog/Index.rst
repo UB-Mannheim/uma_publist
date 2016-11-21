@@ -52,3 +52,9 @@ ChangeLog
     - had to remove [$index] from variable
   - fix a bug in "Classes/ViewHelpers/RenderNamesWithAndRdfaSchemaViewHelper.php"
     - wrong usage of strpos
+
+0.0.5 -> 0.0.6
+--------------
+21.11.2016
+  - set correct comments in Configuration/TypoScript/constants.txt
+    - https://wiki.typo3.org/TypoScript_Constants#Preparing_for_the_constant_editor

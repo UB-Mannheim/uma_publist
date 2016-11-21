@@ -1,16 +1,18 @@
 # Module configuration
 
 # for the frontend
-plugin.tx_publist4ubma2_pi1 {
+plugin.tx_publist4ubma2 {
 	# for own usage (settings)
 	settings {
-                cssFile = {$plugin.tx_publist4ubma2_pi1.settings.cssFile}
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+                # cat=plugin.tx_news/file; type=string; label=Path to CSS file
+                cssFile = {$plugin.tx_publist4ubma2.settings.cssFile}
+	        storagePid = {$plugin.tx_publist4ubma2.persistence.storagePid}
         }
 
 	# for Extbase
 	persistence {
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+		# Standard PID aus den Konstanten
+	        storagePid = {$plugin.tx_publist4ubma2.persistence.storagePid}
 	}
 
 
@@ -65,11 +67,12 @@ plugin.tx_publist4ubma2_pi1 {
 module.tx_publist4ubma2 {
 	# for own usage (settings)
 	settings {
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
+	        storagePid = {$plugin.tx_publist4ubma2.persistence.storagePid}
         }
 
 	# for Extbase
-	persistence < plugin.tx_publist4ubma2_pi1.persistence
+	persistence < plugin.tx_publist4ubma2.persistence
+	#persistence < plugin.tx_publist4ubma2.persistence
 }
 
 
