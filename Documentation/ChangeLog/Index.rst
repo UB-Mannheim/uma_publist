@@ -65,3 +65,8 @@ ChangeLog
   - repair path in Resources/Private/Layouts/Backend/Default.html (from Css/administration.css to CSS/administration.css)
   - fix wrong use of strpos() in viewhelper clases
 
+0.0.7 -> 0.0.8
+--------------
+21.11.2016
+  - add template for bib with "coins"
+
