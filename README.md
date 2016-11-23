@@ -7,6 +7,7 @@
 - storing publications in Typo3-DB
 - nightly sync using Typo3-Scheduler
 - Backend Module for manual sync/DB-cleanup
+- using extbase + Fluid
 
 ## Requirements
 - tested with Typo3 v6.2 - v7.6
