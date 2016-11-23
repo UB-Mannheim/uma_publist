@@ -3,10 +3,10 @@
 ## Featurs
 - filter by creator, title, section, type, year, tag, ...
 - sort by year, type and mixtures of both
-- optional BibtexExport (linking back to Eprints)
+- optional Bibtex export (linking back to Eprints)
 - storing publications in Typo3-DB
-- nightly sync using Typo3-Scheduler
-- Backend Module for manual sync/DB-cleanup
+- nightly sync using Typo3 scheduler
+- backend module for manual sync/DB-cleanup
 - using extbase + Fluid
 
 ## Requirements
