@@ -10,7 +10,7 @@
 - using extbase + Fluid
 
 ## Requirements
-- tested with Typo3 v6.2 - v7.6
+- tested with Typo3 v6.2 and v7.6
 - needs an Eprints server with EP3-XML export as source (http://www.eprints.org)
 
 ## Restriction
