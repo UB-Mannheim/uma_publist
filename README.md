@@ -14,7 +14,7 @@
 
 ## Restriction
 The extension is build for the Eprints system from library of university of mannheim.
-But it should be possible to configure it for other instances of Eprints
+But it should be possible to modify it for other instances of Eprints
 
 ## Examples
 - http://dws.informatik.uni-mannheim.de/en/research/publications/
