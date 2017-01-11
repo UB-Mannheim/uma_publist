@@ -292,6 +292,7 @@ class AdministrationController extends BasicPublistController {
 	public function cleanupPublications($publists) {
 		$didCleanup = 0;
 		$neededeprintIDs = [];
+                $alreadyKeptEprintIDs = [];
 		foreach($publists as $publist) {
 			if ($publist === NULL)
 				continue;
@@ -302,11 +303,14 @@ class AdministrationController extends BasicPublistController {
 
 		$publications = $this->publicationController->repositoryFindAll();;
 		foreach ($publications as $publication) {
-			if (!in_array($publication->getEprintId(), $neededeprintIDs)) {
-				$this->debugger->add('Publication ' . $publication->getEprintId() . ' not needed, delete it from DB');
+			if ((!in_array($publication->getEprintId(), $neededeprintIDs)) ||
+                           (in_array($publication->getEprintId(), $alreadyKeptEprintIDs))) {
+				$this->debugger->add('Publication ' . $publication->getEprintId() . ' not needed or double, delete it from DB');
 				$this->publicationController->repositoryRemove($publication);
 				$didCleanup = 1;
 			}
+                        else
+                           array_push($alreadyKeptEprintIDs, $publication->getEprintId());
 		}
 
 		# Den Vorschlaghammer instanzieren / aus der Kiste kramen

@@ -288,6 +288,7 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no editors');
 		}
 
+
 		if ($publication['creators'])
 			$newPub->setCreators($this->decodeAuthors($publication['creators']));
 		else {
@@ -378,20 +379,33 @@ class PublicationController extends BasicPublistController {
 	private function decodeAuthors($authors) {
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($authors);
 
+		$counter = 0;
 		$retAuthors = '';
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($authors);
 		foreach ($authors['item'] as $index => $xml) {
-			if ($index > 0)
-				$retAuthors = $retAuthors . ';';
+
 			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($index);
 			//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($xml);
+
+			// only names, don't take Mail-"IDs"
 			if (is_object($xml)) {
+				if ($index > 0)
+					$retAuthors = $retAuthors . ';';
 				$name = xmlUtil::xmlToArray($xml);
 				$author = $name['name'];
-			} else {
-				$author = $xml;
+				$retAuthors = $retAuthors . $author['family'] . ',' . $author['given'];
 			}
-			$retAuthors = $retAuthors . $author['family'] . ',' . $author['given'];
+			else
+			{
+	                        if ($index == "name") {
+					if ($counter > 0)
+						$retAuthors = $retAuthors . ';';
+                		        $counter ++;
+
+					$author = $xml;
+					$retAuthors = $retAuthors . $author['family'] . ',' . $author['given'];
+				}
+			}
 		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($retAuthors);

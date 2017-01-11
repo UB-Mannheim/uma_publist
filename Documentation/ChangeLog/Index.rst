@@ -40,7 +40,7 @@ ChangeLog
 0.0.3 -> 0.0.4
 --------------
 17.11.2016
-  - fix logic bug in "Classes/Controller/PublicationController.php"
+  - BUGFIX: in "Classes/Controller/PublicationController.php"
     - publications could could be used by multiple pub-lists, which could have different settings
     - handle advanced types and used url after reading publication from db
     - storeing "ubmatags" in publication table because it is used in the decission
@@ -48,9 +48,9 @@ ChangeLog
 0.0.4 -> 0.0.5
 --------------
 17.11.2016
-  - fix a bug in "Unima\Publist4ubma2\Controller\PublicationController::decodeAuthors():"
+  - BUGFIX: in "Unima\Publist4ubma2\Controller\PublicationController::decodeAuthors():"
     - had to remove [$index] from variable
-  - fix a bug in "Classes/ViewHelpers/RenderNamesWithAndRdfaSchemaViewHelper.php"
+  - BUGFIX: in "Classes/ViewHelpers/RenderNamesWithAndRdfaSchemaViewHelper.php"
     - wrong usage of strpos
 
 0.0.5 -> 0.0.6
@@ -63,10 +63,16 @@ ChangeLog
 --------------
 21.11.2016
   - repair path in Resources/Private/Layouts/Backend/Default.html (from Css/administration.css to CSS/administration.css)
-  - fix wrong use of strpos() in viewhelper clases
+  - BUGFIX: fix wrong use of strpos() in viewhelper clases
 
 0.0.7 -> 0.0.8
 --------------
 21.11.2016
   - add template for bib with "coins"
+
+0.0.8 -> 0.0.9
+--------------
+11.01.2017
+  - BUGFIX: single creators were parst wrong in Classes/Controller/PublicationController.php
+  - add deletion of double publications in the cleanup function cleanupPublications() AdministrationController.php
 
