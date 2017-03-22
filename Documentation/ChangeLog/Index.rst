@@ -76,3 +76,8 @@ ChangeLog
   - BUGFIX: single creators were parst wrong in Classes/Controller/PublicationController.php
   - add deletion of double publications in the cleanup function cleanupPublications() AdministrationController.php
 
+0.0.9 -> 0.1.0
+--------------
+22.03.2017
+  - BUGFIX: fix two problems in encodeCoin() in Controller/PublicationController.php (wrong date and wrong coding of "&")
+

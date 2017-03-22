@@ -494,7 +494,7 @@ class PublicationController extends BasicPublistController {
 		
 		//ubma_date_year -> date
 		if ( $pub->getYear() != "" ) {
-			$coin .= "&rft.date=" . rawurlencode($pub->getYear() != "" );
+			$coin .= "&rft.date=" . rawurlencode($pub->getYear());
 		}
 		//authors
 		// field in DB looks like:
@@ -573,7 +573,7 @@ class PublicationController extends BasicPublistController {
 
 		//more fields could be possible in COinS, e.g. language, degree, inst, ...
 
-		return str_replace("&", "&amp;", $coin);
+		return $coin;
 	}
 
 
