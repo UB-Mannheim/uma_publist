@@ -129,8 +129,8 @@
                        <trans-unit id="poster" xml:space="preserve">
                                 <source>Poster</source>
                         </trans-unit>
-                       <trans-unit id="" xml:space="preserve">
-                                <source></source>
+                       <trans-unit id="and" xml:space="preserve">
+                                <source>and</source>
                         </trans-unit>
 
 		</body>

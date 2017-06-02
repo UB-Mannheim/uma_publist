@@ -44,11 +44,13 @@ class RenderNamesWithAndRdfaSchemaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 						if ($i < ($peopleNumber - 1))
 							$output .= ', ';
 						elseif ($i < $peopleNumber)
-							$output .= ' and ';
+							//$output .= ' and ';
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
 					}
 					else {
 						if (($i < $peopleNumber) && ($peopleNumber == 2))
-							$output .= ' and ';
+							//$output .= ' and ';
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
 					}
 					$i++;
 				}

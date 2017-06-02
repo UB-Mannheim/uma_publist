@@ -35,6 +35,7 @@ plugin.tx_publist4ubma2_pi1 {
 			workshop_item = Workshop Item
 			master_thesis = Master Thesis
 			poster = Poster
+			and = and
 		}
 		de {
 			book = Buch
@@ -54,6 +55,7 @@ plugin.tx_publist4ubma2_pi1 {
 			workshop_item = Workshop Beitrag
 			master_thesis = Master Arbeit
 			poster = Poster
+			and = und
 
 		}
 	}

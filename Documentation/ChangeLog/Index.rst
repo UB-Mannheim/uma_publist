@@ -81,3 +81,11 @@ ChangeLog
 22.03.2017
   - BUGFIX: fix two problems in encodeCoin() in Controller/PublicationController.php (wrong date and wrong coding of "&")
 
+0.1.0 -> 0.1.1
+--------------
+02.06.2017
+  - translate the word "and" in RenderNames - ViewHelpers (german/english)
+
+
+
+
