@@ -85,7 +85,7 @@ ChangeLog
 --------------
 02.06.2017
   - translate the word "and" in RenderNames - ViewHelpers (german/english)
-
+  - changing state from "alpha" to "beta"
 
 
 
