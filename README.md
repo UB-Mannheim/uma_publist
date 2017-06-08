@@ -21,7 +21,7 @@ But it should be possible to modify it for other instances of Eprints
 - http://dws.informatik.uni-mannheim.de/en/research/publications/
 - http://ms.math.uni-mannheim.de/de/publications/
 - https://www.bwl.uni-mannheim.de/forschung/area_banking_finance_and_insurance/articles/
-- http://www.bib.uni-mannheim.de/1416.html?&L=0
+- http://www.bib.uni-mannheim.de/publikationen
 
 ## Contact
 In case of question please send an email to sebastian.kotthoff@rz.uni-mannheim.de
