@@ -28,7 +28,7 @@
 #   see: \EBT\ExtensionBuilder\Service\RoundTrip::SPLIT_TOKEN
 #
 #   After this token you can write whatever you want and it will be appended
-#   everytime the code is generated
+#   every time the code is generated
 #
 # keep:
 #   files are never overwritten

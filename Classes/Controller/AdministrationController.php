@@ -197,7 +197,7 @@ class AdministrationController extends BasicPublistController {
 						return;
 					}
 					$this->publistSync($publists);
-					$this->view->assign('infoMsg', "Sync Sucessful");
+					$this->view->assign('infoMsg', "Sync Successful");
 					break;
 				case "cleanUpPublist":
 					if (($publists === NULL) || (count($publists) <= 0)) {

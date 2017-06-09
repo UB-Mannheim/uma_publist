@@ -26,7 +26,7 @@ ChangeLog
 0.0.2 -> 0.0.3
 --------------
 14.11.2016
-  -  add some code which for making it mor combatible with Typo3 7.6
+  -  add some code to make it more compatible with Typo3 7.6
   - in Repositories we have to decide now, instead off: "$query->getQuerySettings()->setSysLanguageUid(0);" we have to use:
 
     .. code-block:: php
