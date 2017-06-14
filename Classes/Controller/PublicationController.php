@@ -71,7 +71,7 @@ class PublicationController extends BasicPublistController {
 			if ( $publication->getUbmaTags() != "") {
 				// implement advanced custom types
 				$publication->setBibType($this->decodeAdvancedType($publication->getBibType(), $publication->getUbmaTags()));
-				// check, if this type is realy neede, otherwise drop publication
+				// check, if this type is really needed, otherwise drop publication
 				$displayTypes = explode(',', $this->settings['advancedtype']);
 				if ((!in_array('all', $displayTypes)) AND (!in_array($publication->getBibType(), $displayTypes))) {
 					$this->debugger->add('Type ' . $publication->getBibType() . ' not needed, skip ...');
@@ -154,7 +154,7 @@ class PublicationController extends BasicPublistController {
 					$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_tags - use normal type');
 					$newPub->setBibType($publication['type']);
 				}
-				// check, if this type is realy neede, otherwise drop publication
+				// check, if this type is really needed, otherwise drop publication
 				$displayTypes = explode(',', $this->settings['advancedtype']);
 				if ((!in_array('all', $displayTypes)) AND (!in_array($newPub->getBibType(), $displayTypes))) {
 					$this->debugger->add('Publication ' . $publication['eprintid'] . ' is skipped because of wrong type');
@@ -431,7 +431,7 @@ class PublicationController extends BasicPublistController {
 
 
 	private function encodeCoin($pub) {
-		//The return string contains several key-value-pairs seperated
+		//The return string contains several key-value-pairs separated
 		//by the ampersand, which will be replaced by its HTML code 
 		//in the end globally. The values are encoded by the
 		//percentage-encoding through rawurlencode.
