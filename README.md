@@ -1,21 +1,27 @@
 # Publist4ubma2
 
-## Featurs
+[![typoversions](https://img.shields.io/badge/TYPO3-6.2,%207.6-blue.svg?style=flat.svg)](https://github.com/UB-Mannheim/publist4ubma2#requirements)
+[![license](https://img.shields.io/badge/license-GPL%202.0-yellow.svg?style=flat)](https://github.com/UB-Mannheim/publist4ubma2/blob/master/LICENSE)
+
+This is a TYPO3 extension to include publication lists from an EPrints repository
+in TYPO3 websites where the lists are generated and synced automatically.
+
+## Features
 - filter by creator, title, section, type, year, tag, ...
 - sort by year, type and mixtures of both
-- optional Bibtex export (linking back to Eprints)
-- storing publications in Typo3-DB
-- nightly sync using Typo3 scheduler
+- optional BibTeX export (linking back to EPrints)
+- storing publications in TYPO3-DB
+- nightly sync using TYPO3 scheduler
 - backend module for manual sync/DB-cleanup
 - using extbase + Fluid
 
 ## Requirements
-- tested with Typo3 v6.2 and v7.6
-- needs an Eprints server with EP3-XML export as source (http://www.eprints.org)
+- tested with TYPO3 v6.2 and v7.6
+- needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source 
 
 ## Restriction
-The extension is build for the Eprints system from library of university of mannheim.
-But it should be possible to modify it for other instances of Eprints
+The extension is build for the EPrints system from library of university of Mannheim.
+But it should be possible to modify it for other instances of EPrints
 
 ## Examples
 - http://dws.informatik.uni-mannheim.de/en/research/publications/
