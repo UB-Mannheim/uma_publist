@@ -4,7 +4,7 @@
 		<header/>
 		<body>
 			<trans-unit id="pi1_title" xml:space="preserve">
-			    <source>Display Publications from Library of Uni Mannheim</source>
+			    <source>Display publications of Mannheim University Library</source>
 			</trans-unit>
 			<trans-unit id="extmng.divisionsUrl" xml:space="preserve">
 			    <source>URL to xml file where to pare the divisions</source>
