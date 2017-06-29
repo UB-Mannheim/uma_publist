@@ -17,7 +17,34 @@ in TYPO3 websites where the lists are generated and synced automatically.
 
 ## Requirements
 - tested with TYPO3 v6.2 and v7.6
-- needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source 
+- a working Typo3 CMS
+- needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source
+
+## Installation
+
+1. Install extension by uploading the a zip file of all files from this repository (no additional intermediate folder)
+2. Create a new folder (grey icon) in the pagetree (Page) as top element and remember its `id`
+3. Go to your start page under `Template` in the `Info/Modify` mode and `Edit the whole template record`
+4. Switch to `Includes` tab and import the static template of the extension publist4ubma2
+5. Switch to `General` tab and in the `Constants` editor add the following lines:
+```typoscript
+plugin.tx_publist4ubma2_pi1 {
+        settings {
+                # cat=plugin.tx_news/file; type=string; label=Path to CSS file
+                cssFile = EXT:publist4ubma2/Resources/Public/CSS/publist.css
+        }
+
+        persistence {
+                 # cat=plugin.tx_blogexample//a; type=int+; label=Default storage PID
+                storagePid = 5724        }
+
+}
+```
+6. Replace the number in the `storagePid` with the id of the folder you created in step 2.
+7. Possibly you have to clear the cache, log out and in again or something else to trigger the changes.
+8. Go in the `Admin Tools` to the publist4ubma2 plugin and `Sync all from Remote`
+
+Afterwards, you can include a new element of type `Plugin` where you specify the plugin type to this extension and use the it in your TYPO3 websites.
 
 ## Restriction
 The extension is build for the EPrints system from library of university of Mannheim.
