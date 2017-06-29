@@ -17,7 +17,7 @@ in TYPO3 websites where the lists are generated and synced automatically.
 
 ## Requirements
 - tested with TYPO3 v6.2 and v7.6
-- a start page in your TYPO3 must exists
+- a working Typo3 CMS
 - needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source
 
 ## Installation
