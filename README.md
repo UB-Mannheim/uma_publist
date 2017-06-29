@@ -14,9 +14,9 @@ in TYPO3 websites where the lists are generated and synced automatically.
 - nightly sync using TYPO3 scheduler
 - backend module for manual sync/DB-cleanup
 - using extbase + Fluid
+- tested with TYPO3 v6.2 and v7.6
 
 ## Requirements
-- tested with TYPO3 v6.2 and v7.6
 - a working Typo3 CMS
 - needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source
 
