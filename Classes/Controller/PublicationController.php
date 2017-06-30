@@ -118,7 +118,7 @@ class PublicationController extends BasicPublistController {
 		$eprintIdIsInDB = $this->publicationRepository->findFirstByEprintId(intval($publication['eprintid']));
 		if ($eprintIdIsInDB === NULL) {
 			// add to DB
-			$this->debugger->add('== Publication ' . $publication['eprintid'] . ' is NOT in DB, at it ==');
+			$this->debugger->add('== Publication ' . $publication['eprintid'] . ' is NOT in DB, add it ==');
 			$pub = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Publication');
 			$pub->setEprintId(intval($publication['eprintid']));
 			$newPub = $this->writeProperties($pub, $publication);
@@ -142,7 +142,7 @@ class PublicationController extends BasicPublistController {
 		if ($publication['type'])
 		{
 /*
-// Lets do this in function "get()", before display on page, after reading from DB
+// Let us do this in function "get()", before display on page, after reading from DB
 // Because Publications could used in multiple publication-lists, with different settings of
 // "useadvancedtypesbytag"
 
@@ -221,7 +221,7 @@ class PublicationController extends BasicPublistController {
 		}
 		else {
 			$newPub->setUrl("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ducument url');
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no document url');
 		}
 
 
@@ -229,7 +229,7 @@ class PublicationController extends BasicPublistController {
 		$URL = $newPub->getUrl();
 		// if select URL = auto
 /*
-// Lets do this in function "get()", before display on page, after reading from DB
+// Let us do this in function "get()", before display on page, after reading from DB
 // Because Publications could used in multiple publication-lists, with different settings of
 // "selecturl"
 
