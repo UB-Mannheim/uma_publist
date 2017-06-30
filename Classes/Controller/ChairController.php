@@ -57,7 +57,6 @@ class ChairController extends AdministrationController {
 //                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($instList);
 
 
-		$chairsNow = [];
 		$chairsNow = $this->getChairsFromBib($xmlString, $instList);
 		if (!$this->errorHandler->getError()) {
 
@@ -134,7 +133,6 @@ class ChairController extends AdministrationController {
 	/**
 	 * action delete
 	 *
-	 * @param \Unima\Publist4ubma2\Domain\Model\Institute $institute
 	 * @return void
 	 */
 	public function deleteAction() {
