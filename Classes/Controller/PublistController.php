@@ -66,9 +66,6 @@ class PublistController extends BasicPublistController {
 	 */
 	public function listAction() {
 
-		$years = array();
-		$types = array();
-
                 //$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
 		$this->debugger->add('Started PublistController listAction');
 
@@ -83,8 +80,6 @@ class PublistController extends BasicPublistController {
 				$this->view->assign('debugMsg', $this->debugger->get());
 			return;
 		}
-
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($years);
 
 		// get Publist from DB
 		$content = $this->getPublicationsFromList($cElementId);
@@ -199,7 +194,6 @@ class PublistController extends BasicPublistController {
                 if ($this->errorHandler->getError())
 			return;
 
-		$publications = [];
 		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings['excludeexternal']);
                 if ($this->errorHandler->getError())
 			return;
@@ -242,7 +236,6 @@ class PublistController extends BasicPublistController {
                 if ($this->errorHandler->getError())
 			return;
 
-		$publications = [];
 		$publications = $this->extractPublicationsFromXML($xmlString, $publist->getExcludeExternal());
                 if ($this->errorHandler->getError())
 			return;
@@ -327,7 +320,6 @@ class PublistController extends BasicPublistController {
 	private function listOfTypes($content) {
 		$types = array();
 		$tmpTypes = array();
-		$confTypes = array();
 		foreach ($content as $publication) {
 			if (!in_array($publication->getBibType(), $tmpTypes))
 				array_push($tmpTypes, $publication->getBibType());
