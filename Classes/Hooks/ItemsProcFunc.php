@@ -76,10 +76,10 @@ class ItemsProcFunc {
 
 
 	/**
-	 * Itemsproc function to redner selectbox for institutes
+	 * Itemsproc function to render selectbox for institutes
 	 *
 	 * @param array &$config configuration array
-	 * @return void
+	 * @return config
 	 */
 	public function renderChairs(array &$config) {
 
@@ -101,6 +101,5 @@ class ItemsProcFunc {
 
 		return $config;
 	}
-
 
 }
