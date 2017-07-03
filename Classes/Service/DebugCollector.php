@@ -18,7 +18,7 @@ namespace Unima\Publist4ubma2\Service;
 use TYPO3\CMS\Core\Core;
 
 /**
- * lets do this as singelton - it is some kind of service
+ * let us do this as singleton - it is some kind of service
  */
 class DebugCollector implements \TYPO3\CMS\Core\SingletonInterface {
 

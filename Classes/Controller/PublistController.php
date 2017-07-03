@@ -207,7 +207,7 @@ class PublistController extends BasicPublistController {
 		// store/update Publist in Repository
 		if ($publist === NULL) {
 			// add to DB
-			$this->debugger->add('== Publist ' . $cElementId . ' is NOT in DB, at it ==');
+			$this->debugger->add('== Publist ' . $cElementId . ' is NOT in DB, add it ==');
 			$publist = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Publist');
 			$publist->setCeId($cElementId);
 			$publist->setQueryUrl($url);
