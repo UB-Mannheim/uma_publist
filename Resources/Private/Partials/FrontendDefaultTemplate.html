@@ -4,7 +4,7 @@
 			<m:renderNamesWithAnd somebody="{publication.editors}" />.
 			{publication.publisher}, {publication.corpCreators} {publication.year}
 			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}</ br>{publication.abstract}
+			{publication.placeOfPub}<br />{publication.abstract}
 		</f:case>
 	<f:case value="article">
 			<m:renderNamesWithAnd somebody="{publication.creators}" />.
@@ -22,7 +22,7 @@
 			<m:renderNamesWithAnd somebody="{publication.creators}" />.
 			{publication.publisher}, {publication.corpCreators} {publication.year}
 			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<em>{publication.publication}.</em> {publication.placeOfPub}</ br>{publication.abstract}
+			<em>{publication.publication}.</em> {publication.placeOfPub}<br />{publication.abstract}
 		</f:case>
 	<f:case value="dissertation">
 			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}

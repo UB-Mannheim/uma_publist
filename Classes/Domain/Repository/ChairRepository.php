@@ -56,10 +56,10 @@ class ChairRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 	}
 
         /**
-         * Return Chairs belongint to specific Institute
+         * Return chairs belonging to specific institute
          *
          * @param integer $institute the parent institute
-         * @return void
+         * @return chairs
          */
 	public function findAllByInst($institute, $storagePid) {
 		// sort by ascending "id"
@@ -84,7 +84,5 @@ class ChairRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$result = $query->execute();
 		return $result;
 	}
-
-
 
 }

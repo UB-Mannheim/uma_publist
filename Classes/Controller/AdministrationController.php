@@ -126,7 +126,7 @@ class AdministrationController extends BasicPublistController {
 	
 		$instituteController = new InstituteController($this->objectManager, $this->instituteRepository);
 //		$instituteController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Controller\\InstituteController', $this->instituteRepository);
-		$instituteController->sync($xmlString, $this->instituteRepository);
+		$instituteController->sync($xmlString);
 		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			return;

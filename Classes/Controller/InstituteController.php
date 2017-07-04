@@ -50,7 +50,6 @@ class InstituteController extends AdministrationController {
 
 
 	public function sync($xmlString) {
-		$institutesNow = [];
 		$institutesNow = $this->getInstitutesFromBib($xmlString);
 		if (!$this->errorHandler->getError()) {
 			// get Institutes Objects from DB
@@ -120,7 +119,6 @@ class InstituteController extends AdministrationController {
 	/**
 	 * action delete
 	 *
-	 * @param \Unima\Publist4ubma2\Domain\Model\Institute $institute
 	 * @return void
 	 */
 	public function deleteAction() {
