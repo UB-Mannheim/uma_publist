@@ -104,7 +104,7 @@ class PublicationController extends BasicPublistController {
 	 */
 	public function add($publication = array()) {
 
-                //$this->errorHandler->setError(1, 'TestError');
+		//$this->errorHandler->setError(1, 'TestError');
 		//$pubs = $this->publicationRepository->findAll();
 
 		// check if ther is a eprintid
@@ -249,7 +249,7 @@ class PublicationController extends BasicPublistController {
 		if (intval($publication['ubma_date_year']))
 			$newPub->setYear(intval($publication['ubma_date_year']));
 		else {
-			$newPub->setYear(0);
+			$newPub->setYear(9999);
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_date_year');
 		}
 
@@ -366,7 +366,7 @@ class PublicationController extends BasicPublistController {
 
 	private function decodeAdvancedType($bibType, $ubmaTags) {
 		if (strpos($ubmaTags, 'pubtype:workshop', 0) !== false)
-	        	return 'workshop_item';
+			return 'workshop_item';
 		if (strpos($ubmaTags, 'pubtype:masterthesis', 0) !== false)
 			return 'master_thesis';
 		if (strpos($ubmaTags, 'pubtype:poster', 0) !== false)
@@ -397,10 +397,10 @@ class PublicationController extends BasicPublistController {
 			}
 			else
 			{
-	                        if ($index == "name") {
+				if ($index == "name") {
 					if ($counter > 0)
 						$retAuthors = $retAuthors . ';';
-                		        $counter ++;
+							$counter ++;
 
 					$author = $xml;
 					$retAuthors = $retAuthors . $author['family'] . ',' . $author['given'];
