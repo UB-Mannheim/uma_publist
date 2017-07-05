@@ -66,7 +66,7 @@ class PublistController extends BasicPublistController {
 	 */
 	public function listAction() {
 
-                //$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
+		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
 		$this->debugger->add('Started PublistController listAction');
 
 		// check, if ContentElement is already in DB
@@ -74,7 +74,7 @@ class PublistController extends BasicPublistController {
 		$cElementId = $cObj->data['uid'];
 
 		$this->checkIfRebuildPage($cElementId);
-                if ($this->errorHandler->getError()) {
+		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			if ($this->settings['debug'])
 				$this->view->assign('debugMsg', $this->debugger->get());
@@ -83,7 +83,7 @@ class PublistController extends BasicPublistController {
 
 		// get Publist from DB
 		$content = $this->getPublicationsFromList($cElementId);
-                if ($this->errorHandler->getError()) {
+		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			if ($this->settings['debug'])
 				$this->view->assign('debugMsg', $this->debugger->get());
@@ -185,17 +185,17 @@ class PublistController extends BasicPublistController {
 	{
 
 		$url = queryUrl::generate($this->settings, 0);
-                if ($this->errorHandler->getError())
+		if ($this->errorHandler->getError())
 			return;
 
 		$this->debugger->add('Query URL: ' . $url);
 
 		$xmlString = fileReader::downloadFile($url);
-                if ($this->errorHandler->getError())
+		if ($this->errorHandler->getError())
 			return;
 
 		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings['excludeexternal']);
-                if ($this->errorHandler->getError())
+		if ($this->errorHandler->getError())
 			return;
 
 		// store/update Publist in Repository
@@ -233,11 +233,11 @@ class PublistController extends BasicPublistController {
 		$url = $publist->getQueryUrl();
 
 		$xmlString = fileReader::downloadFile($url);
-                if ($this->errorHandler->getError())
+		if ($this->errorHandler->getError())
 			return;
 
 		$publications = $this->extractPublicationsFromXML($xmlString, $publist->getExcludeExternal());
-                if ($this->errorHandler->getError())
+		if ($this->errorHandler->getError())
 			return;
 
 		$publist->setPublications($this->listOfEprintIds($publications));
@@ -250,19 +250,19 @@ class PublistController extends BasicPublistController {
 
 	private function extractPublicationsFromXML($data, $excludeExternal)
 	{
-//		                $debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
+		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
 		$publications = [];
 
-                $xml = \simplexml_load_string($data);
-                if ($xml === FALSE) {
-                        $this->errorHandler->setError(1, 'Could load XML from Bib (not valid xml?)');
-                        return $publications;
-                }
+		$xml = \simplexml_load_string($data);
+		if ($xml === FALSE) {
+				$this->errorHandler->setError(1, 'Could load XML from Bib (not valid xml?)');
+				return $publications;
+		}
 
 		if ($xml->count() <= 0) {
-                        $this->errorHandler->setError(1, 'No Publications in XML');
-                        return $publications;
-                }
+				$this->errorHandler->setError(1, 'No Publications in XML');
+				return $publications;
+		}
 		$this->debugger->add('Found ' . $xml->count() . ' items in xml');
 
 
@@ -397,12 +397,12 @@ class PublistController extends BasicPublistController {
 	private function initSessionData($years, $types, $publications) {
 		$this->sessionData['year'] = $years[0];
 		if ($this->request->hasArgument('year')) {
-		        $year = $this->request->getArgument('year');
+			$year = $this->request->getArgument('year');
 			if (isset($year) && ($year != 0))
 				$this->sessionData['year'] = $year;
 		}
 
-		// check, if type is avauilable this year
+		// check, if type is available this year
 		if (($this->settings['splityears'] == 2 ) && ($this->settings['splittypes'] == 2)) {
 			$found = 0;
 			foreach( $types as $tmptype) {
@@ -422,7 +422,7 @@ class PublistController extends BasicPublistController {
 
 		// override type with session data
 		if ($this->request->hasArgument('type')) {
-		        $type = $this->request->getArgument('type');
+			$type = $this->request->getArgument('type');
 			if (isset($type) && ($type != ""))
 				$this->sessionData['type'] = $type;
 		}
