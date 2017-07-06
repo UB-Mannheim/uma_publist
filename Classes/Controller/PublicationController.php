@@ -173,10 +173,13 @@ class PublicationController extends BasicPublistController {
 			$newPub->setUbmaTags($publication['ubma_tags']);
 		else
 			$newPub->setUbmaTags("");
-
-		if ($publication['title']['title'])
-			$newPub->setTitle($publication['title']['title']);
-		else {
+		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($publication['title']);
+		if ($publication['title']) {
+			if (is_array($publication['title']) and $publication['title']['title'])
+				$newPub->setTitle($publication['title']['title']);
+			else 
+				$newPub->setTitle($publication['title']);
+		} else {
 			$newPub->setTitle("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no title');
 		}
@@ -187,10 +190,12 @@ class PublicationController extends BasicPublistController {
 			$newPub->setBookTitle("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no book_title');
 		}
-
-		if ($publication['abstract']['abstract'])
-			$newPub->setAbstract($publication['abstract']['abstract']);
-		else {
+		if ($publication['abstract']) {
+			if (is_array($publication['abstract']) and $publication['abstract']['abstract'])
+				$newPub->setAbstract($publication['abstract']['abstract']);
+			else 
+				$newPub->setAbstract($publication['abstract']);
+		} else {
 			$newPub->setAbstract("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no abstract');
 		}
@@ -249,8 +254,12 @@ class PublicationController extends BasicPublistController {
 		if (intval($publication['ubma_date_year']))
 			$newPub->setYear(intval($publication['ubma_date_year']));
 		else {
-			$newPub->setYear(9999);
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_date_year');
+			if (intval($publication['date']))
+				$newPub->setYear(intval($publication['date']));
+			else {
+				$newPub->setYear(9999);
+				$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_date_year and no date');
+			}
 		}
 
 		if ($publication['volume'])
@@ -355,7 +364,7 @@ class PublicationController extends BasicPublistController {
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
 
-		// add the end, set the bib coin stuff
+		// at the end, set the bib coin stuff
 		$newPub->setUsedCoin($this->encodeCoin($newPub));
 
 
@@ -432,7 +441,7 @@ class PublicationController extends BasicPublistController {
 
 	private function encodeCoin($pub) {
 		//The return string contains several key-value-pairs separated
-		//by the ampersand, which will be replaced by its HTML code 
+		//by the ampersand, which will be replaced by its HTML code
 		//in the end globally. The values are encoded by the
 		//percentage-encoding through rawurlencode.
 		$coin = "";
