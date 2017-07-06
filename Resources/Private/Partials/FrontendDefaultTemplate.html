@@ -94,5 +94,10 @@
 			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
 			<em>{publication.bookTitle}</em> {publication.year}<br />{publication.abstract}
 		</f:case>
-	<f:case default="TRUE">no bib type</f:case>
+	<f:case default="TRUE">
+			<m:renderNamesWithAnd somebody="{publication.creators}" />.
+			{publication.corpCreators} {publication.year}
+			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+			<em>{publication.publication}</em><br />{publication.abstract}
+	</f:case>
 </f:switch>

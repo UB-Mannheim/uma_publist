@@ -67,5 +67,8 @@
 			<m:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
 			{publication.bookTitle}.
 		</f:case>
-	<f:case default="TRUE">no bib type</f:case>
+	<f:case default="TRUE">
+			<m:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+			<em>{publication.publication}</em>
+	</f:case>
 </f:switch>

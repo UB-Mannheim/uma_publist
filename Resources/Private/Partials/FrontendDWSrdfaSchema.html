@@ -116,5 +116,11 @@
 			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
 			<em><span property="schema:isPartOf"  typeOf="schema:Book"><span property="schema:name">{publication.bookTitle}</span></span>,</em> <span property="schema:datePublished">{publication.year}</span></span>.
 		</f:case>
-	<f:case default="TRUE">no bib type</f:case>
+	<f:case default="TRUE">
+			<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:CreativeWork">
+			<m:renderNamesWithAndRdfaSchema somebody="{publication.creators}" />
+			<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
+			<em><span property="schema:isPartOf"  typeOf="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span> </span>,</em>
+			<span property="schema:datePublished">{publication.year}</span></span>.
+	</f:case>
 </f:switch>

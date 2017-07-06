@@ -81,5 +81,9 @@
 			<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
 			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
 		</f:case>
-	<f:case default="TRUE">no bib type</f:case>
+	<f:case default="TRUE">
+			<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
+			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+			<em>{publication.publication}</em>.
+	</f:case>
 </f:switch>
