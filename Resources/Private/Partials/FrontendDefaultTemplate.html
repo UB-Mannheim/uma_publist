@@ -1,98 +1,103 @@
 {namespace m=Unima\Publist4ubma2\ViewHelpers}
 <f:switch expression="{publication.bibType}">
 	<f:case value="book">
-			<m:renderNamesWithAnd somebody="{publication.editors}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.editors}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub}<br />{publication.abstract}
+	</f:case>
 	<f:case value="article">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<em>{publication.publication},</em> {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<em>{publication.publication},</em> {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
+	</f:case>
 	<f:case value="book_section">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.publisher} <em>{publication.bookTitle}</em> {publication.placeOfPub}, {publication.pageRange}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.publisher} <em>{publication.bookTitle}</em> {publication.placeOfPub}, {publication.pageRange}<br />{publication.abstract}
+	</f:case>
 	<f:case value="conference_item">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<em>{publication.publication}.</em> {publication.placeOfPub}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<em>{publication.publication}.</em> {publication.placeOfPub}<br />{publication.abstract}
+	</f:case>
 	<f:case value="dissertation">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub} <br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub} <br />{publication.abstract}
+	</f:case>
 	<f:case value="encyclopedia_article">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.publisher} <em>{publication.bookTitle}</em> {publication.placeOfPub} {publication.volume}, {publication.pageRange}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.publisher} <em>{publication.bookTitle}</em> {publication.placeOfPub} {publication.volume}, {publication.pageRange}<br />{publication.abstract}
+	</f:case>
 	<f:case value="habilitation">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub}<br />{publication.abstract}
+	</f:case>
 	<f:case value="journal">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.placeOfPub}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.placeOfPub}<br />{publication.abstract}
+	</f:case>
 	<f:case value="other">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<br />{publication.abstract}
+	</f:case>
 	<f:case value="preprint">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external> </strong>
-			{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external> </strong>
+		{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
+	</f:case>
 	<f:case value="report">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			{publication.publisher}, {publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.publisher}, {publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
+	</f:case>
 	<f:case value="review">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.publisher},
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external></strong>
-			{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.publisher},
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external></strong>
+		{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
+	</f:case>
 	<f:case value="thesis">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external></strong>
-			{publication.placeOfPub}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external></strong>
+		{publication.placeOfPub}<br />{publication.abstract}
+	</f:case>
 	<f:case value="research_paper">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.publisher},
-			<em>{publication.publication}.</em>{publication.corpCreators} {publication.year}
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.publisher},
+		<em>{publication.publication}.</em>{publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub}, {publication.ubmaEdition}. {publication.volume}<br />{publication.abstract}
+	</f:case>
 	<f:case value="workshop_item">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<em>{publication.bookTitle}</em> {publication.year}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<em>{publication.bookTitle}</em> {publication.year}<br />{publication.abstract}
+	</f:case>
 	<f:case value="master_thesis">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			{publication.placeOfPub}, {publication.year}<br />{publication.abstract}
-		</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		{publication.placeOfPub}, {publication.year}<br />{publication.abstract}
+	</f:case>
 	<f:case value="poster">
-			<m:renderNamesWithAnd somebody="{publication.creators}" />.
-			<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-			<em>{publication.bookTitle}</em> {publication.year}<br />{publication.abstract}
-		</f:case>
-	<f:case default="TRUE">no bib type</f:case>
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<em>{publication.bookTitle}</em> {publication.year}<br />{publication.abstract}
+	</f:case>
+	<f:case default="TRUE">
+		<m:renderNamesWithAnd somebody="{publication.creators}" />.
+		{publication.corpCreators} {publication.year}
+		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
+		<em>{publication.publication}</em><br />{publication.abstract}
+	</f:case>
 </f:switch>
