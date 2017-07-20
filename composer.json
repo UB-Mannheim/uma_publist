@@ -1,5 +1,5 @@
 {
-    "name": "ubmannheim/publist4ubma2",
+    "name": "uni-mannheim/publist4ubma2",
     "type": "typo3-cms-extension",
     "description": "TYPO3 extension which shows publications from an EPrints repository",
     "keywords": [
