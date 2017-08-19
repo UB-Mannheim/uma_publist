@@ -1,0 +1,82 @@
+{namespace m=Unima\Publist4ubma2\ViewHelpers}
+<f:switch expression="{publication.bibType}">
+	<f:case value="article">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<em>{publication.publication}, {publication.volume}</em>, {publication.pageRange}.
+	</f:case>
+	<f:case value="book">
+		<f:if condition="{publication.creators}">
+			<f:then>
+				<m:renderNamesApa somebody="{publication.creators}" />
+			</f:then>
+			<f:else>
+				<m:renderNamesApa somebody="{publication.editors}" />
+			</f:else>
+		</f:if>
+		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		{publication.placeOfPub}: {publication.publisher}.
+	</f:case>
+	<f:case value="book_section">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+	</f:case>
+	<f:case value="conference_item">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/>, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
+		{publication.publisher}: {publication.placeOfPub}.
+	</f:case>
+	<f:case value="dissertation">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		Dissertation, {publication.publisher}. {publication.placeOfPub}
+	</f:case>
+	<f:case value="encyclopedia_article">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+	</f:case>
+	<f:case value="habilitation">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		Habilitation, {publication.publisher}. {publication.placeOfPub}.
+	</f:case>
+	<f:case value="journal">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
+	</f:case>
+	<f:case value="other">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+	</f:case>
+	<f:case value="preprint">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		{publication.publisher}.
+	</f:case>
+	<f:case value="report">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+	</f:case>
+	<f:case value="review">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		Review, <em>{publication.publication}</em>.
+	</f:case>
+	<f:case value="thesis">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		Thesis, {publication.publisher}. {publication.placeOfPub}.
+	</f:case>
+	<f:case value="research_paper">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		{publication.corpCreators}: {publication.placeOfPub}.
+	</f:case>
+	<f:case value="workshop_item">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		{publication.bookTitle}, {publication.volume}.
+	</f:case>
+	<f:case value="master_thesis">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		Thesis, {publication.placeOfPub}.
+	</f:case>
+	<f:case value="poster">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		{publication.bookTitle}.
+	</f:case>
+	<f:case default="TRUE">
+		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<em>{publication.publication}</em>.
+	</f:case>
+</f:switch>
