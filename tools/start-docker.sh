@@ -22,10 +22,16 @@ fi
 
 if [[ "$1" = "--new" ]]; then
     if docker ps -a | grep -q typo3-db ; then
-        docker rm typo3-db
+        read -p "Delete the existing typo3-db image? " -n 1 -r
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            docker rm typo3-db
+        fi
     fi
     if docker ps -a | grep -q typo3-web ; then
-        docker rm typo3-web
+        read -p "Delete the existing typo3-web image? " -n 1 -r
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            docker rm typo3-web
+        fi
     fi
     echo "Renew docker containers (start from scratch again)"
     # Run container with database
