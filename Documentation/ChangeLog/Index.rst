@@ -90,9 +90,11 @@ ChangeLog
 0.1.1 -> 0.1.2
 --------------
 2017-08-23
-  - add new attribute idNumber (parsed in ep3 xml and synced to db)
-  - adding documentation for installation of publist4ubma
+  - BUGFIX: publications with a missing year where not shown up -> empty years are now changed to "9999" (Philipp Zumstein)
+  - Generalize extraction of date, title, abstract from ep3 XML (Philipp Zumstein)
+  - add new attribute idNumber (parsed in ep3 xml and synced to db) (Sebastian Kotthoff)
   - add new APA template in fluid (Philipp Zumstein)
+  - add Docker script for testing during developing (Philipp Zumstein)
+  - adding documentation for installation of publist4ubma
   - delete not used files (viewhelpers and fluid templates)
-  - improve parsing of ep3 xml (Philipp Zumstein)
-  - run some php test and syntax checks and correcting typos (Stefan Weil)
+  - run some php test and syntax checks (php Storm) and correcting typos (Stefan Weil)
