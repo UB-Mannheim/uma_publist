@@ -58,6 +58,7 @@ Sync Job for publist4ubma2:
 3. Unter class select "Auto Update + Cleanup DB" from publist4ubma2
 4. Fill out the timing stuff
 5. Fill in the storagePid (INSTALLATION Step 2) in the field "page_id of folder with data"
+6. Save and enable the task
 
 ## Restriction
 The extension is build for the EPrints system of [Mannheim University Library](https://www.bib.uni-mannheim.de/en/),
