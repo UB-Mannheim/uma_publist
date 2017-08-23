@@ -111,6 +111,9 @@
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.usedCoin">
 				<source>Bib Coin</source>
 			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.idNumber">
+				<source>ID Number</source>
+			</trans-unit>
 
 			<trans-unit id="tx_publist4ubma2_domain_model_publist">
 				<source>Publication Lists</source>
