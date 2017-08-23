@@ -1,9 +1,0 @@
-{namespace m=Unima\Publist4ubma2\ViewHelpers}
-<f:if condition="{publication.creators}">
-	<f:then>
-<m:myExplode content="{publication.creators}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><m:myExplode content="{writer}" glue="," as="thename">{thename.1} {thename.0}</m:myExplode></f:for></m:myExplode>
-	</f:then>
-	<f:else>
-<m:myExplode content="{publication.editors}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><m:myExplode content="{writer}" glue="," as="thename">{thename.1} {thename.0}</m:myExplode></f:for></m:myExplode>
-	</f:else>
-</f:if>
