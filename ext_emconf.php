@@ -23,7 +23,7 @@ http://ub-madoc.bib.uni-mannheim.de/',
 	'uploadfolder' => '0',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '0.1.1',
+	'version' => '0.1.2',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '6.2.0-7.6.99',
