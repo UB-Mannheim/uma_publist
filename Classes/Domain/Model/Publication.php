@@ -267,6 +267,14 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $usedCoin = '';
+	
+	/**
+         * idNumber
+         *
+         * @var string
+         */
+        protected $idNumber = '';
+
 
 
 	/**
@@ -786,5 +794,24 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setUsedCoin($usedCoin) {
 		$this->usedCoin = $usedCoin;
 	}
+	
+	/**
+         * Returns the idNumber
+         *
+         * @return string $idNumber
+         */
+        public function getIdNumber() {
+                return $this->idNumber;
+        }
 
+        /**
+         * Sets the idNumber
+         *
+         * @param string $idNumber
+         * @return void
+         */
+        public function setIdNumber($idNumber) {
+                $this->idNumber = $idNumber;
+        }        /**
+ 
 }
