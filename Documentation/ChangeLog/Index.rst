@@ -86,3 +86,13 @@ ChangeLog
 2017-06-02
   - translate the word "and" in RenderNames - ViewHelpers (German/English)
   - changing state from "alpha" to "beta"
+  
+0.1.1 -> 0.1.2
+--------------
+2017-08-23
+  - add new attribute idNumber (parsed in ep3 xml and synced to db)
+  - adding documentation for installation of publist4ubma
+  - add new APA template in fluid (Philipp Zumstein)
+  - delete not used files (viewhelpers and fluid templates)
+  - improve parsing of ep3 xml (Philipp Zumstein)
+  - run some php test and syntax checks and correcting typos (Stefan Weil)
