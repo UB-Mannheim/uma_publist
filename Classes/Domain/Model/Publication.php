@@ -812,6 +812,6 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
          */
         public function setIdNumber($idNumber) {
                 $this->idNumber = $idNumber;
-        }        /**
+        }
  
 }
