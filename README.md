@@ -46,6 +46,19 @@ plugin.tx_publist4ubma2_pi1 {
 
 Afterwards, you can include a new element of type `Plugin` where you specify the plugin type to this extension and use it in your TYPO3 web pages.
 
+## Setting up a sync job in the Typo3 scheduler
+
+Requirement:
+1. Enable the Typo3 scheduler by installing the system extension and adding a cronjob
+   https://docs.typo3.org/typo3cms/extensions/scheduler/Introduction/Index.html
+
+Sync Job for publist4ubma2:
+1. In the Backend open the Typo3 scheduler
+2. Add a new task by clicking at the "+" at the top
+3. Unter class select "Auto Update + Cleanup DB" from publist4ubma2
+4. Fill out the timing stuff
+5. Fill in the storagePid (INSTALLATION Step 2) in the field "page_id of folder with data"
+
 ## Restriction
 The extension is build for the EPrints system of [Mannheim University Library](https://www.bib.uni-mannheim.de/en/),
 but it should be possible to modify it for other instances of EPrints.
