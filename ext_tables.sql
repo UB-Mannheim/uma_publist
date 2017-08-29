@@ -191,4 +191,3 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 
 );
 
-
