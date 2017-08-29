@@ -157,6 +157,7 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	page_range varchar(255) DEFAULT '' NOT NULL,
 	issn varchar(255) DEFAULT '' NOT NULL,
 	isbn varchar(255) DEFAULT '' NOT NULL,
+	id_number varchar(255) DEFAULT '' NOT NULL,
 	ubma_edition varchar(255) DEFAULT '' NOT NULL,
 	ubma_tags varchar(255) DEFAULT '' NOT NULL,
 	used_coin text NOT NULL,
