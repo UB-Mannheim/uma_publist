@@ -98,3 +98,8 @@ ChangeLog
   - adding documentation for installation of publist4ubma
   - delete not used files (viewhelpers and fluid templates)
   - run some php test and syntax checks (php Storm) and correcting typos (Stefan Weil)
+
+0.1.2 -> 0.1.3
+--------------
+2017-08-29
+  - BUGFIX: add id_number as attribute to publication in ext_tables.sql
