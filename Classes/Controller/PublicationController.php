@@ -175,10 +175,13 @@ class PublicationController extends BasicPublistController {
 			$newPub->setUbmaTags("");
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($publication['title']);
 		if ($publication['title']) {
-			if (is_array($publication['title']) and $publication['title']['title'])
-				$newPub->setTitle($publication['title']['title']);
-			else 
+			if (is_string($publication['title'])) {
 				$newPub->setTitle($publication['title']);
+			} else if ($publication['title']['title']) { //e.g. UniMA
+				$newPub->setTitle($publication['title']['title']);
+			} else if ($publication['title']['item'] and $publication['title']['item']['name']) { //e.g. LMU
+				$newPub->setTitle($publication['title']['item']['name']);
+			}
 		} else {
 			$newPub->setTitle("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no title');
