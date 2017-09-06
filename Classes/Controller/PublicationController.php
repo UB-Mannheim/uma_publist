@@ -344,7 +344,15 @@ class PublicationController extends BasicPublistController {
 		}
 
 		if ($publication['issn']) {
-			$newPub->setIssn($publication['issn']);
+			if (is_string($publication['issn'])) {
+				$newPub->setIssn($publication['issn']);
+			} else if ($publication['issn']['item']) { //e.g. UniRE
+				if (is_array($publication['issn']['item'])) {
+					$newPub->setIssn(join(' ; ', $publication['issn']['item']));
+				} else {
+					$newPub->setIssn($publication['issn']['item']);
+				}
+			}
 		} else {
 			$newPub->setIssn("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no issn');
