@@ -374,11 +374,19 @@ class PublicationController extends BasicPublistController {
 		}
 
 		if ($publication['id_number']) {
-                        $newPub->setIdNumber($publication['id_number']);
-                } else {
-                        $newPub->setIdNumber("");
-                        $this->debugger->add('Publication ' . $publication['eprintid'] . ' has no idNumber');
-                }
+			if (is_string($publication['id_number'])) {
+				$newPub->setIdNumber($publication['id_number']);
+			} else if ($publication['id_number']['item']) {
+				if (is_string($publication['id_number']['item'])) {
+					$newPub->setIdNumber($publication['id_number']['item']);
+				} else if ($publication['id_number']['item']['name']) { //e.g. UniRE
+					$newPub->setIdNumber($publication['id_number']['item']['name']);
+				}
+			}
+		} else {
+			$newPub->setIdNumber("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no idNumber');
+		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
 
