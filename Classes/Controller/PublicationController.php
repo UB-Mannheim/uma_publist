@@ -175,10 +175,13 @@ class PublicationController extends BasicPublistController {
 			$newPub->setUbmaTags("");
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($publication['title']);
 		if ($publication['title']) {
-			if (is_array($publication['title']) and $publication['title']['title'])
-				$newPub->setTitle($publication['title']['title']);
-			else 
+			if (is_string($publication['title'])) {
 				$newPub->setTitle($publication['title']);
+			} else if ($publication['title']['title']) { //e.g. UniMA
+				$newPub->setTitle($publication['title']['title']);
+			} else if ($publication['title']['item'] and $publication['title']['item']['name']) { //e.g. LMU
+				$newPub->setTitle($publication['title']['item']['name']);
+			}
 		} else {
 			$newPub->setTitle("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no title');
@@ -341,7 +344,15 @@ class PublicationController extends BasicPublistController {
 		}
 
 		if ($publication['issn']) {
-			$newPub->setIssn($publication['issn']);
+			if (is_string($publication['issn'])) {
+				$newPub->setIssn($publication['issn']);
+			} else if ($publication['issn']['item']) { //e.g. UniRE
+				if (is_array($publication['issn']['item'])) {
+					$newPub->setIssn(join(' ; ', $publication['issn']['item']));
+				} else {
+					$newPub->setIssn($publication['issn']['item']);
+				}
+			}
 		} else {
 			$newPub->setIssn("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no issn');
@@ -363,11 +374,19 @@ class PublicationController extends BasicPublistController {
 		}
 
 		if ($publication['id_number']) {
-                        $newPub->setIdNumber($publication['id_number']);
-                } else {
-                        $newPub->setIdNumber("");
-                        $this->debugger->add('Publication ' . $publication['eprintid'] . ' has no idNumber');
-                }
+			if (is_string($publication['id_number'])) {
+				$newPub->setIdNumber($publication['id_number']);
+			} else if ($publication['id_number']['item']) {
+				if (is_string($publication['id_number']['item'])) {
+					$newPub->setIdNumber($publication['id_number']['item']);
+				} else if ($publication['id_number']['item']['name']) { //e.g. UniRE
+					$newPub->setIdNumber($publication['id_number']['item']['name']);
+				}
+			}
+		} else {
+			$newPub->setIdNumber("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no idNumber');
+		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
 
