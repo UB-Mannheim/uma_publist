@@ -33,8 +33,8 @@
 			<trans-unit id="publisher.description">
 				<source>publisher</source>
 			</trans-unit>
-			<trans-unit id="rev_number.description">
-				<source>revNumber</source>
+			<trans-unit id="number.description">
+				<source>number</source>
 			</trans-unit>
 			<trans-unit id="publication.description">
 				<source>publication</source>
