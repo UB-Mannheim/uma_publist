@@ -23,7 +23,7 @@
 	</f:case>
 	<f:case value="book_section">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
-		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}" /><m:renderNamesApa somebody="{publication.editors}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="conference_item">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
