@@ -6,7 +6,21 @@
 		<em>{publication.publication}</em>, {publication.volume}, {publication.revNumber}, {publication.pageRange}.
 	</f:case>
 	<f:case value="book">
-		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
+		<span class='Z3988' title='{publication.usedCoin}'></span>
+		<f:if condition="{publication.creators}">
+			<f:then>
+				<m:renderNamesWithAnd somebody="{publication.creators}" />
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.editors}">
+					<m:renderNamesWithAnd somebody="{publication.editors}" /> (Hrsg.)
+				</f:if>
+				<f:else>
+					{publication.corpCreators}
+				</f:else>
+			</f:else>
+		</f:if>
+		({publication.year}):
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
 		{publication.placeOfPub} : {publication.publisher}.
 	</f:case>
@@ -82,7 +96,7 @@
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
 	</f:case>
 	<f:case default="TRUE">
-		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
+		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> <m:renderNamesWithAnd somebody="{publication.editors}" /> {publication.corpCreators}({publication.year}):
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
 		<em>{publication.publication}</em>.
 	</f:case>

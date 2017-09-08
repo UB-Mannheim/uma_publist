@@ -10,7 +10,12 @@
 				<m:renderNamesApa somebody="{publication.creators}" />
 			</f:then>
 			<f:else>
-				<m:renderNamesApa somebody="{publication.editors}" />
+				<f:if condition="{publication.editors}">
+					<m:renderNamesApa somebody="{publication.editors}" /> (Hrsg.)
+				</f:if>
+				<f:else>
+					{publication.corpCreators}
+				</f:else>
 			</f:else>
 		</f:if>
 		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
@@ -76,7 +81,7 @@
 		{publication.bookTitle}.
 	</f:case>
 	<f:case default="TRUE">
-		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<m:renderNamesApa somebody="{publication.creators}" /> <m:renderNamesApa somebody="{publication.editors}" /> {publication.corpCreators} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
 		<em>{publication.publication}</em>.
 	</f:case>
 </f:switch>

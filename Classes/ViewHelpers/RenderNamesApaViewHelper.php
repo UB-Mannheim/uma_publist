@@ -32,6 +32,10 @@ class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
 	public function render($somebody)
 	{
 		$output = '';
+		
+		if ($somebody=='') {
+			return '';
+		}
 
 		$peopleList = explode(';', $somebody);
 		$peopleNumber = count($peopleList);
