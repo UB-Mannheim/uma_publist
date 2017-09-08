@@ -32,12 +32,12 @@
 	<f:case value="conference_item">
 		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
-		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
+		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /><m:renderNamesWithAnd somebody="{publication.editors}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
 	</f:case>
 	<f:case value="workshop_item">
 		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
-		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
+		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /><m:renderNamesWithAnd somebody="{publication.editors}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
 	</f:case>
 	<f:case value="dissertation">
 		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
@@ -47,7 +47,7 @@
 	<f:case value="encyclopedia_article">
 		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>.
-		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
+		In: <m:renderNamesWithAnd somebody="{publication.ubmaBookEditor}" /><m:renderNamesWithAnd somebody="{publication.editors}" /> <em>{publication.bookTitle}</em>, {publication.placeOfPub} : {publication.publisher}, S. {publication.pageRange}.
 	</f:case>
 	<f:case value="habilitation">
 		<span class='Z3988' title='{publication.usedCoin}'></span><m:renderNamesWithAnd somebody="{publication.creators}" /> ({publication.year}):
