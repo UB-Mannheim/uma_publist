@@ -10,7 +10,7 @@
 		<m:renderNamesWithAnd somebody="{publication.creators}" />.
 		{publication.corpCreators} {publication.year}
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-		<em>{publication.publication},</em> {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
+		<em>{publication.publication},</em> {publication.volume}, {publication.number}, {publication.pageRange}<br />{publication.abstract}
 	</f:case>
 	<f:case value="book_section">
 		<m:renderNamesWithAnd somebody="{publication.creators}" />.
@@ -43,7 +43,7 @@
 		<m:renderNamesWithAnd somebody="{publication.creators}" />.
 		{publication.publisher}, {publication.corpCreators} {publication.year}
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external> </strong>
-		{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.placeOfPub}<br />{publication.abstract}
+		{publication.publication}, {publication.volume}, {publication.number}, {publication.placeOfPub}<br />{publication.abstract}
 	</f:case>
 	<f:case value="other">
 		<m:renderNamesWithAnd somebody="{publication.creators}" />.
@@ -66,7 +66,7 @@
 	<f:case value="review">
 		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.publisher},
 		<strong> <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}.</f:link.external></strong>
-		{publication.publication}, {publication.volume}, {publication.revNumber}, {publication.pageRange}<br />{publication.abstract}
+		{publication.publication}, {publication.volume}, {publication.number}, {publication.pageRange}<br />{publication.abstract}
 	</f:case>
 	<f:case value="thesis">
 		<m:renderNamesWithAnd somebody="{publication.creators}" />. {publication.year}

@@ -279,11 +279,11 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no publisher');
 		}
 
-		if ($publication['rev_number'])
-			$newPub->setRevNumber($publication['rev_number']);
+		if ($publication['number'])
+			$newPub->setNumber($publication['number']);
 		else {
-			$newPub->setRevNumber("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no rev_number');
+			$newPub->setNumber("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no number');
 		}
 
 		if ($publication['publication'])
