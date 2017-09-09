@@ -169,6 +169,13 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no type');
 		}
 
+		if ($publication['@attributes'] and $publication['@attributes']['id'])
+			$newPub->setEprintIdUrl($publication['@attributes']['id']);
+		else {
+			$newPub->setEprintIdUrl("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no eprintIdUrl');
+		}
+
 		if ( $publication['ubma_tags'])
 			$newPub->setUbmaTags($publication['ubma_tags']);
 		else
