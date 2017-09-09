@@ -577,14 +577,10 @@ class PublicationController extends BasicPublistController {
 			$coin .= "&rft.volume=" . rawurlencode($pub->getVolume());
 		}
 
-/*
-		// field not in typo3 DB yet, forgotten, have to add it
-		
 		//number --> issue
-		if ( isset($pubListArray["$index"][number]) ) {
-			$coin .= "&rft.issue=" . rawurlencode($pubListArray["$index"][number]);
+		if ( $pub->getNumber() != "" ) {
+			$coin .= "&rft.issue=" . rawurlencode($pub->getNumber());
 		}
-*/
 
 		//pagerange --> pages
 		if ( $pub->getPageRange() != "" ) {
