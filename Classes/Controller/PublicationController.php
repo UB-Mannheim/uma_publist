@@ -107,7 +107,7 @@ class PublicationController extends BasicPublistController {
 		//$this->errorHandler->setError(1, 'TestError');
 		//$pubs = $this->publicationRepository->findAll();
 
-		// check if ther is a eprintid
+		// check if there is a eprintid
 		if (intval($publication['eprintid']) <= 0)  {
 			$this->debugger->add('no valid eprintid in publication, skip this');
 			return;
@@ -139,30 +139,8 @@ class PublicationController extends BasicPublistController {
 
 		$newPub->setEprintId(intval($publication['eprintid']));
 
-		if ($publication['type'])
-		{
-/*
-// Let us do this in function "get()", before display on page, after reading from DB
-// Because Publications could used in multiple publication-lists, with different settings of
-// "useadvancedtypesbytag"
-
-			if ($this->settings['useadvancedtypesbytag']) {
-				if ( $publication['ubma_tags'])
-					// implement advanced custom types
-					$newPub->setBibType($this->decodeAdvancedType($publication['type'], $publication['ubma_tags']));
-				else {
-					$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_tags - use normal type');
-					$newPub->setBibType($publication['type']);
-				}
-				// check, if this type is really needed, otherwise drop publication
-				$displayTypes = explode(',', $this->settings['advancedtype']);
-				if ((!in_array('all', $displayTypes)) AND (!in_array($newPub->getBibType(), $displayTypes))) {
-					$this->debugger->add('Publication ' . $publication['eprintid'] . ' is skipped because of wrong type');
-					return;
-				}
-			} else
-*/
-				$newPub->setBibType($publication['type']);
+		if ($publication['type']) {
+			$newPub->setBibType($publication['type']);
 		}
 		else {
 			$newPub->setBibType($publication['notype']);
@@ -232,25 +210,7 @@ class PublicationController extends BasicPublistController {
 
 		// select the usedLinkUrl
 		$URL = $newPub->getUrl();
-		// if select URL = auto
-/*
-// Let us do this in function "get()", before display on page, after reading from DB
-// Because Publications could used in multiple publication-lists, with different settings of
-// "selecturl"
 
-
-		if ($this->settings['selecturl'] == 0) {
-			if (!$URL || ($URL == ""))
-				$URL = $publication['ubma_url_extern'];
-			if (!$URL || ($URL == ""))
-				$URL = $publication['official_url'];
-		}
-		if (!$URL || ($URL == ""))
-			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $publication['eprintid'];
-
-		$newPub->setUsedLinkUrl($URL);
-		// \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub->getUsedLinkUrl());
-*/
 		if (intval($publication['ubma_date_year']))
 			$newPub->setYear(intval($publication['ubma_date_year']));
 		else {
