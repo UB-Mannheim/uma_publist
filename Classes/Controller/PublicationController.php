@@ -90,8 +90,9 @@ class PublicationController extends BasicPublistController {
 				$URL = $publication->getUrlOffical();
 		}
 		if (!$URL || ($URL == ""))
-			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
-		$publication->setUsedLinkUrl($URL); 
+			$URL = $publication->getEprintIdUrl();
+			//$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
+		$publication->setUsedLinkUrl($URL);
 
 
 		return $publication;
