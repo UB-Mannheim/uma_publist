@@ -135,6 +135,7 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	eprint_id int(11) DEFAULT '0' NOT NULL,
+	eprint_id_url varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	book_title varchar(255) DEFAULT '' NOT NULL,
 	abstract text NOT NULL,

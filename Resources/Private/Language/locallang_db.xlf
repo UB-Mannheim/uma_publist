@@ -36,6 +36,9 @@
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.eprint_id">
 				<source>Eprint Id</source>
 			</trans-unit>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.eprint_id_url">
+				<source>Eprint Id Url</source>
+			</trans-unit>
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.title">
 				<source>Title</source>
 			</trans-unit>
