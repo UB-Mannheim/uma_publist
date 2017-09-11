@@ -103,3 +103,11 @@ ChangeLog
 --------------
 2017-08-29
   - BUGFIX: add id_number as attribute to publication in ext_tables.sql
+
+0.1.3 -> 0.1.4
+--------------
+2017-09-11
+  - Add more variants for title, issn, doi
+  - BUGFIX: Use number instead of revNumber and use it for COinS data
+  - Improve rendering for BIB and APA template
+  - Add new field eprintIdUrl and use it for URL rendering
