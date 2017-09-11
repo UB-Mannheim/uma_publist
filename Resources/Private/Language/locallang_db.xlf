@@ -72,8 +72,8 @@
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.publisher">
 				<source>Publisher</source>
 			</trans-unit>
-			<trans-unit id="tx_publist4ubma2_domain_model_publication.rev_number">
-				<source>Rev Number</source>
+			<trans-unit id="tx_publist4ubma2_domain_model_publication.number">
+				<source>Number</source>
 			</trans-unit>
 			<trans-unit id="tx_publist4ubma2_domain_model_publication.publication">
 				<source>Publication</source>

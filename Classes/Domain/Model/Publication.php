@@ -175,11 +175,11 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $publisher = '';
 
 	/**
-	 * revNumber
+	 * number
 	 *
 	 * @var string
 	 */
-	protected $revNumber = '';
+	protected $number = '';
 
 	/**
 	 * publication
@@ -555,22 +555,22 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the revNumber
+	 * Returns the number
 	 *
-	 * @return string $revNumber
+	 * @return string $number
 	 */
-	public function getRevNumber() {
-		return $this->revNumber;
+	public function getNumber() {
+		return $this->number;
 	}
 
 	/**
-	 * Sets the revNumber
+	 * Sets the number
 	 *
-	 * @param string $revNumber
+	 * @param string $number
 	 * @return void
 	 */
-	public function setRevNumber($revNumber) {
-		$this->revNumber = $revNumber;
+	public function setNumber($number) {
+		$this->number = $number;
 	}
 
 	/**
