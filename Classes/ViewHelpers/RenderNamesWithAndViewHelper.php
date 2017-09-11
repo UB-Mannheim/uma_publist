@@ -32,6 +32,10 @@ class RenderNamesWithAndViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abst
 	public function render($somebody)
 	{
 		$output = '';
+		
+		if ($somebody=='') {
+			return '';
+		}
 
 		if (strpos($somebody, ";") >= 0) {
 			$peopleList = explode( ';', $somebody);

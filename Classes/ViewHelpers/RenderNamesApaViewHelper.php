@@ -32,12 +32,16 @@ class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
 	public function render($somebody)
 	{
 		$output = '';
+		
+		if ($somebody=='') {
+			return '';
+		}
 
 		$peopleList = explode(';', $somebody);
 		$peopleNumber = count($peopleList);
 		for ($i = 0; $i < $peopleNumber; $i++) {
 			if ($theName = explode(',', $peopleList[$i])) {
-				$output .= $theName[0] . ', ' . preg_replace('/[^A-Z]+\s?/', '.', $theName[1]);
+				$output .= $theName[0] . ', ' . preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]);
 				# The regexp above misses firstnames starting with non-ascii letter.
 				if ($i < $peopleNumber-1) {
 					if ($i < $peopleNumber-2) {
