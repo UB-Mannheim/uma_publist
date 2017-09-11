@@ -123,6 +123,15 @@ return array(
 				'eval' => 'int'
 			)
 		),
+		'eprint_id_url' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_db.xlf:tx_publist4ubma2_domain_model_publication.eprint_id_url',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
 		'title' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_db.xlf:tx_publist4ubma2_domain_model_publication.title',

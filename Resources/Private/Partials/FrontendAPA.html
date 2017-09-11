@@ -10,7 +10,12 @@
 				<m:renderNamesApa somebody="{publication.creators}" />
 			</f:then>
 			<f:else>
-				<m:renderNamesApa somebody="{publication.editors}" />
+				<f:if condition="{publication.editors}">
+					<m:renderNamesApa somebody="{publication.editors}" /> (Hrsg.)
+				</f:if>
+				<f:else>
+					{publication.corpCreators}
+				</f:else>
 			</f:else>
 		</f:if>
 		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
@@ -18,11 +23,11 @@
 	</f:case>
 	<f:case value="book_section">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
-		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}" /><m:renderNamesApa somebody="{publication.editors}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="conference_item">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
-		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/>, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/><m:renderNamesApa somebody="{publication.editors}" />, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}.
 	</f:case>
 	<f:case value="dissertation">
@@ -31,7 +36,7 @@
 	</f:case>
 	<f:case value="encyclopedia_article">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
-		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+		In <m:renderNamesApa somebody="{publication.ubmaBookEditor}"/><m:renderNamesApa somebody="{publication.editors}" />, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="habilitation">
 		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
@@ -76,7 +81,7 @@
 		{publication.bookTitle}.
 	</f:case>
 	<f:case default="TRUE">
-		<m:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<m:renderNamesApa somebody="{publication.creators}" /> <m:renderNamesApa somebody="{publication.editors}" /> {publication.corpCreators} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
 		<em>{publication.publication}</em>.
 	</f:case>
 </f:switch>

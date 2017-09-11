@@ -81,12 +81,19 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
                 $this->tstamp = $tstamp;
         }
 
-	/**
-	 * eprintId
-	 *
-	 * @var int
-	 */
-	protected $eprintId = 0;
+        /**
+         * eprintId
+         *
+         * @var int
+         */
+        protected $eprintId = 0;
+
+        /**
+         * eprintIdUrl
+         *
+         * @var string
+         */
+        protected $eprintIdUrl;
 
         /**
          * @var string
@@ -315,6 +322,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setEprintId($eprintId) {
 		$this->eprintId = $eprintId;
+	}
+
+	/**
+	 * Returns the eprintIdUrl
+	 *
+	 * @return int $eprintIdUrl
+	 */
+	public function getEprintIdUrl() {
+		return $this->eprintIdUrl;
+	}
+
+	/**
+	 * Sets the eprintIdUrl
+	 *
+	 * @param int $eprintIdUrl
+	 * @return void
+	 */
+	public function setEprintIdUrl($eprintIdUrl) {
+		$this->eprintIdUrl = $eprintIdUrl;
 	}
 
 	/**
