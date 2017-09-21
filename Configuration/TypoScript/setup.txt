@@ -39,21 +39,21 @@ plugin.tx_publist4ubma2_pi1 {
 		}
 		de {
 			book = Buch
-			article = Artikel
-			book_section = Buch Kapitel
+			article = Zeitschriftenartikel
+			book_section = Buchkapitel
 			dissertation = Dissertation
-			encyclopedia_article = Enzyklopädie Artikel
+			encyclopedia_article = Lexikonartikel
 			habilitation = Habilitation
-			journal = Zeitschrift
-			other = Other
+			journal = Zeitschrift / Schriftenreihe
+			other = Sonstiges
 			preprint = Preprint
-			report = Report
-			review = Review
-			thesis = Doktor Arbeit
-			research_paper = Forschungs Papier
-			conference_item = Konferenz Beitrag
-			workshop_item = Workshop Beitrag
-			master_thesis = Master Arbeit
+			report = Bericht
+			review = Rezension
+			thesis = Abschlussarbeit
+			research_paper = Arbeitspapier
+			conference_item = Konferenzveröffentlichung
+			workshop_item = Workshop-Beitrag
+			master_thesis = Masterarbeit
 			poster = Poster
 			and = und
 
