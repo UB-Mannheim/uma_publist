@@ -9,7 +9,7 @@
 
 set -x
 
-TYPO3VERSION=7
+TYPO3VERSION=8
 MAIN_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )
 
 # Stop already running containers
@@ -47,7 +47,7 @@ if [[ "$1" = "--new" ]]; then
     docker run -d --name typo3-web \
         --link typo3-db:db \
         -p 80:80 \
-        -v "$MAIN_DIR":/var/www/html/typo3conf/ext/publist4ubma2 \
+        -v "$MAIN_DIR":/var/www/html/typo3conf/ext/uma_publist \
       martinhelmich/typo3:"$TYPO3VERSION"
 else
     if ! docker ps -a | grep -q typo3-db ; then

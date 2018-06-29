@@ -27,7 +27,7 @@ http://ub-madoc.bib.uni-mannheim.de/',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '7.6.0-8.9.99',
-			'vhs' => '3.0.0-4.9.99'
+			'vhs' => '3.0.0-5.9.99'
 		),
 		'conflicts' => array(
 		),

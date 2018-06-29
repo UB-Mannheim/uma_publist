@@ -1,6 +1,6 @@
 # uma_publist
 
-[![typoversions](https://img.shields.io/badge/TYPO3-6.2,%207.6-blue.svg?style=flat.svg)](https://github.com/UB-Mannheim/publist4ubma2#requirements)
+[![typoversions](https://img.shields.io/badge/TYPO3-8.7-blue.svg?style=flat.svg)](https://github.com/UB-Mannheim/publist4ubma2#requirements)
 [![license](https://img.shields.io/badge/license-GPL%202.0-yellow.svg?style=flat)](https://github.com/UB-Mannheim/publist4ubma2/blob/master/LICENSE)
 
 This is a TYPO3 extension to include publication lists from an EPrints repository
