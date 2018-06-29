@@ -48,7 +48,7 @@ ChangeLog
 0.0.4 -> 0.0.5
 --------------
 2016-11-17
-  - BUGFIX: in "Unima\Publist4ubma2\Controller\PublicationController::decodeAuthors():"
+  - BUGFIX: in "UMA\UmaPublist\Controller\PublicationController::decodeAuthors():"
     - had to remove [$index] from variable
   - BUGFIX: in "Classes/ViewHelpers/RenderNamesWithAndRdfaSchemaViewHelper.php"
     - wrong usage of strpos
@@ -86,28 +86,3 @@ ChangeLog
 2017-06-02
   - translate the word "and" in RenderNames - ViewHelpers (German/English)
   - changing state from "alpha" to "beta"
-  
-0.1.1 -> 0.1.2
---------------
-2017-08-23
-  - BUGFIX: publications with a missing year where not shown up -> empty years are now changed to "9999" (Philipp Zumstein)
-  - Generalize extraction of date, title, abstract from ep3 XML (Philipp Zumstein)
-  - add new attribute idNumber (parsed in ep3 xml and synced to db) (Sebastian Kotthoff)
-  - add new APA template in fluid (Philipp Zumstein)
-  - add Docker script for testing during developing (Philipp Zumstein)
-  - adding documentation for installation of publist4ubma
-  - delete not used files (viewhelpers and fluid templates)
-  - run some php test and syntax checks (php Storm) and correcting typos (Stefan Weil)
-
-0.1.2 -> 0.1.3
---------------
-2017-08-29
-  - BUGFIX: add id_number as attribute to publication in ext_tables.sql
-
-0.1.3 -> 0.1.4
---------------
-2017-09-11
-  - Add more variants for title, issn, doi
-  - BUGFIX: Use number instead of revNumber and use it for COinS data
-  - Improve rendering for BIB and APA template
-  - Add new field eprintIdUrl and use it for URL rendering

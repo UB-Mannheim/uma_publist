@@ -1,0 +1,19 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+<f:if condition="{publication.creators}">
+	<f:then>
+<n:myExplode content="{publication.creators}" glue=";" as="writersarray">
+	<f:for each="{writersarray}" as="writer" iteration="iterator">
+		<n:myExplode content="{writer}" glue="," as="thename">
+			{thename.0},
+			<n:firstChar text="{thename.1}" />.
+		</n:myExplode>
+	</f:for>
+</n:myExplode>
+	</f:then>
+	<f:else>
+<n:myExplode content="{publication.editors}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><n:myExplode content="{writer}" glue="," as="thename">{thename.0}, <n:firstChar text="{thename.1}" />.</n:myExplode></f:for></n:myExplode>
+	</f:else>
+</f:if>

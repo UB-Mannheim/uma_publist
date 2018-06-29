@@ -1,6 +1,6 @@
 <?php
 
-namespace Unima\Publist4ubma2\Utility;
+namespace UMA\UmaPublist\Utility;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -33,10 +33,10 @@ class TemplateLayout implements SingletonInterface {
 		$templateLayouts = array();
 
 		// Check if the layouts are extended by ext_tables
-		if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['publist4ubma2']['templateLayouts'])
-			&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['publist4ubma2']['templateLayouts'])
+		if (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['uma_publist']['templateLayouts'])
+			&& is_array($GLOBALS['TYPO3_CONF_VARS']['EXT']['uma_publist']['templateLayouts'])
 		) {
-			$templateLayouts = $GLOBALS['TYPO3_CONF_VARS']['EXT']['publist4ubma2']['templateLayouts'];
+			$templateLayouts = $GLOBALS['TYPO3_CONF_VARS']['EXT']['uma_publist']['templateLayouts'];
 		}
 
 		// Add TsConfig values
@@ -61,8 +61,8 @@ class TemplateLayout implements SingletonInterface {
 	protected function getTemplateLayoutsFromTsConfig($pageUid) {
 		$templateLayouts = array();
 		$pagesTsConfig = BackendUtility::getPagesTSconfig($pageUid);
-		if (isset($pagesTsConfig['tx_publist4ubma2.']['templateLayouts.']) && is_array($pagesTsConfig['tx_publist4ubma2.']['templateLayouts.'])) {
-			$templateLayouts = $pagesTsConfig['tx_publist4ubma2.']['templateLayouts.'];
+		if (isset($pagesTsConfig['tx_umapublist.']['templateLayouts.']) && is_array($pagesTsConfig['tx_umapublist.']['templateLayouts.'])) {
+			$templateLayouts = $pagesTsConfig['tx_umapublist.']['templateLayouts.'];
 		}
 		return $templateLayouts;
 	}

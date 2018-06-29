@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\ViewHelpers;
+namespace UMA\UmaPublist\ViewHelpers;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -18,7 +18,7 @@ namespace Unima\Publist4ubma2\ViewHelpers;
  * ViewHelper to get pub-types for one year
  *
  * @package TYPO3
- * @subpackage publist4ubma2
+ * @subpackage tx_umapublist
  */
 class BibTypesThisYearViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {

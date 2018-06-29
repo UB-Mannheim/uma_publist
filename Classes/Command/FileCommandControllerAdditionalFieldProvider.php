@@ -1,6 +1,6 @@
 <?php
 
-namespace Unima\Publist4ubma2\Command;
+namespace UMA\UmaPublist\Command;
 
 /* puts a new filed in Task Scheduler Formular "Ordner für die Speicherung"
    Very Cool!

@@ -1,44 +1,44 @@
-.publist4ubma2-be .clear {
+.uma-publist-be .clear {
   clear: both;
 }
-.publist4ubma2-be .category-tree {
+.uma-publist-be .category-tree {
   float: left;
   margin: 0 10px;
 }
-.publist4ubma2-be .category-tree ul {
+.uma-publist-be .category-tree ul {
   margin: 4px;
 }
-.publist4ubma2-be .category-tree ul ul {
+.uma-publist-be .category-tree ul ul {
   margin: 2px 0 4px 12px;
 }
-.publist4ubma2-be .form {
+.uma-publist-be .form {
   float: left;
   border-right: 1px solid #ccc;
   padding-right: 10px;
 }
-.publist4ubma2-be .settings {
+.uma-publist-be .settings {
   background-color: #EDEDED;
   border-top: 1px solid #CDCDCD;
   border-bottom: 1px solid #CDCDCD;
   padding: 12px;
   margin-bottom: 24px;
 }
-.publist4ubma2-be .settings .field {
+.uma-publist-be .settings .field {
   padding: 2px 0;
 }
-.publist4ubma2-be .settings .category-tree li {
+.uma-publist-be .settings .category-tree li {
   margin: 2px 0;
 }
-.publist4ubma2-be .settings .category-tree li label {
+.uma-publist-be .settings .category-tree li label {
   padding: 0;
   margin: 0;
   min-height: 12px;
   line-height: 1;
 }
-.publist4ubma2-be .settings .category-tree input {
+.uma-publist-be .settings .category-tree input {
   margin: 0;
 }
-.publist4ubma2-be .settings .category-tree .tree-wrapper {
+.uma-publist-be .settings .category-tree .tree-wrapper {
   background: white;
   border: 1px solid #CDCDCD;
   padding: 0 4px;
@@ -47,23 +47,27 @@
   margin-bottom: 5px;
   overflow: auto;
 }
-.publist4ubma2-be .settings .form .field label {
+.uma-publist-be .settings .form .field label {
   display: block;
   float: left;
   width: 150px;
 }
-.publist4ubma2-be .settings .submit {
+.uma-publist-be .settings .submit {
   margin: 5px 0 3px 150px;
 }
-.publist4ubma2-be .result .item {
+.uma-publist-be .result .item {
   padding: 1px;
 }
-.publist4ubma2-be .result .item a {
+.uma-publist-be .result .item a {
   font-style: italic;
 }
-.publist4ubma2-be .result .item a :hover {
+.uma-publist-be .result .item a :hover {
   text-decoration: underline;
 }
-.publist4ubma2-be .hide, .publist4ubma2-be .hide-line {
+.uma-publist-be .hide, .uma-publist-be .hide-line {
   opacity: 0.5;
+}
+
+#tools-UmaPublistMod1 td {
+  padding-right: 20px;
 }

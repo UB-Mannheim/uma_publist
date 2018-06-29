@@ -1,36 +1,22 @@
 {
-    "name": "uni-mannheim/publist4ubma2",
-    "type": "typo3-cms-extension",
-    "description": "TYPO3 extension which shows publications from an EPrints repository",
-    "keywords": [
-        "TYPO3",
-        "extension",
-        "EPrints"
-    ],
-    "homepage": "https://github.com/UB-Mannheim/publist4ubma2",
-    "support": {
-        "issues": "https://github.com/UB-Mannheim/publist4ubma2/issues",
-        "wiki": "https://github.com/UB-Mannheim/publist4ubma2/wiki"
-    },
-    "authors": [
-        {
-            "name": "Sebastian Kotthoff",
-            "email": "sebastian.kotthoff@rz.uni-mannheim.de",
-            "role": "Developer",
-            "homepage": "http://dws.informatik.uni-mannheim.de/en/people/administration/sebastiankotthoff/"
-        }
-    ],
-    "license": "GPL-2.0",
-    "require": {
-        "typo3/cms-core": ">=6.2.0 <=7.6.99"
-    },
-    "autoload": {
-        "psr-4": {
-            "Unima\\Publist4ubma2\\": "Classes"
-        }
-    },
-    "replace": {
-        "publist4ubma2": "self.version",
-        "typo3-ter/publist4ubma2": "self.version"
-    }
+	"name": "uma/uma-publist",
+	"type": "typo3-cms-extension",
+	"description": "University of Mannheim Publication Lists",
+	"license": [
+		"GPL-2.0+"
+	],
+	"keywords": [
+		"TYPO3 CMS",
+		"University of Mannheim",
+		"Publication Lists"
+	],
+	"replace": {
+		"uma-publist": "self.version",
+		"uma/uma-publist": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"UMA\\UmaPublist\\": "Classes/"
+		}
+	}
 }

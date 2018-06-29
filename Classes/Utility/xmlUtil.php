@@ -1,6 +1,6 @@
 <?php
 
-namespace Unima\Publist4ubma2\Utility;
+namespace UMA\UmaPublist\Utility;
 
         /**
  * This file is part of the TYPO3 CMS project.

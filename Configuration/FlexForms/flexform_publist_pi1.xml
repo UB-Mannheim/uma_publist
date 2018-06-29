@@ -6,14 +6,14 @@
   <query>
    <ROOT>
     <TCEforms>
-     <sheetTitle>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.query</sheetTitle>
+     <sheetTitle>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.query</sheetTitle>
     </TCEforms>
     <type>array</type>
     <el>
 
      <settings.title>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title</label>
        <config>
         <type>input</type>
         <size>30</size>
@@ -23,7 +23,7 @@
 
      <settings.author>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author</label>
        <config>
         <type>input</type>
         <size>30</size>
@@ -33,16 +33,17 @@
 
      <settings.authorcombi>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi.or</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi.or</numIndex>
           <numIndex index="1">or</numIndex>
          </numIndex>
          <numIndex    index="1">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi.and</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.authorcombi.and</numIndex>
           <numIndex index="1">and</numIndex>
          </numIndex>
         </items>
@@ -50,9 +51,31 @@
       </TCEforms>
      </settings.authorcombi>
 
+<![CDATA[
+     <settings.publication>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication</label>
+       <config>
+        <type>input</type>
+        <size>30</size>
+       </config>
+      </TCEforms>
+     </settings.publication>
+
+     <settings.textFilter>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.textfilter</label>
+       <config>
+        <type>input</type>
+        <size>30</size>
+       </config>
+      </TCEforms>
+     </settings.textFilter>
+]]>
+
      <settings.excludeexternal>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.excludeexternal</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.excludeexternal</label>
        <config>
         <type>check</type>
         <default>0</default>
@@ -62,7 +85,7 @@
 
      <settings.searchtags>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.searchtags</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.searchtags</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -73,7 +96,7 @@
 
      <settings.tagstring>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.tagstring</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.tagstring</label>
        <displayCond>FIELD:settings.searchtags:=:1</displayCond> 
        <config>
         <type>input</type>
@@ -84,32 +107,33 @@
 
      <settings.taglogic>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic</label>
        <displayCond>FIELD:settings.searchtags:=:1</displayCond>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <default>0</default>
         <items>
          <numIndex index="0">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.or</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.or</numIndex>
           <numIndex index="1">or</numIndex>
          </numIndex>
          <numIndex index="1">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.and</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.and</numIndex>
           <numIndex index="1">and</numIndex> 
          </numIndex>
          <numIndex index="2">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.string</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.string</numIndex>
           <numIndex index="1">string</numIndex> 
          </numIndex>
         </items>
        </config>
       </TCEforms>
-     </settings.taglogic>        
+     </settings.taglogic>
 
      <settings.tagkeysense>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.tagkeysense</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.tagkeysense</label>
        <displayCond>FIELD:settings.searchtags:=:1</displayCond>
        <config>
         <type>check</type>
@@ -120,7 +144,7 @@
 
      <settings.useadvancedtypesbytag>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.useadvancedtypesbytag</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.useadvancedtypesbytag</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -131,74 +155,73 @@
 
      <settings.type>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type</label>
        <displayCond>FIELD:settings.useadvancedtypesbytag:!=:1</displayCond>
        <config>
         <type>select</type>
+        <renderType>selectMultipleSideBySide</renderType>
         <maxitems>20</maxitems>
         <minitems>0</minitems>
         <multiple>0</multiple>
         <size>7</size>
-        <default>all</default>
+        <default>article,research_paper,conference_item,conference_presentation,book,book_section</default>
         <items>
+         <!--
          <numIndex index="0">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.all</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.all</numIndex>
           <numIndex index="1">all</numIndex>
          </numIndex>
+         -->
          <numIndex index="1">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.article</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.article</numIndex>
           <numIndex index="1">article</numIndex> 
          </numIndex>
          <numIndex index="2">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book</numIndex>
           <numIndex index="1">book</numIndex> 
          </numIndex>
          <numIndex index="3">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book_section</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book_section</numIndex>
           <numIndex index="1">book_section</numIndex>
          </numIndex>
          <numIndex index="4">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_item</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_item</numIndex>
           <numIndex index="1">conference_item</numIndex> 
          </numIndex>
          <numIndex index="5">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.dissertation</numIndex>
-          <numIndex index="1">dissertation</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_presentation</numIndex>
+          <numIndex index="1">conference_presentation</numIndex> 
          </numIndex>
          <numIndex index="6">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.encyclopedia_article</numIndex>
-          <numIndex index="1">encyclopedia_article</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.dissertation</numIndex>
+          <numIndex index="1">dissertation</numIndex> 
          </numIndex>
          <numIndex index="7">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.habilitation</numIndex>
-          <numIndex index="1">habilitation</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.encyclopedia_article</numIndex>
+          <numIndex index="1">encyclopedia_article</numIndex>
          </numIndex>
          <numIndex index="8">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.journal</numIndex>
-          <numIndex index="1">journal</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.habilitation</numIndex>
+          <numIndex index="1">habilitation</numIndex> 
          </numIndex>
          <numIndex index="9">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.other</numIndex>
-          <numIndex index="1">other</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.journal</numIndex>
+          <numIndex index="1">journal</numIndex> 
          </numIndex>
          <numIndex index="10">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.preprint</numIndex>
-          <numIndex index="1">preprint</numIndex> 
-         </numIndex>
-         <numIndex index="11">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.report</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.report</numIndex>
           <numIndex index="1">report</numIndex> 
          </numIndex>
-         <numIndex index="12">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.review</numIndex>
+         <numIndex index="11">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.review</numIndex>
           <numIndex index="1">review</numIndex>
          </numIndex>
-         <numIndex index="13">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.thesis</numIndex>
+         <numIndex index="12">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.thesis</numIndex>
           <numIndex index="1">thesis</numIndex>
          </numIndex>
-         <numIndex index="14">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.research_paper</numIndex>
+         <numIndex index="13">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.research_paper</numIndex>
           <numIndex index="1">research_paper</numIndex>
          </numIndex>
         </items>
@@ -208,10 +231,11 @@
 
      <settings.advancedtype>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.advancedtype</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.advancedtype</label>
        <displayCond>FIELD:settings.useadvancedtypesbytag:=:1</displayCond>
        <config>
         <type>select</type>
+        <renderType>selectMultipleSideBySide</renderType>
         <maxitems>20</maxitems>
         <minitems>0</minitems>
         <multiple>0</multiple>
@@ -219,78 +243,73 @@
         <default>all</default>
         <items>
          <numIndex index="0">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.all</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.all</numIndex>
           <numIndex index="1">all</numIndex>
          </numIndex>
          <numIndex index="1">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.article</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.article</numIndex>
           <numIndex index="1">article</numIndex> 
          </numIndex>
          <numIndex index="2">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book</numIndex>
           <numIndex index="1">book</numIndex> 
          </numIndex>
          <numIndex index="3">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book_section</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.book_section</numIndex>
           <numIndex index="1">book_section</numIndex>
          </numIndex>
          <numIndex index="4">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_item</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_item</numIndex>
           <numIndex index="1">conference_item</numIndex> 
          </numIndex>
          <numIndex index="5">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.dissertation</numIndex>
-          <numIndex index="1">dissertation</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.conference_presentation</numIndex>
+          <numIndex index="1">conference_presentation</numIndex> 
          </numIndex>
          <numIndex index="6">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.encyclopedia_article</numIndex>
-          <numIndex index="1">encyclopedia_article</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.dissertation</numIndex>
+          <numIndex index="1">dissertation</numIndex> 
          </numIndex>
          <numIndex index="7">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.habilitation</numIndex>
-          <numIndex index="1">habilitation</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.encyclopedia_article</numIndex>
+          <numIndex index="1">encyclopedia_article</numIndex>
          </numIndex>
          <numIndex index="8">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.journal</numIndex>
-          <numIndex index="1">journal</numIndex> 
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.habilitation</numIndex>
+          <numIndex index="1">habilitation</numIndex> 
          </numIndex>
          <numIndex index="9">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.other</numIndex>
-          <numIndex index="1">other</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.journal</numIndex>
+          <numIndex index="1">journal</numIndex> 
          </numIndex>
          <numIndex index="10">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.preprint</numIndex>
-          <numIndex index="1">preprint</numIndex> 
-         </numIndex>
-         <numIndex index="11">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.report</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.report</numIndex>
           <numIndex index="1">report</numIndex> 
          </numIndex>
-         <numIndex index="12">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.review</numIndex>
+         <numIndex index="11">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.review</numIndex>
           <numIndex index="1">review</numIndex>
          </numIndex>
-         <numIndex index="13">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.thesis</numIndex>
+         <numIndex index="12">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.thesis</numIndex>
           <numIndex index="1">thesis</numIndex>
          </numIndex>
-         <numIndex index="14">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.research_paper</numIndex>
+         <numIndex index="13">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.research_paper</numIndex>
           <numIndex index="1">research_paper</numIndex>
          </numIndex>
-         <numIndex index="15">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.workshop_item</numIndex>
+         <numIndex index="14">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.workshop_item</numIndex>
           <numIndex index="1">adv:workshop</numIndex>
          </numIndex>
-         <numIndex index="16">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.masterthesis</numIndex>
+         <numIndex index="15">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.masterthesis</numIndex>
           <numIndex index="1">adv:masterthesis</numIndex>
          </numIndex>
-         <numIndex index="17">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.poster</numIndex>
+         <numIndex index="16">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.poster</numIndex>
           <numIndex index="1">adv:poster</numIndex>
          </numIndex>
-
         </items>
        </config>
       </TCEforms>
@@ -298,54 +317,55 @@
 
      <settings.years>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years</label>
        <onChange>reload</onChange>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.0</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.0</numIndex>
             <numIndex index="1">0</numIndex>
          </numIndex>
          <numIndex    index="1" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.1</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
          <numIndex    index="2" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.2</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.2</numIndex>
             <numIndex index="1">2</numIndex>
          </numIndex>
          <numIndex    index="3" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.3</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.3</numIndex>
             <numIndex index="1">3</numIndex>
          </numIndex>
          <numIndex    index="4" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.4</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.4</numIndex>
             <numIndex index="1">4</numIndex>
          </numIndex>
          <numIndex    index="5" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.5</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.5</numIndex>
             <numIndex index="1">5</numIndex>
          </numIndex>
          <numIndex    index="6" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.6</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.6</numIndex>
             <numIndex index="1">6</numIndex>
          </numIndex>
          <numIndex    index="7" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.7</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years.7</numIndex>
             <numIndex index="1">7</numIndex>
          </numIndex>
         </items>
         <maxitems>1</maxitems>
         <minitems>1</minitems>
         <size>1</size>
-        <default>0</default>
+        <default>5</default>
        </config>
       </TCEforms>
      </settings.years>
      <settings.yearfrom>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yearfrom</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yearfrom</label>
        <displayCond>FIELD:settings.years:IN:3,4</displayCond>
        <config>
         <type>input</type>
@@ -356,13 +376,13 @@
          <upper>3000</upper>
          <lower>1900</lower>
         </range>
-        <default>2000</default>
+        <default>2010</default>
        </config>
       </TCEforms>
      </settings.yearfrom>
      <settings.yeartill>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yeartill</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yeartill</label>
        <displayCond>FIELD:settings.years:IN:2,4</displayCond>
        <config>
         <type>input</type>
@@ -373,13 +393,13 @@
          <upper>3000</upper>
          <lower>1900</lower>
         </range>
-        <default>2000</default>
+        <default>2010</default>
        </config>
       </TCEforms>
      </settings.yeartill>
      <settings.yearthis>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yearthis</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.yearthis</label>
        <displayCond>FIELD:settings.years:=:1</displayCond>
        <config>
         <type>input</type>
@@ -390,13 +410,13 @@
          <upper>3000</upper>
          <lower>1900</lower>
         </range>
-        <default>2000</default>
+        <default>2010</default>
        </config>
       </TCEforms>
      </settings.yearthis>
      <settings.lastyearfrom>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lastyearfrom</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lastyearfrom</label>
        <displayCond>FIELD:settings.years:IN:5,7</displayCond>
        <config>
         <type>input</type>
@@ -407,13 +427,13 @@
          <upper>100</upper>
          <lower>0</lower>
         </range>
-        <default>2</default>
+        <default>5</default>
        </config>
       </TCEforms>
      </settings.lastyearfrom>
      <settings.lastyeartill>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lastyeartill</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lastyeartill</label>
        <displayCond>FIELD:settings.years:IN:6,7</displayCond>
        <config>
         <type>input</type>
@@ -436,23 +456,24 @@
   <lsSelect>
    <ROOT>
     <TCEforms>
-     <sheetTitle>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect</sheetTitle>
+     <sheetTitle>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect</sheetTitle>
     </TCEforms>
     <type>array</type>
     <el>
 
      <settings.icombination>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination.or</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination.or</numIndex>
           <numIndex index="1">ANY</numIndex>
          </numIndex>
          <numIndex index="1">
-          <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination.and</numIndex>
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.icombination.and</numIndex>
           <numIndex index="1">ALL</numIndex>
          </numIndex>
         </items>
@@ -462,7 +483,7 @@
 
      <settings.institute10000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute10000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute10000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -475,21 +496,24 @@
        <config>
         <my_inst>10000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs10000>
 
      <settings.institute20000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute20000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute20000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
+        <default>1</default>
        </config>
       </TCEforms>
      </settings.institute20000>
@@ -499,18 +523,20 @@
        <config>
         <my_inst>20000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs20000>
 
      <settings.institute30000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute30000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute30000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -523,18 +549,20 @@
        <config>
         <my_inst>30000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs30000>
 
      <settings.institute40000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute40000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute40000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -547,18 +575,20 @@
        <config>
         <my_inst>40000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs40000>
 
      <settings.institute50000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute50000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute50000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -571,18 +601,20 @@
        <config>
         <my_inst>50000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs50000>
 
      <settings.institute60000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute60000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute60000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -595,18 +627,20 @@
        <config>
         <my_inst>60000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs60000>
 
      <settings.institute70000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute70000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute70000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -619,18 +653,20 @@
        <config>
         <my_inst>70000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs70000>
 
      <settings.institute80000>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute80000</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.institute80000</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -643,11 +679,13 @@
        <config>
         <my_inst>80000</my_inst>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderChairs</itemsProcFunc>
         <items>
         </items>
         <size>10</size>
-        <maxitems>10</maxitems> 
+        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs80000>
@@ -660,39 +698,42 @@
   <rendering>
    <ROOT>
     <TCEforms>
-    <sheetTitle>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.rendering</sheetTitle>
+    <sheetTitle>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.rendering</sheetTitle>
     </TCEforms>
     <type>array</type>
     <el>
 
      <settings.templateLayout>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.templateLayout</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.templateLayout</label>
        <config>
         <type>select</type>
-        <itemsProcFunc>Unima\Publist4ubma2\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
+        <renderType>selectSingle</renderType>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->user_templateLayout</itemsProcFunc>
         <items>
          <numIndex index="0" type="array">
           <numIndex index="0"></numIndex>
           <numIndex index="1"></numIndex>
          </numIndex>
         </items>
+        <default>4</default>
        </config>
       </TCEforms>
      </settings.templateLayout>
 
      <settings.ordering>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering.0</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering.0</numIndex>
             <numIndex index="1">0</numIndex>
          </numIndex>
          <numIndex    index="1" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering.1</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.ordering.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
         </items>
@@ -706,20 +747,21 @@
 
      <settings.splityears>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.0</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.0</numIndex>
             <numIndex index="1">0</numIndex>
          </numIndex>
-         <numIndex    index="1" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.1</numIndex>
+         <numIndex index="1" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
-         <numIndex    index="2" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.2</numIndex>
+         <numIndex index="2" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splityears.2</numIndex>
             <numIndex index="1">2</numIndex>
          </numIndex>
         </items>
@@ -733,43 +775,60 @@
 
      <settings.splittypes>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.0</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.0</numIndex>
             <numIndex index="1">0</numIndex>
          </numIndex>
-         <numIndex    index="1" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.1</numIndex>
+         <numIndex index="1" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
-         <numIndex    index="2" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.2</numIndex>
+         <numIndex index="2" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.2</numIndex>
             <numIndex index="1">2</numIndex>
+         </numIndex>
+         <numIndex index="3" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.splittypes.3</numIndex>
+            <numIndex index="1">3</numIndex>
          </numIndex>
         </items>
         <maxitems>1</maxitems>
         <minitems>1</minitems>
         <size>1</size>
-        <default>0</default>
+        <default>3</default>
        </config>
       </TCEforms>
      </settings.splittypes>
 
+     <settings.hideEntriesExceedingN>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.hideentriesexceedingn</label>
+       <config>
+        <type>input</type>
+        <size>10</size>
+        <eval>int</eval>
+       </config>
+      </TCEforms>
+     </settings.hideEntriesExceedingN>
+
      <settings.selecturl>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl</label>
        <config>
         <type>select</type>
+        <renderType>selectSingle</renderType>
         <items>
          <numIndex index="0" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.0</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.0</numIndex>
             <numIndex index="1">0</numIndex>
          </numIndex>
          <numIndex    index="1" type="array">
-            <numIndex index="0">LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.1</numIndex>
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
         </items>
@@ -781,10 +840,9 @@
       </TCEforms>
      </settings.selecturl>
 
-
      <settings.enumerate>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.enumerate</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.enumerate</label>
        <config>
         <type>check</type>
         <default>0</default>
@@ -794,7 +852,7 @@
 
      <settings.bibtex>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bibtex</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bibtex</label>
        <config>
         <type>check</type>
         <default>0</default>
@@ -810,14 +868,14 @@
   <expert>
    <ROOT>
     <TCEforms>
-    <sheetTitle>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.expert</sheetTitle>
+    <sheetTitle>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.expert</sheetTitle>
     </TCEforms>
     <type>array</type>
     <el>
 
      <settings.usecache>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.usecache</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.usecache</label>
        <config>
         <type>check</type>
         <default>0</default>
@@ -828,7 +886,7 @@
 
      <settings.debug>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.debug</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.debug</label>
        <config>
         <type>check</type>
         <default>0</default>
@@ -838,7 +896,7 @@
 
      <settings.usedirecturl>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.usedirecturl</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.usedirecturl</label>
        <onChange>reload</onChange>
        <config>
         <type>check</type>
@@ -849,7 +907,7 @@
 
      <settings.directurl>
       <TCEforms>
-       <label>LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:pi1_flexform.directurl</label>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.directurl</label>
        <displayCond>FIELD:settings.usedirecturl:=:1</displayCond>
        <config>
         <type>input</type>

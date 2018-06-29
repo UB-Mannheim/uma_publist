@@ -1,0 +1,30 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers"
+        xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+
+<div class="tabs-content" data-tabs-content="tabs-{data.uid}" id="tabs-content-{data.uid}">
+<f:switch expression="{settings.splityears}">
+	<f:case value="0">
+		<f:for each="{types}" as="type" iteration="iteratorTypes">
+			<v:variable.set name="contentByType" value="{v:variable.get(name: 'groupedContent.{type}')}" />
+			<div class="tabs-panel{f:if(condition: iteratorTypes.isFirst, then: ' is-active')}" id="tab-{data.uid}-{type}">
+				<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{contentByType}', years: '{years}', types: '{types}'}" />
+			</div>
+		</f:for>
+	</f:case>
+	<f:defaultCase>
+		<f:for each="{types}" as="type" iteration="iteratorTypes">
+			<div class="tabs-panel{f:if(condition: iteratorTypes.isFirst, then: ' is-active')}" id="tab-{data.uid}-{type}">
+				<f:for each="{years}" as="year" iteration="iteratorYears">
+					<v:variable.set name="contentByYear" value="{v:variable.get(name: 'groupedContent.{type}.y{year}')}" />
+					<f:if condition="{contentByYear->f:count()}">
+						<h4>{year}</h4>
+						<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{contentByYear}', years: '{years}', types: '{types}'}" />
+					 </f:if>
+				</f:for>
+			</div>
+		</f:for>
+	</f:defaultCase>
+</f:switch>
+</div>

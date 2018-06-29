@@ -1,9 +1,9 @@
         <h3 class="uppercase">
-                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.header" />
+                <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.header" />
         </h3>
 
         <p class="description">
-                <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.description" />
+                <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.description" />
 	</p>
 <f:comment>
 	<f:debug>{institutes}</f:debug>
@@ -14,9 +14,9 @@
 			Info
 		</div>
 		<div class="message-body">
-                	<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.syncFrom" />
+                	<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.syncFrom" />
 			{divisionsUrl}
-                	<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.syncFromChange" />
+                	<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.syncFromChange" />
 		</div>
 	</div>
 
@@ -36,10 +36,16 @@
 
 			<div>
 <f:comment>
-				<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.refresh" /> <f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'listChairs')}" icon="actions-system-refresh" title="sync" />
+				<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.refresh" />
+				<f:link.action action="listChairs" controller="Administration" title="list">
+					<core:icon identifier="actions-system-refresh" />
+				</f:link.action>
 				<br />
 </f:comment>
-				<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.sync" /> <f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'syncChairs')}" icon="actions-document-synchronize" title="sync" />
+				<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.sync" />
+				<f:link.action action="syncChairs" controller="Administration" title="sync">
+					<core:icon identifier="actions-document-synchronize" />
+				</f:link.action>
 			</div>
 
 		        <h4 class="uppercase">
@@ -50,9 +56,9 @@
 					<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
 						<thead>
 							<tr class="t3-row-header">
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:id.description" /></span></td>
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:name_en.description" /></span></td>
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_institute.xlf:name_de.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_institute.xlf:id.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_institute.xlf:name_en.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_institute.xlf:name_de.description" /></span></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -72,7 +78,7 @@
 							Warning
 						</div>
 						<div class="message-body">
-		                			<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.noinstitutesfound" />
+		                			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.noinstitutesfound" />
 						</div>
 		                        </div>
 				</f:else>
@@ -85,10 +91,10 @@
 					<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
 						<thead>
 							<tr class="t3-row-header">
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:id.description" /></span></td>
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:parent.description" /></span></td>
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:name_en.description" /></span></td>
-								<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_chair.xlf:name_de.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_chair.xlf:id.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_chair.xlf:parent.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_chair.xlf:name_en.description" /></span></td>
+								<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_chair.xlf:name_de.description" /></span></td>
 							</tr>
 						</thead>
 						<tbody>
@@ -109,7 +115,7 @@
 							Warning
 						</div>
 						<div class="message-body">
-		                			<f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:list.nochairsfound" />
+		                			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:list.nochairsfound" />
 						</div>
 		                        </div>
 				</f:else>
@@ -122,15 +128,22 @@
 		        </h4>
 
 			<div>
-				<f:be.buttons.icon uri="{f:uri.action(controller:'Institute',action:'add')}" icon="actions-edit-add" title="add" /> add one Institute (6000)
+				<f:link.action action="add" controller="Institute" title="add">
+					<core:icon identifier="actions-edit-add" /> add one Institute (6000)
+				</f:link.action>
 				<br />
-				<f:be.buttons.icon uri="{f:uri.action(controller:'Institute',action:'delete')}" icon="actions-edit-delete" title="delete" /> del one Institute (first from DB table)
+				<f:link.action action="delete" controller="Institute" title="delete">
+					<core:icon identifier="actions-edit-delete" /> del one Institute (first from DB table)
+				</f:link.action>
 				<br />
-				<f:be.buttons.icon uri="{f:uri.action(controller:'Chair',action:'add')}" icon="actions-edit-add" title="add" /> add one chair (6000)
+				<f:link.action action="add" controller="Chair" title="add">
+					<core:icon identifier="actions-edit-add" /> add one chair (6000)
+				</f:link.action>
 				<br />
-				<f:be.buttons.icon uri="{f:uri.action(controller:'Chair',action:'delete')}" icon="actions-edit-delete" title="delete" /> del one chair (first from DB table)
+				<f:link.action action="delete" controller="Chair" title="delete">
+					<core:icon identifier="actions-edit-delete" /> del one chair (first from DB table)
+				</f:link.action>
 			</div>
 </f:comment>
 		</f:else>
         </f:if>
-

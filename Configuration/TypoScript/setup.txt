@@ -1,88 +1,39 @@
 # Module configuration
 
 # for the frontend
-plugin.tx_publist4ubma2_pi1 {
+plugin.tx_umapublist_pi1 {
 	# for own usage (settings)
 	settings {
-                cssFile = {$plugin.tx_publist4ubma2_pi1.settings.cssFile}
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
-        }
+		cssFile = {$plugin.tx_umapublist_pi1.settings.cssFile}
+		storagePid = {$plugin.tx_umapublist_pi1.persistence.storagePid}
+	}
 
 	# for Extbase
 	persistence {
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
-	}
-
-
-	## Localization:
-        # keys in Resources/Private/Language/locallang.xlf
-	_LOCAL_LANG {
-		default {
-			book = Book
-			article = Article
-			book_section = Book Section
-			dissertation = Dissertation
-			encyclopedia_article = Encyclopedia Article
-			habilitation = Habilitation
-			journal = Journal
-			other = Other
-			preprint = Preprint
-			report = Report
-			review = Review
-			thesis = Thesis
-			research_paper = Research Paper
-			conference_item = Conference Item
-			workshop_item = Workshop Item
-			master_thesis = Master Thesis
-			poster = Poster
-			and = and
-		}
-		de {
-			book = Buch
-			article = Zeitschriftenartikel
-			book_section = Buchkapitel
-			dissertation = Dissertation
-			encyclopedia_article = Lexikonartikel
-			habilitation = Habilitation
-			journal = Zeitschrift / Schriftenreihe
-			other = Sonstiges
-			preprint = Preprint
-			report = Bericht
-			review = Rezension
-			thesis = Abschlussarbeit
-			research_paper = Arbeitspapier
-			conference_item = Konferenzveröffentlichung
-			workshop_item = Workshop-Beitrag
-			master_thesis = Masterarbeit
-			poster = Poster
-			and = und
-
-		}
+		storagePid = {$plugin.tx_umapublist_pi1.persistence.storagePid}
 	}
 }
 
-
-
 # for the Backend Module
-module.tx_publist4ubma2 {
+module.tx_umapublist {
 	# for own usage (settings)
 	settings {
-	        storagePid = {$plugin.tx_publist4ubma2_pi1.persistence.storagePid}
-        }
+		storagePid = {$plugin.tx_umapublist_pi1.persistence.storagePid}
+	}
 
 	# for Extbase
-	persistence < plugin.tx_publist4ubma2_pi1.persistence
+	persistence < plugin.tx_umapublist_pi1.persistence
 }
 
 
 ### map table tt_content to own model
 # http://www.lukasjakob.com/get-tt_content-data-in-your-extbase-extension/
 config.tx_extbase {
-    persistence{
+    persistence {
         enableAutomaticCacheClearing = 1
         updateReferenceIndex = 0
         classes {
-            Unima\Publist4ubma2\Domain\Model\Content {
+            UMA\UmaPublist\Domain\Model\Content {
                 mapping {
                     tableName = tt_content
                     columns {
@@ -95,5 +46,3 @@ config.tx_extbase {
         }
     }
 }
-
-

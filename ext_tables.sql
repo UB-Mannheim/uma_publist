@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_publist4ubma2_domain_model_institute'
+# Table structure for table 'tx_umapublist_domain_model_institute'
 #
-CREATE TABLE tx_publist4ubma2_domain_model_institute (
+CREATE TABLE tx_umapublist_domain_model_institute (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE tx_publist4ubma2_domain_model_institute (
 );
 
 #
-# Table structure for table 'tx_publist4ubma2_domain_model_chair'
+# Table structure for table 'tx_umapublist_domain_model_chair'
 #
-CREATE TABLE tx_publist4ubma2_domain_model_chair (
+CREATE TABLE tx_umapublist_domain_model_chair (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE tx_publist4ubma2_domain_model_chair (
 
 
 #
-# Table structure for table 'tx_publist4ubma2_domain_model_publist'
+# Table structure for table 'tx_umapublist_domain_model_publist'
 #
-CREATE TABLE tx_publist4ubma2_domain_model_publist (
+CREATE TABLE tx_umapublist_domain_model_publist (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -127,19 +127,18 @@ CREATE TABLE tx_publist4ubma2_domain_model_publist (
 
 
 #
-# Table structure for table 'tx_publist4ubma2_domain_model_publication'
+# Table structure for table 'tx_umapublist_domain_model_publication'
 #
-CREATE TABLE tx_publist4ubma2_domain_model_publication (
+CREATE TABLE tx_umapublist_domain_model_publication (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	eprint_id int(11) DEFAULT '0' NOT NULL,
-	eprint_id_url varchar(255) DEFAULT '' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
+	title varchar(1000) DEFAULT '' NOT NULL,
 	book_title varchar(255) DEFAULT '' NOT NULL,
 	abstract text NOT NULL,
-	url_offical varchar(255) DEFAULT '' NOT NULL,
+	url_offical varchar(1000) DEFAULT '' NOT NULL,
 	url_ubma_extern varchar(255) DEFAULT '' NOT NULL,
 	used_link_url varchar(255) DEFAULT '' NOT NULL,
 	url varchar(255) DEFAULT '' NOT NULL,
@@ -147,10 +146,10 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	bib_type varchar(255) DEFAULT '' NOT NULL,
 	volume varchar(255) DEFAULT '' NOT NULL,
 	publisher varchar(255) DEFAULT '' NOT NULL,
-	number varchar(255) DEFAULT '' NOT NULL,
+	rev_number varchar(255) DEFAULT '' NOT NULL,
 	publication varchar(255) DEFAULT '' NOT NULL,
 	editors varchar(255) DEFAULT '' NOT NULL,
-	creators varchar(255) DEFAULT '' NOT NULL,
+	creators varchar(1000) DEFAULT '' NOT NULL,
 	corp_creators varchar(255) DEFAULT '' NOT NULL,
 	ubma_book_editor varchar(255) DEFAULT '' NOT NULL,
 	event_location varchar(255) DEFAULT '' NOT NULL,
@@ -158,7 +157,6 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
 	page_range varchar(255) DEFAULT '' NOT NULL,
 	issn varchar(255) DEFAULT '' NOT NULL,
 	isbn varchar(255) DEFAULT '' NOT NULL,
-	id_number varchar(255) DEFAULT '' NOT NULL,
 	ubma_edition varchar(255) DEFAULT '' NOT NULL,
 	ubma_tags varchar(255) DEFAULT '' NOT NULL,
 	used_coin text NOT NULL,
@@ -191,4 +189,5 @@ CREATE TABLE tx_publist4ubma2_domain_model_publication (
  KEY language (l10n_parent,sys_language_uid)
 
 );
+
 

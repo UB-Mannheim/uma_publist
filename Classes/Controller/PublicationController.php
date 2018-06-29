@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Controller;
+namespace UMA\UmaPublist\Controller;
 
 
 /***************************************************************
@@ -28,7 +28,7 @@ namespace Unima\Publist4ubma2\Controller;
  ***************************************************************/
 
 
-use Unima\Publist4ubma2\Utility\xmlUtil;
+use UMA\UmaPublist\Utility\xmlUtil;
 
 /**
  * PublicationController
@@ -38,7 +38,7 @@ class PublicationController extends BasicPublistController {
 	/**
 	 * publicationRepository
 	 *
-	 * @var \Unima\Publist4ubma2\Domain\Repository\PublicationRepository
+	 * @var \UMA\UmaPublist\Domain\Repository\PublicationRepository
 	 * @inject
 	 */
 	protected $publicationRepository = NULL;
@@ -90,9 +90,8 @@ class PublicationController extends BasicPublistController {
 				$URL = $publication->getUrlOffical();
 		}
 		if (!$URL || ($URL == ""))
-			$URL = $publication->getEprintIdUrl();
-			//$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
-		$publication->setUsedLinkUrl($URL);
+			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
+		$publication->setUsedLinkUrl($URL); 
 
 
 		return $publication;
@@ -108,7 +107,7 @@ class PublicationController extends BasicPublistController {
 		//$this->errorHandler->setError(1, 'TestError');
 		//$pubs = $this->publicationRepository->findAll();
 
-		// check if there is a eprintid
+		// check if ther is a eprintid
 		if (intval($publication['eprintid']) <= 0)  {
 			$this->debugger->add('no valid eprintid in publication, skip this');
 			return;
@@ -120,7 +119,7 @@ class PublicationController extends BasicPublistController {
 		if ($eprintIdIsInDB === NULL) {
 			// add to DB
 			$this->debugger->add('== Publication ' . $publication['eprintid'] . ' is NOT in DB, add it ==');
-			$pub = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Publication');
+			$pub = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Publication');
 			$pub->setEprintId(intval($publication['eprintid']));
 			$newPub = $this->writeProperties($pub, $publication);
 			$this->publicationRepository->add($newPub);
@@ -140,19 +139,34 @@ class PublicationController extends BasicPublistController {
 
 		$newPub->setEprintId(intval($publication['eprintid']));
 
-		if ($publication['type']) {
-			$newPub->setBibType($publication['type']);
+		if ($publication['type'])
+		{
+/*
+// Let us do this in function "get()", before display on page, after reading from DB
+// Because Publications could used in multiple publication-lists, with different settings of
+// "useadvancedtypesbytag"
+
+			if ($this->settings['useadvancedtypesbytag']) {
+				if ( $publication['ubma_tags'])
+					// implement advanced custom types
+					$newPub->setBibType($this->decodeAdvancedType($publication['type'], $publication['ubma_tags']));
+				else {
+					$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_tags - use normal type');
+					$newPub->setBibType($publication['type']);
+				}
+				// check, if this type is really needed, otherwise drop publication
+				$displayTypes = explode(',', $this->settings['advancedtype']);
+				if ((!in_array('all', $displayTypes)) AND (!in_array($newPub->getBibType(), $displayTypes))) {
+					$this->debugger->add('Publication ' . $publication['eprintid'] . ' is skipped because of wrong type');
+					return;
+				}
+			} else
+*/
+				$newPub->setBibType($publication['type']);
 		}
 		else {
 			$newPub->setBibType($publication['notype']);
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no type');
-		}
-
-		if ($publication['@attributes'] and $publication['@attributes']['id'])
-			$newPub->setEprintIdUrl($publication['@attributes']['id']);
-		else {
-			$newPub->setEprintIdUrl("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no eprintIdUrl');
 		}
 
 		if ( $publication['ubma_tags'])
@@ -161,13 +175,10 @@ class PublicationController extends BasicPublistController {
 			$newPub->setUbmaTags("");
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($publication['title']);
 		if ($publication['title']) {
-			if (is_string($publication['title'])) {
-				$newPub->setTitle($publication['title']);
-			} else if ($publication['title']['title']) { //e.g. UniMA
+			if (is_array($publication['title']) and $publication['title']['title'])
 				$newPub->setTitle($publication['title']['title']);
-			} else if ($publication['title']['item'] and $publication['title']['item']['name']) { //e.g. LMU
-				$newPub->setTitle($publication['title']['item']['name']);
-			}
+			else 
+				$newPub->setTitle($publication['title']);
 		} else {
 			$newPub->setTitle("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no title');
@@ -221,7 +232,25 @@ class PublicationController extends BasicPublistController {
 
 		// select the usedLinkUrl
 		$URL = $newPub->getUrl();
+		// if select URL = auto
+/*
+// Let us do this in function "get()", before display on page, after reading from DB
+// Because Publications could used in multiple publication-lists, with different settings of
+// "selecturl"
 
+
+		if ($this->settings['selecturl'] == 0) {
+			if (!$URL || ($URL == ""))
+				$URL = $publication['ubma_url_extern'];
+			if (!$URL || ($URL == ""))
+				$URL = $publication['official_url'];
+		}
+		if (!$URL || ($URL == ""))
+			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $publication['eprintid'];
+
+		$newPub->setUsedLinkUrl($URL);
+		// \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub->getUsedLinkUrl());
+*/
 		if (intval($publication['ubma_date_year']))
 			$newPub->setYear(intval($publication['ubma_date_year']));
 		else {
@@ -247,11 +276,11 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no publisher');
 		}
 
-		if ($publication['number'])
-			$newPub->setNumber($publication['number']);
+		if ($publication['rev_number'])
+			$newPub->setRevNumber($publication['rev_number']);
 		else {
-			$newPub->setNumber("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no number');
+			$newPub->setRevNumber("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no rev_number');
 		}
 
 		if ($publication['publication'])
@@ -312,15 +341,7 @@ class PublicationController extends BasicPublistController {
 		}
 
 		if ($publication['issn']) {
-			if (is_string($publication['issn'])) {
-				$newPub->setIssn($publication['issn']);
-			} else if ($publication['issn']['item']) { //e.g. UniRE
-				if (is_array($publication['issn']['item'])) {
-					$newPub->setIssn(join(' ; ', $publication['issn']['item']));
-				} else {
-					$newPub->setIssn($publication['issn']['item']);
-				}
-			}
+			$newPub->setIssn($publication['issn']);
 		} else {
 			$newPub->setIssn("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no issn');
@@ -339,21 +360,6 @@ class PublicationController extends BasicPublistController {
 		} else {
 			$newPub->setUbmaEdition("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_edition');
-		}
-
-		if ($publication['id_number']) {
-			if (is_string($publication['id_number'])) {
-				$newPub->setIdNumber($publication['id_number']);
-			} else if ($publication['id_number']['item']) {
-				if (is_string($publication['id_number']['item'])) {
-					$newPub->setIdNumber($publication['id_number']['item']);
-				} else if ($publication['id_number']['item']['name']) { //e.g. UniRE
-					$newPub->setIdNumber($publication['id_number']['item']['name']);
-				}
-			}
-		} else {
-			$newPub->setIdNumber("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no idNumber');
 		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
@@ -545,10 +551,14 @@ class PublicationController extends BasicPublistController {
 			$coin .= "&rft.volume=" . rawurlencode($pub->getVolume());
 		}
 
+/*
+		// field not in typo3 DB yet, forgotten, have to add it
+		
 		//number --> issue
-		if ( $pub->getNumber() != "" ) {
-			$coin .= "&rft.issue=" . rawurlencode($pub->getNumber());
+		if ( isset($pubListArray["$index"][number]) ) {
+			$coin .= "&rft.issue=" . rawurlencode($pubListArray["$index"][number]);
 		}
+*/
 
 		//pagerange --> pages
 		if ( $pub->getPageRange() != "" ) {

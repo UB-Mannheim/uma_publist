@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Controller;
+namespace UMA\UmaPublist\Controller;
 
 
 /***************************************************************
@@ -81,7 +81,7 @@ class InstituteController extends AdministrationController {
 				$instituteNow = $institutesNow[$instNowItem];
 				// if new entry
 				if ($instituteNow['id'] != 0) {
-					$newInstitute = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Institute');
+					$newInstitute = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Institute');
 					$newInstitute->setId($instituteNow['id']);
 					$newInstitute->setNameEn($instituteNow['nameEn']);
 					$newInstitute->setNameDe($instituteNow['nameDe']);
@@ -99,7 +99,7 @@ class InstituteController extends AdministrationController {
 	 * @return void
 	 */
 	public function addAction() {
-		$newInstitute = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Institute');
+		$newInstitute = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Institute');
 		$newInstitute->setId(6000);
 		$newInstitute->setNameEn("Debug Test");
 		$newInstitute->setNameDe("Debug Test");

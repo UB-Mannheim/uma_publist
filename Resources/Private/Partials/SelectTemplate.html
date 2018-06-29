@@ -1,10 +1,14 @@
-{namespace m=Unima\Publist4ubma2\ViewHelpers}
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:v="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers"><f:format.raw><v:format.trim>
+
 <f:switch expression="{settings.templateLayout}">
-	<f:case value="0">     <f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="1">     <f:render partial="FrontendTableDebug"      arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="2">     <f:render partial="FrontendDWSrdfaSchema"   arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="3">     <f:render partial="FrontendBibCoinTemplate" arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="4">     <f:render partial="FrontendBWLapa"          arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="5">     <f:render partial="FrontendAPA"             arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="1"><f:render partial="FrontendTableDebug"      arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="0"><f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="2"><f:render partial="FrontendDWSrdfaSchema"   arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="3"><f:render partial="FrontendBibCoinTemplate" arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="4"><f:render partial="FrontendBWLapa"          arguments="{publication: '{publication}'}" /></f:case>
 	<f:case default="TRUE"><f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
 </f:switch>
+</v:format.trim></f:format.raw>

@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Controller;
+namespace UMA\UmaPublist\Controller;
 
 
 /***************************************************************
@@ -43,9 +43,9 @@ class BasicPublistController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCon
 	public $errorHandler = NULL;
 	public $debugger = NULL;
 	public function __construct() {
-		$this->errorHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\ErrorHandler');
-		$this->settingsManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\SettingsManager');
-		$this->debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\DebugCollector');
+		$this->errorHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\ErrorHandler');
+		$this->settingsManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\SettingsManager');
+		$this->debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
 		// TypoScript Config we have to set by parameter, because class SettingsManager don't know about $this->settings
 //		$this->settingsManager->giveTypoScript($this->settings);
 	}

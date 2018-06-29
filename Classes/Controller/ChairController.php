@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Controller;
+namespace UMA\UmaPublist\Controller;
 
 
 /***************************************************************
@@ -93,7 +93,7 @@ class ChairController extends AdministrationController {
 				$chairNow = $chairsNow[$chairNowItem];
 				// if new entry
 				if ($chairNow['id'] != 0) {
-					$newChair = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Chair');
+					$newChair = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Chair');
 					$newChair->setId($chairNow['id']);
 					$newChair->setNameEn($chairNow['nameEn']);
 					$newChair->setNameDe($chairNow['nameDe']);
@@ -112,7 +112,7 @@ class ChairController extends AdministrationController {
 	 * @return void
 	 */
 	public function addAction() {
-		$newChair = $this->objectManager->get('Unima\Publist4ubma2\Domain\Model\Chair');
+		$newChair = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Chair');
 		$newChair->setId(6000);
 		$newChair->setNameEn("Debug Test");
 		$newChair->setNameDe("Debug Test");

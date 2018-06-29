@@ -1,0 +1,5 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+<f:if condition="{editor}!=''"><f:then><n:myExplode content="{editor}" glue="," as="thename">{thename.1} {thename.0}</n:myExplode></f:then></f:if>

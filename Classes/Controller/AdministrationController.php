@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Controller;
+namespace UMA\UmaPublist\Controller;
 
 
 /***************************************************************
@@ -28,8 +28,8 @@ namespace Unima\Publist4ubma2\Controller;
  ***************************************************************/
 
 
-use Unima\Publist4ubma2\Utility\fileReader;
-use Unima\Publist4ubma2\Controller\InstituteController;
+use UMA\UmaPublist\Utility\fileReader;
+use UMA\UmaPublist\Controller\InstituteController;
 
 
 /**
@@ -40,7 +40,7 @@ class AdministrationController extends BasicPublistController {
 	/**
 	 * instituteRepository
 	 *
-	 * @var \Unima\Publist4ubma2\Domain\Repository\InstituteRepository
+	 * @var \UMA\UmaPublist\Domain\Repository\InstituteRepository
 	 * @inject
 	 */
 	protected $instituteRepository = NULL;
@@ -48,7 +48,7 @@ class AdministrationController extends BasicPublistController {
 	/**
 	 * chairRepository
 	 *
-	 * @var \Unima\Publist4ubma2\Domain\Repository\ChairRepository
+	 * @var \UMA\UmaPublist\Domain\Repository\ChairRepository
 	 * @inject
 	 */
 	protected $chairRepository = NULL;
@@ -57,7 +57,7 @@ class AdministrationController extends BasicPublistController {
 	/**
 	 * publicationController
 	 *
-	 * @var \Unima\Publist4ubma2\Controller\PublicationController
+	 * @var \UMA\UmaPublist\Controller\PublicationController
 	 * @inject
 	 */
 	protected $publicationController = NULL;
@@ -67,7 +67,7 @@ class AdministrationController extends BasicPublistController {
 	/**
 	 * publistController
 	 *
-	 * @var \Unima\Publist4ubma2\Controller\PublistController
+	 * @var \UMA\UmaPublist\Controller\PublistController
 	 * @inject
 	 */
 	protected $publistController = NULL;
@@ -76,7 +76,7 @@ class AdministrationController extends BasicPublistController {
 	/**
 	 * contentRepository
 	 *
-	 * @var \Unima\Publist4ubma2\Domain\Repository\ContentRepository
+	 * @var \UMA\UmaPublist\Domain\Repository\ContentRepository
 	 * @inject
 	 */
 	protected $contentRepository = NULL;
@@ -96,8 +96,9 @@ class AdministrationController extends BasicPublistController {
 
 		// check if storagePid is set
 		if ($this->settings['storagePid'] <= 0) {
-//			$this->errorHandler->setError(1, 'storagePid <= 0, NOT allowed. Please create a sysFolder in Backend for storing Publicationlists and add the PID to your TypoScript Constants like "plugin.tx_publist4ubma2_pi1.storagePid = PID"');
-			$this->errorHandler->setError(1, \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('errorZeroStoragePid', 'publist4ubma2'));
+			\TYPO3\CMS\Core\Utility\DebugUtility::debug($this->settings);
+			\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
+			$this->errorHandler->setError(1, \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('errorZeroStoragePid', 'uma_publist'));
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			return;
 		}
@@ -125,7 +126,7 @@ class AdministrationController extends BasicPublistController {
 
 	
 		$instituteController = new InstituteController($this->objectManager, $this->instituteRepository);
-//		$instituteController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Controller\\InstituteController', $this->instituteRepository);
+//		$instituteController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\InstituteController', $this->instituteRepository);
 		$instituteController->sync($xmlString);
 		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
@@ -139,7 +140,7 @@ class AdministrationController extends BasicPublistController {
 
 
 		$chairController = new ChairController($this->objectManager, $this->chairRepository);
-//		$chairController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Controller\\ChairController', $this->chairRepository);
+//		$chairController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\ChairController', $this->chairRepository);
 
 
 		// get the chairitutes -> the parents of the chairs
@@ -166,7 +167,8 @@ class AdministrationController extends BasicPublistController {
 	public function listPublicationsAction() {
 		// check if storagePid is set
 		if ($this->settings['storagePid'] <= 0) {
-			$this->errorHandler->setError(1, \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('errorZeroStoragePid', 'publist4ubma2'));
+			\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
+			$this->errorHandler->setError(1, \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('errorZeroStoragePid', 'uma_publist'));
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			return;
 		}
@@ -324,7 +326,7 @@ class AdministrationController extends BasicPublistController {
 	public function cleanupDeletedPublications() {
 		$didCleanup = 0;
 
-		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_publist4ubma2_domain_model_publication', 'deleted = 1'))
+		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_umapublist_domain_model_publication', 'deleted = 1'))
 			$didCleanup = 1;
 		
 		return $didCleanup;
@@ -333,7 +335,7 @@ class AdministrationController extends BasicPublistController {
 	public function cleanupAllPublications() {
 		$didCleanup = 0;
 
-		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_publist4ubma2_domain_model_publication', 'deleted = 0'))
+		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_umapublist_domain_model_publication', 'deleted = 0'))
 			$didCleanup = 1;
 		$didCleanup += $this->cleanupDeletedPublications();
 		

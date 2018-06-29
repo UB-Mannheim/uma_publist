@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\ViewHelpers;
+namespace UMA\UmaPublist\ViewHelpers;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -18,7 +18,7 @@ namespace Unima\Publist4ubma2\ViewHelpers;
  * ViewHelper print Names with rdf schema and "AND"
  *
  * @package TYPO3
- * @subpackage publist4ubma2
+ * @subpackage tx_umapublist
  */
 class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
@@ -32,8 +32,7 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 	public function render($somebody)
 	{
 		$output = '';
-
-		if (strpos($somebody, ";") >= 0) {
+		if (strpos($somebody, ";") !== FALSE) {
 			$peopleList = explode( ';', $somebody);
 			$peopleNumber = count($peopleList);
 			$i = 1;
@@ -44,11 +43,11 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 						if ($i < ($peopleNumber - 1))
 							$output .= ', ';
 						elseif ($i < $peopleNumber)
-							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'uma_publist') . " ";
 					}
 					else {
 						if (($i < $peopleNumber) && ($peopleNumber == 2))
-							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'uma_publist') . " ";
 					}
 					$i++;
 				}
@@ -56,12 +55,11 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 
 		}
 		else {
-			if ( $editor = explode(',', $somebody))
+			if ( trim($somebody) && ($theName = explode(',', $somebody)))
 				$output .= $theName[0] . ', ' . substr($theName[1], 0, 1) . '.';
 		}
-		return $output;	
+		return $output;
 	}
 }
 
 ?>
-

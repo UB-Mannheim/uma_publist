@@ -1,0 +1,12 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+	<f:comment><input id="uma-publist-filter-{data.uid}" class="uma-publist-filter" data-publist-content="tabs-content-{data.uid}" type="text" value="" /></f:comment>
+	<f:if condition="{types->f:count()} > 1">
+		<ul class="tabs" data-tabs id="tabs-{data.uid}">
+			<f:for each="{types}" as="type" iteration="iteratorTypes">
+				<li class="tabs-title{f:if(condition: iteratorTypes.isFirst, then: ' is-active')}"><a href="#tab-{data.uid}-{type}"><f:translate key='{type}' /></a></li>
+			</f:for>
+		</ul>
+	</f:if>

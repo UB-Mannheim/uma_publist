@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Domain\Model;
+namespace UMA\UmaPublist\Domain\Model;
 
 
 /***************************************************************

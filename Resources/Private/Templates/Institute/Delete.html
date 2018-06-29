@@ -1,15 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en" 
      xmlns:f="http://xsd.helmut-hummel.de/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-
 <f:layout name="Backend/Default" />
 <f:section name="content">
 
         <h3 class="uppercase">
 		Debug Page - Institute Delete View
         </h3>
-
-
 
         <f:if condition="{errorMsg}">
                 <f:then>
@@ -24,10 +21,10 @@
                         </div>
                 </f:then>
         </f:if>
-        <f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'listChairs')}" icon="actions-system-refresh" title="sync" /> Back to Administration List View
-
+	<f:link.action action="listChairs" controller="Administration" title="list">
+		<f:core:icon identifier="actions-system-refresh" /> Back to Administration List View
+	</f:link.action>
 
 </f:section>
 
 </div>
-

@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\ViewHelpers;
+namespace UMA\UmaPublist\ViewHelpers;
 
 /***************************************************************
 *  Copyright notice
@@ -31,7 +31,7 @@ namespace Unima\Publist4ubma2\ViewHelpers;
  * Explodes a string by $glue
  *
  * @package Typo3
- * @subpackage publist4ubma2
+ * @subpackage tx_umapublist
  */
 class MyExplodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 

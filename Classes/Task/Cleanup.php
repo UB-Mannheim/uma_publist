@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Task;
+namespace UMA\UmaPublist\Task;
 
 
    
@@ -45,8 +45,8 @@ class Cleanup extends \TYPO3\CMS\Scheduler\Task\AbstractTask {
 	public function execute() {
 		$this->initialize();
 
-	        $administrationController= $this->objectManager->get('Unima\\Publist4ubma2\\Controller\\AdministrationController');
-	        $publistRepository= $this->objectManager->get('Unima\\Publist4ubma2\\Domain\\Repository\\PublistRepository');
+	        $administrationController= $this->objectManager->get('UMA\\UmaPublist\\Controller\\AdministrationController');
+	        $publistRepository= $this->objectManager->get('UMA\\UmaPublist\\Domain\\Repository\\PublistRepository');
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->pid);
 

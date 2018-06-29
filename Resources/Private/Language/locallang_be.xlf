@@ -1,274 +1,266 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="publist4ubma2">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="uma_publist">
 		<header/>
 		<body>
 			<trans-unit id="pi1_title" xml:space="preserve">
-			    <source>Display publications of Mannheim University Library</source>
+				<source>Display publications of the University of Mannheim</source>
 			</trans-unit>
 			<trans-unit id="extmng.divisionsUrl" xml:space="preserve">
-			    <source>URL to xml file where to pare the divisions</source>
+				<source>URL of XML file for divisions</source>
 			</trans-unit>
 			<trans-unit id="extmng.eprintidUrlPrefix" xml:space="preserve">
-			    <source>Prefix for Link URL to eprintid</source>
+				<source>Prefix for Link URL to eprintid</source>
 			</trans-unit>
 			<trans-unit id="mlang_labels_tablabel" xml:space="preserve">
-			    <source>publist4ubma2 module</source>
+				<source>Publication list module</source>
 			</trans-unit>
 			<trans-unit id="module.syncChairs" xml:space="preserve">
-			    <source>Sync Chairs</source>
+				<source>Synchronize chairs</source>
 			</trans-unit>
 			<trans-unit id="module.publicationLists" xml:space="preserve">
-			    <source>Publication Lists</source>
+				<source>Publication lists</source>
 			</trans-unit>
 			<trans-unit id="module.publications" xml:space="preserve">
-			    <source>Publications in Typo3DB</source>
+				<source>Publications in TYPO3 DB</source>
 			</trans-unit>
 			<trans-unit id="module.showCleanup" xml:space="preserve">
-			    <source>Sync Publication Lists + Cleanup</source>
+				<source>Synchronize publication lists and clean up DB</source>
 			</trans-unit>
 			<trans-unit id="mlang_labels_tabdescr" xml:space="preserve">
-			    <source>Dashboard for publist4ubma2 related tasks</source>
+				<source>Dashboard for uma_publist related tasks</source>
 			</trans-unit>
 			<trans-unit id="mlang_tabs_tab" xml:space="preserve">
-			    <source>Publist4ubma2</source>
+				<source>Publications</source>
 			</trans-unit>
-                        <trans-unit id="list.header" xml:space="preserve">
-                                <source>Sync Institutes and Chairs for plugin publist4ubma2</source>
-                        </trans-unit>
-                        <trans-unit id="list.description" xml:space="preserve">
-                                <source>Here you are able to sync Institutes and Chairs</source>
-                        </trans-unit>
-                        <trans-unit id="list.noinstitutesfound" xml:space="preserve">
-                                <source>No Institutes found</source>
-                        </trans-unit>
-                        <trans-unit id="list.nochairsfound" xml:space="preserve">
-                                <source>No Chairs found</source>
-                        </trans-unit>
-                        <trans-unit id="list.nopublicationsfound" xml:space="preserve">
-                                <source>No Publications found</source>
-                        </trans-unit>
-
-
-
-                        <trans-unit id="showcleanup.header" xml:space="preserve">
-                                <source>Cleanup DB and sync Publication lists</source>
-                        </trans-unit>
-                        <trans-unit id="showcleanup.description" xml:space="preserve">
-                                <source>These tasks are also available in task scheduler. If they take to long, please run them from the typo3 task scheduler. Anyway, it is a good idea, to configure the scheduler to run these tasks every night.</source>
-                        </trans-unit>
-                        <trans-unit id="publist.sync" xml:space="preserve">
-                                <source>Sync all publications with library</source>
-                        </trans-unit>
-                        <trans-unit id="publist.cleanup" xml:space="preserve">
-                                <source>drop not needed publicationlists from DB (content-element was deleted)</source>
-                        </trans-unit>
-                        <trans-unit id="publication.cleanup" xml:space="preserve">
-                                <source>drop not needed publications from DB (is not included by any publication list)</source>
-                        </trans-unit>
-                        <trans-unit id="publication.cleanup.deleted" xml:space="preserve">
-                                <source>drop publications with state "delete = 1" from DB</source>
-                        </trans-unit>
-
-
-                        <trans-unit id="list.formheadline" xml:space="preserve">
-                                <source>Sync Institutes and Chairs</source>
-                        </trans-unit>
-                        <trans-unit id="list.refresh" xml:space="preserve">
-                                <source>Just Refresh from DB: </source>
-                        </trans-unit>
-                        <trans-unit id="list.sync" xml:space="preserve">
-                                <source>Sync all from Remote: </source>
-                        </trans-unit>
-                        <trans-unit id="list.syncFrom" xml:space="preserve">
-                                <source>You are syncing from: </source>
-                        </trans-unit>
-                        <trans-unit id="list.syncFromChange" xml:space="preserve">
-                                <source> - Change this in the Extensionmanager under publist4ubma2.</source>
-                        </trans-unit>
-
-
-
-                        <trans-unit id="listpublist.header" xml:space="preserve">
-                                <source>Refresh Publication Lists</source>
-                        </trans-unit>
-                        <trans-unit id="listpublist.description" xml:space="preserve">
-                                <source>Here you are able to refresh all publiction lists using madoc</source>
-                        </trans-unit>
-                        <trans-unit id="listpub.header" xml:space="preserve">
-                                <source>Publications in local Typo3 DB</source>
-                        </trans-unit>
-                        <trans-unit id="listpub.description" xml:space="preserve">
-                                <source>Here you are are able to delete not used publications</source>
-                        </trans-unit>
-
-
-
-
+			<trans-unit id="list.header" xml:space="preserve">
+				<source>Synchronize institutes and chairs for publication list plugin</source>
+			</trans-unit>
+			<trans-unit id="list.description" xml:space="preserve">
+				<source>You can synchronize Institutes and Chairs here</source>
+			</trans-unit>
+			<trans-unit id="list.noinstitutesfound" xml:space="preserve">
+				<source>No institutes found</source>
+			</trans-unit>
+			<trans-unit id="list.nochairsfound" xml:space="preserve">
+				<source>No chairs found</source>
+			</trans-unit>
+			<trans-unit id="list.nopublicationsfound" xml:space="preserve">
+				<source>No publications found</source>
+			</trans-unit>
+			<trans-unit id="showcleanup.header" xml:space="preserve">
+				<source>Clean up DB and synchronize publication lists</source>
+			</trans-unit>
+			<trans-unit id="showcleanup.description" xml:space="preserve">
+				<source>These tasks are also available in the TYPO3 Scheduler. If they take too long, please run them from there. It is advisable to configure the scheduler to run these tasks once every night.</source>
+			</trans-unit>
+			<trans-unit id="publist.sync" xml:space="preserve">
+				<source>Synchronize all publications with library</source>
+			</trans-unit>
+			<trans-unit id="publist.cleanup" xml:space="preserve">
+				<source>Drop publication lists from DB which are no longer necessary (content-element was deleted)</source>
+			</trans-unit>
+			<trans-unit id="publication.cleanup" xml:space="preserve">
+				<source>Drop publications from DB which are no longer necessary (is not included by any publication list)</source>
+			</trans-unit>
+			<trans-unit id="publication.cleanup.deleted" xml:space="preserve">
+				<source>Drop publications with state "delete = 1" from DB</source>
+			</trans-unit>
+			<trans-unit id="list.formheadline" xml:space="preserve">
+				<source>Synchronize institutes and chairs</source>
+			</trans-unit>
+			<trans-unit id="list.refresh" xml:space="preserve">
+				<source>Just refresh from DB: </source>
+			</trans-unit>
+			<trans-unit id="list.sync" xml:space="preserve">
+				<source>Synchronize all from remote: </source>
+			</trans-unit>
+			<trans-unit id="list.syncFrom" xml:space="preserve">
+				<source>You are synchronizing from: </source>
+			</trans-unit>
+			<trans-unit id="list.syncFromChange" xml:space="preserve">
+				<source> - Change this in the Extension Manager under uma_publist</source>
+			</trans-unit>
+			<trans-unit id="listpublist.header" xml:space="preserve">
+				<source>Refresh publication lists</source>
+			</trans-unit>
+			<trans-unit id="listpublist.description" xml:space="preserve">
+				<source>You can refresh all publication lists here using MADOC</source>
+			</trans-unit>
+			<trans-unit id="listpub.header" xml:space="preserve">
+				<source>Publications in local TYPO3 database</source>
+			</trans-unit>
+			<trans-unit id="listpub.description" xml:space="preserve">
+				<source>Here you are are able to delete not used publications</source>
+			</trans-unit>
 			<!-- FlexForm -->
 			<trans-unit id="pi1_flexform.query" xml:space="preserve">
 				<source>Query</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.title" xml:space="preserve">
-				<source>titel</source>
+			<trans-unit id="pi1_flexform.title" xml:space="preserve">
+				<source>Title</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.author" xml:space="preserve">
-				<source>name of author (familyName1,firstName1 familyName2,firstName2 ...)</source>
+			<trans-unit id="pi1_flexform.author" xml:space="preserve">
+				<source>Name of author (familyName1,firstName1 familyName2,firstName2 ...)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.authorcombi" xml:space="preserve">
-				<source>author combination</source>
+			<trans-unit id="pi1_flexform.authorcombi" xml:space="preserve">
+				<source>Author combination</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.authorcombi.or" xml:space="preserve">
-				<source>one of them</source>
+			<trans-unit id="pi1_flexform.authorcombi.or" xml:space="preserve">
+				<source>One of them</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.authorcombi.and" xml:space="preserve">
-				<source>all</source>
+			<trans-unit id="pi1_flexform.authorcombi.and" xml:space="preserve">
+				<source>All</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.excludeexternal" xml:space="preserve">
-				<source>exclude external publications</source>
+			<trans-unit id="pi1_flexform.excludeexternal" xml:space="preserve">
+				<source>Exclude external publications</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.searchtags" xml:space="preserve">
-				<source>fine search by filter tags</source>
+			<trans-unit id="pi1_flexform.publication" xml:space="preserve">
+				<source>Publication</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.tagstring" xml:space="preserve">
-				<source>tag(s) or string</source>
+			<trans-unit id="pi1_flexform.textfilter" xml:space="preserve">
+				<source>Text filter</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.taglogic" xml:space="preserve">
-				<source>tag combination</source>
+			<trans-unit id="pi1_flexform.searchtags" xml:space="preserve">
+				<source>Fine search by filter tags</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.taglogic.or" xml:space="preserve">
-				<source>one of the tags</source>
+			<trans-unit id="pi1_flexform.tagstring" xml:space="preserve">
+				<source>Tag(s) or string</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.taglogic.and" xml:space="preserve">
-				<source>all of the tags</source>
+			<trans-unit id="pi1_flexform.taglogic" xml:space="preserve">
+				<source>Tag combination</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.taglogic.string" xml:space="preserve">
-				<source>search whole string</source>
+			<trans-unit id="pi1_flexform.taglogic.or" xml:space="preserve">
+				<source>One of the tags</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.taglogic.tagkeysense" xml:space="preserve">
-				<source>filter tags key sensitiv</source>
+			<trans-unit id="pi1_flexform.taglogic.and" xml:space="preserve">
+				<source>All of the tags</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
-				<source>enable advanced types by using tags</source>
+			<trans-unit id="pi1_flexform.taglogic.string" xml:space="preserve">
+				<source>Search whole string</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type" xml:space="preserve">
-				<source>type of publication</source>
+			<trans-unit id="pi1_flexform.taglogic.tagkeysense" xml:space="preserve">
+				<source>Filter tags, case sensitive</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.advancedtype" xml:space="preserve">
-				<source>type of publication (+ custom types)</source>
+			<trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
+				<source>Enable advanced types by using tags</source>
 			</trans-unit>
-
-                        <trans-unit id="pi1_flexform.type.all" xml:space="preserve">
-				<source>All (Alles)</source>
+			<trans-unit id="pi1_flexform.type" xml:space="preserve">
+				<source>Publication types</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.article" xml:space="preserve">
-				<source>Article (Zeitschriftenartikel)</source>
+			<trans-unit id="pi1_flexform.advancedtype" xml:space="preserve">
+				<source>Publication types (+ custom types)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.book" xml:space="preserve">
-				<source>Book (Buch)</source>
+			<trans-unit id="pi1_flexform.type.all" xml:space="preserve">
+				<source>All</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.book_section" xml:space="preserve">
-				<source>Book Section (Buchkapitel)</source>
+			<trans-unit id="pi1_flexform.type.article" xml:space="preserve">
+				<source>Articles</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.conference_item" xml:space="preserve">
-				<source>Conference Item (Konferenz Beitrag)</source>
+			<trans-unit id="pi1_flexform.type.book" xml:space="preserve">
+				<source>Books</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.dissertation" xml:space="preserve">
-				<source>Dissertation</source>
+			<trans-unit id="pi1_flexform.type.book_section" xml:space="preserve">
+				<source>Book Sections</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.encyclopedia_article" xml:space="preserve">
-				<source>Encyclopedia Article (Lexikonartikel)</source>
+			<trans-unit id="pi1_flexform.type.conference_item" xml:space="preserve">
+				<source>Conference Items</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.habilitation" xml:space="preserve">
-				<source>Habilitation</source>
+			<trans-unit id="pi1_flexform.type.conference_presentation" xml:space="preserve">
+				<source>Conference Presentations</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.journal" xml:space="preserve">
-				<source>Journal (Zeitschrift)</source>
+			<trans-unit id="pi1_flexform.type.dissertation" xml:space="preserve">
+				<source>Dissertations</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.other" xml:space="preserve">
-				<source>Other (Sonstiges)</source>
+			<trans-unit id="pi1_flexform.type.encyclopedia_article" xml:space="preserve">
+				<source>Encyclopedia Articles</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.preprint" xml:space="preserve">
-				<source>Preprint</source>
+			<trans-unit id="pi1_flexform.type.habilitation" xml:space="preserve">
+				<source>Habilitations</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.report" xml:space="preserve">
-				<source>Tech Report (Bericht)</source>
+			<trans-unit id="pi1_flexform.type.journal" xml:space="preserve">
+				<source>Journals</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.review" xml:space="preserve">
-				<source>Review (Rezension)</source>
+			<trans-unit id="pi1_flexform.type.other" xml:space="preserve">
+				<source>Other</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.thesis" xml:space="preserve">
-				<source>Thesis (Abschlussarbeit)</source>
+			<trans-unit id="pi1_flexform.type.preprint" xml:space="preserve">
+				<source>Preprints</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.research_paper" xml:space="preserve">
-				<source>Research Paper</source>
+			<trans-unit id="pi1_flexform.type.report" xml:space="preserve">
+				<source>Reports</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.workshop_item" xml:space="preserve">
-				<source>Workshop Item</source>
+			<trans-unit id="pi1_flexform.type.review" xml:space="preserve">
+				<source>Reviews</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.masterthesis" xml:space="preserve">
-				<source>Masterthesis</source>
+			<trans-unit id="pi1_flexform.type.thesis" xml:space="preserve">
+				<source>Theses</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.type.poster" xml:space="preserve">
-				<source>Poster</source>
+			<trans-unit id="pi1_flexform.type.research_paper" xml:space="preserve">
+				<source>Research Papers</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
-				<source>Link for Title</source>
+			<trans-unit id="pi1_flexform.type.workshop_item" xml:space="preserve">
+				<source>Workshop Items</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>for bib (url OR eprintid)</source>
+			<trans-unit id="pi1_flexform.type.masterthesis" xml:space="preserve">
+				<source>Master Theses</source>
 			</trans-unit>
-
-                        <trans-unit id="pi1_flexform.years" xml:space="preserve">
-				<source>Years</source>
+			<trans-unit id="pi1_flexform.type.poster" xml:space="preserve">
+				<source>Posters</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.0" xml:space="preserve">
-				<source>don't filter year</source>
+			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
+				<source>Link for title</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.1" xml:space="preserve">
-				<source>exact year</source>
+			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
+				<source>For BIB (url OR eprintid)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.2" xml:space="preserve">
-				<source>till year</source>
+			<trans-unit id="pi1_flexform.years" xml:space="preserve">
+				<source>Timespan</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.3" xml:space="preserve">
-				<source>from year</source>
+			<trans-unit id="pi1_flexform.years.0" xml:space="preserve">
+				<source>Don't filter year</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.4" xml:space="preserve">
-				<source>from year X - to year Y (Y > X)</source>
+			<trans-unit id="pi1_flexform.years.1" xml:space="preserve">
+				<source>Exact year</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.5" xml:space="preserve">
-				<source>the last X years</source>
+			<trans-unit id="pi1_flexform.years.2" xml:space="preserve">
+				<source>Till year</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.6" xml:space="preserve">
-				<source>before Y years</source>
+			<trans-unit id="pi1_flexform.years.3" xml:space="preserve">
+				<source>From year</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.years.7" xml:space="preserve">
-				<source>from last X years to last Y years ( X > Y)</source>
+			<trans-unit id="pi1_flexform.years.4" xml:space="preserve">
+				<source>From year X - to year Y (Y > X)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.yeartill" xml:space="preserve">
-				<source>till year</source>
+			<trans-unit id="pi1_flexform.years.5" xml:space="preserve">
+				<source>The last X years</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.yearfrom" xml:space="preserve">
-				<source>from year</source>
+			<trans-unit id="pi1_flexform.years.6" xml:space="preserve">
+				<source>Before Y years</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.yearthis" xml:space="preserve">
-				<source>this year</source>
+			<trans-unit id="pi1_flexform.years.7" xml:space="preserve">
+				<source>From last X years to last Y years ( X > Y)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.lastyearfrom" xml:space="preserve">
-				<source>from last X years</source>
+			<trans-unit id="pi1_flexform.yeartill" xml:space="preserve">
+				<source>Till year</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.lastyeartill" xml:space="preserve">
-				<source>till last Y years</source>
+			<trans-unit id="pi1_flexform.yearfrom" xml:space="preserve">
+				<source>From year</source>
 			</trans-unit>
-
-
-
+			<trans-unit id="pi1_flexform.yearthis" xml:space="preserve">
+				<source>This year</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.lastyearfrom" xml:space="preserve">
+				<source>From last X years</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.lastyeartill" xml:space="preserve">
+				<source>Till last Y years</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.lsSelect" xml:space="preserve">
 				<source>Faculties and Departments</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.icombination" xml:space="preserve">
-				<source>combination</source>
+				<source>Combination</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.icombination.or" xml:space="preserve">
 				<source>OR</source>
@@ -276,105 +268,99 @@
 			<trans-unit id="pi1_flexform.icombination.and" xml:space="preserve">
 				<source>AND</source>
 			</trans-unit>
-
-
 			<trans-unit id="pi1_flexform.institute10000" xml:space="preserve">
-				<source>use Außerfakultäre Einrichtungen</source>
+				<source>Außerfakultäre Einrichtungen</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute20000" xml:space="preserve">
-				<source>use Fakultät für Betriebswirtschaftslehre</source>
+				<source>Fakultät für Betriebswirtschaftslehre</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute30000" xml:space="preserve">
-				<source>use Fakultät für Wirtschaftsinformatik und Wirtschaftsmathematik</source>
+				<source>Fakultät für Wirtschaftsinformatik und Wirtschaftsmathematik</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute40000" xml:space="preserve">
-				<source>use Philosophische Fakultät</source>
+				<source>Philosophische Fakultät</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute50000" xml:space="preserve">
-				<source>use Fakultät für Rechtswissenschaft und Volkswirtschaftslehre</source>
+				<source>Fakultät für Rechtswissenschaft und Volkswirtschaftslehre</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute60000" xml:space="preserve">
-				<source>use Fakultät für Sozialwissenschaften</source>
+				<source>Fakultät für Sozialwissenschaften</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute70000" xml:space="preserve">
-				<source>use Sonstige Einrichtungen</source>
+				<source>Sonstige Einrichtungen</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.institute80000" xml:space="preserve">
-				<source>use Zentrale Einrichtungen</source>
+				<source>Zentrale Einrichtungen</source>
 			</trans-unit>
-
 			<trans-unit id="pi1_flexform.rendering" xml:space="preserve">
 				<source>Output Format</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.templateLayout" xml:space="preserve">
+			<trans-unit id="pi1_flexform.templateLayout" xml:space="preserve">
 				<source>Template Layout</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.ordering" xml:space="preserve">
+			<trans-unit id="pi1_flexform.ordering" xml:space="preserve">
 				<source>Ordering</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.ordering.0" xml:space="preserve">
-				<source>latest first</source>
+			<trans-unit id="pi1_flexform.ordering.0" xml:space="preserve">
+				<source>Latest first</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.ordering.1" xml:space="preserve">
-				<source>oldest first</source>
+			<trans-unit id="pi1_flexform.ordering.1" xml:space="preserve">
+				<source>Oldest first</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
-				<source>default (url OR ubma_url_extern OR official_url OR eprintid)</source>
+			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
+				<source>Default (url OR ubma_url_extern OR official_url OR eprintid)</source>
 			</trans-unit>
-
-                        <trans-unit id="pi1_flexform.splityears" xml:space="preserve">
-				<source>Split Years</source>
+			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
+				<source>Group by years</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splityears.0" xml:space="preserve">
-				<source>no</source>
+			<trans-unit id="pi1_flexform.splityears.0" xml:space="preserve">
+				<source>No</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splityears.1" xml:space="preserve">
-				<source>yes, on same page</source>
+			<trans-unit id="pi1_flexform.splityears.1" xml:space="preserve">
+				<source>Yes, on same page</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splityears.2" xml:space="preserve">
-				<source>yes, on own pages</source>
+			<trans-unit id="pi1_flexform.splityears.2" xml:space="preserve">
+				<source>Yes, on separate pages</source>
 			</trans-unit>
-
-                        <trans-unit id="pi1_flexform.splittypes" xml:space="preserve">
-				<source>Split Types</source>
+			<trans-unit id="pi1_flexform.splittypes" xml:space="preserve">
+				<source>Group by publication types</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splittypes.0" xml:space="preserve">
-				<source>no</source>
+			<trans-unit id="pi1_flexform.splittypes.0" xml:space="preserve">
+				<source>No</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splittypes.1" xml:space="preserve">
-				<source>yes, on same page</source>
+			<trans-unit id="pi1_flexform.splittypes.1" xml:space="preserve">
+				<source>Yes, on same page</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.splittypes.2" xml:space="preserve">
-				<source>yes, on own pages</source>
+			<trans-unit id="pi1_flexform.splittypes.2" xml:space="preserve">
+				<source>Yes, on separate pages</source>
 			</trans-unit>
-
+			<trans-unit id="pi1_flexform.splittypes.3" xml:space="preserve">
+				<source>Yes, on tabs</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.hideentriesexceedingn" xml:space="preserve">
+				<source>Hide entries exceeding number of n</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.enumerate" xml:space="preserve">
 				<source>Enumerate list</source>
 			</trans-unit>
-
 			<trans-unit id="pi1_flexform.bibtex" xml:space="preserve">
 				<source>Export Bibtex</source>
 			</trans-unit>
-
-
-
-
 			<trans-unit id="pi1_flexform.expert" xml:space="preserve">
 				<source>Expert</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.usedirecturl" xml:space="preserve">
-				<source>give the Query-URL directly, ignore the settings on the Query-Tab</source>
+			<trans-unit id="pi1_flexform.usedirecturl" xml:space="preserve">
+				<source>Directly specify query URL and ignore settings on Query tab</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.directurl" xml:space="preserve">
+			<trans-unit id="pi1_flexform.directurl" xml:space="preserve">
 				<source>Query-URL: (have a look at https://ub-madoc.bib.uni-mannheim.de)</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.debug" xml:space="preserve">
+			<trans-unit id="pi1_flexform.debug" xml:space="preserve">
 				<source>Enable Debug Messages</source>
 			</trans-unit>
-                        <trans-unit id="pi1_flexform.usecache" xml:space="preserve">
-				<source>Enable Cache (faster side loading)</source>
+			<trans-unit id="pi1_flexform.usecache" xml:space="preserve">
+				<source>Enable Cache (faster loading of pages)</source>
 			</trans-unit>
 		</body>
 	</file>
-
 </xliff>

@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\ViewHelpers;
+namespace UMA\UmaPublist\ViewHelpers;
 
 /**
  * This file is part of the TYPO3 CMS project.

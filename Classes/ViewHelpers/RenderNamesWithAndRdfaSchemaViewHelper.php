@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\ViewHelpers;
+namespace UMA\UmaPublist\ViewHelpers;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -18,7 +18,7 @@ namespace Unima\Publist4ubma2\ViewHelpers;
  * ViewHelper print Names with rdf schema and "AND"
  *
  * @package TYPO3
- * @subpackage publist4ubma2
+ * @subpackage tx_umapublist
  */
 class RenderNamesWithAndRdfaSchemaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
@@ -45,12 +45,12 @@ class RenderNamesWithAndRdfaSchemaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 							$output .= ', ';
 						elseif ($i < $peopleNumber)
 							//$output .= ' and ';
-							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'uma_publist') . " ";
 					}
 					else {
 						if (($i < $peopleNumber) && ($peopleNumber == 2))
 							//$output .= ' and ';
-							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'publist4ubma2') . " ";
+							$output .= " " . \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('and', 'uma_publist') . " ";
 					}
 					$i++;
 				}

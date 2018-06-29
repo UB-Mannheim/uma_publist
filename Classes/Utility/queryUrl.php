@@ -1,6 +1,6 @@
 <?php
 
-namespace Unima\Publist4ubma2\Utility;
+namespace UMA\UmaPublist\Utility;
 
         /**
  * This file is part of the TYPO3 CMS project.
@@ -26,7 +26,7 @@ class queryUrl {
         public static function generate($flexform, $bibtex)
 	{
 		// Load the Error Handler Singelton
-		$errorHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('Unima\\Publist4ubma2\\Service\\ErrorHandler');
+		$errorHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\ErrorHandler');
 
 
 		$url = "";

@@ -1,9 +1,9 @@
 <h3 class="uppercase">
-       <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:showcleanup.header" />
+       <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.header" />
 </h3>
 
 <p class="description">
-       <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:showcleanup.description" />
+       <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.description" />
 </p>
 <f:comment>
 	<f:debug>{institutes}</f:debug>
@@ -24,8 +24,6 @@
 </f:if>
 
 
-
-
 		<f:if condition="{infoMsg}">
 			<f:then>
 				<div class="typo3-message message-notice">
@@ -41,13 +39,25 @@
 	        </f:if>
 
 		<div>
-			<f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'showCleanup', arguments: {myArg: 'syncPublists'})}" icon="actions-system-refresh" title="sync" /> <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:publist.sync" />
+			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'syncPublists'}" title="sync">
+				<core:icon identifier="actions-system-refresh" title="sync" />
+			</f:link.action>
+			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.sync" />
 			<br />
-			<f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'showCleanup', arguments: {myArg: 'cleanUpPublist'})}" icon="actions-edit-delete" title="sync" /> <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:publist.cleanup" />
+			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanUpPublist'}" title="sync">
+				<f:core:icon identifier="actions-edit-delete" />
+			</f:link.action>
+			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.cleanup" />
 			<br />
-			<f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'showCleanup', arguments: {myArg: 'cleanupPublications'})}" icon="actions-edit-delete" title="sync" /> <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:publication.cleanup" />
+			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupPublications'}" title="sync">
+				<f:core:icon identifier="actions-edit-delete" />
+			</f:link.action>
+			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup" />
 			<br />
-			<f:be.buttons.icon uri="{f:uri.action(controller:'Administration',action:'showCleanup', arguments: {myArg: 'cleanupDeletedPublications'})}" icon="actions-edit-delete" title="sync" /> <f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_be.xlf:publication.cleanup.deleted" />
+			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupDeletedPublications'}" title="sync">
+				<f:core:icon identifier="actions-edit-delete" />
+			</f:link.action>
+			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup.deleted" />
 		</div>
 
 	        <h4 class="uppercase">
@@ -58,9 +68,9 @@
 				<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
 					<thead>
 						<tr class="t3-row-header">
-							<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publist.xlf:publist.ceid" /></span></td>
-							<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publist.xlf:publist.publications" /></span></td>
-							<td><span><f:translate key="LLL:EXT:publist4ubma2/Resources/Private/Language/locallang_csh_tx_publist4ubma2_domain_model_publist.xlf:publist.url" /></span></td>
+							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.ceid" /></span></td>
+							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.publications" /></span></td>
+							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.url" /></span></td>
 						</tr>
 					</thead>
 						<tbody>
@@ -79,7 +89,7 @@
 
 <f:if condition="{debugMsg}">
 	<f:then>
-                <div class="publist4ubma2_debug">
+                <div class="uma-publist-debug">
 			<ul>
 				<f:for each="{debugMsg}" as="line">
 					<li>Debug: {line}</li>
@@ -88,5 +98,3 @@
 		</div>
        </f:then>
 </f:if>
-
-

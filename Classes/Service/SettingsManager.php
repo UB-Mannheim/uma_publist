@@ -1,6 +1,6 @@
 <?php
 
-namespace Unima\Publist4ubma2\Service;
+namespace UMA\UmaPublist\Service;
 
         /**
  * This file is part of the TYPO3 CMS project.
@@ -25,7 +25,7 @@ class SettingsManager implements \TYPO3\CMS\Core\SingletonInterface {
 	protected static $allConfig;
 
 	public function __construct() {
-		$this->allConfig['extMgn'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['publist4ubma2']);
+		$this->allConfig['extMgn'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['uma_publist']);
 	}
 
 
@@ -39,7 +39,7 @@ class SettingsManager implements \TYPO3\CMS\Core\SingletonInterface {
 		$paths = explode("/", $pathStr); 
 		$tmpConf = $this->allConfig;
 		foreach($paths as $nextIndex)
-		    $tmpConf = $tmpConf[$nextIndex];
+			$tmpConf = $tmpConf[$nextIndex];
 
 		return $tmpConf;
 	}

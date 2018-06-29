@@ -1,0 +1,47 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+    <b><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_title" /></b><br />
+    <f:if condition="{header}">
+        {header->f:format.raw()}<br />
+    </f:if>
+    <br />
+    <f:if condition="{title} == ''">
+        <f:if condition="{author} == ''">
+            <f:if condition="{chairs->f:count()} == 0">
+                <div style="margin-right:8px;float:left;"><core:icon identifier="overlay-warning" size="small" /></div><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:error.select_title_author_or_department" /><br /><br style="clear:both" />
+            </f:if>
+        </f:if>
+    </f:if>
+    <f:if condition="{title}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title" />:<br />
+        {title->f:format.raw()}<br /><br />
+    </f:if>
+    <f:if condition="{author}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author" />:<br />
+        {author->f:format.raw()}<br /><br />
+    </f:if>
+    <f:if condition="{types->f:count()}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type" />:<br />
+        <f:for each="{types}" as="type">
+            {type->f:format.raw()}<br />
+        </f:for>
+        <br />
+    </f:if>
+    <f:if condition="{timespan}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years" />:<br />
+        {timespan->f:format.raw()}<br /><br />
+    </f:if>
+    <f:if condition="{institutes->f:count()}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect" />:<br />
+        <f:for each="{institutes}" as="institute">
+            {institute.nameDe->f:format.raw()}<br />
+        </f:for>
+        <f:if condition="{chairs->f:count()}">
+            <f:for each="{chairs}" as="chair">
+                <span style="padding-left:10px;"></span>{chair.nameDe->f:format.raw()}<br />
+            </f:for>
+        </f:if>
+    </f:if>

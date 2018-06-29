@@ -15,7 +15,7 @@ News system
 .. only:: html
 
 	:Classification:
-		publist4ubma2
+		uma_publist
 
 	:Version:
 		|release|
@@ -24,10 +24,10 @@ News system
 		en
 
 	:Keywords:
-		publist4ubma2
+		uma_publist
 
 	:Copyright:
-		2016
+		2016-2017
 
 	:Author:
 		Sebastian Kotthoff

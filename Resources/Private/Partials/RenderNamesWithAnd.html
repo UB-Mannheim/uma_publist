@@ -1,0 +1,12 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+<f:if condition="{publication.creators}">
+	<f:then>
+<n:myExplode content="{publication.creators}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><n:myExplode content="{writer}" glue="," as="thename">{thename.1} {thename.0}</n:myExplode></f:for></n:myExplode>
+	</f:then>
+	<f:else>
+<n:myExplode content="{publication.editors}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><n:myExplode content="{writer}" glue="," as="thename">{thename.1} {thename.0}</n:myExplode></f:for></n:myExplode>
+	</f:else>
+</f:if>

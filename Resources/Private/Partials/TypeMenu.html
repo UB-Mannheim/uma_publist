@@ -1,30 +1,20 @@
-{namespace m=Unima\Publist4ubma2\ViewHelpers}
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
 
-<div class="tx_publist4ubma2-typenavi">
+<div class="uma-publist-typenavi">
+	<ul>
 	<f:if condition="{settings.splityears}==2">
 		<f:then>
 			<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
-				<f:if condition="{curType}=={type}">
-					<f:then>
-						<f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action>
-					</f:then>
-					<f:else>
-						<f:link.action  action="list" arguments="{year: curYear, type: type}">[<f:translate key='{type}' />] </f:link.action>
-					</f:else>
-				</f:if>
+				<li{f:if(condition: '{curType}=={type}', then: ' class="is-active"')}><f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action></li>
 			</f:for>
 		</f:then>
 		<f:else>
 			<f:for each="{types}" as="type">
-				<f:if condition="{curType}=={type}">
-					<f:then>
-						<f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action>
-					</f:then>
-					<f:else>
-						<f:link.action  action="list" arguments="{year: curYear, type: type}">[<f:translate key='{type}' />] </f:link.action>
-					</f:else>
-				</f:if>
+				<li{f:if(condition: '{curType}=={type}', then: ' class="is-active"')}><f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action></li>
 			</f:for>
 		</f:else>
 	</f:if>
+	</ul>
 </div>

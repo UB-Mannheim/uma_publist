@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-06-02T13:40:33Z" product-name="uma_publist">
+		<header/>
+		<body>
+			<trans-unit id="errorZeroStoragePid">
+				<source>storagePid = 0, NOT allowed. Please create a sysFolder in Backend for storing Publicationlists and add the PID to your TypoScript Constants like plugin.tx_umapublist_pi1.storagePid = PID</source>
+				<target>storagePid = 0 NICHT erlaubt. Bitte erstellen Sie einen Systemordner im Backend, in dem die Publikationslisten gespeichert werden können, und fügen Sie die Seiten-ID als Typoscript-Konstante hinzu mit der Zeile plugin.tx_umapublist_pi1.storagePid = PID</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_institute">
+				<source>Institute</source>
+				<target>Institut</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_institute.name_en">
+				<source>Name English</source>
+				<target>Namen englisch</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_institute.name_de">
+				<source>Name German</source>
+				<target>Name deutsch</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_institute.id">
+				<source>Id</source>
+				<target>Id</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_chair">
+				<source>Chair</source>
+				<target>Lehrstuhl</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_chair.id">
+				<source>Id</source>
+				<target>Id</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_chair.parent">
+				<source>Parent</source>
+				<target>Elternelement</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_chair.name_en">
+				<source>Name English</source>
+				<target>Name englisch</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_chair.name_de">
+				<source>Name German</source>
+				<target>Name deutsch</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication">
+				<source>Publication</source>
+				<target>Publikation</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.eprint_id">
+				<source>Eprint Id</source>
+				<target>Eprint-Id</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.abstract">
+				<source>Abstract</source>
+				<target>Abstract</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.url_offical">
+				<source>Official URL</source>
+				<target>Offizielle URL</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.url_ubma_extern">
+				<source>URL UBMA External</source>
+				<target>URL UBMA extern</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.url">
+				<source>URL</source>
+				<target>URL</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.year">
+				<source>Year</source>
+				<target>Jahr</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.bib_type">
+				<source>BIB Type</source>
+				<target>BIB-Typ</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.volume">
+				<source>Volume</source>
+				<target>Ausgabe</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.publisher">
+				<source>Publisher</source>
+				<target>Herausgeber</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.rev_number">
+				<source>Rev. Number</source>
+				<target>Auflage</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.publication">
+				<source>Publication</source>
+				<target>Publikation</target>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.authors">
+				<source>Authors</source>
+				<target>Autoren</target>
+			</trans-unit>
+			<trans-unit id="book" xml:space="preserve">
+				<source>Books</source>
+				<target>Bücher</target>
+			</trans-unit>
+			<trans-unit id="article" xml:space="preserve">
+				<source>Articles</source>
+				<target>Artikel</target>
+			</trans-unit>
+			<trans-unit id="book_section" xml:space="preserve">
+				<source>Book Sections</source>
+				<target>Buchkapitel</target>
+			</trans-unit>
+			<trans-unit id="dissertation" xml:space="preserve">
+				<source>Dissertations</source>
+				<target>Dissertationen</target>
+			</trans-unit>
+			<trans-unit id="encyclopedia_article" xml:space="preserve">
+				<source>Encyclopedia Articles</source>
+				<target>Enzyklopädieeinträge</target>
+			</trans-unit>
+			<trans-unit id="habilitation" xml:space="preserve">
+				<source>Habilitations</source>
+				<target>Habilitationen</target>
+			</trans-unit>
+			<trans-unit id="journal" xml:space="preserve">
+				<source>Journale</source>
+				<target>Journals</target>
+			</trans-unit>
+			<trans-unit id="other" xml:space="preserve">
+				<source>Other</source>
+				<target>Sonstiges</target>
+			</trans-unit>
+			<trans-unit id="preprint" xml:space="preserve">
+				<source>Preprints</source>
+				<target>Preprints</target>
+			</trans-unit>
+			<trans-unit id="report" xml:space="preserve">
+				<source>Reports</source>
+				<target>Berichte</target>
+			</trans-unit>
+			<trans-unit id="review" xml:space="preserve">
+				<source>Reviews</source>
+				<target>Reviews</target>
+			</trans-unit>
+			<trans-unit id="thesis" xml:space="preserve">
+				<source>Theses</source>
+				<target>Abschlussarbeiten</target>
+			</trans-unit>
+			<trans-unit id="research_paper" xml:space="preserve">
+				<source>Research Papers</source>
+				<target>Forschungspapiere</target>
+			</trans-unit>
+			<trans-unit id="conference_item" xml:space="preserve">
+				<source>Conference Items</source>
+				<target>Konferenzbeiträge</target>
+			</trans-unit>
+			<trans-unit id="conference_presentation" xml:space="preserve">
+				<source>Conference Presentations</source>
+				<target>Präsentationen auf Konferenzen</target>
+			</trans-unit>
+			<trans-unit id="workshop_item" xml:space="preserve">
+				<source>Workshop Items</source>
+				<target>Workshop-Beiträge</target>
+			</trans-unit>
+			<trans-unit id="master_thesis" xml:space="preserve">
+				<source>Master Theses</source>
+				<target>Masterarbeiten</target>
+			</trans-unit>
+			<trans-unit id="poster" xml:space="preserve">
+				<source>Posters</source>
+				<target>Poster</target>
+			</trans-unit>
+			<trans-unit id="and" xml:space="preserve">
+				<source>and</source>
+				<target>und</target>
+			</trans-unit>
+			<trans-unit id="error" xml:space="preserve">
+				<source>Error</source>
+				<target>Fehler</target>
+			</trans-unit>
+			<trans-unit id="info" xml:space="preserve">
+				<source>Info</source>
+				<target>Info</target>
+			</trans-unit>
+			<trans-unit id="showall" xml:space="preserve">
+				<source>Show all</source>
+				<target>Alle anzeigen</target>
+			</trans-unit>
+			<trans-unit id="error.no_publications_found" xml:space="preserve">
+				<source>No publications found</source>
+				<target>Keine Publikationen gefunden</target>
+			</trans-unit>
+			<trans-unit id="error.select_title_author_or_department" xml:space="preserve">
+				<source>Please select least title, author or faculty and department</source>
+				<target>Bitte mindestens Titel, Autor oder Fakultät und Abteilung wählen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,5 +1,5 @@
 <?php
-namespace Unima\Publist4ubma2\Domain\Model;
+namespace UMA\UmaPublist\Domain\Model;
 
 
 /***************************************************************
@@ -81,19 +81,12 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
                 $this->tstamp = $tstamp;
         }
 
-        /**
-         * eprintId
-         *
-         * @var int
-         */
-        protected $eprintId = 0;
-
-        /**
-         * eprintIdUrl
-         *
-         * @var string
-         */
-        protected $eprintIdUrl;
+	/**
+	 * eprintId
+	 *
+	 * @var int
+	 */
+	protected $eprintId = 0;
 
         /**
          * @var string
@@ -175,11 +168,11 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $publisher = '';
 
 	/**
-	 * number
+	 * revNumber
 	 *
 	 * @var string
 	 */
-	protected $number = '';
+	protected $revNumber = '';
 
 	/**
 	 * publication
@@ -274,14 +267,6 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $usedCoin = '';
-	
-	/**
-         * idNumber
-         *
-         * @var string
-         */
-        protected $idNumber = '';
-
 
 
 	/**
@@ -322,25 +307,6 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setEprintId($eprintId) {
 		$this->eprintId = $eprintId;
-	}
-
-	/**
-	 * Returns the eprintIdUrl
-	 *
-	 * @return int $eprintIdUrl
-	 */
-	public function getEprintIdUrl() {
-		return $this->eprintIdUrl;
-	}
-
-	/**
-	 * Sets the eprintIdUrl
-	 *
-	 * @param int $eprintIdUrl
-	 * @return void
-	 */
-	public function setEprintIdUrl($eprintIdUrl) {
-		$this->eprintIdUrl = $eprintIdUrl;
 	}
 
 	/**
@@ -555,22 +521,22 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Returns the number
+	 * Returns the revNumber
 	 *
-	 * @return string $number
+	 * @return string $revNumber
 	 */
-	public function getNumber() {
-		return $this->number;
+	public function getRevNumber() {
+		return $this->revNumber;
 	}
 
 	/**
-	 * Sets the number
+	 * Sets the revNumber
 	 *
-	 * @param string $number
+	 * @param string $revNumber
 	 * @return void
 	 */
-	public function setNumber($number) {
-		$this->number = $number;
+	public function setRevNumber($revNumber) {
+		$this->revNumber = $revNumber;
 	}
 
 	/**
@@ -820,24 +786,5 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setUsedCoin($usedCoin) {
 		$this->usedCoin = $usedCoin;
 	}
-	
-	/**
-         * Returns the idNumber
-         *
-         * @return string $idNumber
-         */
-        public function getIdNumber() {
-                return $this->idNumber;
-        }
 
-        /**
-         * Sets the idNumber
-         *
-         * @param string $idNumber
-         * @return void
-         */
-        public function setIdNumber($idNumber) {
-                $this->idNumber = $idNumber;
-        }
- 
 }
