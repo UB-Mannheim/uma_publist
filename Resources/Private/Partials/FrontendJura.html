@@ -1,0 +1,120 @@
+<html data-namespace-typo3-fluid="true"
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
+
+<f:switch expression="{publication.bibType}">
+	<f:case value="article">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		{publication.publication}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="book">
+		<f:if condition="{publication.creators}">
+			<f:then>
+				<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, 
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.editors}">
+					<f:then>
+						<em><n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.)</em>, 
+					</f:then>
+					<f:else>
+						<em>{publication.corpCreators}</em>, 
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+		<f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>, 
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}.
+	</f:case>
+	<f:case value="book_section">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>, 
+		in:
+		<f:if condition="{publication.ubmaBookEditor}">
+			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		</f:if>
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
+		</f:if>
+		{publication.bookTitle},
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="conference_item">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>, 
+		in:
+		<f:if condition="{publication.ubmaBookEditor}">
+			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		</f:if>
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
+		</f:if>
+		{publication.bookTitle},
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="encyclopedia_article">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>, 
+		in:
+		<f:if condition="{publication.ubmaBookEditor}">
+			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		</f:if>
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
+		</f:if>
+		{publication.bookTitle},
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="workshop_item">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>, 
+		in:
+		<f:if condition="{publication.ubmaBookEditor}">
+			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		</f:if>
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
+		</f:if>
+		{publication.bookTitle},
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="dissertation">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Diss., {publication.placeOfPub}, ({publication.year}).
+	</f:case>
+	<f:case value="habilitation">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Habil., {publication.placeOfPub}, ({publication.year}).
+	</f:case>
+	<f:case value="thesis">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Thesis, {publication.placeOfPub}, ({publication.year}).
+	</f:case>
+	<f:case value="master_thesis">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Thesis., {publication.placeOfPub}, ({publication.year}).
+	</f:case>
+	<f:case value="journal">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Review, {publication.publication}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="review">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		Review, {publication.publication}, {publication.year}.
+	</f:case>
+	<f:case default="TRUE">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em> <em><n:renderLastNamesOnly somebody="{publication.editors}" /></em> <em>{publication.corpCreators}</em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>,
+		{publication.publication}, {publication.year}.
+	</f:case>
+</f:switch>

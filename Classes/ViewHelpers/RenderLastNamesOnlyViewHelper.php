@@ -15,12 +15,12 @@ namespace UMA\UmaPublist\ViewHelpers;
  */
 
 /**
- * ViewHelper print Names with rdf schema and "AND"
+ * ViewHelper print last names only
  *
  * @package TYPO3
  * @subpackage tx_umapublist
  */
-class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class RenderLastNamesOnlyViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
         /**
@@ -41,14 +41,10 @@ class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
 		$peopleNumber = count($peopleList);
 		for ($i = 0; $i < $peopleNumber; $i++) {
 			if ($theName = explode(',', $peopleList[$i])) {
-				$output .= $theName[0] . ', ' . preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]);
-				# The regexp above misses firstnames starting with non-ascii letter.
+				$output .= $theName[0];
 				if ($i < $peopleNumber-1) {
-					if ($i < $peopleNumber-2) {
-						$output .= ', ';
-					}
-					if ($i == $peopleNumber-2) {
-						$output .= ', & ';
+					if ($i < $peopleNumber-1) {
+						$output .= '/';
 					}
 					# Add '(Hrsg.)' for editors at the end of the string
 					
