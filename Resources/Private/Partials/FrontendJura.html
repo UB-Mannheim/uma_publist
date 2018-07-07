@@ -7,6 +7,10 @@
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
 		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}, {publication.pageRange}.
 	</f:case>
+	<f:case value="entscheidungsbesprechung">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
+		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}, {publication.pageRange}.
+	</f:case>
 	<f:case value="book">
 		<f:if condition="{publication.creators}">
 			<f:then>
@@ -30,6 +34,21 @@
 		{publication.placeOfPub}, {publication.year}.
 	</f:case>
 	<f:case value="book_section">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
+		in:
+		<f:if condition="{publication.ubmaBookEditor}">
+			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		</f:if>
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
+		</f:if>
+		<n:deleteSpaceBeforeColon title="{publication.bookTitle}" />,
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
+	</f:case>
+	<f:case value="kommentierung">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
 		<f:if condition="{publication.ubmaBookEditor}">

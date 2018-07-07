@@ -129,6 +129,12 @@
 			<trans-unit id="poster" xml:space="preserve">
 				<source>Posters</source>
 			</trans-unit>
+			<trans-unit id="entscheidungsbesprechung" xml:space="preserve">
+				<source>Case Discussions</source>
+			</trans-unit>
+			<trans-unit id="kommentierung" xml:space="preserve">
+				<source>Commentaries</source>
+			</trans-unit>
 			<trans-unit id="and" xml:space="preserve">
 				<source>and</source>
 			</trans-unit>
