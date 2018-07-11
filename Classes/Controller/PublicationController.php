@@ -380,6 +380,11 @@ class PublicationController extends BasicPublistController {
 			return 'master_thesis';
 		if (strpos($ubmaTags, 'pubtype:poster', 0) !== false)
 			return 'poster';
+		// for publications in law:
+		if (strpos($ubmaTags, 'pubtype:entscheidungsbesprechung', 0) !== false)
+			return 'entscheidungsbesprechung';
+		if (strpos($ubmaTags, 'pubtype:kommentierung', 0) !== false)
+			return 'kommentierung';
 
 		return $bibType;
 	}
@@ -450,6 +455,7 @@ class PublicationController extends BasicPublistController {
 		//type and title
 		$titleLabel = "atitle";//default is article title
 		switch($pub->getBibType()) {
+			case "entscheidungsbesprechung":
 			case "article":
 				$coin .= "&rft_val_fmt=" . rawurlencode("info:ofi/fmt:kev:mtx:journal") . "&rft.genre=article";
 				break;
@@ -460,6 +466,7 @@ class PublicationController extends BasicPublistController {
 				$coin .= "&rft_val_fmt=" . rawurlencode("info:ofi/fmt:kev:mtx:book") . "&rft.genre=book";
 				$titleLabel = "btitle";
 				break;
+			case "kommentierung":
 			case "book_section":
 				$coin .= "&rft_val_fmt=" . rawurlencode("info:ofi/fmt:kev:mtx:book") . "&rft.genre=bookitem";
 				break;
@@ -481,7 +488,7 @@ class PublicationController extends BasicPublistController {
 				break;
 			default:
 				/* Remaining cases:
-				"habilitation", "thesis", "master_thesis", "journal", "other", "review", "research_paper", "workshop_item", "poster"
+				"habilitation", "thesis", "master_thesis", "journal", "other", "review", "research_paper", "poster"
 				*/
 				$coin .= "&rft_val_fmt=" . rawurlencode("info:ofi/fmt:kev:mtx:book");
 				$titleLabel = "title";

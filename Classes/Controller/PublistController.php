@@ -331,7 +331,7 @@ class PublistController extends BasicPublistController {
 			$confTypes = explode(',', $this->settings['type']);
 		}
 
-		// init grouped content with flexform types to establish correct orde
+		// init grouped content with flexform types to establish correct order
 		if($this->settings['splittypes']) {
 			foreach($confTypes as $type) {
 				$groupedContent[$type] = [];

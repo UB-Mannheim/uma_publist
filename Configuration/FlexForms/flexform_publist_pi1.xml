@@ -300,15 +300,23 @@
          </numIndex>
          <numIndex index="14">
           <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.workshop_item</numIndex>
-          <numIndex index="1">adv:workshop</numIndex>
+          <numIndex index="1">workshop_item</numIndex>
          </numIndex>
          <numIndex index="15">
           <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.masterthesis</numIndex>
-          <numIndex index="1">adv:masterthesis</numIndex>
+          <numIndex index="1">masterthesis</numIndex>
          </numIndex>
          <numIndex index="16">
           <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.poster</numIndex>
-          <numIndex index="1">adv:poster</numIndex>
+          <numIndex index="1">poster</numIndex>
+         </numIndex>
+         <numIndex index="17">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.entscheidungsbesprechung</numIndex>
+          <numIndex index="1">entscheidungsbesprechung</numIndex>
+         </numIndex>
+         <numIndex index="18">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type.kommentierung</numIndex>
+          <numIndex index="1">kommentierung</numIndex>
          </numIndex>
         </items>
        </config>

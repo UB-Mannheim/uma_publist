@@ -276,6 +276,14 @@
 				<source>Posters</source>
 				<target>Poster</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.type.entscheidungsbesprechung" xml:space="preserve">
+				<source>Case Discussions</source>
+				<target>Entscheidungsbesprechungen</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.type.kommentierung" xml:space="preserve">
+				<source>Commentaries</source>
+				<target>Kommentierungen</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
 				<source>Link for title</source>
 				<target>Link für Titel</target>
