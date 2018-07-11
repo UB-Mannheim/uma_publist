@@ -14,7 +14,7 @@
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.editors}">
-					<n:renderNamesShort somebody="{publication.editors}" /> (Hrsg.)
+					<n:renderNamesShort somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
 				</f:if>
 				<f:else>
 					{publication.corpCreators}
