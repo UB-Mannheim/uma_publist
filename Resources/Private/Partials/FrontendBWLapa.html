@@ -8,7 +8,19 @@
 		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}
 	</f:case>
 	<f:case value="book">
-		<n:renderNamesShort somebody="{publication.editors}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
+		<f:if condition="{publication.creators}">
+			<f:then>
+				<n:renderNamesShort somebody="{publication.creators}" />
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.editors}">
+					<n:renderNamesShort somebody="{publication.editors}" /> (Hrsg.)
+				</f:if>
+				<f:else>
+					{publication.corpCreators}
+				</f:else>
+			</f:else>
+		</f:if> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>.
 		{publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="book_section">
