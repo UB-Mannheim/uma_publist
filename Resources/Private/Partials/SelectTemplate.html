@@ -9,7 +9,8 @@
 	<f:case value="2"><f:render partial="FrontendDWSrdfaSchema"   arguments="{publication: '{publication}'}" /></f:case>
 	<f:case value="3"><f:render partial="FrontendBibCoinTemplate" arguments="{publication: '{publication}'}" /></f:case>
 	<f:case value="4"><f:render partial="FrontendBWLapa"          arguments="{publication: '{publication}'}" /></f:case>
-	<f:case value="5"><f:render partial="FrontendJura"          arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="5"><f:render partial="FrontendAPA"             arguments="{publication: '{publication}'}" /></f:case>
+	<f:case value="6"><f:render partial="FrontendJura"            arguments="{publication: '{publication}'}" /></f:case>
 	<f:case default="TRUE"><f:render partial="FrontendDefaultTemplate" arguments="{publication: '{publication}'}" /></f:case>
 </f:switch>
 </v:format.trim></f:format.raw>
