@@ -99,7 +99,7 @@ class queryUrl {
 			$yeartill = $flexform['yeartill'];
 			$selected = $flexform['years'];
 
-			// check, if we have relativ years
+			// check, if we have relative years
                         // transform them to absolute-years
 			switch ($selected)
 			{

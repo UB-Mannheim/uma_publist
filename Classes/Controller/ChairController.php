@@ -170,7 +170,7 @@ class ChairController extends AdministrationController {
 		for ($item = 0; $item < $xml->count(); $item ++) {
 			$chair['id'] = 0;
 			$current = $xml->subject[$item];
-			// if parent is an institute => we grabed a chair
+			// if parent is an institute => we grabbed a chair
 			if (in_array($xml->subject[$item]->parents[0]->item[0], $instList)) {
 				$chair['id'] = (int)($current->subjectid[0]);
 				for ($nameItem = 0; $nameItem < count($current->name->item); $nameItem ++) {
