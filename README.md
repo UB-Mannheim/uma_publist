@@ -18,6 +18,7 @@ in TYPO3 websites where the lists are generated and synced automatically.
 
 ## Requirements
 - a working TYPO3 CMS
+- with the extension [VHS: Fluid ViewHelpers](https://extensions.typo3.org/extension/vhs/)
 - needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source
 
 ## Installation
