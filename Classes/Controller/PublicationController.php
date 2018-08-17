@@ -83,12 +83,10 @@ class PublicationController extends BasicPublistController {
 
 		/* Select the used URL */
 		$URL = $publication->getUrl();
-		if ($settings['selecturl'] == 0) {
-			if (!$URL || ($URL == ""))
-				$URL = $publication->getUrlUbmaExtern();
-			if (!$URL || ($URL == ""))
-				$URL = $publication->getUrlOffical();
-		}
+		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 0)
+			$URL = $publication->getUrlUbmaExtern();
+		if ((!$URL || ($URL == "")) && $settings['selecturl'] <= 1)
+			$URL = $publication->getUrlOffical();
 		if (!$URL || ($URL == ""))
 			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
 		$publication->setUsedLinkUrl($URL); 

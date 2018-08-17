@@ -284,14 +284,6 @@
 				<source>Commentaries</source>
 				<target>Kommentierungen</target>
 			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
-				<source>Link for title</source>
-				<target>Link für Titel</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>For BIB (url OR eprintid)</source>
-				<target>Für BIB (url oder eprintid)</target>
-			</trans-unit>
 			<trans-unit id="pi1_flexform.years" xml:space="preserve">
 				<source>Timespan</source>
 				<target>Zeitraum</target>
@@ -416,9 +408,21 @@
 				<source>oldest first</source>
 				<target>Älteste zuerst</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
+				<source>Link for title</source>
+				<target>Link für Titel</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
 				<source>default (url OR ubma_url_extern OR official_url OR eprintid)</source>
-				<target>Standard (url OR ubma_url_extern OR official_url OR eprintid)</target>
+				<target>Standard (url ODER ubma_url_extern ODER official_url ODER eprintid)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
+				<source>Variant (url OR official_url OR eprintid)</source>
+				<target>Variante (url ODER official_url ODER eprintid)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.2" xml:space="preserve">
+				<source>For BIB (url OR eprintid)</source>
+				<target>Für BIB (url ODER eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
 				<source>Split Years</source>

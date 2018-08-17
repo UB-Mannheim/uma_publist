@@ -839,6 +839,10 @@
             <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.1</numIndex>
             <numIndex index="1">1</numIndex>
          </numIndex>
+         <numIndex    index="2" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.2</numIndex>
+            <numIndex index="1">2</numIndex>
+         </numIndex>
         </items>
         <maxitems>1</maxitems>
         <minitems>1</minitems>
