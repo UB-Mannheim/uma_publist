@@ -90,6 +90,9 @@
 			<trans-unit id="tx_umapublist_domain_model_publication.eventLocation">
 				<source>Event Location</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.eventTitle">
+				<source>Conference Title</source>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.placeOfPub">
 				<source>Place of Publication</source>
 			</trans-unit>

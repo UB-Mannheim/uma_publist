@@ -217,6 +217,12 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $eventLocation = '';
 
+	/**
+	 * eventTitle
+	 *
+	 * @var string
+	 */
+	protected $eventTitle = '';
 
 	/**
 	 * placeOfPub
@@ -660,6 +666,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setEventLocation($eventLocation) {
 		$this->eventLocation = $eventLocation;
+	}
+
+	/**
+	 * Returns the eventTitle
+	 *
+	 * @return string $eventTitle
+	 */
+	public function getEventTitle() {
+		return $this->eventTitle;
+	}
+
+	/**
+	 * Sets the eventTitle
+	 *
+	 * @param string $eventTitle
+	 * @return void
+	 */
+	public function setEventTitle($eventTitle) {
+		$this->eventTitle = $eventTitle;
 	}
 
 	/**

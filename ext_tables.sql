@@ -153,6 +153,7 @@ CREATE TABLE tx_umapublist_domain_model_publication (
 	corp_creators varchar(255) DEFAULT '' NOT NULL,
 	ubma_book_editor varchar(255) DEFAULT '' NOT NULL,
 	event_location varchar(255) DEFAULT '' NOT NULL,
+	event_title varchar(255) DEFAULT '' NOT NULL,
 	place_of_pub varchar(255) DEFAULT '' NOT NULL,
 	page_range varchar(255) DEFAULT '' NOT NULL,
 	issn varchar(255) DEFAULT '' NOT NULL,

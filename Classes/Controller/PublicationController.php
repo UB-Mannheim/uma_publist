@@ -321,6 +321,13 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no event_location');
 		}
 
+		if ($publication['event_title']) {
+			$newPub->setEventTitle($publication['event_title']);
+		} else {
+			$newPub->setEventTitle("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no event_title');
+		}
+
 		if ($publication['place_of_pub']) {
 			$newPub->setPlaceOfPub($publication['place_of_pub']);
 		} else {

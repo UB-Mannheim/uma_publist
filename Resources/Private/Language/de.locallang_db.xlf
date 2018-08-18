@@ -119,6 +119,10 @@
 				<source>Event Location</source>
 				<target>Ort der Veranstaltung</target>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.eventTitle">
+				<source>Conference Title</source>
+				<target>Veranstaltungstitel</target>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.placeOfPub">
 				<source>Place of Publication</source>
 				<target>Ort der Veröffentlichung</target>

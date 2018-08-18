@@ -36,6 +36,12 @@
 		<span property="schema:pagination">{publication.pageRange}</span>. <span property="schema:publisher" typeOf="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>,
 		<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
 	</f:case>
+	<f:case value="conference_presentation">
+		<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
+		<n:renderNamesWithAndRdfaSchema somebody="{publication.creators}" />
+		<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong> <em>{publication.eventTitle}
+		<span property="schema:contentLocation" typeOf="schema:Place"><span property="schema:name">{publication.eventLocation}</span></span>, <span property="schema:datePublished">{publication.year}</span></span>.
+	</f:case>
 	<f:case value="dissertation">
 		<span  prefix="schema: http://schema.org/" about="http://ub-madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeOf="schema:ScholarlyArticle">
 		<n:renderNamesWithAndRdfaSchema somebody="{publication.creators}" />

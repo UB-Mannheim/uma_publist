@@ -86,6 +86,10 @@
 		<n:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.bookTitle}, {publication.volume}.
 	</f:case>
+	<f:case value="conference_presentation">
+		<n:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot} 
+		<em>{publication.eventTitle}</em>, {publication.eventLocation}.
+	</f:case>
 	<f:case value="master_thesis">
 		<n:renderNamesApa somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Thesis, {publication.placeOfPub}.

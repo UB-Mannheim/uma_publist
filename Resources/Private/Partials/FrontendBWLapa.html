@@ -43,6 +43,10 @@
 		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, {publication.bookTitle} (S. {publication.pageRange}).. <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}
 	</f:case>
+	<f:case value="conference_presentation">
+		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot} 
+		<em>{publication.eventTitle}</em>, {publication.eventLocation}.
+	</f:case>
 	<f:case value="dissertation">
 		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Dissertation, {publication.publisher}. {publication.placeOfPub}
