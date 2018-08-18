@@ -147,6 +147,10 @@
 				<source>Bib Coin</source>
 				<target>Bib Coin</target>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.doi">
+				<source>DOI</source>
+				<target>DOI</target>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist">
 				<source>Publication Lists</source>
 				<target>Publikationslisten</target>

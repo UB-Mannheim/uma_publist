@@ -360,6 +360,13 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_edition');
 		}
 
+		if ($publication['id_number']) {
+			$newPub->setDoi($publication['id_number']);
+		} else {
+			$newPub->setDoi("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no DOI = id_number');
+		}
+
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
 
 		// at the end, set the bib coin stuff

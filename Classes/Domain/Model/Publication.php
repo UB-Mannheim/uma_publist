@@ -268,6 +268,14 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $usedCoin = '';
 
+	/**
+	 * doi
+	 *
+	 * @var string
+	 */
+	protected $doi = '';
+
+
 
 	/**
 	 * Returns the parentPublist
@@ -785,6 +793,24 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setUsedCoin($usedCoin) {
 		$this->usedCoin = $usedCoin;
+	}
+
+	/**
+	 * Returns the doi
+	 *
+	 * @return string $doi
+	 */
+	public function getDoi() {
+		return $this->doi;
+	}
+	/**
+	 * Sets the doi
+	 *
+	 * @param string $doi
+	 * @return void
+	 */
+	public function setDoi($doi) {
+		$this->doi = $doi;
 	}
 
 }
