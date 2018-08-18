@@ -413,12 +413,12 @@
 				<target>Link für Titel</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
-				<source>default (url OR ubma_url_extern OR official_url OR eprintid)</source>
-				<target>Standard (url ODER ubma_url_extern ODER official_url ODER eprintid)</target>
+				<source>default (url OR ubma_url_extern OR DOI OR official_url OR eprintid)</source>
+				<target>Standard (url ODER ubma_url_extern ODER DOI ODER official_url ODER eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>Variant (url OR official_url OR eprintid)</source>
-				<target>Variante (url ODER official_url ODER eprintid)</target>
+				<source>Variant (url OR DOI OR official_url OR eprintid)</source>
+				<target>Variante (url ODER DOI ODER official_url ODER eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.2" xml:space="preserve">
 				<source>For BIB (url OR eprintid)</source>

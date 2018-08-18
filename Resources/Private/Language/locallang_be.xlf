@@ -311,10 +311,10 @@
 				<source>Link for title</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
-				<source>Default (url OR ubma_url_extern OR official_url OR eprintid)</source>
+				<source>Default (url OR ubma_url_extern OR DOI OR official_url OR eprintid)</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>Variant (url OR official_url OR eprintid)</source>
+				<source>Variant (url OR DOI OR official_url OR eprintid)</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.2" xml:space="preserve">
 				<source>For BIB (url OR eprintid)</source>
