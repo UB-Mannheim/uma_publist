@@ -139,7 +139,7 @@ CREATE TABLE tx_umapublist_domain_model_publication (
 	book_title varchar(255) DEFAULT '' NOT NULL,
 	abstract text NOT NULL,
 	url_offical varchar(1000) DEFAULT '' NOT NULL,
-	url_ubma_extern varchar(255) DEFAULT '' NOT NULL,
+	url_ubma_extern varchar(1000) DEFAULT '' NOT NULL,
 	used_link_url varchar(255) DEFAULT '' NOT NULL,
 	url varchar(255) DEFAULT '' NOT NULL,
 	year int(11) DEFAULT '0' NOT NULL,
