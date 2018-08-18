@@ -469,8 +469,8 @@
 				<target>Liste nummerieren</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.bibtex" xml:space="preserve">
-				<source>Export Bibtex</source>
-				<target>Bibtex exportieren</target>
+				<source>Export BibTeX</source>
+				<target>BibTeX exportieren</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.expert" xml:space="preserve">
 				<source>Expert</source>
