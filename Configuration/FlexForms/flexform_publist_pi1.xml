@@ -83,65 +83,6 @@
       </TCEforms>
      </settings.excludeexternal>
 
-     <settings.searchtags>
-      <TCEforms>
-       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.searchtags</label>
-       <onChange>reload</onChange>
-       <config>
-        <type>check</type>
-        <default>0</default>
-       </config>
-      </TCEforms>
-     </settings.searchtags>
-
-     <settings.tagstring>
-      <TCEforms>
-       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.tagstring</label>
-       <displayCond>FIELD:settings.searchtags:=:1</displayCond> 
-       <config>
-        <type>input</type>
-        <size>30</size>
-       </config>
-      </TCEforms>
-     </settings.tagstring>
-
-     <settings.taglogic>
-      <TCEforms>
-       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic</label>
-       <displayCond>FIELD:settings.searchtags:=:1</displayCond>
-       <config>
-        <type>select</type>
-        <renderType>selectSingle</renderType>
-        <default>0</default>
-        <items>
-         <numIndex index="0">
-          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.or</numIndex>
-          <numIndex index="1">or</numIndex>
-         </numIndex>
-         <numIndex index="1">
-          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.and</numIndex>
-          <numIndex index="1">and</numIndex> 
-         </numIndex>
-         <numIndex index="2">
-          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.string</numIndex>
-          <numIndex index="1">string</numIndex> 
-         </numIndex>
-        </items>
-       </config>
-      </TCEforms>
-     </settings.taglogic>
-
-     <settings.tagkeysense>
-      <TCEforms>
-       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.taglogic.tagkeysense</label>
-       <displayCond>FIELD:settings.searchtags:=:1</displayCond>
-       <config>
-        <type>check</type>
-        <default>1</default>
-       </config>
-      </TCEforms>
-     </settings.tagkeysense>
-
      <settings.useadvancedtypesbytag>
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.useadvancedtypesbytag</label>
@@ -838,6 +779,10 @@
          <numIndex    index="1" type="array">
             <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.1</numIndex>
             <numIndex index="1">1</numIndex>
+         </numIndex>
+         <numIndex    index="2" type="array">
+            <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.selecturl.2</numIndex>
+            <numIndex index="1">2</numIndex>
          </numIndex>
         </items>
         <maxitems>1</maxitems>

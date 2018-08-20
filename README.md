@@ -1,7 +1,7 @@
 # uma_publist
 
-[![typoversions](https://img.shields.io/badge/TYPO3-8.7-blue.svg?style=flat.svg)](https://github.com/UB-Mannheim/publist4ubma2#requirements)
-[![license](https://img.shields.io/badge/license-GPL%202.0-yellow.svg?style=flat)](https://github.com/UB-Mannheim/publist4ubma2/blob/master/LICENSE)
+[![typoversions](https://img.shields.io/badge/TYPO3-8.7-blue.svg?style=flat.svg)](https://github.com/lsuma/uma_publist#requirements)
+[![license](https://img.shields.io/badge/license-GPL%202.0-yellow.svg?style=flat)](https://github.com/lsuma/uma_publist/blob/master/LICENSE)
 
 This is a TYPO3 extension to include publication lists from an EPrints repository
 in TYPO3 websites where the lists are generated and synced automatically.
@@ -18,6 +18,7 @@ in TYPO3 websites where the lists are generated and synced automatically.
 
 ## Requirements
 - a working TYPO3 CMS
+- with the extension [VHS: Fluid ViewHelpers](https://extensions.typo3.org/extension/vhs/)
 - needs an [EPrints](http://www.eprints.org) repository with EP3-XML export as source
 
 ## Installation

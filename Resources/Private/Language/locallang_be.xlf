@@ -121,27 +121,6 @@
 			<trans-unit id="pi1_flexform.textfilter" xml:space="preserve">
 				<source>Text filter</source>
 			</trans-unit>
-			<trans-unit id="pi1_flexform.searchtags" xml:space="preserve">
-				<source>Fine search by filter tags</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.tagstring" xml:space="preserve">
-				<source>Tag(s) or string</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic" xml:space="preserve">
-				<source>Tag combination</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.or" xml:space="preserve">
-				<source>One of the tags</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.and" xml:space="preserve">
-				<source>All of the tags</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.string" xml:space="preserve">
-				<source>Search whole string</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.tagkeysense" xml:space="preserve">
-				<source>Filter tags, case sensitive</source>
-			</trans-unit>
 			<trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
 				<source>Enable advanced types by using tags</source>
 			</trans-unit>
@@ -213,12 +192,6 @@
 			</trans-unit>
 			<trans-unit id="pi1_flexform.type.kommentierung" xml:space="preserve">
 				<source>Commentaries</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
-				<source>Link for title</source>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>For BIB (url OR eprintid)</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.years" xml:space="preserve">
 				<source>Timespan</source>
@@ -313,8 +286,17 @@
 			<trans-unit id="pi1_flexform.ordering.1" xml:space="preserve">
 				<source>Oldest first</source>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
+				<source>Link for title</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
-				<source>Default (url OR ubma_url_extern OR official_url OR eprintid)</source>
+				<source>Default (url OR ubma_url_extern OR DOI OR official_url OR eprintid)</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
+				<source>Variant (url OR DOI OR official_url OR eprintid)</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.2" xml:space="preserve">
+				<source>For BIB (url OR eprintid)</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
 				<source>Group by years</source>
@@ -350,7 +332,7 @@
 				<source>Enumerate list</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.bibtex" xml:space="preserve">
-				<source>Export Bibtex</source>
+				<source>Export BibTeX</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.expert" xml:space="preserve">
 				<source>Expert</source>

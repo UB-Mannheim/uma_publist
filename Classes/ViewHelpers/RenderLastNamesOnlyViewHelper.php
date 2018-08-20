@@ -41,6 +41,10 @@ class RenderLastNamesOnlyViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abs
 		$peopleNumber = count($peopleList);
 		for ($i = 0; $i < $peopleNumber; $i++) {
 			if ($theName = explode(',', $peopleList[$i])) {
+				// move particles like "von", "zu" from the end of the firstName to the beginning of the lastName
+				if (preg_match('/(da|dalla|de|de la|deglia|del|der|ter|van|vom|vom und zum|von|von dem|von der|von und zu|zu|zum)$/', $theName[1], $predicate)) {
+					$theName[0] = $predicate[0] . ' ' . $theName[0];
+				}
 				$output .= $theName[0];
 				if ($i < $peopleNumber-1) {
 					if ($i < $peopleNumber-1) {

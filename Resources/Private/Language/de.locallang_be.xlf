@@ -160,34 +160,6 @@
 				<source>Publication</source>
 				<target>Name der Publikation</target>
 			</trans-unit>
-			<trans-unit id="pi1_flexform.searchtags" xml:space="preserve">
-				<source>Fine search by filter tags</source>
-				<target>Feinsuche nach Filtertags</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.tagstring" xml:space="preserve">
-				<source>Tag(s) or string</source>
-				<target>Tag(s) oder Zeichenfolge</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic" xml:space="preserve">
-				<source>Tag combination</source>
-				<target>Verknüpfun der Tags</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.or" xml:space="preserve">
-				<source>One of the tags</source>
-				<target>Eins der Tags</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.and" xml:space="preserve">
-				<source>All of the tags</source>
-				<target>Alle Tags</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.string" xml:space="preserve">
-				<source>Search whole string</source>
-				<target>Vollständige Zeichenfolge</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.taglogic.tagkeysense" xml:space="preserve">
-				<source>Filter tags, case sensitive</source>
-				<target>Groß- und Kleinschreibung berücksichtigen</target>
-			</trans-unit>
 			<trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
 				<source>Enable advanced types by using tags</source>
 				<target>Aktivierung von zusätzlichen Publikationstypen durch Verwendung von Tags</target>
@@ -283,14 +255,6 @@
 			<trans-unit id="pi1_flexform.type.kommentierung" xml:space="preserve">
 				<source>Commentaries</source>
 				<target>Kommentierungen</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
-				<source>Link for title</source>
-				<target>Link für Titel</target>
-			</trans-unit>
-			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
-				<source>For BIB (url OR eprintid)</source>
-				<target>Für BIB (url oder eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.years" xml:space="preserve">
 				<source>Timespan</source>
@@ -416,9 +380,21 @@
 				<source>oldest first</source>
 				<target>Älteste zuerst</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl" xml:space="preserve">
+				<source>Link for title</source>
+				<target>Link für Titel</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.0" xml:space="preserve">
-				<source>default (url OR ubma_url_extern OR official_url OR eprintid)</source>
-				<target>Standard (url OR ubma_url_extern OR official_url OR eprintid)</target>
+				<source>default (url OR ubma_url_extern OR DOI OR official_url OR eprintid)</source>
+				<target>Standard (url ODER ubma_url_extern ODER DOI ODER official_url ODER eprintid)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.1" xml:space="preserve">
+				<source>Variant (url OR DOI OR official_url OR eprintid)</source>
+				<target>Variante (url ODER DOI ODER official_url ODER eprintid)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.2" xml:space="preserve">
+				<source>For BIB (url OR eprintid)</source>
+				<target>Für BIB (url ODER eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
 				<source>Split Years</source>
@@ -465,8 +441,8 @@
 				<target>Liste nummerieren</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.bibtex" xml:space="preserve">
-				<source>Export Bibtex</source>
-				<target>Bibtex exportieren</target>
+				<source>Export BibTeX</source>
+				<target>BibTeX exportieren</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.expert" xml:space="preserve">
 				<source>Expert</source>

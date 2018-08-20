@@ -90,6 +90,9 @@
 			<trans-unit id="tx_umapublist_domain_model_publication.eventLocation">
 				<source>Event Location</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.eventTitle">
+				<source>Conference Title</source>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.placeOfPub">
 				<source>Place of Publication</source>
 			</trans-unit>
@@ -110,6 +113,9 @@
 			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.usedCoin">
 				<source>Bib Coin</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.doi">
+				<source>DOI</source>
 			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist">
 				<source>Publication Lists</source>

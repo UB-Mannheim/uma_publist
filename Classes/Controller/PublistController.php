@@ -366,7 +366,7 @@ class PublistController extends BasicPublistController {
 		}
 
 		if ($this->settings['ordering'] == 0)
-			// lates first
+			// latest first
 			rsort($years);
 		else
 			// oldest first
