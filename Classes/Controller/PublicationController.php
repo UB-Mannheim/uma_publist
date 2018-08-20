@@ -107,7 +107,7 @@ class PublicationController extends BasicPublistController {
 		//$this->errorHandler->setError(1, 'TestError');
 		//$pubs = $this->publicationRepository->findAll();
 
-		// check if ther is a eprintid
+		// check if there is a eprintid
 		if (intval($publication['eprintid']) <= 0)  {
 			$this->debugger->add('no valid eprintid in publication, skip this');
 			return;

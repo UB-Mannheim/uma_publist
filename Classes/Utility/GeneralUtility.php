@@ -143,7 +143,7 @@ class GeneralUtility implements SingletonInterface {
             case 7:
                 $years = str_replace(['X', 'Y'], [$settings['lastyearfrom'], $settings['lastyeartill']], $years);
         }
-        // remove terms in parantheses
+        // remove terms in parentheses
         $years = preg_replace('#\([^\)]*\)#', '', $years);
     }
 
