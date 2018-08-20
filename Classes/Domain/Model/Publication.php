@@ -217,6 +217,12 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $eventLocation = '';
 
+	/**
+	 * eventTitle
+	 *
+	 * @var string
+	 */
+	protected $eventTitle = '';
 
 	/**
 	 * placeOfPub
@@ -267,6 +273,14 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var string
 	 */
 	protected $usedCoin = '';
+
+	/**
+	 * doi
+	 *
+	 * @var string
+	 */
+	protected $doi = '';
+
 
 
 	/**
@@ -655,6 +669,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * Returns the eventTitle
+	 *
+	 * @return string $eventTitle
+	 */
+	public function getEventTitle() {
+		return $this->eventTitle;
+	}
+
+	/**
+	 * Sets the eventTitle
+	 *
+	 * @param string $eventTitle
+	 * @return void
+	 */
+	public function setEventTitle($eventTitle) {
+		$this->eventTitle = $eventTitle;
+	}
+
+	/**
 	 * Returns the placeOfPub
 	 *
 	 * @return string $placeOfPub
@@ -785,6 +818,24 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setUsedCoin($usedCoin) {
 		$this->usedCoin = $usedCoin;
+	}
+
+	/**
+	 * Returns the doi
+	 *
+	 * @return string $doi
+	 */
+	public function getDoi() {
+		return $this->doi;
+	}
+	/**
+	 * Sets the doi
+	 *
+	 * @param string $doi
+	 * @return void
+	 */
+	public function setDoi($doi) {
+		$this->doi = $doi;
 	}
 
 }

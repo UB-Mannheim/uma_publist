@@ -108,6 +108,14 @@
 		</f:if>
 		{publication.placeOfPub}, {publication.year}, {publication.pageRange}.
 	</f:case>
+	<f:case value="conference_presentation">
+		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
+		<n:deleteSpaceBeforeColon title="{publication.eventTitle}" />,
+		<f:if condition="{publication.ubmaEdition}">
+			{publication.ubmaEdition},
+		</f:if>
+		{publication.eventLocation}, {publication.year}.
+	</f:case>
 	<f:case value="dissertation">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
 		Diss., {publication.placeOfPub}, ({publication.year}).

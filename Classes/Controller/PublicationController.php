@@ -83,10 +83,12 @@ class PublicationController extends BasicPublistController {
 
 		/* Select the used URL */
 		$URL = $publication->getUrl();
-		if ($settings['selecturl'] == 0) {
-			if (!$URL || ($URL == ""))
-				$URL = $publication->getUrlUbmaExtern();
-			if (!$URL || ($URL == ""))
+		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 0)
+			$URL = $publication->getUrlUbmaExtern();
+		if ((!$URL || ($URL == "")) && $settings['selecturl'] <= 1) {
+			if ($publication->getDoi())
+				$URL = "https://doi.org/" . $publication->getDoi();
+			else
 				$URL = $publication->getUrlOffical();
 		}
 		if (!$URL || ($URL == ""))
@@ -319,6 +321,13 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no event_location');
 		}
 
+		if ($publication['event_title']) {
+			$newPub->setEventTitle($publication['event_title']);
+		} else {
+			$newPub->setEventTitle("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no event_title');
+		}
+
 		if ($publication['place_of_pub']) {
 			$newPub->setPlaceOfPub($publication['place_of_pub']);
 		} else {
@@ -360,6 +369,13 @@ class PublicationController extends BasicPublistController {
 		} else {
 			$newPub->setUbmaEdition("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_edition');
+		}
+
+		if ($publication['id_number']) {
+			$newPub->setDoi($publication['id_number']);
+		} else {
+			$newPub->setDoi("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no DOI = id_number');
 		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);
