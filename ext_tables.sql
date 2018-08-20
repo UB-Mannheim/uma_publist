@@ -146,7 +146,7 @@ CREATE TABLE tx_umapublist_domain_model_publication (
 	bib_type varchar(255) DEFAULT '' NOT NULL,
 	volume varchar(255) DEFAULT '' NOT NULL,
 	publisher varchar(255) DEFAULT '' NOT NULL,
-	rev_number varchar(255) DEFAULT '' NOT NULL,
+	number varchar(255) DEFAULT '' NOT NULL,
 	publication varchar(255) DEFAULT '' NOT NULL,
 	editors varchar(255) DEFAULT '' NOT NULL,
 	creators varchar(1000) DEFAULT '' NOT NULL,

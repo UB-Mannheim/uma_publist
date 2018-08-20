@@ -91,9 +91,9 @@
 				<source>Publisher</source>
 				<target>Herausgeber</target>
 			</trans-unit>
-			<trans-unit id="tx_umapublist_domain_model_publication.rev_number">
-				<source>Rev Number</source>
-				<target>Auflage</target>
+			<trans-unit id="tx_umapublist_domain_model_publication.number">
+				<source>Number</source>
+				<target>Nummer</target>
 			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.publication">
 				<source>Publication</source>
