@@ -1,100 +1,102 @@
 <h3 class="uppercase">
-       <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.header" />
+	<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.header" />
 </h3>
 
 <p class="description">
-       <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.description" />
+	<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:showcleanup.description" />
 </p>
 <f:comment>
 	<f:debug>{institutes}</f:debug>
 </f:comment>
 
 <f:if condition="{errorMsg}">
-        <f:then>
+		<f:then>
 		<div class="typo3-message message-error">
 			<div class="message-header">
 				Error
 			</div>
-
-                        <div class="message-body">
-                                "{errorMsg}"
-                        </div>
-                </div>
-        </f:then>
+			<div class="message-body">
+				"{errorMsg}"
+			</div>
+		</div>
+	</f:then>
 </f:if>
 
 
-		<f:if condition="{infoMsg}">
-			<f:then>
-				<div class="typo3-message message-notice">
-			                <div class="message-header">
-						Info
-					</div>
-					<div class="message-body">
-						{infoMsg}
-					</div>
-				</div>
-
-		        </f:then>
-	        </f:if>
-
-		<div>
-			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'syncPublists'}" title="sync">
-				<core:icon identifier="actions-system-refresh" title="sync" />
-			</f:link.action>
-			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.sync" />
-			<br />
-			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanUpPublist'}" title="sync">
-				<f:core:icon identifier="actions-edit-delete" />
-			</f:link.action>
-			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.cleanup" />
-			<br />
-			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupPublications'}" title="sync">
-				<f:core:icon identifier="actions-edit-delete" />
-			</f:link.action>
-			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup" />
-			<br />
-			<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupDeletedPublications'}" title="sync">
-				<f:core:icon identifier="actions-edit-delete" />
-			</f:link.action>
-			<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup.deleted" />
+<f:if condition="{infoMsg}">
+	<f:then>
+		<div class="typo3-message message-notice">
+			<div class="message-header">
+				Info
+			</div>
+			<div class="message-body">
+				{infoMsg}
+			</div>
 		</div>
+	</f:then>
+</f:if>
 
-	        <h4 class="uppercase">
-	                Publicationlists
-	        </h4>
-	        <f:if condition="{publists}">
-	                <f:then>
-				<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
-					<thead>
-						<tr class="t3-row-header">
-							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.ceid" /></span></td>
-							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.publications" /></span></td>
-							<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.url" /></span></td>
-						</tr>
-					</thead>
-						<tbody>
-							<f:for each="{publists}" as="publist">
-								<tr>
-									<td>{publist.ceId}</td>
-									<td>{publist.publications}</td>
-									<td>{publist.queryUrl}</td>
-								</tr>
-							</f:for>
-						</tbody>
-					</table>
-                		</f:then>
-		        </f:if>
+<div class="form-group">
+	<div class="form-control-wrap">
+	<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'syncPublists'}" title="sync" class="btn btn-default">
+		<core:icon identifier="actions-system-refresh" />
+		<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.sync" />
+	</f:link.action>
+	</div>
+	<div class="form-control-wrap">
+	<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanUpPublist'}" title="sync" class="btn btn-default">
+		<core:icon identifier="actions-edit-delete" />
+		<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publist.cleanup" />
+	</f:link.action>
+	</div>
+	<div class="form-control-wrap">
+	<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupPublications'}" title="sync" class="btn btn-default">
+		<core:icon identifier="actions-edit-delete" />
+		<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup" />
+	</f:link.action>
+	</div>
+	<div class="form-control-wrap">
+	<f:link.action action="showCleanup" controller="Administration" arguments="{myArg : 'cleanupDeletedPublications'}" title="sync" class="btn btn-default">
+		<core:icon identifier="actions-edit-delete" />
+		<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:publication.cleanup.deleted" />
+	</f:link.action>
+	</div>
+</div>
 
+<h4 class="uppercase">
+		Publicationlists
+</h4>
+<f:if condition="{publists}">
+	<f:then>
+		<table cellpadding="0" cellmargin="0" cellspacing="0" class="t3-table">
+			<thead>
+				<tr class="t3-row-header">
+					<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.ceid" /></span></td>
+					<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.publications" /></span></td>
+					<td><span><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_csh_tx_umapublist_domain_model_publist.xlf:publist.url" /></span></td>
+				</tr>
+			</thead>
+			<tbody>
+				<f:for each="{publists}" as="publist">
+					<tr>
+						<td>{publist.ceId}</td>
+						<td>{publist.publications}</td>
+						<td>{publist.queryUrl}</td>
+					</tr>
+				</f:for>
+			</tbody>
+		</table>
+	</f:then>
+</f:if>
 
 <f:if condition="{debugMsg}">
 	<f:then>
-                <div class="uma-publist-debug">
+		<div class="uma-publist-debug">
 			<ul>
 				<f:for each="{debugMsg}" as="line">
 					<li>Debug: {line}</li>
-					</f:for>
+				</f:for>
 			</ul>
 		</div>
-       </f:then>
+	</f:then>
 </f:if>
