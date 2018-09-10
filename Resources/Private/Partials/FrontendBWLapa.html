@@ -15,13 +15,13 @@
 </f:if>
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
 	</f:case>
 	<f:case value="book">
 		<f:if condition="{publication.creators}">
 			<f:then>
-				<n:renderNamesShort somebody="{publication.creators}" />
+				{n:renderNamesShort(somebody: publication.creators)}
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.editors}">
@@ -35,70 +35,71 @@
 		{publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="book_section">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="conference_item">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}.
 	</f:case>
 	<f:case value="conference_presentation">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot} 
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot} 
 		<em>{publication.eventTitle}</em>, {publication.eventLocation}.
 	</f:case>
 	<f:case value="dissertation">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Dissertation, {publication.publisher}. {publication.placeOfPub}.
 	</f:case>
 	<f:case value="encyclopedia_article">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
 	</f:case>
 	<f:case value="habilitation">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Habilitation, {publication.publisher}. {publication.placeOfPub}.
 	</f:case>
 	<f:case value="journal">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
 	</f:case>
 	<f:case value="other">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 	</f:case>
 	<f:case value="preprint">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.publisher}.
 	</f:case>
 	<f:case value="report">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 	</f:case>
 	<f:case value="review">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Review, <em>{publication.publication}</em>
 	</f:case>
 	<f:case value="thesis">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Thesis, {publication.publisher}. {publication.placeOfPub}
 	</f:case>
 	<f:case value="research_paper">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		{publication.corpCreators}: {publication.placeOfPub}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		<f:if condition="{publication.publication}"><em>{publication.publication}</em><f:if condition="{publication.volume}">, {publication.volume}</f:if>.</f:if>
+		<f:if condition="{publication.placeOfPub}">{publication.placeOfPub}<f:if condition="{publication.publisher}">: {publication.publisher}</f:if>.</f:if>
 	</f:case>
 	<f:case value="workshop_item">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.bookTitle}, {publication.volume}.
 	</f:case>
 	<f:case value="master_thesis">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		Thesis, {publication.placeOfPub}.
 	</f:case>
 	<f:case value="poster">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.bookTitle}.
 	</f:case>
 	<f:case default="TRUE">
-		<n:renderNamesShort somebody="{publication.creators}" /> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>.
 	</f:case>
 </f:switch>
