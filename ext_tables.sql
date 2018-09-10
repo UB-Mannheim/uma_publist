@@ -92,9 +92,13 @@ CREATE TABLE tx_umapublist_domain_model_publist (
 
 	ce_id int(11) DEFAULT '0' NOT NULL,
 	query_url text,
-        publications text NOT NULL,
+	publications text NOT NULL,
 	flexform_md5 varchar(255) DEFAULT '' NOT NULL,
 	exclude_external tinyint(4) DEFAULT '0' NOT NULL,
+	filter_bwl_research varchar(100) DEFAULT '' NOT NULL,
+	filter_bwl_academic varchar(100) DEFAULT '' NOT NULL,
+	filter_publication varchar(1024) DEFAULT '' NOT NULL,
+	exclude_eprint_ids text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

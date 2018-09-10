@@ -218,31 +218,28 @@ class PublistController extends BasicPublistController {
 		if ($this->errorHandler->getError())
 			return;
 
-		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings['excludeexternal']);
+		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings['excludeexternal'], $this->settings['publication'], $this->settings['excludeEprintIds'], $this->settings['bwlResearch'], $this->settings['bwlAcademic']);
 		if ($this->errorHandler->getError())
 			return;
 
-		// store/update Publist in Repository
-		if ($publist === NULL) {
-			// add to DB
-			$this->debugger->add('== Publist ' . $cElementId . ' is NOT in DB, add it ==');
-			$publist = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Publist');
-			$publist->setCeId($cElementId);
-			$publist->setQueryUrl($url);
-			$publist->setExcludeExternal($this->settings['excludeexternal']);
-			$publist->setFlexformMd5($md5sum);
-			$publist->setPublications($this->listOfEprintIds($publications));
-			$this->publistRepository->add($publist);
-		}
-		else
-		{
-			$this->debugger->add('== Publist ' . $cElementId . ' is in DB, update only ==');
-			$publist->setQueryUrl($url);
-			$publist->setExcludeExternal($this->settings['excludeexternal']);
-			$publist->setFlexformMd5($md5sum);
-			$publist->setPublications($this->listOfEprintIds($publications));
-			$this->publistRepository->update($publist);
-		}
+        // store/update Publist in Repository
+        $isNewPublist = false;
+        if ($publist === NULL) {
+            // add to DB
+            $publist = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Publist');
+            $publist->setCeId($cElementId);
+            $isNewPublist = true;
+        }
+        $this->debugger->add('== Publist ' . $cElementId . ($isNewPublist ? ' is NOT in DB, add it' : ' is in DB, update only') . ' ==');
+        $publist->setQueryUrl($url);
+        $publist->setExcludeExternal($this->settings['excludeexternal']);
+        $publist->setFilterPublication($this->settings['publication']);
+        $publist->setExcludeEprintIds($this->settings['excludeEprintIds']);
+        $publist->setFilterBwlResearch($this->settings['ubma_bwl_research']);
+        $publist->setFilterBwlAcademic($this->settings['ubma_bwl_academic']);
+        $publist->setFlexformMd5($md5sum);
+        $publist->setPublications($this->listOfEprintIds($publications));
+        $isNewPublist ? $this->publistRepository->add($publist) : $this->publistRepository->update($publist);
 
 		# Den Vorschlaghammer instanzieren / aus der Kiste kramen
 		$persistenceManager = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
@@ -260,7 +257,7 @@ class PublistController extends BasicPublistController {
 		if ($this->errorHandler->getError())
 			return;
 
-		$publications = $this->extractPublicationsFromXML($xmlString, $publist->getExcludeExternal());
+		$publications = $this->extractPublicationsFromXML($xmlString, $publist->getExcludeExternal(), $publist->getFilterPublication(), $publist->getExcludeEprintIds(), $publist->getFilterBwlResearch(), $publist->getFilterBwlAcademic());
 		if ($this->errorHandler->getError())
 			return;
 
@@ -272,10 +269,15 @@ class PublistController extends BasicPublistController {
 
 
 
-	private function extractPublicationsFromXML($data, $excludeExternal)
+	private function extractPublicationsFromXML($data, $excludeExternal = false, $filterPublication = '', $excludeEprintIds = '', $filterBwlResearch = '', $filterBwlAcademic = '')
 	{
 		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
 		$publications = [];
+
+        $filterPublicationRegExp = '~'.preg_replace(['#\s*\|\s*#', '#([$^.*+?(){}[\]~])#'], ['|', '\\\\$1'], trim($filterPublication)).'~i';
+        $excludeEprintIdArray = array_filter(explode(',', $excludeEprintIds), 'is_numeric');
+        $filterBwlResearchArray = array_diff(explode(',', $filterBwlResearch), ['']);
+        $filterBwlAcademicArray = array_diff(explode(',', $filterBwlAcademic), ['']);
 
 		$xml = \simplexml_load_string($data);
 		if ($xml === FALSE) {
@@ -290,7 +292,6 @@ class PublistController extends BasicPublistController {
 		}
 		$this->debugger->add('Found ' . $xml->count() . ' items in xml');
 
-
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 
 		for ($item = 0; $item < $xml->count(); $item ++) {
@@ -301,7 +302,29 @@ class PublistController extends BasicPublistController {
 			if (($excludeExternal) && ($pub['ubma_external'] == "TRUE"))
 				continue;
 
-//			\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pub);
+            if($filterPublication) {
+                if(!preg_match($filterPublicationRegExp, $pub['publication'])) {
+                    continue;
+                }
+            }
+
+            if($excludeEprintIds) {
+                if(in_array($pub['eprintid'], $excludeEprintIdArray)) {
+                    continue;
+                }
+            }
+
+            if($filterBwlResearchArray) {
+                if(!((in_array('unspecified', $filterBwlResearchArray) && (!array_key_exists('ubma_bwl_research', $pub) || !$pub['ubma_bwl_research'])) || in_array($pub['ubma_bwl_research'], $filterBwlResearchArray))) {
+                    continue;
+                }
+            }
+
+            if($filterBwlAcademicArray) {
+                if(!((in_array('unspecified', $filterBwlAcademicArray) && (!array_key_exists('ubma_bwl_academic', $pub) || !$pub['ubma_bwl_academic'])) || in_array($pub['ubma_bwl_academic'], $filterBwlAcademicArray))) {
+                    continue;
+                }
+            }
 
 			$this->publicationController->add($pub);
 			array_push($publications, $pub);

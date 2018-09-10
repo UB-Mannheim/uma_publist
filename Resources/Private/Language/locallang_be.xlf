@@ -103,6 +103,9 @@
 			<trans-unit id="pi1_flexform.author" xml:space="preserve">
 				<source>Name of author (familyName1,firstName1 familyName2,firstName2 ...)</source>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.author_short" xml:space="preserve">
+				<source>Authors</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.authorcombi" xml:space="preserve">
 				<source>Author combination</source>
 			</trans-unit>
@@ -116,7 +119,16 @@
 				<source>Exclude external publications</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.publication" xml:space="preserve">
-				<source>Publication</source>
+				<source>Title of journal/publication series</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.publication_short" xml:space="preserve">
+				<source>Journal/publication</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.exclude_eprint_ids" xml:space="preserve">
+				<source>Exclude publications with the following EPrint IDs</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.exclude_eprint_ids_short" xml:space="preserve">
+				<source>Exclude EPrint IDs</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.textfilter" xml:space="preserve">
 				<source>Text filter</source>
@@ -234,6 +246,36 @@
 			</trans-unit>
 			<trans-unit id="pi1_flexform.lastyeartill" xml:space="preserve">
 				<source>Till last Y years</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research" xml:space="preserve">
+				<source>Classification of publication (Business School only)</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.discipline_based" xml:space="preserve">
+				<source>Discipline based</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.contributions_to_practice" xml:space="preserve">
+				<source>Contributions to practice</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.pedagogical_research" xml:space="preserve">
+				<source>Pedagogical research</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic" xml:space="preserve">
+				<source>Classification of journal/book/conference (Business School only)</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.academic" xml:space="preserve">
+				<source>Academic</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.professional" xml:space="preserve">
+				<source>Professional</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.political" xml:space="preserve">
+				<source>Political</source>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.lsSelect" xml:space="preserve">
 				<source>Faculties and Departments</source>

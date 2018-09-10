@@ -23,10 +23,10 @@ return array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publist.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ce_id, query_url, publications, flexform_md5,exclude_external',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ce_id, query_url, publications, flexform_md5,exclude_external,filter_publication,exclude_eprint_ids',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, ce_id, query_url, publications, flexform_md5, exclude_external, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, ce_id, query_url, publications, flexform_md5, exclude_external, filter_publication, exclude_eprint_ids, filter_bwl_research, filter_bwl_academic, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -136,12 +136,12 @@ return array(
 		'publications' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.publications',
-                        'config' => array(
-                                'type' => 'text',
-                                'cols' => 40,
-                                'rows' => 15,
-                                'eval' => 'trim'
-                        ),
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			),
 		),
 		'flexform_md5' => array(
 			'exclude' => 1,
@@ -157,6 +157,45 @@ return array(
 			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.exclude_external',
 			'config' => array(
 				'type' => 'check',
+			),
+		),
+		'filter_publication' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_publication',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'max' => 1024,
+				'eval' => 'trim',
+			),
+		),
+		'exclude_eprint_ids' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.exclude_eprint_ids',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim',
+			),
+		),
+		'filter_bwl_research' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_bwl_research',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'max' => 100,
+				'eval' => 'trim',
+			),
+		),
+		'filter_bwl_academic' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_bwl_academic',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'max' => 100,
+				'eval' => 'trim',
 			),
 		),
 

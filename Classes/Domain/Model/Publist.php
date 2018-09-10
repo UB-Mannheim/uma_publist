@@ -86,7 +86,39 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 *
 	 * @var integer
 	 */
-	protected $excludeExternal = '';
+	protected $excludeExternal = 0;
+
+
+	/**
+	 * filterPublication
+	 *
+	 * @var string
+	 */
+	protected $filterPublication = '';
+
+
+	/**
+	 * excludeEprintIds
+	 *
+	 * @var string
+	 */
+	protected $excludeEprintIds = '';
+
+    
+	/**
+	 * filterBwlResearch
+	 *
+	 * @var string
+	 */
+	protected $filterBwlResearch = '';
+
+
+	/**
+	 * filterBwlAcademic
+	 *
+	 * @var string
+	 */
+	protected $filterBwlAcademic = '';
 
 
 	/**
@@ -188,6 +220,80 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->excludeExternal = $excludeExternal;
         }
 
+        /**
+         * Get filterPublication
+         *
+         * @return string $filterPublication
+         */
+        public function getFilterPublication() {
+            return $this->filterPublication;
+        }
 
+        /**
+         * Set filterPublication
+         *
+         * @param string $filterPublication
+         * @return void
+         */
+        public function setFilterPublication($filterPublication) {
+            $this->filterPublication = $filterPublication;
+        }
+
+        /**
+         * Get excludeEprintIds
+         *
+         * @return string $excludeEprintIds
+         */
+        public function getExcludeEprintIds() {
+            return $this->excludeEprintIds;
+        }
+
+        /**
+         * Set excludeEprintIds
+         *
+         * @param string $excludeEprintIds
+         * @return void
+         */
+        public function setExcludeEprintIds($excludeEprintIds) {
+            $this->excludeEprintIds = $excludeEprintIds;
+        }
+
+        /**
+         * Get filterBwlResearch
+         *
+         * @return string $filterBwlResearch
+         */
+        public function getFilterBwlResearch() {
+            return $this->filterBwlResearch;
+        }
+
+        /**
+         * Set filterBwlResearch
+         *
+         * @param string $filterBwlResearch
+         * @return void
+         */
+        public function setFilterBwlResearch($filterBwlResearch) {
+            $this->filterBwlResearch = $filterBwlResearch;
+        }
+
+        /**
+         * Get filterBwlAcademic
+         *
+         * @return string $filterBwlAcademic
+         */
+        public function getFilterBwlAcademic() {
+            return $this->filterBwlAcademic;
+        }
+
+        /**
+         * Set filterBwlAcademic
+         *
+         * @param string $filterBwlAcademic
+         * @return void
+         */
+        public function setFilterBwlAcademic($filterBwlAcademic) {
+            $this->filterBwlAcademic = $filterBwlAcademic;
+        }
 
 }

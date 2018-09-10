@@ -51,7 +51,6 @@
       </TCEforms>
      </settings.authorcombi>
 
-<![CDATA[
      <settings.publication>
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication</label>
@@ -62,6 +61,17 @@
       </TCEforms>
      </settings.publication>
 
+     <settings.excludeEprintIds>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.exclude_eprint_ids</label>
+       <config>
+        <type>input</type>
+        <size>30</size>
+       </config>
+      </TCEforms>
+     </settings.excludeEprintIds>
+
+<![CDATA[
      <settings.textFilter>
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.textfilter</label>
@@ -397,6 +407,66 @@
        </config>
       </TCEforms>
      </settings.lastyeartill>
+
+     <settings.bwlResearch>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research</label>
+       <config>
+        <type>select</type>
+        <renderType>selectCheckBox</renderType>
+        <minitems>0</minitems>
+        <multiple>0</multiple>
+        <items>
+         <numIndex index="0">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research.discipline_based</numIndex>
+          <numIndex index="1">discipline_based</numIndex> 
+         </numIndex>
+         <numIndex index="1">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research.contributions_to_practice</numIndex>
+          <numIndex index="1">contributions_to_practice</numIndex> 
+         </numIndex>
+         <numIndex index="2">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research.pedagogical_research</numIndex>
+          <numIndex index="1">pedagogical_research</numIndex>
+         </numIndex>
+         <numIndex index="3">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research.unspecified</numIndex>
+          <numIndex index="1">unspecified</numIndex>
+         </numIndex>
+        </items>
+       </config>
+      </TCEforms>
+     </settings.bwlResearch>
+
+	 <settings.bwlAcademic>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic</label>
+       <config>
+        <type>select</type>
+        <renderType>selectCheckBox</renderType>
+        <minitems>0</minitems>
+        <multiple>0</multiple>
+        <items>
+         <numIndex index="0">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic.academic</numIndex>
+          <numIndex index="1">academic</numIndex>
+         </numIndex>
+         <numIndex index="1">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic.professional</numIndex>
+          <numIndex index="1">professional</numIndex> 
+         </numIndex>
+         <numIndex index="2">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic.political</numIndex>
+          <numIndex index="1">political</numIndex>
+         </numIndex>
+         <numIndex index="3">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic.unspecified</numIndex>
+          <numIndex index="1">unspecified</numIndex>
+         </numIndex>
+        </items>
+       </config>
+      </TCEforms>
+     </settings.bwlAcademic>
 
     </el>
    </ROOT>

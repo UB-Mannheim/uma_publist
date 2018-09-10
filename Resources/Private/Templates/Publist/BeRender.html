@@ -16,26 +16,37 @@
         </f:if>
     </f:if>
     <f:if condition="{title}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title" />:<br />
-        {title->f:format.raw()}<br /><br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title" />: <i>{title->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{author}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author" />:<br />
-        {author->f:format.raw()}<br /><br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author_short" />: <i>{author->f:format.raw()}</i><br /><br />
+    </f:if>
+    <f:if condition="{publication}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication_short" />:<br /><i>{publication->v:iterator.explode(glue: '|')->v:iterator.implode(glue: '<br />')}</i>
+        <br /><br />
+    </f:if>
+    <f:if condition="{excludeEprintIds}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.exclude_eprint_ids_short" />: <i>{excludeEprintIds->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{types->f:count()}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type" />:<br />
-        <f:for each="{types}" as="type">
-            {type->f:format.raw()}<br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.type" />:<br /><i>
+        <f:for each="{types}" as="type" iteration="iterator">
+            {type->f:format.raw()}{f:if(condition: '!{iterator.isLast}', then: ', ')}
         </f:for>
-        <br />
+        </i>
+        <br /><br />
     </f:if>
     <f:if condition="{timespan}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years" />:<br />
-        {timespan->f:format.raw()}<br /><br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.years" />: <i>{timespan->f:format.raw()}</i><br /><br />
+    </f:if>
+    <f:if condition="{bwlResearch}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_research" />:<br /><i>{bwlResearch->v:iterator.explode(glue: ',')->v:iterator.implode(glue: ', ')}</i><br /><br />
+    </f:if>
+    <f:if condition="{bwlAcademic}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic" />:<br /><i>{bwlAcademic->v:iterator.explode(glue: ',')->v:iterator.implode(glue: ', ')}</i><br /><br />
     </f:if>
     <f:if condition="{institutes->f:count()}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect" />:<br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect" />:<br /><i>
         <f:for each="{institutes}" as="institute">
             {institute.nameDe->f:format.raw()}<br />
         </f:for>
@@ -44,4 +55,5 @@
                 <span style="padding-left:10px;"></span>{chair.nameDe->f:format.raw()}<br />
             </f:for>
         </f:if>
+        </i>
     </f:if>

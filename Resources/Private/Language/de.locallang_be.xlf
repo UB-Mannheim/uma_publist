@@ -136,6 +136,10 @@
 				<source>Name of author (familyName1,firstName1 familyName2,firstName2 ...)</source>
 				<target>Namen des/der Autoren (Nachname1, Vorname1 Nachname2, Vorname2 ...)</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.author_short" xml:space="preserve">
+				<source>Authors</source>
+				<target>Autoren</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.authorcombi" xml:space="preserve">
 				<source>Author combination</source>
 				<target>Verknüpfung bei mehreren Autoren</target>
@@ -157,8 +161,20 @@
 				<target>Textfilter</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.publication" xml:space="preserve">
-				<source>Publication</source>
-				<target>Name der Publikation</target>
+				<source>Title of journal/publication series, separated by pipe character (|)</source>
+				<target>Titel der Zeitschrift/Reihe, getrennt durch senkrechte Striche (|)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.publication_short" xml:space="preserve">
+				<source>Journal/publication</source>
+				<target>Zeitschrift/Reihe</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.exclude_eprint_ids" xml:space="preserve">
+				<source>Exclude publications with the following EPrint IDs, comma-separated</source>
+				<target>Publikationen mit folgenden EPrint-IDs ausblenden, kommagetrennt</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.exclude_eprint_ids_short" xml:space="preserve">
+				<source>Exclude EPrint IDs</source>
+				<target>EPrint-IDs ausblenden</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
 				<source>Enable advanced types by using tags</source>
@@ -311,6 +327,46 @@
 			<trans-unit id="pi1_flexform.lastyeartill" xml:space="preserve">
 				<source>Till last Y years</source>
 				<target>Bis vor Y Jahren</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research" xml:space="preserve">
+				<source>Classification of publication (Business School only)</source>
+				<target>Einordnung Publikation (nur BWL-Fakultät)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.discipline_based" xml:space="preserve">
+				<source>Discipline based</source>
+				<target>Discipline based</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.contributions_to_practice" xml:space="preserve">
+				<source>Contributions to practice</source>
+				<target>Contributions to practice</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.pedagogical_research" xml:space="preserve">
+				<source>Pedagogical research</source>
+				<target>Pedagogical research</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_research.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
+				<target>Keine Angabe</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic" xml:space="preserve">
+				<source>Classification of journal/book/conference (Business School only)</source>
+				<target>Einordnung Magazin/Buch/Konferenz (nur BWL-Fakultät)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.academic" xml:space="preserve">
+				<source>Academic</source>
+				<target>Akademisch</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.professional" xml:space="preserve">
+				<source>Professional</source>
+				<target>Praxisorientiert</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.political" xml:space="preserve">
+				<source>Political</source>
+				<target>Politisch</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_academic.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
+				<target>Keine Angabe</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.lsSelect" xml:space="preserve">
 				<source>Faculties and Departments</source>
