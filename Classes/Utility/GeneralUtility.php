@@ -176,10 +176,12 @@ class GeneralUtility implements SingletonInterface {
                 if(array_key_exists($instituteId, $institutesAssoc)) {
                     $chairIds = explode(',', $value);
                 }
-                foreach($chairIds as $chairId) {
-                    $chair = self::$chairRepository->findOneById((int) $chairId);
-                    if($chair) {
-                        $chairsAssoc[$chairId] = $chair;
+                if(is_array($chairIds)) {
+                    foreach($chairIds as $chairId) {
+                        $chair = self::$chairRepository->findOneById((int) $chairId);
+                        if($chair) {
+                            $chairsAssoc[$chairId] = $chair;
+                        }
                     }
                 }
             }

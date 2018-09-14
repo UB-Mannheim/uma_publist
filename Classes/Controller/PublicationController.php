@@ -469,14 +469,18 @@ class PublicationController extends BasicPublistController {
 				$coin .= "&rft_val_fmt=" . rawurlencode("info:ofi/fmt:kev:mtx:book");
 				$titleLabel = "title";
 		}
-		$coin .= "&rft." . $titleLabel . "=" . rawurlencode($pub->getTitle());
+
+		if ( $pub->getTitle() ) {
+			$coin .= "&rft." . $titleLabel . "=" . rawurlencode($pub->getTitle());
+		}
 
 		//book_title --> btitle
-		if ( $pub->getBookTitle() != "") {
+		if ( $pub->getBookTitle() ) {
 			$coin .= "&rft.btitle=" . rawurlencode($pub->getBookTitle());
 		}
+
 		//publication --> jtitle
-		if ( $pub->getPublication() != "") {
+		if ( $pub->getPublication() ) {
 			if ($titleLabel == "atitle") {
 				$coin .= "&rft.jtitle=" . rawurlencode($pub->getPublication());
 			} else {
@@ -485,7 +489,7 @@ class PublicationController extends BasicPublistController {
 		}
 		
 		//ubma_date_year -> date
-		if ( $pub->getYear() != "" ) {
+		if ( $pub->getYear() ) {
 			$coin .= "&rft.date=" . rawurlencode($pub->getYear());
 		}
 		//authors
