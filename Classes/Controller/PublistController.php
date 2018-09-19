@@ -192,7 +192,7 @@ class PublistController extends BasicPublistController {
 			$this->updatePublist($cElementId, $newMd5, $isInDB);
 			return;
 		}
-		if ($this->settings['usecache'] == 0) {
+		if (($this->settings['usecache'] == 0) && ($this->settings['forceUseCache'] == 0)) {
 			$this->debugger->add('Using cache is disabled, reload Publist ...');
 			$this->updatePublist($cElementId, $newMd5, $isInDB);
 			return;
@@ -248,7 +248,7 @@ class PublistController extends BasicPublistController {
 
 	}
 
-	// running from Backend (task Scheduler), Felxform Settings not Reachable
+	// running from Backend (task Scheduler), Flexform Settings not Reachable
 	public function taskUpdatePublist($publist)
 	{
 		$url = $publist->getQueryUrl();

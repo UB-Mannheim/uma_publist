@@ -2,6 +2,8 @@ plugin.tx_umapublist_pi1 {
 	settings {
 		# cat=tx_umapublist; type=string; label=cssFile
 		cssFile = EXT:uma_publist/Resources/Public/CSS/publist.css
+		# cat=tx_umapublist; type=bool; label=useCacheOverride
+		forceUseCache = 1
 	}
 
 	persistence {

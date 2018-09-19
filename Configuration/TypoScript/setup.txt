@@ -6,6 +6,7 @@ plugin.tx_umapublist_pi1 {
 	settings {
 		cssFile = {$plugin.tx_umapublist_pi1.settings.cssFile}
 		storagePid = {$plugin.tx_umapublist_pi1.persistence.storagePid}
+		forceUseCache = {$plugin.tx_umapublist_pi1.settings.forceUseCache}
 	}
 
 	# for Extbase
