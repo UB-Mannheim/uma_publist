@@ -368,6 +368,42 @@
 				<source>Unspecified</source>
 				<target>Keine Angabe</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_national" xml:space="preserve">
+				<source>National/international publication (Business School only)</source>
+				<target>Nationale/internationale Veröffentlichung Magazin/Buch/Konferenz (nur BWL-Fakultät)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_national.national" xml:space="preserve">
+				<source>National</source>
+				<target>National</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_national.international" xml:space="preserve">
+				<source>International</source>
+				<target>International</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_national.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
+				<target>Keine Angabe</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_refereed" xml:space="preserve">
+				<source>Refereed (Business School only)</source>
+				<target>Begutachtet (nur BWL-Fakultät)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_refereed.refereed" xml:space="preserve">
+				<source>Refereed</source>
+				<target>Begutachtet</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_refereed.non_refereed" xml:space="preserve">
+				<source>Non-refereed</source>
+				<target>Nicht begutachtet</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_refereed.invited" xml:space="preserve">
+				<source>Invited</source>
+				<target>Eingeladen</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.bwl_refereed.unspecified" xml:space="preserve">
+				<source>Unspecified</source>
+				<target>Keine Angabe</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.lsSelect" xml:space="preserve">
 				<source>Faculties and Departments</source>
 				<target>Fakultäten und Abteilungen</target>

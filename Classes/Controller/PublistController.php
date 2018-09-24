@@ -218,7 +218,7 @@ class PublistController extends BasicPublistController {
 		if ($this->errorHandler->getError())
 			return;
 
-		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings['excludeexternal'], $this->settings['publication'], $this->settings['excludeEprintIds'], $this->settings['bwlResearch'], $this->settings['bwlAcademic']);
+		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings);
 		if ($this->errorHandler->getError())
 			return;
 
@@ -237,6 +237,8 @@ class PublistController extends BasicPublistController {
         $publist->setExcludeEprintIds($this->settings['excludeEprintIds']);
         $publist->setFilterBwlResearch($this->settings['ubma_bwl_research']);
         $publist->setFilterBwlAcademic($this->settings['ubma_bwl_academic']);
+        $publist->setFilterBwlNational($this->settings['ubma_bwl_national']);
+        $publist->setFilterBwlRefereed($this->settings['ubma_bwl_refereed']);
         $publist->setFlexformMd5($md5sum);
         $publist->setPublications($this->listOfEprintIds($publications));
         $isNewPublist ? $this->publistRepository->add($publist) : $this->publistRepository->update($publist);
@@ -257,7 +259,15 @@ class PublistController extends BasicPublistController {
 		if ($this->errorHandler->getError())
 			return;
 
-		$publications = $this->extractPublicationsFromXML($xmlString, $publist->getExcludeExternal(), $publist->getFilterPublication(), $publist->getExcludeEprintIds(), $publist->getFilterBwlResearch(), $publist->getFilterBwlAcademic());
+        $settings = [
+            'excludeexternal' => $publist->getExcludeExternal(),
+            'publication' => $publist->getFilterPublication(),
+            'excludeEprintIds' => $publist->getExcludeEprintIds(),
+            'filterBwlResearch' => $publist->getFilterBwlResearch(),
+            'filterBwlAcademic' => $publist->getFilterBwlAcademic()
+        ];
+
+		$publications = $this->extractPublicationsFromXML($xmlString, $settings);
 		if ($this->errorHandler->getError())
 			return;
 
@@ -269,8 +279,16 @@ class PublistController extends BasicPublistController {
 
 
 
-	private function extractPublicationsFromXML($data, $excludeExternal = false, $filterPublication = '', $excludeEprintIds = '', $filterBwlResearch = '', $filterBwlAcademic = '')
+	private function extractPublicationsFromXML($data, $settings = [])
 	{
+        $excludeExternal = array_key_exists('excludeexternal', $settings) ? $settings['excludeexternal'] : false;
+        $filterPublication = array_key_exists('publication', $settings) ? $settings['publication'] : '';
+        $excludeEprintIds = array_key_exists('excludeEprintIds', $settings) ? $settings['excludeEprintIds'] : '';
+        $filterBwlResearch = array_key_exists('bwlResearch', $settings) ? $settings['bwlResearch'] : '';
+        $filterBwlAcademic = array_key_exists('bwlAcademic', $settings) ? $settings['bwlAcademic'] : '';
+        $filterBwlNational = array_key_exists('bwlNational', $settings) ? $settings['bwlNational'] : '';
+        $filterBwlRefereed = array_key_exists('bwlRefereed', $settings) ? $settings['bwlRefereed'] : '';
+
 		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
 		$publications = [];
 
@@ -278,6 +296,8 @@ class PublistController extends BasicPublistController {
         $excludeEprintIdArray = array_filter(explode(',', $excludeEprintIds), 'is_numeric');
         $filterBwlResearchArray = array_diff(explode(',', $filterBwlResearch), ['']);
         $filterBwlAcademicArray = array_diff(explode(',', $filterBwlAcademic), ['']);
+        $filterBwlNationalArray = array_diff(explode(',', $filterBwlNational), ['']);
+        $filterBwlRefereedArray = array_diff(explode(',', $filterBwlRefereed), ['']);
 
 		$xml = \simplexml_load_string($data);
 		if ($xml === FALSE) {
@@ -325,6 +345,19 @@ class PublistController extends BasicPublistController {
                     continue;
                 }
             }
+
+            if($filterBwlNationalArray) {
+                if(!((in_array('unspecified', $filterBwlNationalArray) && (!array_key_exists('ubma_bwl_national', $pub) || !$pub['ubma_bwl_national'])) || in_array($pub['ubma_bwl_national'], $filterBwlNationalArray))) {
+                    continue;
+                }
+            }
+
+            if($filterBwlRefereedArray) {
+                if(!((in_array('unspecified', $filterBwlRefereedArray) && (!array_key_exists('ubma_bwl_refereed', $pub) || !$pub['ubma_bwl_refereed'])) || in_array($pub['ubma_bwl_refereed'], $filterBwlRefereedArray))) {
+                    continue;
+                }
+            }
+                        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pub);
 
 			$this->publicationController->add($pub);
 			array_push($publications, $pub);

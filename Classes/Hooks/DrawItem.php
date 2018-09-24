@@ -72,6 +72,8 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                 'excludeEprintIds' => $settings['excludeEprintIds'],
                 'bwlResearch' => $settings['bwlResearch'],
                 'bwlAcademic' => $settings['bwlAcademic'],
+                'bwlNational' => $settings['bwlNational'],
+                'bwlRefereed' => $settings['bwlRefereed'],
                 'filter' => $settings['exclude_eprint_ids'],
                 'types' => $typesAsText,
                 'institutes' => $institutesAssoc,

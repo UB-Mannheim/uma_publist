@@ -112,7 +112,6 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $filterBwlResearch = '';
 
-
 	/**
 	 * filterBwlAcademic
 	 *
@@ -120,6 +119,19 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $filterBwlAcademic = '';
 
+	/**
+	 * filterBwlNational
+	 *
+	 * @var string
+	 */
+	protected $filterBwlNational = '';
+
+	/**
+	 * filterBwlRefereed
+	 *
+	 * @var string
+	 */
+	protected $filterBwlRefereed = '';
 
 	/**
 	 * Returns the ceId
@@ -294,6 +306,44 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
          */
         public function setFilterBwlAcademic($filterBwlAcademic) {
             $this->filterBwlAcademic = $filterBwlAcademic;
+        }
+
+        /**
+         * Get filterBwlNational
+         *
+         * @return string $filterBwlNational
+         */
+        public function getFilterBwlNational() {
+            return $this->filterBwlNational;
+        }
+
+        /**
+         * Set filterBwlNational
+         *
+         * @param string $filterBwlNational
+         * @return void
+         */
+        public function setFilterBwlNational($filterBwlNational) {
+            $this->filterBwlNational = $filterBwlNational;
+        }
+
+        /**
+         * Get filterBwlRefereed
+         *
+         * @return string $filterBwlRefereed
+         */
+        public function getFilterBwlRefereed() {
+            return $this->filterBwlRefereed;
+        }
+
+        /**
+         * Set filterBwlRefereed
+         *
+         * @param string $filterBwlRefereed
+         * @return void
+         */
+        public function setFilterBwlRefereed($filterBwlRefereed) {
+            $this->filterBwlRefereed = $filterBwlRefereed;
         }
 
 }

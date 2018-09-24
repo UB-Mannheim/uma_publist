@@ -438,7 +438,7 @@
       </TCEforms>
      </settings.bwlResearch>
 
-	 <settings.bwlAcademic>
+     <settings.bwlAcademic>
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic</label>
        <config>
@@ -467,6 +467,62 @@
        </config>
       </TCEforms>
      </settings.bwlAcademic>
+
+     <settings.bwlNational>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_national</label>
+       <config>
+        <type>select</type>
+        <renderType>selectCheckBox</renderType>
+        <minitems>0</minitems>
+        <multiple>0</multiple>
+        <items>
+         <numIndex index="0">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_national.national</numIndex>
+          <numIndex index="1">national</numIndex> 
+         </numIndex>
+         <numIndex index="1">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_national.international</numIndex>
+          <numIndex index="1">international</numIndex> 
+         </numIndex>
+         <numIndex index="2">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_national.unspecified</numIndex>
+          <numIndex index="1">unspecified</numIndex>
+         </numIndex>
+        </items>
+       </config>
+      </TCEforms>
+     </settings.bwlNational>
+
+     <settings.bwlRefereed>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed</label>
+       <config>
+        <type>select</type>
+        <renderType>selectCheckBox</renderType>
+        <minitems>0</minitems>
+        <multiple>0</multiple>
+        <items>
+         <numIndex index="0">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed.refereed</numIndex>
+          <numIndex index="1">refereed</numIndex> 
+         </numIndex>
+         <numIndex index="1">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed.non_refereed</numIndex>
+          <numIndex index="1">non_refereed</numIndex> 
+         </numIndex>
+         <numIndex index="2">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed.invited</numIndex>
+          <numIndex index="1">invited</numIndex> 
+         </numIndex>
+         <numIndex index="3">
+          <numIndex index="0">LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed.unspecified</numIndex>
+          <numIndex index="1">unspecified</numIndex>
+         </numIndex>
+        </items>
+       </config>
+      </TCEforms>
+     </settings.bwlRefereed>
 
     </el>
    </ROOT>

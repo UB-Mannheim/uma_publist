@@ -45,6 +45,12 @@
     <f:if condition="{bwlAcademic}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_academic" />:<br /><i>{bwlAcademic->v:iterator.explode(glue: ',')->v:iterator.implode(glue: ', ')}</i><br /><br />
     </f:if>
+    <f:if condition="{bwlNational}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_national" />:<br /><i>{bwlNational->v:iterator.explode(glue: ',')->v:iterator.implode(glue: ', ')}</i><br /><br />
+    </f:if>
+    <f:if condition="{bwlRefereed}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.bwl_refereed" />:<br /><i>{bwlRefereed->v:iterator.explode(glue: ',')->v:iterator.implode(glue: ', ')}</i><br /><br />
+    </f:if>
     <f:if condition="{institutes->f:count()}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.lsSelect" />:<br /><i>
         <f:for each="{institutes}" as="institute">

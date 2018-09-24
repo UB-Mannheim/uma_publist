@@ -97,6 +97,8 @@ CREATE TABLE tx_umapublist_domain_model_publist (
 	exclude_external tinyint(4) DEFAULT '0' NOT NULL,
 	filter_bwl_research varchar(100) DEFAULT '' NOT NULL,
 	filter_bwl_academic varchar(100) DEFAULT '' NOT NULL,
+	filter_bwl_national varchar(100) DEFAULT '' NOT NULL,
+	filter_bwl_refereed varchar(100) DEFAULT '' NOT NULL,
 	filter_publication varchar(1024) DEFAULT '' NOT NULL,
 	exclude_eprint_ids text NOT NULL,
 

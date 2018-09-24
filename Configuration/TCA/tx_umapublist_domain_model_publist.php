@@ -26,7 +26,7 @@ return array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ce_id, query_url, publications, flexform_md5,exclude_external,filter_publication,exclude_eprint_ids',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, ce_id, query_url, publications, flexform_md5, exclude_external, filter_publication, exclude_eprint_ids, filter_bwl_research, filter_bwl_academic, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, ce_id, query_url, publications, flexform_md5, exclude_external, filter_publication, exclude_eprint_ids, filter_bwl_research, filter_bwl_academic, filter_bwl_national, filter_bwl_refereed, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -191,6 +191,26 @@ return array(
 		'filter_bwl_academic' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_bwl_academic',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'max' => 100,
+				'eval' => 'trim',
+			),
+		),
+		'filter_bwl_national' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_bwl_national',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'max' => 100,
+				'eval' => 'trim',
+			),
+		),
+		'filter_bwl_refereed' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.filter_bwl_refereed',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
