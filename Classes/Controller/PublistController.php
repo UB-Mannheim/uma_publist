@@ -357,7 +357,6 @@ class PublistController extends BasicPublistController {
                     continue;
                 }
             }
-                        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pub);
 
 			$this->publicationController->add($pub);
 			array_push($publications, $pub);
