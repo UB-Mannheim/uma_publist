@@ -135,6 +135,24 @@
 			<trans-unit id="tx_umapublist_domain_model_publist.exclude_external">
 				<source>Exclude External</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.filter_publication">
+				<source>Exclude publications with the following EPrint IDs, comma-separated</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.exclude_eprint_ids">
+				<source>Exclude EPrint IDs</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.filter_bwl_research">
+				<source>Classification of publication (Business School only)</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.filter_bwl_academic">
+				<source>Classification of journal/book/conference (Business School only)</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.filter_bwl_national">
+				<source>National/international publication (Business School only)</source>
+			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.filter_bwl_refereed">
+				<source>Refereed (Business School only)</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
