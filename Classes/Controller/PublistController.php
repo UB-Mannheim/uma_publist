@@ -235,10 +235,10 @@ class PublistController extends BasicPublistController {
         $publist->setExcludeExternal($this->settings['excludeexternal']);
         $publist->setFilterPublication($this->settings['publication']);
         $publist->setExcludeEprintIds($this->settings['excludeEprintIds']);
-        $publist->setFilterBwlResearch($this->settings['ubma_bwl_research']);
-        $publist->setFilterBwlAcademic($this->settings['ubma_bwl_academic']);
-        $publist->setFilterBwlNational($this->settings['ubma_bwl_national']);
-        $publist->setFilterBwlRefereed($this->settings['ubma_bwl_refereed']);
+        $publist->setFilterBwlResearch($this->settings['bwlResearch']);
+        $publist->setFilterBwlAcademic($this->settings['bwlAcademic']);
+        $publist->setFilterBwlNational($this->settings['bwlNational']);
+        $publist->setFilterBwlRefereed($this->settings['bwlRefereed']);
         $publist->setFlexformMd5($md5sum);
         $publist->setPublications($this->listOfEprintIds($publications));
         $isNewPublist ? $this->publistRepository->add($publist) : $this->publistRepository->update($publist);
