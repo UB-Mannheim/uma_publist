@@ -281,6 +281,12 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $doi = '';
 
+	/**
+	 * urn
+	 *
+	 * @var string
+	 */
+	protected $urn = '';
 
 
 	/**
@@ -836,6 +842,24 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setDoi($doi) {
 		$this->doi = $doi;
+	}
+
+	/**
+	 * Returns the urn
+	 *
+	 * @return string $urn
+	 */
+	public function getUrn() {
+		return $this->urn;
+	}
+	/**
+	 * Sets the urn
+	 *
+	 * @param string $urn
+	 * @return void
+	 */
+	public function setUrn($urn) {
+		$this->urn = $urn;
 	}
 
 }

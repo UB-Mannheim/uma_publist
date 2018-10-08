@@ -165,6 +165,7 @@ CREATE TABLE tx_umapublist_domain_model_publication (
 	issn varchar(255) DEFAULT '' NOT NULL,
 	isbn varchar(255) DEFAULT '' NOT NULL,
 	doi varchar(255) DEFAULT '' NOT NULL,
+	urn varchar(255) DEFAULT '' NOT NULL,
 	ubma_edition varchar(255) DEFAULT '' NOT NULL,
 	ubma_tags varchar(255) DEFAULT '' NOT NULL,
 	used_coin text NOT NULL,

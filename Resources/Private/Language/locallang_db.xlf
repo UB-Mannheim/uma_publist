@@ -117,6 +117,9 @@
 			<trans-unit id="tx_umapublist_domain_model_publication.doi">
 				<source>DOI</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.urn">
+				<source>URN</source>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist">
 				<source>Publication Lists</source>
 			</trans-unit>

@@ -85,12 +85,14 @@ class PublicationController extends BasicPublistController {
 		$URL = $publication->getUrl();
 		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 0)
 			$URL = $publication->getUrlUbmaExtern();
-		if ((!$URL || ($URL == "")) && $settings['selecturl'] <= 1) {
+		if ((!$URL || ($URL == "")) && in_array($settings['selecturl'], [0, 1, 3])) {
 			if ($publication->getDoi())
 				$URL = "https://doi.org/" . $publication->getDoi();
 			else
 				$URL = $publication->getUrlOffical();
 		}
+		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 3)
+			$URL = $publication->getUrlUbmaExtern();
 		if (!$URL || ($URL == ""))
 			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
 		$publication->setUsedLinkUrl($URL); 
@@ -336,6 +338,13 @@ class PublicationController extends BasicPublistController {
 		} else {
 			$newPub->setDoi("");
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no DOI = id_number');
+		}
+
+		if ($publication['ubma_urn']) {
+			$newPub->setUrn($publication['ubma_urn']);
+		} else {
+			$newPub->setUrn("");
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no urn');
 		}
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($newPub);

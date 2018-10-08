@@ -155,6 +155,10 @@
 				<source>DOI</source>
 				<target>DOI</target>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.urn">
+				<source>URN</source>
+				<target>URN</target>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist">
 				<source>Publication Lists</source>
 				<target>Publikationslisten</target>
