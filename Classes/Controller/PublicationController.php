@@ -86,8 +86,9 @@ class PublicationController extends BasicPublistController {
 		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 0)
 			$URL = $publication->getUrlUbmaExtern();
 		if ((!$URL || ($URL == "")) && in_array($settings['selecturl'], [0, 1, 3])) {
-			if ($publication->getDoi())
-				$URL = "https://doi.org/" . $publication->getDoi();
+			$doi = $publication->getDoi();
+			if ($doi && substr($doi, 0, 3) == "10.")
+				$URL = "https://doi.org/" . $doi;
 			else
 				$URL = $publication->getUrlOffical();
 		}
