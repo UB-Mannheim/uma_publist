@@ -6,7 +6,7 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
 
 $(document).ready(function() {
 	var updateUmaPublist = function(content, searchWord) {
-		searchWord = searchWord.replace(/'/, '');
+		searchWord = searchWord.replace(/'/g, '');
 		$(this).find('li').addClass('hidden').filter(":contains('" + searchWord + "')").removeClass('hidden');
 	};
 	$('.uma-publist-filter').on('keyup', function() {
