@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Start this script from the publist4ubma2 directory,
+# Start this script from the uma_publist directory,
 # which will be mapped into the docker and allows
 # easy developing with testing.
 #
 # See also the notes in the wiki:
-# https://github.com/UB-Mannheim/publist4ubma2/wiki
+# https://github.com/UB-Mannheim/uma_publist/wiki
 
 set -x
 
