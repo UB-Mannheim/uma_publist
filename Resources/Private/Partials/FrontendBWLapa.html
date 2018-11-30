@@ -16,7 +16,7 @@
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
+		<em>{publication.publication}</em><f:if condition="{publication.volume}">, {publication.volume}</f:if><f:if condition="{publication.pageRange}">, {publication.pageRange}</f:if>.
 	</f:case>
 	<f:case value="book">
 		<f:if condition="{publication.creators}">
