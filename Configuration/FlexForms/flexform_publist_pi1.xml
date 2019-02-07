@@ -111,7 +111,6 @@
        <config>
         <type>select</type>
         <renderType>selectMultipleSideBySide</renderType>
-        <maxitems>20</maxitems>
         <minitems>0</minitems>
         <multiple>0</multiple>
         <size>7</size>
@@ -187,7 +186,6 @@
        <config>
         <type>select</type>
         <renderType>selectMultipleSideBySide</renderType>
-        <maxitems>20</maxitems>
         <minitems>0</minitems>
         <multiple>0</multiple>
         <size>7</size>
@@ -577,7 +575,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs10000>
@@ -604,7 +601,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs20000>
@@ -630,7 +626,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs30000>
@@ -656,7 +651,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs40000>
@@ -682,7 +676,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs50000>
@@ -708,7 +701,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs60000>
@@ -734,7 +726,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs70000>
@@ -760,7 +751,6 @@
         <items>
         </items>
         <size>10</size>
-        <maxitems>20</maxitems> 
        </config>
       </TCEforms>
      </settings.chairs80000>
