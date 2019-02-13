@@ -334,6 +334,18 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_edition');
 		}
 
+		if ($publication['ubma_forthcoming']) {
+			if($publication['ubma_forthcoming'] === 'TRUE') {
+				$newPub->setUbmaForthcoming(1);
+			}
+			else {
+				$newPub->setUbmaForthcoming(0);
+			}
+		} else {
+			$newPub->setUbmaForthcoming(0);
+			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_forthcoming');
+		}
+
 		if ($publication['id_number']) {
 			$newPub->setDoi($publication['id_number']);
 		} else {

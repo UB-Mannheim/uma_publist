@@ -147,9 +147,12 @@
 			<trans-unit id="showall" xml:space="preserve">
 				<source>Show all</source>
 			</trans-unit>
-                        <trans-unit id="editors" xml:space="preserve">
-                                <source>eds.</source>
-                        </trans-unit>
+			<trans-unit id="editors" xml:space="preserve">
+				<source>eds.</source>
+			</trans-unit>
+			<trans-unit id="forthcoming" xml:space="preserve">
+				<source>forthcoming</source>
+			</trans-unit>
 			<trans-unit id="error.no_publications_found" xml:space="preserve">
 				<source>No publications found</source>
 			</trans-unit>

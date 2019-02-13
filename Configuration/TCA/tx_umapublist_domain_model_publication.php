@@ -19,14 +19,14 @@ return array(
 			'starttime' => 'starttime',
 			'endtime' => 'endtime',
 		),
-		'searchFields' => 'eprint_id,title,abstract,url_offical,url_ubma_extern,used_link_url,url,year,bib_type,volume,publisher,number,publication,editors,creators,corp_creators,ubma_book_editor,event_location,place_of_pub,page_range,issn,isbn,ubma_tags,ubma_edition,book_title,used_coin,doi,urn,event_title,',
+		'searchFields' => 'eprint_id,title,abstract,year,bib_type,volume,publisher,number,publication,editors,creators,corp_creators,ubma_book_editor,event_location,place_of_pub,issn,isbn,ubma_tags,ubma_edition,book_title,used_coin,doi,urn,event_title,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publication.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eprint_id, title, abstract, url_offical, url_ubma_extern, used_link_url, url, year, bib_type, volume, publisher, number, publication, editors, creators, corp_creators, ubma_book_editor, event_location, place_of_pub, page_range, issn, isbn, ubma_tags, ubma_edition, book_title, used_coin, doi, urn, event_title',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eprint_id, title, abstract, url_offical, url_ubma_extern, used_link_url, url, year, bib_type, volume, publisher, number, publication, editors, creators, corp_creators, ubma_book_editor, event_location, place_of_pub, page_range, issn, isbn, ubma_tags, ubma_edition, ubma_forthcoming, book_title, used_coin, doi, urn, event_title',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, eprint_id, title, abstract, url_offical, url_ubma_extern, used_link_url, url, year, bib_type, volume, publisher, number, publication, editors, creators, corp_creators, ubma_book_editor, event_location, place_of_pub, page_range, issn, isbn, ubma_tags, ubma_edition, book_title, used_coin, doi, urn, event_title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, eprint_id, title, abstract, url_offical, url_ubma_extern, used_link_url, url, year, bib_type, volume, publisher, number, publication, editors, creators, corp_creators, ubma_book_editor, event_location, place_of_pub, page_range, issn, isbn, ubma_tags, ubma_edition, ubma_forthcoming, book_title, used_coin, doi, urn, event_title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -349,6 +349,13 @@ return array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim'
+			),
+		),
+		'ubma_forthcoming' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publication.ubmaForthcoming',
+			'config' => array(
+				'type' => 'check'
 			),
 		),
 		'used_coin' => array(

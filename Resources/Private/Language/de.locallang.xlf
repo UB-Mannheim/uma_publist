@@ -199,6 +199,10 @@
 				<source>eds.</source>
 				<target>Hrsg.</target>
 			</trans-unit>
+			<trans-unit id="forthcoming" xml:space="preserve">
+				<source>forthcoming</source>
+				<target>forthcoming</target>
+			</trans-unit>
 			<trans-unit id="error.no_publications_found" xml:space="preserve">
 				<source>No publications found</source>
 				<target>Keine Publikationen gefunden</target>

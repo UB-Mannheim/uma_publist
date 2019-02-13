@@ -147,6 +147,10 @@
 				<source>UbmaEdition</source>
 				<target>UbmaEdition</target>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.ubmaForthcoming">
+				<source>Forthcoming</source>
+				<target>Forthcoming</target>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.usedCoin">
 				<source>Bib Coin</source>
 				<target>Bib Coin</target>

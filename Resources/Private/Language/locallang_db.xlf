@@ -111,6 +111,9 @@
 			<trans-unit id="tx_umapublist_domain_model_publication.ubmaEdition">
 				<source>UbmaEdition</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publication.ubmaForthcoming">
+				<source>Forthcoming</source>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.usedCoin">
 				<source>Bib Coin</source>
 			</trans-unit>
