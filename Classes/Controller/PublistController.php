@@ -263,10 +263,10 @@ class PublistController extends BasicPublistController {
             'excludeexternal' => $publist->getExcludeExternal(),
             'publication' => $publist->getFilterPublication(),
             'excludeEprintIds' => $publist->getExcludeEprintIds(),
-            'filterBwlResearch' => $publist->getFilterBwlResearch(),
-            'filterBwlAcademic' => $publist->getFilterBwlAcademic(),
-            'filterBwlNational' => $publist->getFilterBwlNational(),
-            'filterBwlRefereed' => $publist->getFilterBwlRefereed()
+            'bwlResearch' => $publist->getFilterBwlResearch(),
+            'bwlAcademic' => $publist->getFilterBwlAcademic(),
+            'bwlNational' => $publist->getFilterBwlNational(),
+            'bwlRefereed' => $publist->getFilterBwlRefereed()
         ];
 
 		$publications = $this->extractPublicationsFromXML($xmlString, $settings);
