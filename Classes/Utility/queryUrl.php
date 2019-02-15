@@ -93,7 +93,7 @@ class queryUrl {
 		}
 
 		// year
-		if ($flexform[years]) {
+		if ($flexform['years']) {
 			$url = $url . '|ubma_date_year%3Aubma_date_year%3AALL%3AEQ%3A';
 		$yearfrom = $flexform['yearfrom'];
 		$yeartill = $flexform['yeartill'];
