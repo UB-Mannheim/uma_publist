@@ -23,6 +23,9 @@
 			</div>
 		</f:then>
 	</f:if>
+	<f:if condition="!{content->f:count()}">
+		<p><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:no_publications_found" /></p>
+	</f:if>
 	<f:if condition="{settings.debug}==1">
 		<f:render partial="DisplayFlexFormConfig" arguments="{_all}" />
 	</f:if>

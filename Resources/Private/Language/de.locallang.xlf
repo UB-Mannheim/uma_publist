@@ -203,9 +203,9 @@
 				<source>forthcoming</source>
 				<target>forthcoming</target>
 			</trans-unit>
-			<trans-unit id="error.no_publications_found" xml:space="preserve">
-				<source>No publications found</source>
-				<target>Keine Publikationen gefunden</target>
+			<trans-unit id="no_publications_found" xml:space="preserve">
+				<source>Currently there are no publications available for this list.</source>
+				<target>Derzeit sind keine Publikationen für diese Liste verfügbar.</target>
 			</trans-unit>
 			<trans-unit id="error.select_title_author_or_department" xml:space="preserve">
 				<source>Please select least title, author or faculty and department</source>

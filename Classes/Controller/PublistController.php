@@ -148,9 +148,8 @@ class PublistController extends BasicPublistController {
 			return 0;
 		}
 		$publications = $publist->getPublications();
-		if ($publications == '') {
-			$this->errorHandler->setError(1, "No publications in publication list");
-			return 0;
+		if ($this->settings['debug'] && $publications == '') {
+			$this->view->assign('debugMsg', "No publications in publication list");
 		}
 		$content = array();
 		$publicationList = explode(',', $publications);
@@ -168,9 +167,8 @@ class PublistController extends BasicPublistController {
 			}
 			array_push($content, $publication);
 		}
-		if (count($content) <= 0) {
-			$this->errorHandler->setError(1, "No valid publications found");
-			return 0;
+		if ($this->settings['debug'] && count($content) <= 0) {
+			$this->view->assign('debugMsg', "No valid publications found");
 		}
 		return $content;
 	}
@@ -307,11 +305,6 @@ class PublistController extends BasicPublistController {
 				return $publications;
 		}
 
-		if ($xml->count() <= 0) {
-				$errorMsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate( 'error.no_publications_found', 'uma_publist' );
-				$this->errorHandler->setError(1, $errorMsg);
-				return $publications;
-		}
 		$this->debugger->add('Found ' . $xml->count() . ' items in xml');
 
 		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
