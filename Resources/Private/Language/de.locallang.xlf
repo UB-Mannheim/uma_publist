@@ -124,8 +124,8 @@
 				<target>Habilitationen</target>
 			</trans-unit>
 			<trans-unit id="journal" xml:space="preserve">
-				<source>Journale</source>
-				<target>Journals</target>
+				<source>Journals</source>
+				<target>Zeitschriften</target>
 			</trans-unit>
 			<trans-unit id="other" xml:space="preserve">
 				<source>Other</source>
@@ -202,6 +202,10 @@
 			<trans-unit id="forthcoming" xml:space="preserve">
 				<source>forthcoming</source>
 				<target>forthcoming</target>
+			</trans-unit>
+			<trans-unit id="forthcoming_ie" xml:space="preserve">
+				<source>forthcoming</source>
+				<target>i. E.</target>
 			</trans-unit>
 			<trans-unit id="no_publications_found" xml:space="preserve">
 				<source>Currently there are no publications available for this list.</source>

@@ -94,7 +94,7 @@
 				<source>Habilitations</source>
 			</trans-unit>
 			<trans-unit id="journal" xml:space="preserve">
-				<source>Journale</source>
+				<source>Journals</source>
 			</trans-unit>
 			<trans-unit id="other" xml:space="preserve">
 				<source>Other</source>
@@ -151,6 +151,9 @@
 				<source>eds.</source>
 			</trans-unit>
 			<trans-unit id="forthcoming" xml:space="preserve">
+				<source>forthcoming</source>
+			</trans-unit>
+			<trans-unit id="forthcoming_ie" xml:space="preserve">
 				<source>forthcoming</source>
 			</trans-unit>
 			<trans-unit id="no_publications_found" xml:space="preserve">

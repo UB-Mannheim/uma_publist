@@ -32,11 +32,11 @@
 				</f:else>
 			</f:else>
 		</f:if> ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		{publication.placeOfPub}: {publication.publisher}.
+		{publication.placeOfPub}: <f:if condition="{publication.ubmaForthcoming}"><f:then>{publication.publisher} (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:forthcoming" />)</f:then><f:else>{publication.publisher->v:format.trim(characters: '.')}</f:else></f:if>.
 	</f:case>
 	<f:case value="book_section">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
@@ -49,15 +49,15 @@
 	</f:case>
 	<f:case value="dissertation">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		Dissertation, {publication.publisher}. {publication.placeOfPub}.
+		Dissertation, {publication.publisher->v:format.trim(characters: '.')}. {publication.placeOfPub}.
 	</f:case>
 	<f:case value="encyclopedia_article">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher}.
+		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="habilitation">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		Habilitation, {publication.publisher}. {publication.placeOfPub}.
+		Habilitation, {publication.publisher->v:format.trim(characters: '.')}. {publication.placeOfPub}.
 	</f:case>
 	<f:case value="journal">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
@@ -68,7 +68,7 @@
 	</f:case>
 	<f:case value="preprint">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		{publication.publisher}.
+		{publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="report">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
@@ -79,12 +79,12 @@
 	</f:case>
 	<f:case value="thesis">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		Thesis, {publication.publisher}. {publication.placeOfPub}
+		Thesis, {publication.publisher->v:format.trim(characters: '.')}. {publication.placeOfPub}
 	</f:case>
 	<f:case value="research_paper">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<f:if condition="{publication.publication}"><em>{publication.publication}</em><f:if condition="{publication.volume}">, {publication.volume}</f:if>.</f:if>
-		<f:if condition="{publication.placeOfPub}">{publication.placeOfPub}<f:if condition="{publication.publisher}">: {publication.publisher}</f:if>.</f:if>
+		<f:if condition="{publication.placeOfPub}">{publication.placeOfPub}<f:if condition="{publication.publisher}">: {publication.publisher->v:format.trim(characters: '.')}</f:if>.</f:if>
 	</f:case>
 	<f:case value="workshop_item">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
