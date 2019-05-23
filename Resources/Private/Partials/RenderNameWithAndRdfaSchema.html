@@ -5,7 +5,7 @@
 <f:if condition="{editor}!=''">
 	<f:then>
 		<n:myExplode content="{editor}" glue="," as="thename">
-			<span property="schema:author" typeOf="schema:Person">
+			<span property="schema:author" typeof="schema:Person">
 				<span property="schema:givenName">{thename.1}</span>
 				<span property="schema:familyName">{thename.0}</span>
 			</span>

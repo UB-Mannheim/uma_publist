@@ -39,7 +39,7 @@ class RenderNamesWithAndRdfaSchemaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 			$i = 1;
 			foreach ($peopleList as $guy) {
 				if ($theName = explode( ',', $guy)) {
-					$output .= '<span property="schema:author" typeOf="schema:Person"><span property="schema:givenName">' . $theName[1] . '</span> <span property="schema:familyName">' . $theName[0] . '</span></span>';
+					$output .= '<span property="schema:author" typeof="schema:Person"><span property="schema:givenName">' . $theName[1] . '</span> <span property="schema:familyName">' . $theName[0] . '</span></span>';
 					if ($peopleNumber >= 3) {
 						if ($i < ($peopleNumber - 1))
 							$output .= ', ';
@@ -59,7 +59,7 @@ class RenderNamesWithAndRdfaSchemaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewH
 		}
 		else {
 			if ( $editor = explode(',', $somebody))
-				$output = '<span property="schema:author" typeOf="schema:Person"><span property="schema:givenName">' . $editor[1] . '</span> <span property="schema:familyName">' . $editor[0] . '</span></span>';
+				$output = '<span property="schema:author" typeof="schema:Person"><span property="schema:givenName">' . $editor[1] . '</span> <span property="schema:familyName">' . $editor[0] . '</span></span>';
 		}
 		return $output;	
 	}

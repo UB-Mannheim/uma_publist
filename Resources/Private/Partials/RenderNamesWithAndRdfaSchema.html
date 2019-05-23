@@ -16,7 +16,7 @@
 			</f:if>
 
 			<n:myExplode content="{writer}" glue="," as="thename">
-				<span property="schema:author" typeOf="schema:Person">
+				<span property="schema:author" typeof="schema:Person">
 					<span property="schema:givenName">{thename.1}</span>
 					<span property="schema:familyName">{thename.0}</span>
 				</span>
@@ -25,7 +25,7 @@
 	</n:myExplode>
 </f:then>
 <f:else>
-<n:myExplode content="{publication.editors}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><n:myExplode content="{writer}" glue="," as="thename"><span property="schema:author" typeOf="schema:Person"><span property="schema:givenName">{thename.1}</span> <span property="schema:familyName">{thename.0}</span></span></n:myExplode></f:for></n:myExplode>
+<n:myExplode content="{publication.editors}" glue=";" as="writersarray"><f:for each="{writersarray}" as="writer" iteration="iterator"><f:if condition="{iterator.isLast}>=1"><f:then><f:if condition="{iterator.total}>=2"><f:then> and </f:then></f:if></f:then><f:else><f:if condition="{iterator.isFirst}==0"><f:then>, </f:then></f:if></f:else></f:if><n:myExplode content="{writer}" glue="," as="thename"><span property="schema:author" typeof="schema:Person"><span property="schema:givenName">{thename.1}</span> <span property="schema:familyName">{thename.0}</span></span></n:myExplode></f:for></n:myExplode>
 </f:else>
 </f:if>
 
