@@ -28,6 +28,8 @@ namespace UMA\UmaPublist\Controller;
  ***************************************************************/
 
 
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 use UMA\UmaPublist\Utility\fileReader;
 use UMA\UmaPublist\Controller\InstituteController;
 
@@ -119,14 +121,14 @@ class AdministrationController extends BasicPublistController {
 	public function syncChairsAction() {
 		$institutesNow = [];
 		$xmlString = fileReader::downloadFile($this->settingsManager->configValue('extMgn/divisionsUrl'));
-                if ($this->errorHandler->getError()) {
+		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
 			return;
 		}
 
 	
 		$instituteController = new InstituteController($this->objectManager, $this->instituteRepository);
-//		$instituteController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\InstituteController', $this->instituteRepository);
+//		$instituteController = GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\InstituteController', $this->instituteRepository);
 		$instituteController->sync($xmlString);
 		if ($this->errorHandler->getError()) {
 			$this->view->assign('errorMsg', $this->errorHandler->getErrorMsg());
@@ -140,7 +142,7 @@ class AdministrationController extends BasicPublistController {
 
 
 		$chairController = new ChairController($this->objectManager, $this->chairRepository);
-//		$chairController = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\ChairController', $this->chairRepository);
+//		$chairController = GeneralUtility::makeInstance('UMA\\UmaPublist\\Controller\\ChairController', $this->chairRepository);
 
 
 		// get the chairitutes -> the parents of the chairs
@@ -294,7 +296,7 @@ class AdministrationController extends BasicPublistController {
 	public function cleanupPublications($publists) {
 		$didCleanup = 0;
 		$neededeprintIDs = [];
-                $alreadyKeptEprintIDs = [];
+		$alreadyKeptEprintIDs = [];
 		foreach($publists as $publist) {
 			if ($publist === NULL)
 				continue;
@@ -305,14 +307,14 @@ class AdministrationController extends BasicPublistController {
 
 		$publications = $this->publicationController->repositoryFindAll();;
 		foreach ($publications as $publication) {
-			if ((!in_array($publication->getEprintId(), $neededeprintIDs)) ||
-                           (in_array($publication->getEprintId(), $alreadyKeptEprintIDs))) {
+			if ((!in_array($publication->getEprintId(), $neededeprintIDs)) || (in_array($publication->getEprintId(), $alreadyKeptEprintIDs))) {
 				$this->debugger->add('Publication ' . $publication->getEprintId() . ' not needed or double, delete it from DB');
 				$this->publicationController->repositoryRemove($publication);
 				$didCleanup = 1;
 			}
-                        else
-                           array_push($alreadyKeptEprintIDs, $publication->getEprintId());
+			else {
+				array_push($alreadyKeptEprintIDs, $publication->getEprintId());
+			}
 		}
 
 		# Den Vorschlaghammer instanzieren / aus der Kiste kramen
@@ -324,17 +326,17 @@ class AdministrationController extends BasicPublistController {
 	}
 
 	public function cleanupDeletedPublications() {
-		$didCleanup = 0;
+		$queryBuilder = GeneralUtilityCore::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_umapublist_domain_model_publication');
+		$didCleanup = !!$queryBuilder
+			->delete('tx_umapublist_domain_model_publication')
+			->where($queryBuilder->expr()->eq('deleted', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)))
+			->execute();
 
-		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_umapublist_domain_model_publication', 'deleted = 1'))
-			$didCleanup = 1;
-		
 		return $didCleanup;
 	}
 
 	public function cleanupAllPublications() {
-		$didCleanup = 0;
-
+		$queryBuilder = GeneralUtilityCore::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_umapublist_domain_model_publication');
 		if ($GLOBALS['TYPO3_DB']->exec_DELETEquery('tx_umapublist_domain_model_publication', 'deleted = 0'))
 			$didCleanup = 1;
 		$didCleanup += $this->cleanupDeletedPublications();
