@@ -6,6 +6,9 @@
 			<trans-unit id="pi1_title" xml:space="preserve">
 				<source>Display publications of the University of Mannheim</source>
 			</trans-unit>
+			<trans-unit id="extmng.queryBaseUrl" xml:space="preserve">
+				<source>Query base URL</source>
+			</trans-unit>
 			<trans-unit id="extmng.divisionsUrl" xml:space="preserve">
 				<source>URL of XML file for divisions</source>
 			</trans-unit>

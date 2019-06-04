@@ -7,6 +7,10 @@
 				<source>Display publications of the University of Mannheim</source>
 				<target>Publikationen der Universität Mannheim anzeigen</target>
 			</trans-unit>
+			<trans-unit id="extmng.queryBaseUrl" xml:space="preserve">
+				<source>Query base URL</source>
+				<target>Basis-URL für Abfragen</target>
+			</trans-unit>
 			<trans-unit id="extmng.divisionsUrl" xml:space="preserve">
 				<source>URL of XML file for divisions</source>
 				<target>URL zur XML-Datei für Bereiche</target>

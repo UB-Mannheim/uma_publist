@@ -1,6 +1,9 @@
+	# cat=basic/enable/100; type=string; label=LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:extmng.queryBaseUrl
+queryBaseUrl = https://ub-madoc.bib.uni-mannheim.de
+
 	# cat=basic/enable/100; type=string; label=LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:extmng.divisionsUrl
-divisionsUrl = http://ub-madoc.bib.uni-mannheim.de/xml/subjects_divisions.xml
+divisionsUrl = https://ub-madoc.bib.uni-mannheim.de/xml/subjects_divisions.xml
 
 	# cat=basic/enable/100; type=string; label=LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:extmng.eprintidUrlPrefix
-eprintidUrlPrefix = http://ub-madoc.bib.uni-mannheim.de
+eprintidUrlPrefix = https://ub-madoc.bib.uni-mannheim.de
 
