@@ -5,11 +5,11 @@
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
-		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}, {publication.pageRange}<f:if condition="{publication.ubmaForthcoming}"> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:forthcoming_ie" />)</f:if>.
+		<n:deleteSpaceBeforeColon title="{publication.publication}" /> {publication.year}, {publication.pageRange}<f:if condition="{publication.ubmaForthcoming}"> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:forthcoming_ie" />)</f:if>.
 	</f:case>
 	<f:case value="entscheidungsbesprechung">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
-		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}, {publication.pageRange}.
+		<n:deleteSpaceBeforeColon title="{publication.publication}" /> {publication.year}, {publication.pageRange}.
 	</f:case>
 	<f:case value="book">
 		<f:if condition="{publication.creators}">
