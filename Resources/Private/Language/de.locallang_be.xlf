@@ -553,8 +553,8 @@
 				<target>Abfrage-URL direkt eingeben und Einstellung auf dem Abfrage-Reiter ignorieren</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.directurl" xml:space="preserve">
-				<source>Query-URL: (have a look at https://ub-madoc.bib.uni-mannheim.de)</source>
-				<target>Abfrage-URL: (siehe https://ub-madoc.bib.uni-mannheim.de)</target>
+				<source>Query-URL: (have a look at https://madoc.bib.uni-mannheim.de)</source>
+				<target>Abfrage-URL: (siehe https://madoc.bib.uni-mannheim.de)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.debug" xml:space="preserve">
 				<source>Enable Debug Messages</source>

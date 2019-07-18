@@ -986,7 +986,7 @@
         <type>input</type>
         <size>50</size>
         <max>500</max>
-        <default>https://ub-madoc.bib.uni-mannheim.de/cgi/search/advanced//export_madoc_XML.xml......</default>
+        <default>https://madoc.bib.uni-mannheim.de/cgi/search/advanced//export_madoc_XML.xml......</default>
        </config>
       </TCEforms>
      </settings.directurl>
