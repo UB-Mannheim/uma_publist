@@ -23,12 +23,12 @@ namespace UMA\UmaPublist\ViewHelpers;
 class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
 
-        /**
-         * Render the viewhelper
-         *
-         * @param string $somebody with people
-         * @return string with output
-         */
+    /**
+     * Render the viewhelper
+     *
+     * @param string $somebody with people
+     * @return string with output
+     */
 	public function render($somebody)
 	{
 		$output = '';
@@ -43,7 +43,7 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 						$theName[0] = $predicate[0] . ' ' . $theName[0];
 						$theName[1] = substr($theName[1], 0, strlen($predicate[0]));
 					}
-					$output .= $theName[0] . ', ' . preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]);
+					$output .= $theName[0] . ', ' . str_replace('-.', '', preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]));
 					if ($peopleNumber >= 3) {
 						if ($i < ($peopleNumber - 1))
 							$output .= ', ';
