@@ -413,7 +413,7 @@
 				<source>Directly specify query URL and ignore settings on Query tab</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.directurl" xml:space="preserve">
-				<source>Query-URL: (have a look at https://ub-madoc.bib.uni-mannheim.de)</source>
+				<source>Query-URL: (have a look at https://madoc.bib.uni-mannheim.de)</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.debug" xml:space="preserve">
 				<source>Enable Debug Messages</source>
