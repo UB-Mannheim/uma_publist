@@ -39,7 +39,7 @@ class RenderNamesShortViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstra
 			foreach ($peopleList as $guy) {
 				if ($theName = explode( ',', $guy)) {
 					// move particles like "von", "zu" from the end of the firstName to the beginning of the lastName
-					if (preg_match('/(?<= )(da|dalla|de|de la|deglia|del|der|ter|van|vom|vom und zum|von|von dem|von der|von und zu|zu|zum)$/', $theName[1], $predicate)) {
+					if (preg_match('/(?<= )(da|dalla|de|de la|deglia|del|der|ter|van|van den|vom|vom und zum|von|von dem|von der|von und zu|zu|zum)$/', $theName[1], $predicate)) {
 						$theName[0] = $predicate[0] . ' ' . $theName[0];
 						$theName[1] = substr($theName[1], 0, strlen($predicate[0]));
 					}
