@@ -18,7 +18,7 @@
 			<h4>{year}</h4>
 			</div>
 
-			<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{year}', types: '{types}')}" as="type">
+			<f:for each="{n:bibTypesThisYear(publications: '{content}', thisYear: '{year}', types: '{types}')}" as="type">
 				<div class="uma-publist-typeheader">
 				<h4><f:translate key='{type}' /></h4>
 				</div>
@@ -28,7 +28,7 @@
 	</f:case>
 
 	<f:case value="2">
-		<f:for each="{m:yearsThisBibType(publications: '{content}', thisType: '{curType}', years: '{years}')}" as="year">
+		<f:for each="{n:yearsThisBibType(publications: '{content}', thisType: '{curType}', years: '{years}')}" as="year">
 			<div class="uma-publist-yearheader">
 			<h4>{year}</h4>
 			</div>

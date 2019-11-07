@@ -6,7 +6,7 @@
 	<ul>
 	<f:if condition="{settings.splityears}==2">
 		<f:then>
-			<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
+			<f:for each="{n:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
 				<li{f:if(condition: '{curType}=={type}', then: ' class="is-active"')}><f:link.action  action="list" arguments="{year: curYear, type: type}"><strong><f:translate key='{type}' /></strong> </f:link.action></li>
 			</f:for>
 		</f:then>

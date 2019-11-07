@@ -12,7 +12,7 @@
 		</f:for>
 	</f:then>
 	<f:else>
-		<f:for each="{m:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
+		<f:for each="{n:bibTypesThisYear(publications: '{content}', thisYear: '{curYear}', types: '{types}')}" as="type">
 			<div class="uma-publist-typeheader">
 			<h4><f:translate key='{type}' /></h4>
 			</div>
