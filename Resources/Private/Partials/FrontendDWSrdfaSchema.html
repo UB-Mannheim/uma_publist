@@ -13,7 +13,7 @@
 		<span  prefix="schema: http://schema.org/" about="https://madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeof="schema:ScholarlyArticle">
 		<n:renderNamesWithAndRdfaSchema somebody="{publication.creators}" />
 		<strong><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span>.</strong>
-		<em><span property="schema:isPartOf" typeof="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span> (<span property="schema:volumeNumber">{publication.volume}#</span>)</span>,</em>
+		<em><span property="schema:isPartOf" typeof="schema:PublicationVolume"><span property="schema:name">{publication.publication}</span><f:if condition="{publication.volume} || {publication.number}"> (<span property="schema:volumeNumber">{publication.volume}#{publication.number}</span>)</f:if></span>,</em>
 		<span property="schema:publisher" typeof="schema:Organization"><span property="schema:name">{publication.publisher}</span></span>,
 		<span property="schema:contentLocation" typeof="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>,
 		<span property="schema:datePublished">{publication.year}</span></span>.
