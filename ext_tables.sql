@@ -91,6 +91,7 @@ CREATE TABLE tx_umapublist_domain_model_publist (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	ce_id int(11) DEFAULT '0' NOT NULL,
+	tsconfig text,
 	query_url text,
 	publications text NOT NULL,
 	flexform_md5 varchar(255) DEFAULT '' NOT NULL,

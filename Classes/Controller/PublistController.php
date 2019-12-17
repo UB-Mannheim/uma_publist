@@ -31,12 +31,15 @@ use UMA\UmaPublist\Utility\queryUrl;
 use UMA\UmaPublist\Utility\fileReader;
 use UMA\UmaPublist\Utility\xmlUtil;
 use UMA\UmaPublist\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility as GeneralUtilityCore;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * PublistController
  */
 class PublistController extends BasicPublistController {
-
 
 	/**
 	 * publistRepository
@@ -45,7 +48,6 @@ class PublistController extends BasicPublistController {
 	 * @inject
 	 */
 	protected $publistRepository = NULL;
-
 
 	/**
 	 * publicationController
@@ -63,7 +65,6 @@ class PublistController extends BasicPublistController {
 
 	protected $contentByTypesAndYears = [];
 
-
 	/**
 	 * action list
 	 *
@@ -71,19 +72,17 @@ class PublistController extends BasicPublistController {
 	 */
 	public function listAction() {
 
-		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
+		//$debugger = GeneralUtilityCore::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
 		$GLOBALS['TSFE']->additionalFooterData['tx_'.$this->request->getControllerExtensionKey()] = '<script type="text/javascript" src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/JavaScript/uma_publist.js"></script>';
 		$this->debugger->add('Started PublistController listAction');
 
-		// check, if ContentElement is already in DB
+		// check if content element is already in DB
 		$cObj = $this->configurationManager->getContentObject();
 		$cElementId = $cObj->data['uid'];
 
-        // parse content element's flexform content
-        $flexformSettings = GeneralUtility::parseFlexForm($cObj->data['pi_flexform'], 'settings');
-        GeneralUtility::getInstitutesAndChairs($flexformSettings, $institutesAssoc, $chairsAssoc);
-        if(!$flexformSettings['title'] && !$flexformSettings['author'] && !count($chairsAssoc)) {
-            $errorMsg = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate( 'error.select_title_author_or_department', 'uma_publist' );
+        GeneralUtility::getInstitutesAndChairs($this->settings, $institutesAssoc, $chairsAssoc);
+        if(!$this->settings['title'] && !$this->settings['author'] && !count($chairsAssoc)) {
+            $errorMsg = LocalizationUtility::translate( 'error.select_title_author_or_department', 'uma_publist' );
             $this->view->assign('errorMsg', $errorMsg);
             $this->errorHandler->setError(1, $errorMsg);
             return;
@@ -106,7 +105,6 @@ class PublistController extends BasicPublistController {
 			}
 			return;
 		}
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($content);
 
 		// sorting publications
 		$years = $this->listOfYears($content);
@@ -142,7 +140,7 @@ class PublistController extends BasicPublistController {
 
 
 	private function getPublicationsFromList($cElementId) {
-		$publist = $this->publistRepository->findFirstByCEid($cElementId);
+		$publist = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig($this->settings);
 		if ($publist === NULL) {
 			$this->errorHandler->setError(1, "Unable to find publication list in DB for content element " . $cElementId);
 			return 0;
@@ -178,7 +176,7 @@ class PublistController extends BasicPublistController {
 		//md5sum of flexform:
 		$newMd5 = md5(implode($this->settings));
 
-		$isInDB = $this->publistRepository->findFirstByCEid($cElementId);
+		$isInDB = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig(implode($this->settings));
 		// if a Content element is there, check the md5sum
 		if ($isInDB === NULL) {
 			$this->debugger->add('No Publist in DB, load it ...');
@@ -225,7 +223,12 @@ class PublistController extends BasicPublistController {
         if ($publist === NULL) {
             // add to DB
             $publist = $this->objectManager->get('UMA\UmaPublist\Domain\Model\Publist');
-            $publist->setCeId($cElementId);
+            if($cElementId) {
+                $publist->setCeId($cElementId);
+            }
+            else {
+                $publist->setTsconfig($this->settings);
+            }
             $isNewPublist = true;
         }
         $this->debugger->add('== Publist ' . $cElementId . ($isNewPublist ? ' is NOT in DB, add it' : ' is in DB, update only') . ' ==');
@@ -306,8 +309,6 @@ class PublistController extends BasicPublistController {
 		}
 
 		$this->debugger->add('Found ' . $xml->count() . ' items in xml');
-
-		//\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings);
 
 		for ($item = 0; $item < $xml->count(); $item ++) {
 
@@ -549,4 +550,3 @@ class PublistController extends BasicPublistController {
 
 
 }
-

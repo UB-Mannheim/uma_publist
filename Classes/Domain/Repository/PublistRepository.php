@@ -42,27 +42,6 @@ class PublistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
         // don't add the pid constraint
         $querySettings->setRespectStoragePage(FALSE);
 
-        // go for $defaultQuerySettings = $this->createQuery()->getQuerySettings(); if you want to make use of the TS persistence.storagePid with defaultQuerySettings(), see #51529 for details
-
-        // set the storagePids to respect
-        // $querySettings->setStoragePageIds(array(1, 26, 989));
-
-        // define the enablecolumn fields to be ignored
-        // if nothing else is given, all enableFields are ignored
-        // $querySettings->setIgnoreEnableFields(TRUE);
-
-        // define single fields to be ignored
-        // $querySettings->setEnableFieldsToBeIgnored(array('disabled','starttime'));
-
-        // add deleted rows to the result
-        // $querySettings->setIncludeDeleted(TRUE);
-
-        // don't add sys_language_uid constraint
-        // $querySettings->setRespectSysLanguage(FALSE);
-
-        // perform translation to dedicated language
-        // $querySettings->setSysLanguageUid(42);
-
         $this->setDefaultQuerySettings($querySettings);
     }
 
@@ -76,40 +55,36 @@ class PublistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$query->setOrderings($orderings);
 
 		$query->getQuerySettings()->setRespectSysLanguage(FALSE);
-                if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000)
-                        $query->getQuerySettings()->setLanguageUid(0);
-                else
-                        $query->getQuerySettings()->setSysLanguageUid(0);
+		$query->getQuerySettings()->setLanguageUid(0);
 
 		$result = $query->execute();
 		return $result;
 	}
 
-	public function findFirstByCEID($ceid) {
-
+	public function findFirstByCEId($ceid) {
 		$query = $this->createQuery();
 		$query->getQuerySettings()->setRespectSysLanguage(FALSE);
-                if (\TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version) >= 7000000)
-                        $query->getQuerySettings()->setLanguageUid(0);
-                else
-                        $query->getQuerySettings()->setSysLanguageUid(0);
+		$query->getQuerySettings()->setLanguageUid(0);
 
 		$query->matching(
 			$query->equals("ceId", $ceid)
 		);
-                $result = $query->execute()->getFirst();
+
+		$result = $query->execute()->getFirst();
 		return $result;
-
 	}
-/*
-	public function checkContentElement($uid) {
-		$Query = $this->createquery();
-		$Query->getQuerySettings()->setReturnRawQueryResult(TRUE);
-		$Query->getQuerySettings()->setRespectStoragePage(FALSE);
-		$Query->statement('select * from tt_content where uid = ' . $uid . ' and deleted = 0;'); 
-		return $Query->execute();
-	}
-*/
 
+	public function findFirstByTsconfig($tsConfig) {
+		$query = $this->createQuery();
+		$query->getQuerySettings()->setRespectSysLanguage(FALSE);
+		$query->getQuerySettings()->setLanguageUid(0);
+
+		$query->matching(
+			$query->equals("tsconfig", $tsConfig)
+		);
+
+		$result = $query->execute()->getFirst();
+		return $result;
+	}
 
 }

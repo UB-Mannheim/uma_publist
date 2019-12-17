@@ -129,6 +129,9 @@
 			<trans-unit id="tx_umapublist_domain_model_publist.ceid">
 				<source>ceID</source>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.tsconfig">
+				<source>Typoscript configuration</source>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist.query_url">
 				<source>Query URL</source>
 			</trans-unit>

@@ -171,6 +171,10 @@
 				<source>ceID</source>
 				<target>ceID</target>
 			</trans-unit>
+			<trans-unit id="tx_umapublist_domain_model_publist.tsconfig">
+				<source>Typoscript configuration</source>
+				<target>Typoscript-Konfiguration</target>
+			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publist.query_url">
 				<source>Query URL</source>
 				<target>Abfrage-URL</target>

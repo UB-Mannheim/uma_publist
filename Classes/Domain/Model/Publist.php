@@ -59,6 +59,13 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $ceId = 0;
 
+    /**
+     * tsconfig
+     *
+     * @var string
+     */
+    protected $tsconfig = '';
+
 
 	/**
 	 * queryUrl
@@ -143,16 +150,33 @@ class Publist extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * Sets the eprintId
+	 * Sets the ceId
 	 *
-	 * @param int $eprintId
+	 * @param int $ceId
 	 * @return void
 	 */
 	public function setCeId($ceId) {
 		$this->ceId = $ceId;
 	}
 
+	/**
+	 * Sets the tsconfig
+	 *
+	 * @param string $tsconfig
+     * @return void
+	 */
+	public function setTsconfig($tsconfig) {
+		$this->tsconfig = $tsconfig;
+	}
 
+	/**
+	 * Returns the tsconfig
+	 *
+	 * @return string $tsconfig
+	 */
+	public function getTsconfig() {
+		return $this->tsconfig;
+	}
 
 	/**
 	 * Returns the queryUrl

@@ -122,6 +122,16 @@ return array(
 				'eval' => 'int'
 			)
 		),
+		'tsconfig' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:uma_publist/Resources/Private/Language/locallang_db.xlf:tx_umapublist_domain_model_publist.tsconfig',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			)
+		),
 
 		'query_url' => array(
 			'exclude' => 1,
