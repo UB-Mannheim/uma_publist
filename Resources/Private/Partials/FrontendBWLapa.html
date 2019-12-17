@@ -4,14 +4,9 @@
         xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
 
 <v:variable.set name="publication.title" value="{publication.title->v:format.trim()}" />
+<v:variable.set name="titleDot" value="." />
 <f:if condition="{v:variable.pregMatch(pattern: '#\\?$#', subject: publication.title)}">
-	<f:then>
-		<f:comment>Please leave span tag with blank as blanks between tags are eliminated in some cases</f:comment>
-		<v:variable.set name="titleDot" value="<span> </span>" />
-	</f:then>
-	<f:else>
-		<v:variable.set name="titleDot" value="." />
-	</f:else>
+<v:variable.set name="titleDot" value="" />
 </f:if>
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">
