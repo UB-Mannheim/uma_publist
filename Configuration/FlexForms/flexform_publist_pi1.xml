@@ -75,8 +75,11 @@
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.exclude_eprint_ids</label>
        <config>
-        <type>input</type>
-        <size>30</size>
+        <type>select</type>
+        <renderType>selectMultipleSideBySide</renderType>
+        <enableMultiSelectFilterTextfield>1</enableMultiSelectFilterTextfield>
+        <itemsProcFunc>UMA\UmaPublist\Hooks\ItemsProcFunc->renderEprintIds</itemsProcFunc>
+        <size>10</size>
        </config>
       </TCEforms>
      </settings.excludeEprintIds>

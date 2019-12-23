@@ -29,11 +29,7 @@ namespace UMA\UmaPublist\Controller;
 
 use UMA\UmaPublist\Utility\queryUrl;
 use UMA\UmaPublist\Utility\fileReader;
-use UMA\UmaPublist\Utility\xmlUtil;
 use UMA\UmaPublist\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility as GeneralUtilityCore;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManager;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -72,7 +68,6 @@ class PublistController extends BasicPublistController {
 	 */
 	public function listAction() {
 
-		//$debugger = GeneralUtilityCore::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
 		$GLOBALS['TSFE']->additionalFooterData['tx_'.$this->request->getControllerExtensionKey()] = '<script type="text/javascript" src="' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/JavaScript/uma_publist.js"></script>';
 		$this->debugger->add('Started PublistController listAction');
 
@@ -198,25 +193,23 @@ class PublistController extends BasicPublistController {
 		return;
 	}
 
+    // running from frontend, flexform present
+    private function updatePublist($cElementId, $md5sum, $publist)
+    {
 
+        $url = queryUrl::generate($this->settings, 0);
+        if ($this->errorHandler->getError())
+            return;
 
-	// running from Frontend, Flexform Settings readable
-	private function updatePublist($cElementId, $md5sum, $publist)
-	{
+        $this->debugger->add('Query URL: ' . $url);
 
-		$url = queryUrl::generate($this->settings, 0);
-		if ($this->errorHandler->getError())
-			return;
+        $xmlString = fileReader::downloadFile($url);
+        if ($this->errorHandler->getError())
+            return;
 
-		$this->debugger->add('Query URL: ' . $url);
-
-		$xmlString = fileReader::downloadFile($url);
-		if ($this->errorHandler->getError())
-			return;
-
-		$publications = $this->extractPublicationsFromXML($xmlString, $this->settings);
-		if ($this->errorHandler->getError())
-			return;
+        $publications = GeneralUtility::extractPublicationsFromXML($xmlString, $this->settings);
+        if ($this->errorHandler->getError())
+            return;
 
         // store/update Publist in Repository
         $isNewPublist = false;
@@ -241,137 +234,35 @@ class PublistController extends BasicPublistController {
         $publist->setFilterBwlNational($this->settings['bwlNational']);
         $publist->setFilterBwlRefereed($this->settings['bwlRefereed']);
         $publist->setFlexformMd5($md5sum);
-        $publist->setPublications($this->listOfEprintIds($publications));
+        $publist->setPublications(GeneralUtility::listOfEprintIds($publications));
         $isNewPublist ? $this->publistRepository->add($publist) : $this->publistRepository->update($publist);
 
-		# Den Vorschlaghammer instanzieren / aus der Kiste kramen
-		$persistenceManager = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
- 		# Mit dem Vorschlaghammer in die Datenbank speichern / Nägel mit Köpfen machen
-		$persistenceManager->persistAll();
+        $persistenceManager = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
+        $persistenceManager->persistAll();
 
 	}
 
-	// running from Backend (task Scheduler), Flexform Settings not Reachable
+	// running from backend (e.g. task scheduler), retrieve flexform settings
 	public function taskUpdatePublist($publist)
 	{
-		$url = $publist->getQueryUrl();
-
-		$xmlString = fileReader::downloadFile($url);
-		if ($this->errorHandler->getError())
-			return;
-
-        $settings = [
-            'excludeexternal' => $publist->getExcludeExternal(),
-            'publication' => $publist->getFilterPublication(),
-            'excludeEprintIds' => $publist->getExcludeEprintIds(),
-            'bwlResearch' => $publist->getFilterBwlResearch(),
-            'bwlAcademic' => $publist->getFilterBwlAcademic(),
-            'bwlNational' => $publist->getFilterBwlNational(),
-            'bwlRefereed' => $publist->getFilterBwlRefereed()
-        ];
-
-		$publications = $this->extractPublicationsFromXML($xmlString, $settings);
-		if ($this->errorHandler->getError())
-			return;
-
-		$publist->setPublications($this->listOfEprintIds($publications));
-		$this->publistRepository->update($publist);
-
-		return;
-	}
+        $ceUid = $publist->getCeId();
+        $this->settings = GeneralUtility::getSettings($ceUid);
+        $queryUrl = queryUrl::generate($this->settings, 0);
+        $publist->setQueryUrl($queryUrl);
+        $xmlString = fileReader::downloadFile($queryUrl);
+        if ($this->errorHandler->getError()) {
+            return;
+        }
+        $publications = GeneralUtility::extractPublicationsFromXML($xmlString, $this->settings);
+        if ($this->errorHandler->getError()) {
+            return;
+        }
+        $publist->setPublications(GeneralUtility::listOfEprintIds($publications));
+        $this->publistRepository->update($publist);
+        return;
+    }
 
 
-
-	private function extractPublicationsFromXML($data, $settings = [])
-	{
-        $excludeExternal = array_key_exists('excludeexternal', $settings) ? $settings['excludeexternal'] : false;
-        $filterPublication = array_key_exists('publication', $settings) ? $settings['publication'] : '';
-        $excludeEprintIds = array_key_exists('excludeEprintIds', $settings) ? $settings['excludeEprintIds'] : '';
-        $filterBwlResearch = array_key_exists('bwlResearch', $settings) ? $settings['bwlResearch'] : '';
-        $filterBwlAcademic = array_key_exists('bwlAcademic', $settings) ? $settings['bwlAcademic'] : '';
-        $filterBwlNational = array_key_exists('bwlNational', $settings) ? $settings['bwlNational'] : '';
-        $filterBwlRefereed = array_key_exists('bwlRefereed', $settings) ? $settings['bwlRefereed'] : '';
-
-		//$debugger = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('UMA\\UmaPublist\\Service\\DebugCollector');
-		$publications = [];
-
-        $filterPublicationRegExp = '~'.preg_replace(['#\s*\|\s*#', '#([$^.*+?(){}[\]~])#'], ['|', '\\\\$1'], trim($filterPublication)).'~i';
-        $excludeEprintIdArray = array_filter(explode(',', $excludeEprintIds), 'is_numeric');
-        $filterBwlResearchArray = array_diff(explode(',', $filterBwlResearch), ['']);
-        $filterBwlAcademicArray = array_diff(explode(',', $filterBwlAcademic), ['']);
-        $filterBwlNationalArray = array_diff(explode(',', $filterBwlNational), ['']);
-        $filterBwlRefereedArray = array_diff(explode(',', $filterBwlRefereed), ['']);
-
-		$xml = \simplexml_load_string($data);
-		if ($xml === FALSE) {
-				$this->errorHandler->setError(1, 'Could load XML from Bib (not valid xml?)');
-				return $publications;
-		}
-
-		$this->debugger->add('Found ' . $xml->count() . ' items in xml');
-
-		for ($item = 0; $item < $xml->count(); $item ++) {
-
-			$pub = xmlUtil::xmlToArray($xml->eprint[$item]);
-
-			// check if we have to exclude external Publications
-			if (($excludeExternal) && ($pub['ubma_external'] == "TRUE"))
-				continue;
-
-            if($filterPublication) {
-                if(!preg_match($filterPublicationRegExp, $pub['publication'])) {
-                    continue;
-                }
-            }
-
-            if($excludeEprintIds) {
-                if(in_array($pub['eprintid'], $excludeEprintIdArray)) {
-                    continue;
-                }
-            }
-
-            if($filterBwlResearchArray) {
-                if(!((in_array('unspecified', $filterBwlResearchArray) && (!array_key_exists('ubma_bwl_research', $pub) || !$pub['ubma_bwl_research'])) || in_array($pub['ubma_bwl_research'], $filterBwlResearchArray))) {
-                    continue;
-                }
-            }
-
-            if($filterBwlAcademicArray) {
-                if(!((in_array('unspecified', $filterBwlAcademicArray) && (!array_key_exists('ubma_bwl_academic', $pub) || !$pub['ubma_bwl_academic'])) || in_array($pub['ubma_bwl_academic'], $filterBwlAcademicArray))) {
-                    continue;
-                }
-            }
-
-            if($filterBwlNationalArray) {
-                if(!((in_array('unspecified', $filterBwlNationalArray) && (!array_key_exists('ubma_bwl_national', $pub) || !$pub['ubma_bwl_national'])) || in_array($pub['ubma_bwl_national'], $filterBwlNationalArray))) {
-                    continue;
-                }
-            }
-
-            if($filterBwlRefereedArray) {
-                if(!((in_array('unspecified', $filterBwlRefereedArray) && (!array_key_exists('ubma_bwl_refereed', $pub) || !$pub['ubma_bwl_refereed'])) || in_array($pub['ubma_bwl_refereed'], $filterBwlRefereedArray))) {
-                    continue;
-                }
-            }
-
-			$this->publicationController->add($pub);
-			array_push($publications, $pub);
-
-		}
-
-		return $publications;
-	}
-
-
-
-	private function listOfEprintIds($publications) {
-		$listOfIDs = "";
-		foreach ($publications as $publication) {
-			$listOfIDs .=  $publication['eprintid'] . ",";
-		}
-		$listOfIDs = rtrim($listOfIDs, ",");
-		return $listOfIDs;
-	}
 
 	private function groupContent($content) {
 		// get types from flexform
@@ -452,7 +343,6 @@ class PublistController extends BasicPublistController {
 		}
 		return $types;
 	}
-
 
 /*
 
@@ -537,8 +427,6 @@ class PublistController extends BasicPublistController {
 		}
 
 	}
-
-
 
 	// Repository-Wrappers
 	public function repositoryFindAll() {

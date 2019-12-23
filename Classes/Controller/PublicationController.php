@@ -29,6 +29,9 @@ namespace UMA\UmaPublist\Controller;
 
 
 use UMA\UmaPublist\Utility\xmlUtil;
+use UMA\UmaPublist\Domain\Repository\PublicationRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 /**
  * PublicationController
@@ -119,7 +122,12 @@ class PublicationController extends BasicPublistController {
 		}
 
 		//check, if DB is already in DB
-		 
+
+        if(!$this->publicationRepository) {
+            $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+            $this->publicationRepository = $objectManager->get(PublicationRepository::class);
+        }
+
 		$eprintIdIsInDB = $this->publicationRepository->findFirstByEprintId(intval($publication['eprintid']));
 		if ($eprintIdIsInDB === NULL) {
 			// add to DB

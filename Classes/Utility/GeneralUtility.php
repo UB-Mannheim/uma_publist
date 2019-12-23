@@ -16,6 +16,10 @@ namespace UMA\UmaPublist\Utility;
  */
 
 use TYPO3\CMS\Core\SingletonInterface;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility as GeneralUtilityCore;
+use TYPO3\CMS\Extbase\Service\FlexFormService;
+use \UMA\UmaPublist\Controller\PublicationController;
 
 /**
  * TemplateLayout utility class
@@ -50,39 +54,113 @@ class GeneralUtility implements SingletonInterface {
      */
     protected static $chairRepository = null;
 
-   /**
-    * Parse flexform
-    *
-    * @param string $flexform
-    * @param string $baseKey
-    * @return array
-    */
-   public static function parseFlexForm($flexform, $baseKey = '') {
-        $flexFormArray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexform);
-        if(!is_array($flexFormArray)) return [];
-        $flexFormSettings = [];
-        foreach ( $flexFormArray['data'] as $sheet => $data ) {
-            foreach ( $data as $lang => $value ) {
-                foreach ( $value as $key => $val ) {
-                    $parts = explode('.', $key);
-                    $i = 0;
-                    $head = &$flexFormSettings;
-                    foreach ($parts as $part) {
-                        if ($i == count($parts) - 1) {
-                            $head[$part] = $val['vDEF'];
-                        }
-                        else {
-                            if (!array_key_exists($part, $head)) {
-                                $head[$part] = [];
-                            }
-                            $head = &$head[$part];
-                        }
-                        $i++;
-                    }
+    public static function extractPublicationsFromXML($data, $settings = [])
+    {
+        $excludeExternal = array_key_exists('excludeexternal', $settings) ? $settings['excludeexternal'] : false;
+        $filterPublication = array_key_exists('publication', $settings) ? $settings['publication'] : '';
+        $excludeEprintIds = array_key_exists('excludeEprintIds', $settings) ? $settings['excludeEprintIds'] : '';
+        $filterBwlResearch = array_key_exists('bwlResearch', $settings) ? $settings['bwlResearch'] : '';
+        $filterBwlAcademic = array_key_exists('bwlAcademic', $settings) ? $settings['bwlAcademic'] : '';
+        $filterBwlNational = array_key_exists('bwlNational', $settings) ? $settings['bwlNational'] : '';
+        $filterBwlRefereed = array_key_exists('bwlRefereed', $settings) ? $settings['bwlRefereed'] : '';
+
+        $publications = [];
+
+        $filterPublicationRegExp = '~'.preg_replace(['#\s*\|\s*#', '#([$^.*+?(){}[\]~])#'], ['|', '\\\\$1'], trim($filterPublication)).'~i';
+        $excludeEprintIdArray = array_filter(explode(',', $excludeEprintIds), 'is_numeric');
+        $filterBwlResearchArray = array_diff(explode(',', $filterBwlResearch), ['']);
+        $filterBwlAcademicArray = array_diff(explode(',', $filterBwlAcademic), ['']);
+        $filterBwlNationalArray = array_diff(explode(',', $filterBwlNational), ['']);
+        $filterBwlRefereedArray = array_diff(explode(',', $filterBwlRefereed), ['']);
+
+        $xml = \simplexml_load_string($data);
+        if ($xml === FALSE) {
+            return $publications;
+        }
+
+        for ($item = 0; $item < $xml->count(); $item ++) {
+
+            $pub = xmlUtil::xmlToArray($xml->eprint[$item]);
+
+            if (($excludeExternal) && ($pub['ubma_external'] == "TRUE"))
+                continue;
+
+            if($filterPublication) {
+                if(!preg_match($filterPublicationRegExp, $pub['publication'])) {
+                    continue;
                 }
             }
+
+            if($excludeEprintIds) {
+                if(in_array($pub['eprintid'], $excludeEprintIdArray)) {
+                    continue;
+                }
+            }
+
+            if($filterBwlResearchArray) {
+                if(!((in_array('unspecified', $filterBwlResearchArray) && (!array_key_exists('ubma_bwl_research', $pub) || !$pub['ubma_bwl_research'])) || in_array($pub['ubma_bwl_research'], $filterBwlResearchArray))) {
+                    continue;
+                }
+            }
+
+            if($filterBwlAcademicArray) {
+                if(!((in_array('unspecified', $filterBwlAcademicArray) && (!array_key_exists('ubma_bwl_academic', $pub) || !$pub['ubma_bwl_academic'])) || in_array($pub['ubma_bwl_academic'], $filterBwlAcademicArray))) {
+                    continue;
+                }
+            }
+
+            if($filterBwlNationalArray) {
+                if(!((in_array('unspecified', $filterBwlNationalArray) && (!array_key_exists('ubma_bwl_national', $pub) || !$pub['ubma_bwl_national'])) || in_array($pub['ubma_bwl_national'], $filterBwlNationalArray))) {
+                    continue;
+                }
+            }
+
+            if($filterBwlRefereedArray) {
+                if(!((in_array('unspecified', $filterBwlRefereedArray) && (!array_key_exists('ubma_bwl_refereed', $pub) || !$pub['ubma_bwl_refereed'])) || in_array($pub['ubma_bwl_refereed'], $filterBwlRefereedArray))) {
+                    continue;
+                }
+            }
+
+            $publicationController = GeneralUtilityCore::makeInstance(PublicationController::class);
+            $publicationController->add($pub);
+            array_push($publications, $pub);
+
         }
-        return $baseKey ? $flexFormSettings[$baseKey] : $flexFormSettings;
+
+        return $publications;
+    }
+
+    public static function listOfEprintIds($publications) {
+        $listOfIDs = '';
+        foreach ($publications as $publication) {
+            $listOfIDs .=  $publication['eprintid'] . ',';
+        }
+        $listOfIDs = rtrim($listOfIDs, ',');
+        return $listOfIDs;
+    }
+
+    public static function getSettings($ceUid) {
+        $connectionPool = GeneralUtilityCore::makeInstance(ConnectionPool::class);
+        $queryBuilder = $connectionPool->getConnectionForTable('tt_content')->createQueryBuilder();
+        $queryResult = $queryBuilder->select('pi_flexform')->from('tt_content')
+            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($ceUid)))
+            ->execute();
+        $row = $queryResult->fetch();
+        if($row) {
+            $ffs = GeneralUtilityCore::makeInstance(FlexFormService::class);
+            $flexform = $ffs->convertFlexFormContentToArray($row['pi_flexform']);
+            if(is_array($flexform) && array_key_exists('settings', $flexform)) {
+                return $flexform['settings'];
+            }
+        }
+        return [];
+    }
+
+    public static function getPublicationsForSettings($settings) {
+        $queryUrl = queryUrl::generate($settings, 0);
+        $xmlString = fileReader::downloadFile($queryUrl);
+        $publications = self::extractPublicationsFromXML($xmlString, $settings);
+        return $publications;
     }
 
     /**

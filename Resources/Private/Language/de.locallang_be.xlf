@@ -157,6 +157,10 @@
 				<target>Alle</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.orcid_id" xml:space="preserve">
+				<source>ORCID iD (only one)</source>
+				<target>ORCID iD (nur eine angeben)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.orcid_id_short" xml:space="preserve">
 				<source>ORCID iD</source>
 				<target>ORCID iD</target>
 			</trans-unit>
@@ -177,12 +181,12 @@
 				<target>Zeitschrift/Reihe</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.exclude_eprint_ids" xml:space="preserve">
-				<source>Exclude publications with the following EPrint IDs, comma-separated</source>
-				<target>Publikationen mit folgenden EPrint-IDs ausblenden, kommagetrennt</target>
+				<source>Exclude the following publications</source>
+				<target>Folgende Publikationen ausblenden</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.exclude_eprint_ids_short" xml:space="preserve">
-				<source>Exclude EPrint IDs</source>
-				<target>EPrint-IDs ausblenden</target>
+				<source>Exclude publications</source>
+				<target>Publikationen ausblenden</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.useadvancedtypesbytag" xml:space="preserve">
 				<source>Enable advanced types by using tags</source>

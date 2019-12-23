@@ -2,19 +2,14 @@
 
 namespace UMA\UmaPublist\Hooks;
 
-	/**
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
- * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
- */
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility as GeneralUtilityCore;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+use UMA\UmaPublist\Domain\Repository\PublistRepository;
+use UMA\UmaPublist\Controller\PublistController;
+use UMA\UmaPublist\Utility\fileReader;
+use UMA\UmaPublist\Utility\GeneralUtility;
 
 /**
  * Userfunc to render select-boxes for institutes and chairs from db
@@ -33,7 +28,7 @@ class ItemsProcFunc {
          */
         public function user_templateLayout(array &$config) {
                 /** @var \GeorgRinger\News\Utility\TemplateLayout $templateLayoutsUtility */
-                $templateLayoutsUtility = GeneralUtility::makeInstance('UMA\\UmaPublist\\Utility\\TemplateLayout');
+                $templateLayoutsUtility = GeneralUtilityCore::makeInstance('UMA\\UmaPublist\\Utility\\TemplateLayout');
                 $templateLayouts = $templateLayoutsUtility->getAvailableTemplateLayouts($config['row']['pid']);
                 foreach ($templateLayouts as $layout) {
                         $additionalLayout = array(
@@ -58,7 +53,7 @@ class ItemsProcFunc {
 //		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
 
 		// get the institute repository
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtilityCore::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 		$repository = $objectManager->get('UMA\\UmaPublist\\Domain\\Repository\\InstituteRepository');
 
 		$result = $repository->findAll();
@@ -86,7 +81,7 @@ class ItemsProcFunc {
 //		\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config['row']['pi_flexform']);
 
 		// get the institute repository
-		$objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		$objectManager = GeneralUtilityCore::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 		$repository = $objectManager->get('UMA\\UmaPublist\\Domain\\Repository\\ChairRepository');
 		$configurationManager = $objectManager->get('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManagerInterface');
 		$typoscript = $configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS, 'umapublist', 'pi1');
@@ -106,5 +101,46 @@ class ItemsProcFunc {
 
 		return $config;
 	}
+
+	/**
+	 * Itemsproc function to render selectbox for eprint ids
+	 *
+	 * @param array &$config configuration array
+	 * @return config
+	 */
+	public function renderEprintIds(array &$config) {
+        $connectionPool = GeneralUtilityCore::makeInstance(ConnectionPool::class);
+        $ceUid = (int) $config['row']['uid'];
+        if(!$ceUid) return $config;
+        $settings = GeneralUtility::getSettings($ceUid);
+        $settings['excludeEprintIds'] = '';
+        $publications = GeneralUtility::getPublicationsForSettings($settings);
+        $eprintIds = GeneralUtility::listOfEprintIds($publications);
+        $queryBuilderPublications = $connectionPool->getConnectionForTable('tx_umapublist_domain_model_publication')->createQueryBuilder();
+        $queryResultPublications = $queryBuilderPublications->select('eprint_id', 'title', 'year', 'bib_type', 'editors', 'creators', 'publication', 'volume', 'rev_number')->from('tx_umapublist_domain_model_publication')
+            ->where($queryBuilderPublications->expr()->in('eprint_id', explode(',', $eprintIds)))
+            ->execute();
+        $resultArray = $queryResultPublications->fetchAll();
+        foreach ($resultArray as $publication) {
+            $eprintId = $publication['eprint_id'];
+            $title = $publication['title'];
+            $authors = $publication['creators'] ? $publication['creators'] : $publication['editors'];
+            $authors = preg_replace(['#,[^;]*;#', '#,[^;]*$#', '#/#'], ['/', '', ', '], $authors);
+            $year = $publication['year'];
+            $typeAsText = LocalizationUtility::translate( $publication['bib_type'], 'uma_publist' );
+            $name = '[' . $eprintId . '] ' . $authors . ': '. $title . ' (' . $year . ', ' . $typeAsText . ')';
+            $selectList[$eprintId] = $name;
+        }
+        asort($selectList);
+        $selectList = array_reverse($selectList, true);
+        $i = 1;
+        foreach($selectList as $key => $value) {
+            $config['items'][$i]['0'] = $value;
+            $config['items'][$i]['1'] = $key;
+            $i++;
+        }
+
+        return $config;
+    }
 
 }

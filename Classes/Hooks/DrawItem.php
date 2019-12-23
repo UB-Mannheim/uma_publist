@@ -15,10 +15,11 @@ namespace UMA\UmaPublist\Hooks;
  */
 
 
-use TYPO3\CMS\Backend\Utility\BackendUtility;
-use UMA\UmaPublist\Utility\GeneralUtility;
 use TYPO3\CMS\Backend\View\PageLayoutViewDrawItemHookInterface;
 use TYPO3\CMS\Backend\View\PageLayoutView;
+use TYPO3\CMS\Core\Utility\GeneralUtility as GeneralUtilityCore;
+use TYPO3\CMS\Extbase\Service\FlexFormService;
+use UMA\UmaPublist\Utility\GeneralUtility;
 
 /**
  * Contains a preview rendering for the page module of list_type "umapublist_pi1"
@@ -49,7 +50,12 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
             $headerContent = '';
 
             // parse content element's flexform content
-            $settings = GeneralUtility::parseFlexForm($row['pi_flexform'], 'settings');
+            $ffs = GeneralUtilityCore::makeInstance(FlexFormService::class);
+            $flexform = $ffs->convertFlexFormContentToArray($row['pi_flexform']);
+            $settings = [];
+            if(is_array($flexform) && array_key_exists('settings', $flexform)) {
+                $settings = $flexform['settings'];
+            }
 
             // initialize backend view
             $standaloneView = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Fluid\View\StandaloneView::class);

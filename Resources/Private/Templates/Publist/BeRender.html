@@ -18,7 +18,7 @@
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author_short" />: <i>{author->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{orcidId}">
-        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.orcid_id" />: <i>{orcidId->f:format.raw()}</i><br /><br />
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.orcid_id_short" />: <i>{orcidId->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{publication}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication_short" />:<br /><i>{publication->v:iterator.explode(glue: '|')->v:iterator.implode(glue: '<br />')}</i>

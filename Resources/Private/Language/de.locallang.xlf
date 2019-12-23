@@ -212,8 +212,8 @@
 				<target>Derzeit sind keine Publikationen für diese Liste verfügbar.</target>
 			</trans-unit>
 			<trans-unit id="error.select_title_author_or_department" xml:space="preserve">
-				<source>Please select least title, author or faculty and department</source>
-				<target>Bitte mindestens Titel, Autor oder Fakultät und Abteilung wählen</target>
+				<source>Please select least title, author, ORCID iD or faculty and department</source>
+				<target>Bitte mindestens Titel, Autor, ORCID iD oder Fakultät und Abteilung wählen</target>
 			</trans-unit>
 		</body>
 	</file>
