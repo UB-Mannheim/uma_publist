@@ -52,14 +52,17 @@ class queryUrl {
             $authors = str_replace('  ', ' ', $authors);
             $authors = str_replace(',', '%2C', $authors);
             $authors = str_replace(' ', '+', $authors);
-            $url = $url . '|contributors_name%2Fcreators_name%2Feditors_name%3Acontributors_name%2Fcreators_name%2F';
-            if ($flexform['authorcombi'] == 'and')
-            // AND
-                $url = $url . 'editors_name%3AAND%3AIN%3A';
-            else
-            // OR
-                $url = $url . 'editors_name%3AANY%3AIN%3A';
-            $url = $url . $authors;
+            $url = $url . '|contributors_name%2Fcreators_name%2Feditors_name%3Acontributors_name%2Fcreators_name%2Feditors_name%3A';
+            $url = $url . ($flexform['authorcombi'] === 'and' ? 'AND%3AIN%3A' : 'ANY%3AIN%3A') . $authors;
+        }
+
+        // ORCID iD
+        if ($flexform['orcidId']) {
+            $orcidId = $flexform['orcidId'];
+            if(preg_match('#(\d{4}-\d{4}-\d{4}-\d{4})#', $orcidId, $matches)) {
+                $orcidId = $matches[1];
+            }
+            $url = $url . '|creators_orcid%2Feditors_orcid%3Acreators_orcid%2Feditors_orcid%3AALL%3AEX%3A' . $orcidId;
         }
 
         // title
@@ -186,7 +189,6 @@ class queryUrl {
             $url = $url . '|divisions%3Adivisions%3A' . $flexform['icombination'] . '%3AEQ%3A' . $institute;
             // end
         $url = $url . '|-|eprint_status%3Aeprint_status%3AALL%3AEQ%3Aarchive|metadata_visibility%3Ametadata_visibility%3AALL%3AEX%3Ashow';
-
         return $url;
     }
 

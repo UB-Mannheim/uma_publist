@@ -51,6 +51,16 @@
       </TCEforms>
      </settings.authorcombi>
 
+     <settings.orcidId>
+      <TCEforms>
+       <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.orcid_id</label>
+       <config>
+        <type>input</type>
+        <size>30</size>
+       </config>
+      </TCEforms>
+     </settings.orcidId>
+
      <settings.publication>
       <TCEforms>
        <label>LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication</label>

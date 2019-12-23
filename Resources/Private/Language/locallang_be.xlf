@@ -118,6 +118,9 @@
 			<trans-unit id="pi1_flexform.authorcombi.and" xml:space="preserve">
 				<source>All</source>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.orcid_id" xml:space="preserve">
+				<source>ORCID iD</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.excludeexternal" xml:space="preserve">
 				<source>Exclude external publications</source>
 			</trans-unit>

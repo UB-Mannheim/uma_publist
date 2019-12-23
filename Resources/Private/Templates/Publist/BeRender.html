@@ -8,18 +8,17 @@
         {header->f:format.raw()}<br />
     </f:if>
     <br />
-    <f:if condition="{title} == ''">
-        <f:if condition="{author} == ''">
-            <f:if condition="{chairs->f:count()} == 0">
-                <div style="margin-right:8px;float:left;"><core:icon identifier="overlay-warning" size="small" /></div><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:error.select_title_author_or_department" /><br /><br style="clear:both" />
-            </f:if>
-        </f:if>
+    <f:if condition="!{title} && !{author} && !{orcidId} && !{chairs->f:count()}">
+        <div style="margin-right:8px;float:left;"><core:icon identifier="overlay-warning" size="small" /></div><f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:error.select_title_author_or_department" /><br /><br style="clear:both" />
     </f:if>
     <f:if condition="{title}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.title" />: <i>{title->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{author}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.author_short" />: <i>{author->f:format.raw()}</i><br /><br />
+    </f:if>
+    <f:if condition="{orcidId}">
+        <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.orcid_id" />: <i>{orcidId->f:format.raw()}</i><br /><br />
     </f:if>
     <f:if condition="{publication}">
         <f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang_be.xlf:pi1_flexform.publication_short" />:<br /><i>{publication->v:iterator.explode(glue: '|')->v:iterator.implode(glue: '<br />')}</i>

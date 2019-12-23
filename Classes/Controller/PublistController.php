@@ -81,7 +81,7 @@ class PublistController extends BasicPublistController {
 		$cElementId = $cObj->data['uid'];
 
         GeneralUtility::getInstitutesAndChairs($this->settings, $institutesAssoc, $chairsAssoc);
-        if(!$this->settings['title'] && !$this->settings['author'] && !count($chairsAssoc)) {
+        if(!$this->settings['title'] && !$this->settings['author'] && !$this->settings['orcidId'] && !count($chairsAssoc)) {
             $errorMsg = LocalizationUtility::translate( 'error.select_title_author_or_department', 'uma_publist' );
             $this->view->assign('errorMsg', $errorMsg);
             $this->errorHandler->setError(1, $errorMsg);

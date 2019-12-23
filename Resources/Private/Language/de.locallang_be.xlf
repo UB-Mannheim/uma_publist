@@ -156,6 +156,10 @@
 				<source>All</source>
 				<target>Alle</target>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.orcid_id" xml:space="preserve">
+				<source>ORCID iD</source>
+				<target>ORCID iD</target>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.excludeexternal" xml:space="preserve">
 				<source>exclude external publications</source>
 				<target>Externe Publikationen ausblenden</target>

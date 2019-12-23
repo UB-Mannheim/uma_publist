@@ -68,6 +68,7 @@ class DrawItem implements PageLayoutViewDrawItemHookInterface
                 'header' => $row['header'],
                 'title' => $settings['title'],
                 'author' => $settings['author'],
+                'orcidId' => $settings['orcidId'],
                 'publication' => $settings['publication'],
                 'excludeEprintIds' => $settings['excludeEprintIds'],
                 'bwlResearch' => $settings['bwlResearch'],
