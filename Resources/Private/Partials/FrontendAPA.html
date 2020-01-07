@@ -57,8 +57,21 @@
 		Habilitation, {publication.publisher->v:format.trim(characters: '.')}. {publication.placeOfPub}.
 	</f:case>
 	<f:case value="journal">
-		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		<em>{publication.publication}</em>, {publication.volume}, {publication.pageRange}.
+		<f:if condition="{publication.creators}">
+			<f:then>
+				{n:renderNamesApa(somebody: publication.creators)}
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.editors}">
+					<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
+				</f:if>
+				<f:else>
+					{publication.corpCreators}
+				</f:else>
+			</f:else>
+		</f:if>
+		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		<em>{publication.publication}</em>, {publication.volume}, {publication.number}.
 	</f:case>
 	<f:case value="other">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
