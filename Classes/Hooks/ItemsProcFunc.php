@@ -116,28 +116,30 @@ class ItemsProcFunc {
         $settings['excludeEprintIds'] = '';
         $publications = GeneralUtility::getPublicationsForSettings($settings);
         $eprintIds = GeneralUtility::listOfEprintIds($publications);
-        $queryBuilderPublications = $connectionPool->getConnectionForTable('tx_umapublist_domain_model_publication')->createQueryBuilder();
-        $queryResultPublications = $queryBuilderPublications->select('eprint_id', 'title', 'year', 'bib_type', 'editors', 'creators', 'publication', 'volume', 'rev_number')->from('tx_umapublist_domain_model_publication')
-            ->where($queryBuilderPublications->expr()->in('eprint_id', explode(',', $eprintIds)))
-            ->execute();
-        $resultArray = $queryResultPublications->fetchAll();
-        foreach ($resultArray as $publication) {
-            $eprintId = $publication['eprint_id'];
-            $title = $publication['title'];
-            $authors = $publication['creators'] ? $publication['creators'] : $publication['editors'];
-            $authors = preg_replace(['#,[^;]*;#', '#,[^;]*$#', '#/#'], ['/', '', ', '], $authors);
-            $year = $publication['year'];
-            $typeAsText = LocalizationUtility::translate( $publication['bib_type'], 'uma_publist' );
-            $name = '[' . $eprintId . '] ' . $authors . ': '. $title . ' (' . $year . ', ' . $typeAsText . ')';
-            $selectList[$eprintId] = $name;
-        }
-        asort($selectList);
-        $selectList = array_reverse($selectList, true);
-        $i = 1;
-        foreach($selectList as $key => $value) {
-            $config['items'][$i]['0'] = $value;
-            $config['items'][$i]['1'] = $key;
-            $i++;
+        if($eprintIds) {
+            $queryBuilderPublications = $connectionPool->getConnectionForTable('tx_umapublist_domain_model_publication')->createQueryBuilder();
+            $queryResultPublications = $queryBuilderPublications->select('eprint_id', 'title', 'year', 'bib_type', 'editors', 'creators', 'publication', 'volume', 'rev_number')->from('tx_umapublist_domain_model_publication')
+                ->where($queryBuilderPublications->expr()->in('eprint_id', explode(',', $eprintIds)))
+                ->execute();
+            $resultArray = $queryResultPublications->fetchAll();
+            foreach ($resultArray as $publication) {
+                $eprintId = $publication['eprint_id'];
+                $title = $publication['title'];
+                $authors = $publication['creators'] ? $publication['creators'] : $publication['editors'];
+                $authors = preg_replace(['#,[^;]*;#', '#,[^;]*$#', '#/#'], ['/', '', ', '], $authors);
+                $year = $publication['year'];
+                $typeAsText = LocalizationUtility::translate( $publication['bib_type'], 'uma_publist' );
+                $name = '[' . $eprintId . '] ' . $authors . ': '. $title . ' (' . $year . ', ' . $typeAsText . ')';
+                $selectList[$eprintId] = $name;
+            }
+            asort($selectList);
+            $selectList = array_reverse($selectList, true);
+            $i = 1;
+            foreach($selectList as $key => $value) {
+                $config['items'][$i]['0'] = $value;
+                $config['items'][$i]['1'] = $key;
+                $i++;
+            }
         }
 
         return $config;
