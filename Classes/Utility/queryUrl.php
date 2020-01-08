@@ -59,7 +59,7 @@ class queryUrl {
         // ORCID iD
         if ($flexform['orcidId']) {
             $orcidId = $flexform['orcidId'];
-            if(preg_match('#(\d{4}-\d{4}-\d{4}-\d{4})#', $orcidId, $matches)) {
+            if(preg_match('#(\d{4}-\d{4}-\d{4}-\d{3}[0-9X])#', $orcidId, $matches)) {
                 $orcidId = $matches[1];
             }
             $url = $url . '|creators_orcid%2Feditors_orcid%3Acreators_orcid%2Feditors_orcid%3AALL%3AEX%3A' . $orcidId;
