@@ -4,6 +4,7 @@
         xmlns:n="http://typo3.org/ns/UMA/UmaPublist/ViewHelpers">
 
 <v:variable.set name="publication.title" value="{publication.title->v:format.trim()}" />
+<v:variable.set name="publication.pageRange" value="{v:format.replace(substring: '-', content: {publication.pageRange}, replacement: '–')}" />	
 <f:if condition="{v:variable.pregMatch(pattern: '#\\?$#', subject: publication.title)}">
 	<f:then>
 		<f:comment>Please leave span tag with blank as blanks between tags are eliminated in some cases</f:comment>
