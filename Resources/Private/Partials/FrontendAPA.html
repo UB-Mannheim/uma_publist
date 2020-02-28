@@ -21,6 +21,11 @@
 				<v:variable.set name="multiVolumeBook" value="TRUE" />
 			</f:then>
 		</f:if>
+		<f:if condition="{publication.volume -> f.count()} > 4">
+			<f:then>
+				<v:variable.set name="separateVolumeTitle" value="TRUE" />
+			</f:then>
+		</f:if>
 	</f:then>
 </f:if>
 <f:switch expression="{publication.bibType}">
@@ -42,15 +47,23 @@
 				</f:else>
 			</f:else>
 		</f:if>
-		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>
-		<f:if condition="{publication.ubmaEdition} || {multiVolumeBook}">
+		({publication.year}).
+		<f:link.external uri="{publication.usedLinkUrl}" target="_blank">
+			{publication.title}
+			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">
+				<f:then>
+					Bd. {publication.volume}
+				</f:then>
+			</f:if>
+		</f:link.external>
+		<f:if condition="{publication.ubmaEdition} || ({multiVolumeBook} && !{separateVolumeTitle})">
 			<f:then>
 				(
 				{publication.ubmaEdition}
 				<f:if condition="{publication.ubmaEdition} && {multiVolumeBook}">
 					<f:then>, </f:then>
 				</f:if>
-				<f:if condition="{multiVolumeBook}">
+				<f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">
 					<f:then>
 						Bd. {publication.volume}
 					</f:then>
@@ -62,7 +75,8 @@
 		{publication.placeOfPub}: <f:if condition="{publication.ubmaForthcoming}"><f:then>{publication.publisher} (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:forthcoming_ie" />)</f:then><f:else>{publication.publisher->v:format.trim(characters: '.')}</f:else></f:if>.
 	</f:case>
 	<f:case value="book_section">
-		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}).
+		<f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		In
 		<f:if condition="{publication.editors}">
 			<f:then>
@@ -74,14 +88,20 @@
 				</f:if>
 			</f:else>
 		</f:if>
-		<em>{publication.bookTitle}</em>
+		<em>{publication.bookTitle}
+			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">
+				<f:then>
+					Bd. {publication.volume}
+				</f:then>
+			</f:if>
+		</em>
 		(
 		<f:if condition="{publication.ubmaEdition}">
 			<f:then>
 				{publication.ubmaEdition},
 			</f:then>
 		</f:if>
-		<f:if condition="{multiVolumeBook}">
+		<f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">
 			<f:then>
 				Bd. {publication.volume},
 			</f:then>
