@@ -37,11 +37,33 @@
 	</f:case>
 	<f:case value="book_section">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesApa somebody="{publication.ubmaBookEditor}" /><n:renderNamesApa somebody="{publication.editors}" /> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
+		In
+		<f:if condition="{publication.editors}">
+			<f:then>
+				<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.ubmaBookEditor}">
+					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+				</f:if>
+			</f:else>
+		</f:if>
+		<em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesApa somebody="{publication.ubmaBookEditor}"/><n:renderNamesApa somebody="{publication.editors}" />, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
+		In 
+		<f:if condition="{publication.editors}">
+			<f:then>
+				<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+			</f:then>
+			<f:else>
+				<f:if condition="{publication.ubmaBookEditor}">
+					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+				</f:if>
+			</f:else>
+		</f:if>
+		{publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}.
 	</f:case>
 	<f:case value="dissertation">
