@@ -48,7 +48,25 @@
 				</f:if>
 			</f:else>
 		</f:if>
-		<em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
+		<em>{publication.bookTitle}</em>
+		(
+		<f:if condition="{publication.ubmaEdition}">
+			<f:then>
+				{publication.ubmaEdition},
+			</f:then>
+		</f:if>
+		<f:if condition="{publication.volume}">
+			<f:then>
+				<f:comment>Show the volume only for multi-volume books which have no publication title (=book serie)</f:comment>
+				<f:if condition="!{publication.publication}">
+					<f:then>
+						Bd. {publication.volume},
+					</f:then>
+				</f:if>
+			</f:then>
+		</f:if>
+		S. {publication.pageRange}).
+		{publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
