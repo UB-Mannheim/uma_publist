@@ -13,6 +13,16 @@
 		<v:variable.set name="titleDot" value="." />
 	</f:else>
 </f:if>
+<f:comment>Boolean variable for multi-volume books which have no publication title to distinguish them from a book in a book series</f:comment>
+<f:if condition="{publication.volume}">
+	<f:then>
+		<f:if condition="!{publication.publication}">
+			<f:then>
+				<v:variable.set name="multiVolumeBook" value="TRUE" />
+			</f:then>
+		</f:if>
+	</f:then>
+</f:if>
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
@@ -32,7 +42,23 @@
 				</f:else>
 			</f:else>
 		</f:if>
-		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>
+		<f:if condition="{publication.ubmaEdition} || {multiVolumeBook}">
+			<f:then>
+				(
+				{publication.ubmaEdition}
+				<f:if condition="{publication.ubmaEdition} && {multiVolumeBook}">
+					<f:then>, </f:then>
+				</f:if>
+				<f:if condition="{multiVolumeBook}">
+					<f:then>
+						Bd. {publication.volume}
+					</f:then>
+				</f:if>
+				)
+			</f:then>
+		</f:if>
+		{titleDot}
 		{publication.placeOfPub}: <f:if condition="{publication.ubmaForthcoming}"><f:then>{publication.publisher} (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:forthcoming_ie" />)</f:then><f:else>{publication.publisher->v:format.trim(characters: '.')}</f:else></f:if>.
 	</f:case>
 	<f:case value="book_section">
@@ -55,14 +81,9 @@
 				{publication.ubmaEdition},
 			</f:then>
 		</f:if>
-		<f:if condition="{publication.volume}">
+		<f:if condition="{multiVolumeBook}">
 			<f:then>
-				<f:comment>Show the volume only for multi-volume books which have no publication title (=book serie)</f:comment>
-				<f:if condition="!{publication.publication}">
-					<f:then>
-						Bd. {publication.volume},
-					</f:then>
-				</f:if>
+				Bd. {publication.volume},
 			</f:then>
 		</f:if>
 		S. {publication.pageRange}).
