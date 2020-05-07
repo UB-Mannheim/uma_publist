@@ -135,7 +135,7 @@ class PublistController extends BasicPublistController {
 
 
 	private function getPublicationsFromList($cElementId) {
-		$publist = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig($this->settings);
+		$publist = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig(json_encode($this->settings));
 		if ($publist === NULL) {
 			$this->errorHandler->setError(1, "Unable to find publication list in DB for content element " . $cElementId);
 			return 0;
@@ -171,7 +171,7 @@ class PublistController extends BasicPublistController {
 		//md5sum of flexform:
 		$newMd5 = md5(implode($this->settings));
 
-		$isInDB = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig(implode($this->settings));
+		$isInDB = $cElementId ? $this->publistRepository->findFirstByCEid($cElementId) : $this->publistRepository->findFirstByTsConfig(json_encode($this->settings));
 		// if a Content element is there, check the md5sum
 		if ($isInDB === NULL) {
 			$this->debugger->add('No Publist in DB, load it ...');
@@ -220,7 +220,7 @@ class PublistController extends BasicPublistController {
                 $publist->setCeId($cElementId);
             }
             else {
-                $publist->setTsconfig($this->settings);
+                $publist->setTsconfig(json_encode($this->settings));
             }
             $isNewPublist = true;
         }
@@ -246,7 +246,12 @@ class PublistController extends BasicPublistController {
 	public function taskUpdatePublist($publist)
 	{
         $ceUid = $publist->getCeId();
-        $this->settings = GeneralUtility::getSettings($ceUid);
+        if($ceUid) {
+            $this->settings = GeneralUtility::getSettings($ceUid);
+        }
+        else {
+            $this->settings = json_decode($publist->getTsconfig(), true);
+        }
         $queryUrl = queryUrl::generate($this->settings, 0);
         $publist->setQueryUrl($queryUrl);
         $xmlString = fileReader::downloadFile($queryUrl);
