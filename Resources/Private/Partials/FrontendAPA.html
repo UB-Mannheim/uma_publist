@@ -128,7 +128,7 @@
 	</f:case>
 	<f:case value="dissertation">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		Dissertation, {publication.publisher->v:format.trim(characters: '.')}. {publication.placeOfPub}
+		[Dissertation].
 	</f:case>
 	<f:case value="encyclopedia_article">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
