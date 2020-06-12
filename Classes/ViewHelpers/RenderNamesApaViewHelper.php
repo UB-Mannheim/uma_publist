@@ -27,9 +27,10 @@ class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
          * Render the viewhelper
          *
          * @param string $somebody with people
+         * @param bool $nonInverted do not invert first and last name
          * @return string with output
          */
-	public function render($somebody)
+	public function render($somebody, $nonInverted = false)
 	{
 		$output = '';
 		
@@ -46,14 +47,19 @@ class RenderNamesApaViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\Abstract
 					$theName[0] = $predicate[0] . ' ' . $theName[0];
 					$theName[1] = substr($theName[1], 0, strlen($predicate[0]));
 				}
-				$output .= $theName[0] . ', ' . preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]);
+				if ($nonInverted) {
+					$output .= preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]) . ' ' . $theName[0];
+				}
+				else {
+					$output .= $theName[0] . ', ' . preg_replace('/[^A-Z\s\-]+/', '.', $theName[1]);
+				}
 				# The regexp above misses firstnames starting with non-ascii letter.
 				if ($i < $peopleNumber-1) {
 					if ($i < $peopleNumber-2) {
 						$output .= ', ';
 					}
 					if ($i == $peopleNumber-2) {
-						$output .= ', & ';
+						$output .= ' & ';
 					}
 					# Add '(Hrsg.)' for editors at the end of the string
 					

@@ -170,6 +170,7 @@ CREATE TABLE tx_umapublist_domain_model_publication (
 	ubma_edition varchar(255) DEFAULT '' NOT NULL,
 	ubma_tags varchar(255) DEFAULT '' NOT NULL,
 	ubma_forthcoming tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	ubma_university varchar(255) DEFAULT '' NOT NULL,
 	used_coin text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

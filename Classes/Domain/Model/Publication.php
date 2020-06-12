@@ -273,6 +273,13 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
     protected $ubmaForthcoming = false;
 
     /**
+     * ubmaUniversity
+     *
+     * @var string
+     */
+    protected $ubmaUniversity = '';
+
+    /**
      * usedCoin
      *
      * @var string
@@ -834,6 +841,25 @@ class Publication extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      */
     public function setUbmaForthcoming($ubmaForthcoming) {
         $this->ubmaForthcoming = $ubmaForthcoming;
+    }
+
+    /**
+     * Returns the ubmaUniversity
+     *
+     * @return string $ubmaUniversity
+     */
+    public function getUbmaUniversity() {
+        return $this->ubmaUniversity;
+    }
+
+    /**
+     * Sets the ubmaUniversity
+     *
+     * @param string $ubmaUniversity
+     * @return void
+     */
+    public function setUbmaUniversity($ubmaUniversity) {
+        $this->ubmaUniversity = $ubmaUniversity;
     }
 
     /**

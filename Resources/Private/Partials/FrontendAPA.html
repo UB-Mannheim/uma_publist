@@ -22,7 +22,7 @@
 				<v:variable.set name="multiVolumeBook" value="TRUE" />
 			</f:then>
 		</f:if>
-		<f:if condition="{publication.volume -> f.count()} > 4">
+		<f:if condition="{publication.volume -> v:count.bytes()} > 4">
 			<f:then>
 				<v:variable.set name="separateVolumeTitle" value="TRUE" />
 			</f:then>
@@ -41,7 +41,7 @@
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.editors}">
-					<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
+					<n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
 				</f:if>
 				<f:else>
 					{publication.corpCreators}
@@ -51,25 +51,11 @@
 		({publication.year}).
 		<f:link.external uri="{publication.usedLinkUrl}" target="_blank">
 			{publication.title}
-			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">
-				<f:then>
-					Bd. {publication.volume}
-				</f:then>
-			</f:if>
+			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">Bd. {publication.volume}	</f:if>
 		</f:link.external>
 		<f:if condition="{publication.ubmaEdition} || ({multiVolumeBook} && !{separateVolumeTitle})">
 			<f:then>
-				(
-				{publication.ubmaEdition}
-				<f:if condition="{publication.ubmaEdition} && {multiVolumeBook}">
-					<f:then>, </f:then>
-				</f:if>
-				<f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">
-					<f:then>
-						Bd. {publication.volume}
-					</f:then>
-				</f:if>
-				)
+				({publication.ubmaEdition}<f:if condition="{multiVolumeBook} && !{separateVolumeTitle}"><f:if condition="{publication.ubmaEdition}">, </f:if>Bd. {publication.volume}</f:if>)
 			</f:then>
 		</f:if>
 		{titleDot}
@@ -81,33 +67,18 @@
 		In
 		<f:if condition="{publication.editors}">
 			<f:then>
-				<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+				<n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.ubmaBookEditor}">
-					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
 				</f:if>
 			</f:else>
 		</f:if>
 		<em>{publication.bookTitle}
-			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">
-				<f:then>
-					Bd. {publication.volume}
-				</f:then>
-			</f:if>
+			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">	Bd. {publication.volume}</f:if>
 		</em>
-		(
-		<f:if condition="{publication.ubmaEdition}">
-			<f:then>
-				{publication.ubmaEdition},
-			</f:then>
-		</f:if>
-		<f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">
-			<f:then>
-				Bd. {publication.volume},
-			</f:then>
-		</f:if>
-		S. {publication.pageRange}).
+		(<f:if condition="{publication.ubmaEdition}">{publication.ubmaEdition}, </f:if><f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">Bd. {publication.volume},</f:if>S. {publication.pageRange}).
 		{publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
@@ -115,24 +86,24 @@
 		In 
 		<f:if condition="{publication.editors}">
 			<f:then>
-				<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+				<n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.ubmaBookEditor}">
-					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
+					<n:renderNamesApa somebody="{publication.ubmaBookEditor}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />),
 				</f:if>
 			</f:else>
 		</f:if>
-		<em>{publication.bookTitle}</em> (S. {publication.pageRange}). 
+		{publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}.
 	</f:case>
 	<f:case value="dissertation">
-		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>
-		[Dissertation].
+		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		[<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:doctoral_dissertation" /><f:if condition="{publication.ubmaUniversity}">, {publication.ubmaUniversity}</f:if>]
 	</f:case>
 	<f:case value="encyclopedia_article">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesApa somebody="{publication.ubmaBookEditor}"/><n:renderNamesApa somebody="{publication.editors}" />, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
+		In <n:renderNamesApa somebody="{publication.ubmaBookEditor}"/><n:renderNamesApa somebody="{publication.editors}" nonInverted="1" />, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="habilitation">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
@@ -145,7 +116,7 @@
 			</f:then>
 			<f:else>
 				<f:if condition="{publication.editors}">
-					<n:renderNamesApa somebody="{publication.editors}" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
+					<n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> (<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:editors" />)
 				</f:if>
 				<f:else>
 					{publication.corpCreators}
@@ -195,7 +166,7 @@
 		{publication.bookTitle}.
 	</f:case>
 	<f:case default="TRUE">
-		{n:renderNamesApa(somebody: publication.creators)} <n:renderNamesApa somebody="{publication.editors}" /> {publication.corpCreators} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
+		{n:renderNamesApa(somebody: publication.creators)} <n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> {publication.corpCreators} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>.
 	</f:case>
 </f:switch>

@@ -156,6 +156,9 @@
 			<trans-unit id="forthcoming_ie" xml:space="preserve">
 				<source>forthcoming</source>
 			</trans-unit>
+			<trans-unit id="doctoral_dissertation" xml:space="preserve">
+				<source>Doctoral dissertation</source>
+			</trans-unit>
 			<trans-unit id="no_publications_found" xml:space="preserve">
 				<source>Currently there are no publications available for this list.</source>
 			</trans-unit>

@@ -207,6 +207,10 @@
 				<source>forthcoming</source>
 				<target>i. E.</target>
 			</trans-unit>
+			<trans-unit id="doctoral_dissertation" xml:space="preserve">
+				<source>Doctoral dissertation</source>
+				<target>Dissertation</target>
+			</trans-unit>
 			<trans-unit id="no_publications_found" xml:space="preserve">
 				<source>Currently there are no publications available for this list.</source>
 				<target>Derzeit sind keine Publikationen für diese Liste verfügbar.</target>
