@@ -43,6 +43,7 @@ class Cleanup extends \TYPO3\CMS\Scheduler\Task\AbstractTask {
     }
 
 	public function execute() {
+		ini_set('memory_limit', '1024M');
 		$this->initialize();
 
 	        $administrationController= $this->objectManager->get('UMA\\UmaPublist\\Controller\\AdministrationController');

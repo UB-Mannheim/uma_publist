@@ -196,6 +196,11 @@ class PublistController extends BasicPublistController {
     // running from frontend, flexform present
     private function updatePublist($cElementId, $md5sum, $publist)
     {
+        GeneralUtility::getInstitutesAndChairs($this->settings, $institutesAssoc, $chairsAssoc);
+        if(!$this->settings['title'] && !$this->settings['author'] && !$this->settings['orcidId'] && !count($chairsAssoc)) {
+            $this->debugger->add('No title, author, orcid id or chairs for publist with uid '.$publist->getUid());
+            return;
+        }
 
         $url = queryUrl::generate($this->settings, 0);
         if ($this->errorHandler->getError())
@@ -252,6 +257,11 @@ class PublistController extends BasicPublistController {
         else {
             $this->settings = json_decode($publist->getTsconfig(), true);
         }
+        GeneralUtility::getInstitutesAndChairs($this->settings, $institutesAssoc, $chairsAssoc);
+        if(!$this->settings['title'] && !$this->settings['author'] && !$this->settings['orcidId'] && !count($chairsAssoc)) {
+            $this->debugger->add('No title, author, orcid id or chairs for publist with uid '.$publist->getUid());
+            return;
+        }
         $queryUrl = queryUrl::generate($this->settings, 0);
         $publist->setQueryUrl($queryUrl);
         $xmlString = fileReader::downloadFile($queryUrl);
@@ -264,6 +274,8 @@ class PublistController extends BasicPublistController {
         }
         $publist->setPublications(GeneralUtility::listOfEprintIds($publications));
         $this->publistRepository->update($publist);
+        $persistenceManager = $this->objectManager->get('TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager');
+        $persistenceManager->persistAll();
         return;
     }
 
