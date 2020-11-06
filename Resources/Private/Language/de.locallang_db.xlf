@@ -111,10 +111,6 @@
 				<source>CorpCreators</source>
 				<target>CorpCreators</target>
 			</trans-unit>
-			<trans-unit id="tx_umapublist_domain_model_publication.ubma_book_editor">
-				<source>UBMA Book Editor</source>
-				<target>UBMA Book Editor</target>
-			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.eventLocation">
 				<source>Event Location</source>
 				<target>Ort der Veranstaltung</target>
