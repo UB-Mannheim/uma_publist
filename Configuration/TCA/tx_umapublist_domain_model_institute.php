@@ -10,9 +10,6 @@ return array(
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 
-		'languageField' => 'sys_language_uid',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
 			'disabled' => 'hidden',
@@ -20,7 +17,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'id,name_en,name_de,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_institute.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_institute.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, id, name_en, name_de',

@@ -93,8 +93,8 @@
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.bookTitle}.
 	</f:case>
-	<f:case default="TRUE">
+	<f:defaultCase>
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>.
-	</f:case>
+	</f:defaultCase>
 </f:switch>

@@ -58,9 +58,9 @@
 								<f:render partial="TypeTabMenu" arguments="{_all}" />
 								<f:render partial="TypeTabItem" arguments="{_all}" />
 						</f:case>
-						<f:case default="TRUE">
+						<f:defaultCase>
 								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
-						</f:case>
+						</f:defaultCase>
 					</f:switch>
 				</f:then>
 			</f:if>
@@ -79,9 +79,9 @@
 								<f:render partial="TypeTabMenu" arguments="{_all}" />
 								<f:render partial="TypeTabItem" arguments="{_all}" />
 						</f:case>
-						<f:case default="TRUE">
+						<f:defaultCase>
 								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
-						</f:case>
+						</f:defaultCase>
 					</f:switch>
 				</f:then>
 			</f:if>
@@ -106,9 +106,9 @@
 								<f:render partial="TypeMenu" arguments="{_all}" />
 								<f:render partial="YearMenu" arguments="{_all}" />
 								</f:case>
-						<f:case default="TRUE">
+						<f:defaultCase>
 								<f:render partial="PrintPublications" arguments="{settings: '{settings}', content: '{content}', years: '{years}', types: '{types}'}" />
-								</f:case>
+								</f:defaultCase>
 					</f:switch>
 				</f:then>
 			</f:if>

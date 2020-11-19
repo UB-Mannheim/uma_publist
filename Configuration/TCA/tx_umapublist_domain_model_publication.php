@@ -20,7 +20,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'eprint_id,title,abstract,year,bib_type,volume,publisher,number,publication,editors,creators,corp_creators,event_location,place_of_pub,issn,isbn,ubma_tags,ubma_edition,book_title,used_coin,doi,urn,event_title,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publication.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publication.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, eprint_id, title, abstract, url_offical, url_ubma_extern, used_link_url, url, year, bib_type, volume, publisher, number, publication, editors, creators, corp_creators, event_location, place_of_pub, page_range, issn, isbn, ubma_tags, ubma_edition, ubma_forthcoming, ubma_university, book_title, used_coin, doi, urn, event_title',

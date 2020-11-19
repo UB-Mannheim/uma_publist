@@ -165,10 +165,10 @@
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		{publication.bookTitle}.
 	</f:case>
-	<f:case default="TRUE">
+	<f:defaultCase>
 		{n:renderNamesApa(somebody: publication.creators)} <n:renderNamesApa somebody="{publication.editors}" nonInverted="1" /> {publication.corpCreators} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
 		<em>{publication.publication}</em>.
-	</f:case>
+	</f:defaultCase>
 </f:switch>
 <f:if condition="{publication.doi}">
 	https://doi.org/{publication.doi}

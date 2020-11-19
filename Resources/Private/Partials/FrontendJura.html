@@ -140,8 +140,8 @@
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
 		Review, <n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}.
 	</f:case>
-	<f:case default="TRUE">
+	<f:defaultCase>
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em> <em><n:renderLastNamesOnly somebody="{publication.editors}" /></em> <em>{publication.corpCreators}</em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
 		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}.
-	</f:case>
+	</f:defaultCase>
 </f:switch>

@@ -20,7 +20,7 @@ return array(
 			'endtime' => 'endtime',
 		),
 		'searchFields' => 'ce_id,query_url,publications,flexform_md5,exclude_external,',
-		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publist.gif'
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('uma_publist') . 'Resources/Public/Icons/tx_umapublist_domain_model_publist.gif'
 	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, ce_id, query_url, publications, flexform_md5,exclude_external,filter_publication,exclude_eprint_ids',
