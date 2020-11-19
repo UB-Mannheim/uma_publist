@@ -78,7 +78,7 @@
 		<em>{publication.bookTitle}
 			<f:if condition="{multiVolumeBook} && {separateVolumeTitle}">	Bd. {publication.volume}</f:if>
 		</em>
-		(<f:if condition="{publication.ubmaEdition}">{publication.ubmaEdition}, </f:if><f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">Bd. {publication.volume},</f:if>S. {publication.pageRange}).
+		(<f:if condition="{publication.ubmaEdition}">{publication.ubmaEdition}, </f:if><f:if condition="{multiVolumeBook} && !{separateVolumeTitle}">Bd. {publication.volume}, </f:if>S. {publication.pageRange}).
 		{publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
@@ -99,7 +99,7 @@
 	</f:case>
 	<f:case value="dissertation">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		[<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:doctoral_dissertation" /><f:if condition="{publication.ubmaUniversity}">, {publication.ubmaUniversity}</f:if>]
+		[<f:translate key="LLL:EXT:uma_publist/Resources/Private/Language/locallang.xlf:doctoral_dissertation" /><f:if condition="{publication.ubmaUniversity}">, {publication.ubmaUniversity}</f:if>].
 	</f:case>
 	<f:case value="encyclopedia_article">
 		{n:renderNamesApa(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
