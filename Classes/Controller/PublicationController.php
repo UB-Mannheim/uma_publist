@@ -306,13 +306,6 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no place_of_pub');
 		}
 
-		if ($publication['ubma_book_editor']) {
-			$newPub->setUbmaBookEditor($publication['ubma_book_editor']['family'] . ',' . $publication['ubma_book_editor']['given']);
-		} else {
-			$newPub->setUbmaBookEditor("");
-			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no ubma_book_editor');
-		}
-
 		if ($publication['pagerange']) {
 			$newPub->setPageRange($publication['pagerange']);
 		} else {

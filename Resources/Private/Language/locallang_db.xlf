@@ -84,9 +84,6 @@
 			<trans-unit id="tx_umapublist_domain_model_publication.corpCreators">
 				<source>CorpCreators</source>
 			</trans-unit>
-			<trans-unit id="tx_umapublist_domain_model_publication.ubma_book_editor">
-				<source>UBMA Book Editor</source>
-			</trans-unit>
 			<trans-unit id="tx_umapublist_domain_model_publication.eventLocation">
 				<source>Event Location</source>
 			</trans-unit>
