@@ -376,6 +376,9 @@
 			<trans-unit id="pi1_flexform.selecturl.3" xml:space="preserve">
 				<source>Variant (document url OR DOI OR official_url OR ubma_url_extern OR eprintid)</source>
 			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.4" xml:space="preserve">
+				<source>Prefer external (DOI OR official_url OR document url OR eprintid)</source>
+			</trans-unit>
 			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
 				<source>Group by years</source>
 			</trans-unit>

@@ -502,7 +502,11 @@
 			</trans-unit>
 			<trans-unit id="pi1_flexform.selecturl.3" xml:space="preserve">
 				<source>Variant (document url OR DOI OR official_url OR ubma_url_extern OR eprintid)</source>
-				<target>Variante (document url OR DOI OR official_url OR ubma_url_extern OR eprintid)</target>
+				<target>Variante (document url ODER DOI ODER official_url ODER ubma_url_extern ODER eprintid)</target>
+			</trans-unit>
+			<trans-unit id="pi1_flexform.selecturl.4" xml:space="preserve">
+				<source>Prefer external (DOI OR official_url OR document url OR eprintid)</source>
+				<target>Extern bevorzugt (DOI ODER official_url ODER document url ODER eprintid)</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.splityears" xml:space="preserve">
 				<source>Split Years</source>

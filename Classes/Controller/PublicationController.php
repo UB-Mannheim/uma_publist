@@ -84,23 +84,23 @@ class PublicationController extends BasicPublistController {
 			}
 		}
 
-		/* Select the used URL */
-		$URL = $publication->getUrl();
-		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 0)
-			$URL = $publication->getUrlUbmaExtern();
-		if ((!$URL || ($URL == "")) && in_array($settings['selecturl'], [0, 1, 3])) {
-			$doi = $publication->getDoi();
-			if ($doi && substr($doi, 0, 3) == "10.")
-				$URL = "https://doi.org/" . $doi;
-			else
-				$URL = $publication->getUrlOffical();
-		}
-		if ((!$URL || ($URL == "")) && $settings['selecturl'] == 3)
-			$URL = $publication->getUrlUbmaExtern();
-		if (!$URL || ($URL == ""))
-			$URL = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
-		$publication->setUsedLinkUrl($URL); 
-
+		/* select url to use */
+		$case = $settings['selecturl'] ?: 0;
+		$documentUrl = $publication->getUrl();
+		$doiUrl = ($publication->getDoi() && substr($publication->getDoi(), 0, 3) == "10.") ?
+			'https://doi.org/' . $publication->getDoi() : '';
+		$externalUrl = $publication->getUrlUbmaExtern();
+		$officialUrl = $publication->getUrlOffical();
+		$eprintIdUrl = $this->settingsManager->configValue('extMgn/eprintidUrlPrefix') . '/' . $eprint_id;
+		$selectUrlByCase = [
+			0 => $documentUrl ?: $externalUrl ?: $doiUrl ?: $officialUrl ?: $eprintIdUrl,
+			1 => $documentUrl ?: $doiUrl ?: $officialUrl ?: $eprintIdUrl,
+			2 => $documentUrl ?: $eprintIdUrl,
+			3 => $documentUrl ?: $doiUrl ?: $officialUrl ?: $externalUrl ?: $eprintIdUrl,
+			4 => $doiUrl ?: $officialUrl ?: $externalUrl ?: $documentUrl ?: $eprintIdUrl
+		];
+		$url = $selectUrlByCase[$case];
+		$publication->setUsedLinkUrl($url);
 
 		return $publication;
 	}
@@ -235,7 +235,7 @@ class PublicationController extends BasicPublistController {
 			}
 		}
 
-		if ($publication['volume'])
+		if ($publication['volume'] && $publication['volume'] !== 'tba')
 			$newPub->setVolume($publication['volume']);
 		else {
 			$newPub->setVolume("");
@@ -249,7 +249,7 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no publisher');
 		}
 
-		if ($publication['number'])
+		if ($publication['number'] && $publication['number'] !== 'tba')
 			$newPub->setNumber($publication['number']);
 		else {
 			$newPub->setNumber("");
@@ -306,7 +306,7 @@ class PublicationController extends BasicPublistController {
 			$this->debugger->add('Publication ' . $publication['eprintid'] . ' has no place_of_pub');
 		}
 
-		if ($publication['pagerange']) {
+		if ($publication['pagerange'] && $publication['pagerange'] !== 'tba') {
 			$newPub->setPageRange($publication['pagerange']);
 		} else {
 			$newPub->setPageRange("");
