@@ -93,64 +93,6 @@
     font-family: myriad-pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif !important;
 }
 
-.uma-publist .tabs {
-    border: 0;
-    margin-bottom:-20px;
-}
-
-.uma-publist .tabs li {
-    list-style:none !important;
-    margin:0 0 20px 0 !important;
-    background:transparent;
-    /*float:left;*/
-}
-
-.uma-publist .tabs li::before {
-    display:none !important;
-}
-
-.uma-publist div.tabs-content>div>ul {
-    margin:0 !important;
-}
-
-.uma-publist .tabs li a {
-    background:#d1d7df;
-    padding:.3125rem .625rem;
-    font-size:1rem;
-    border-bottom:0;
-    font-weight:bold;
-    line-height:1.8;
-}
-
-.uma-publist .tabs li:first-child a {
-    border-radius:.625rem 0 0 .625rem;
-    -webkit-border-radius:.625rem 0 0 .625rem;
-}
-
-.uma-publist .tabs li:last-child a {
-    border-radius:0 .625rem .625rem 0;
-    -webkit-border-radius:0 .625rem .625rem 0;
-}
-
-.uma-publist .tabs li.is-active a {
-    background:#232e58;
-    color:#fff;
-}
-
-.uma-publist .tabs li.is-active a::after {
-    opacity:1;
-    bottom:-14px;
-}
-
-.uma-publist div.tabs-content {
-    border:0;
-    clear:both;
-}
-
-.uma-publist div.tabs-content .tabs-panel {
-    padding:0;
-}
-
 .uma-publist h4 {
     margin-bottom:1rem;
 }
