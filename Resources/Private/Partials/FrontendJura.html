@@ -142,6 +142,9 @@
 	</f:case>
 	<f:defaultCase>
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em> <em><n:renderLastNamesOnly somebody="{publication.editors}" /></em> <em>{publication.corpCreators}</em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>,
-		<n:deleteSpaceBeforeColon title="{publication.publication}" />, {publication.year}.
+		<f:if condition="{publication.publication}">
+			<n:deleteSpaceBeforeColon title="{publication.publication}" />,
+		</f:if>
+		{publication.year}.
 	</f:defaultCase>
 </f:switch>
