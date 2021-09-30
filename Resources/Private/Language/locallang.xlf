@@ -85,13 +85,13 @@
 				<source>Book Sections</source>
 			</trans-unit>
 			<trans-unit id="dissertation" xml:space="preserve">
-				<source>Dissertations</source>
+				<source>Dissertation</source>
 			</trans-unit>
 			<trans-unit id="encyclopedia_article" xml:space="preserve">
 				<source>Encyclopedia Articles</source>
 			</trans-unit>
 			<trans-unit id="habilitation" xml:space="preserve">
-				<source>Habilitations</source>
+				<source>Habilitation</source>
 			</trans-unit>
 			<trans-unit id="journal" xml:space="preserve">
 				<source>Journals</source>

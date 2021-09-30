@@ -112,16 +112,16 @@
 				<target>Buchkapitel</target>
 			</trans-unit>
 			<trans-unit id="dissertation" xml:space="preserve">
-				<source>Dissertations</source>
-				<target>Dissertationen</target>
+				<source>Dissertation</source>
+				<target>Dissertation</target>
 			</trans-unit>
 			<trans-unit id="encyclopedia_article" xml:space="preserve">
 				<source>Encyclopedia Articles</source>
 				<target>Enzyklopädieeinträge</target>
 			</trans-unit>
 			<trans-unit id="habilitation" xml:space="preserve">
-				<source>Habilitations</source>
-				<target>Habilitationen</target>
+				<source>Habilitation</source>
+				<target>Habilitation</target>
 			</trans-unit>
 			<trans-unit id="journal" xml:space="preserve">
 				<source>Journals</source>
