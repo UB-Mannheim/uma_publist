@@ -25,7 +25,7 @@ class SettingsManager implements \TYPO3\CMS\Core\SingletonInterface {
 	protected static $allConfig;
 
 	public function __construct() {
-		$this->allConfig['extMgn'] = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['uma_publist']);
+		$this->allConfig['extMgn'] = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['uma_publist'];
 	}
 
 

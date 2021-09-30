@@ -17,7 +17,7 @@ class queryUrl {
         // load the error handler singleton
         $errorHandler = GeneralUtility::makeInstance(ErrorHandler::class);
 
-        $extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['uma_publist']);
+        $extensionConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['uma_publist'];
         $queryBaseUrl = $extensionConfiguration['queryBaseUrl'];
 
         $url = "";
