@@ -6,7 +6,8 @@
 <v:variable.set name="publication.title" value="{publication.title->v:format.trim()}" />
 <v:variable.set name="titleDot" value="." />
 <f:if condition="{v:variable.pregMatch(pattern: '#\\?$#', subject: publication.title)}">
-<v:variable.set name="titleDot" value="" />
+	<v:variable.set name="titleDot" value="<span> </span>" />
+	<f:comment>span tag required, because whitespace between tags is removed in post-processing</f:comment>
 </f:if>
 <f:switch expression="{publication.bibType}">
 	<f:case value="article">

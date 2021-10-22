@@ -5,14 +5,10 @@
 
 <v:variable.set name="publication.title" value="{publication.title->v:format.trim()}" />
 <v:variable.set name="publication.pageRange" value="{v:format.replace(substring: '-', content: publication.pageRange, replacement: '–')}" />	
+<v:variable.set name="titleDot" value="." />
 <f:if condition="{v:variable.pregMatch(pattern: '#\\?$#', subject: publication.title)}">
-	<f:then>
-		<f:comment>Please leave span tag with blank as blanks between tags are eliminated in some cases</f:comment>
-		<v:variable.set name="titleDot" value="<span> </span>" />
-	</f:then>
-	<f:else>
-		<v:variable.set name="titleDot" value="." />
-	</f:else>
+	<v:variable.set name="titleDot" value="<span> </span>" />
+	<f:comment>span tag required, because whitespace between tags is removed in post-processing</f:comment>
 </f:if>
 <f:comment>Boolean variable for multi-volume books which have no publication title to distinguish them from a book in a book series</f:comment>
 <f:if condition="{publication.volume}">
