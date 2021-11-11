@@ -36,8 +36,8 @@
 	<f:case value="book_section">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
-		<f:if condition="{publication.ubmaBookEditor}">
-			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
 		</f:if>
 		<f:if condition="{publication.editors}">
 			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
@@ -51,8 +51,8 @@
 	<f:case value="kommentierung">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
-		<f:if condition="{publication.ubmaBookEditor}">
-			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
 		</f:if>
 		<f:if condition="{publication.editors}">
 			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
@@ -66,8 +66,8 @@
 	<f:case value="conference_item">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
-		<f:if condition="{publication.ubmaBookEditor}">
-			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
 		</f:if>
 		<f:if condition="{publication.editors}">
 			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
@@ -81,8 +81,8 @@
 	<f:case value="encyclopedia_article">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
-		<f:if condition="{publication.ubmaBookEditor}">
-			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
 		</f:if>
 		<f:if condition="{publication.editors}">
 			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
@@ -96,8 +96,8 @@
 	<f:case value="workshop_item">
 		<em><n:renderLastNamesOnly somebody="{publication.creators}" /></em>, <f:link.external uri="{publication.usedLinkUrl}" target="_blank"><n:deleteSpaceBeforeColon title="{publication.title}" /></f:link.external>, 
 		in:
-		<f:if condition="{publication.ubmaBookEditor}">
-			<n:renderLastNamesOnly somebody="{publication.ubmaBookEditor}" /> (Hrsg.),
+		<f:if condition="{publication.editors}">
+			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
 		</f:if>
 		<f:if condition="{publication.editors}">
 			<n:renderLastNamesOnly somebody="{publication.editors}" /> (Hrsg.),
