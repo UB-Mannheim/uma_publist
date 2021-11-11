@@ -22,7 +22,7 @@
 		<span  prefix="schema: http://schema.org/" about="https://madoc.bib.uni-mannheim.de/'{publication.eprintId}'" typeof="schema:ScholarlyArticle">
 		<n:renderNamesWithAndRdfaSchema somebody="{publication.creators}" />
 		<strong><span property="schema:name"><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span></span>. </strong>
-		In: <n:renderNamesWithAndRdfaSchema somebody="{publication.ubmaBookEditor}" />,
+		In: <n:renderNamesWithAndRdfaSchema somebody="{publication.editors}" />,
 		<em><span property="schema:isPartOf" typeof="schema:Book"><span property="schema:name"><f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external></span></span></em>;
 		<span property="schema:pagination">{publication.pageRange}</span>, <span property="schema:publisher" typeof="schema:Organization">
 		<span property="schema:name">{publication.publisher}</span></span>, <span property="schema:contentLocation" typeof="schema:Place"><span property="schema:name">{publication.placeOfPub}</span></span>,
