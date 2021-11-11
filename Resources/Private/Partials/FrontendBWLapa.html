@@ -32,11 +32,11 @@
 	</f:case>
 	<f:case value="book_section">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
+		In <n:renderNamesShort somebody="{publication.editors}"/> <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="conference_item">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
+		In <n:renderNamesShort somebody="{publication.editors}"/>, {publication.bookTitle} (S. {publication.pageRange}). <em>{publication.publication}</em>,
 		{publication.publisher}: {publication.placeOfPub}.
 	</f:case>
 	<f:case value="conference_presentation">
@@ -49,7 +49,7 @@
 	</f:case>
 	<f:case value="encyclopedia_article">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
-		In <n:renderNamesShort somebody="{publication.ubmaBookEditor}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
+		In <n:renderNamesShort somebody="{publication.editors}"/>, <em>{publication.bookTitle}</em> (S. {publication.pageRange}). {publication.placeOfPub}: {publication.publisher->v:format.trim(characters: '.')}.
 	</f:case>
 	<f:case value="habilitation">
 		{n:renderNamesShort(somebody: publication.creators)} ({publication.year}). <f:link.external uri="{publication.usedLinkUrl}" target="_blank">{publication.title}</f:link.external>{titleDot}
