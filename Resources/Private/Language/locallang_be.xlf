@@ -161,7 +161,7 @@
 				<source>Books</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.type.book_section" xml:space="preserve">
-				<source>Book Sections</source>
+				<source>Book Chapters</source>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.type.conference_item" xml:space="preserve">
 				<source>Conference Items</source>

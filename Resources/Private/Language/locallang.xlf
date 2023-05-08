@@ -82,7 +82,7 @@
 				<source>Articles</source>
 			</trans-unit>
 			<trans-unit id="book_section" xml:space="preserve">
-				<source>Book Sections</source>
+				<source>Book Chapters</source>
 			</trans-unit>
 			<trans-unit id="dissertation" xml:space="preserve">
 				<source>Dissertation</source>

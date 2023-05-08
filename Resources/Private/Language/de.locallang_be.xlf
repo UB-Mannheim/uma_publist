@@ -213,7 +213,7 @@
 				<target>Bücher</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.type.book_section" xml:space="preserve">
-				<source>Book Sections</source>
+				<source>Book Chapters</source>
 				<target>Buchkapitel</target>
 			</trans-unit>
 			<trans-unit id="pi1_flexform.type.conference_item" xml:space="preserve">

@@ -108,7 +108,7 @@
 				<target>Artikel</target>
 			</trans-unit>
 			<trans-unit id="book_section" xml:space="preserve">
-				<source>Book Sections</source>
+				<source>Book Chapters</source>
 				<target>Buchkapitel</target>
 			</trans-unit>
 			<trans-unit id="dissertation" xml:space="preserve">
